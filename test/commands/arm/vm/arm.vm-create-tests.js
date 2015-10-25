@@ -173,6 +173,7 @@ describe('arm', function() {
         var cmd = util.format('vm get-serial-output %s %s --json', groupName, vmPrefix).split(' ');
         testUtils.executeCommand(suite, retry, cmd, function(result) {
           should(result.text.indexOf('bootdiagnostics') > -1 || result.text.indexOf('bootDiagnostics') > -1).ok;
+          should(result.text.indexOf('serialconsole.log') > -1).ok;
           result.exitStatus.should.equal(0);
           done();
         });
@@ -190,6 +191,7 @@ describe('arm', function() {
         var cmd = util.format('vm get-serial-output %s %s --json', groupName, vmPrefix).split(' ');
         testUtils.executeCommand(suite, retry, cmd, function(result) {
           should(result.text.indexOf('bootDiagnostics') == -1 && result.text.indexOf('bootdiagnostics') == -1).ok;
+          should(result.text.indexOf('serialconsole.log') == -1).ok;
           result.exitStatus.should.equal(0);
           done();
         });
