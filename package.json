@@ -12,7 +12,7 @@
     "Zavery, Amar <amzavery@microsoft.com>",
     "Wang, Yugang <yugangw@microsoft.com>"
   ],
-  "version": "0.9.12",
+  "version": "0.9.12.1",
   "description": "Microsoft Azure Cross Platform Command Line tool",
   "tags": [
     "azure",
@@ -74,6 +74,8 @@
     "eyes": "0.x.x",
     "github": "0.1.6",
     "image-size": "^0.3.5",
+    "json-patch": "0.5.0",
+    "fast-json-patch": "0.5.4",
     "js2xmlparser": "1.0.0",
     "jsrsasign": "4.8.2 ",
     "jszip": "^2.5.0",
@@ -127,6 +129,7 @@
     "unit-mc": "node scripts/unit.js --mc testlistmc.txt",
     "unit-arm": "node scripts/unit.js testlistarm.txt",
     "unit-arm-vm": "node scripts/unit.js testlistarmvm.txt",
+    "unit-arm-vmss": "node scripts/unit.js testlistarmvmss.txt",
     "jshint": "jshint lib --jslint-reporter --extra-ext ._js",
     "preci": "jshint lib --reporter=checkstyle --extra-ext ._js > checkstyle-result.xml",
     "ci": "node scripts/unit.js testlist.txt -xunit",

@@ -1,0 +1,1 @@
+commands/arm/vm/arm.vmss-create-tests.js
