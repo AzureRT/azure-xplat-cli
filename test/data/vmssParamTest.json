@@ -5,7 +5,7 @@
     "capacity": null
   },
   "upgradePolicy": {
-    "mode": ""
+    "mode": null
   },
   "virtualMachineProfile": {
     "osProfile": {
@@ -19,16 +19,16 @@
         "timeZone": "",
         "additionalUnattendContent": [
           {
-            "passName": "",
-            "componentName": "",
-            "settingName": "",
+            "passName": null,
+            "componentName": null,
+            "settingName": null,
             "content": ""
           }
         ],
         "winRM": {
           "listeners": [
             {
-              "protocol": "",
+              "protocol": null,
               "certificateUrl": ""
             }
           ]
@@ -68,9 +68,9 @@
       },
       "osDisk": {
         "name": "",
-        "caching": "",
+        "caching": null,
         "createOption": "",
-        "osType": "",
+        "osType": null,
         "image": {
           "uri": ""
         },
@@ -112,7 +112,7 @@
         {
           "name": "",
           "publisher": "",
-          "virtualMachineScaleSetExtensionType": "",
+          "type": "",
           "typeHandlerVersion": "",
           "autoUpgradeMinorVersion": null,
           "settings": {},
@@ -124,6 +124,7 @@
     }
   },
   "provisioningState": "",
+  "overProvision": null,
   "id": null,
   "name": null,
   "type": null,
