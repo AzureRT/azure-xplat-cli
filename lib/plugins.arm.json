@@ -10197,7 +10197,7 @@
           "name": "quick-create",
           "description": "Commands to create a virtual machine scale set with default resources in a group.",
           "fullName": "vmss quick-create",
-          "usage": "[options] <resource-group-name> <name> <location> <image-urn> [admin-username] [admin-password]",
+          "usage": "[options] <resource-group-name> <name> <location> <image-urn> [admin-username] [admin-password] [capacity]",
           "filePath": "commands/arm/vmss/vmss._js",
           "options": [
             {
