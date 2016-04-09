@@ -5,12 +5,23 @@ var profile = require('../../../lib/util/profile');
 exports.getMockedProfile = function () {
   var newProfile = new profile.Profile();
 
+  newProfile.addEnvironment(new profile.Environment({
+    name: 'BrazilUSCloud',
+    portalUrl: 'http://go.microsoft.com/fwlink/?LinkId=254433',
+    publishingProfileUrl: 'http://go.microsoft.com/fwlink/?LinkId=254432',
+    managementEndpointUrl: 'https://management.core.windows.net',
+    resourceManagerEndpointUrl: 'https://brazilus.management.azure.com/',
+    sqlManagementEndpointUrl: 'https://management.core.windows.net:8443/',
+    hostNameSuffix: 'undefined',
+    sqlServerHostNameSuffix: '.database.windows.net',
+    activeDirectoryEndpointUrl: 'https://login.microsoftonline.com',
+    commonTenantName: 'undefined',
+    storageEndpoint: 'undefined',
+    galleryEndpointUrl: 'https://gallery.azure.com/'
+  }));
+
   newProfile.addSubscription(new profile.Subscription({
     id: 'e33f361b-53c2-4cc7-b829-78906708387b',
-    managementCertificate: {
-      key: 'mockedKey',
-      cert: 'mockedCert'
-    },
     name: 'Microsoft Azure Internal Consumption',
     user: {
       name: 'user@domain.example',
@@ -20,7 +31,7 @@ exports.getMockedProfile = function () {
     state: 'Enabled',
     registeredProviders: [],
     isDefault: true
-  }, newProfile.environments['AzureCloud']));
+  }, newProfile.environments['BrazilUSCloud']));
 
   return newProfile;
 };
@@ -31,4 +42,4 @@ exports.setEnvironment = function() {
 
 exports.scopes = [];
 
- exports.randomTestIdsGenerated = function() { return ['xplatTstVmssGCreate9498','xplattestnic816','xplatteststorage14148','xplatteststorage25703','xplatteststorage32724','xplatteststoragecnt12801','xplatteststoragecnt21666','xplatteststoragecnt32769','xplattestvnet1417','xplattestsubnet7931','xplattestipdns3033'];};
+ exports.randomTestIdsGenerated = function() { return ['xplatTstVmssGCreate8014','xplattestnic9491','xplatteststorage1670','xplatteststorage29743','xplatteststorage32005','xplatteststoragecnt1170','xplatteststoragecnt2598','xplatteststoragecnt37154','xplattestvnet2306','xplattestsubnet6220','xplattestipdns398'];};

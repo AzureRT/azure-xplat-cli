@@ -5,12 +5,23 @@ var profile = require('../../../lib/util/profile');
 exports.getMockedProfile = function () {
   var newProfile = new profile.Profile();
 
+  newProfile.addEnvironment(new profile.Environment({
+    name: 'BrazilUSCloud',
+    portalUrl: 'http://go.microsoft.com/fwlink/?LinkId=254433',
+    publishingProfileUrl: 'http://go.microsoft.com/fwlink/?LinkId=254432',
+    managementEndpointUrl: 'https://management.core.windows.net',
+    resourceManagerEndpointUrl: 'https://brazilus.management.azure.com/',
+    sqlManagementEndpointUrl: 'https://management.core.windows.net:8443/',
+    hostNameSuffix: 'undefined',
+    sqlServerHostNameSuffix: '.database.windows.net',
+    activeDirectoryEndpointUrl: 'https://login.microsoftonline.com',
+    commonTenantName: 'undefined',
+    storageEndpoint: 'undefined',
+    galleryEndpointUrl: 'https://gallery.azure.com/'
+  }));
+
   newProfile.addSubscription(new profile.Subscription({
     id: 'e33f361b-53c2-4cc7-b829-78906708387b',
-    managementCertificate: {
-      key: 'mockedKey',
-      cert: 'mockedCert'
-    },
     name: 'Microsoft Azure Internal Consumption',
     user: {
       name: 'user@domain.example',
@@ -20,7 +31,7 @@ exports.getMockedProfile = function () {
     state: 'Enabled',
     registeredProviders: [],
     isDefault: true
-  }, newProfile.environments['AzureCloud']));
+  }, newProfile.environments['BrazilUSCloud']));
 
   return newProfile;
 };
@@ -32,4 +43,4 @@ exports.setEnvironment = function() {
 
 exports.scopes = [];
 
- exports.randomTestIdsGenerated = function() { return ['xplatTestVMSSCreate9027','xplattestnic683','xplatteststorage19402','xplatteststoragecnt15872','xplattestipdns2404'];};
+ exports.randomTestIdsGenerated = function() { return ['xplatTestVMSSCreate972','xplattestnic7347','xplatteststorage16744','xplatteststoragecnt12191','xplattestipdns3773'];};
