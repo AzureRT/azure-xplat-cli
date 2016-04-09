@@ -42,6 +42,11 @@
               "subnet": {
                 "id": "/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTstVmssGCreate9498/providers/Microsoft.Network/VirtualNetworks/xplattestvnet1417/subnets/xplattestsubnet7931"
               },
+              "applicationGatewayBackendAddressPools": [
+                {
+                  "id": ""
+                }
+              ],
               "id": ""
             }
           ],
