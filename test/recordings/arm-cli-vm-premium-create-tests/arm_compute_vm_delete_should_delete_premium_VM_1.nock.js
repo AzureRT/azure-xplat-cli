@@ -26,9 +26,8 @@ exports.getMockedProfile = function () {
 };
 
 exports.setEnvironment = function() {
-  process.env['AZURE_VM_TEST_LOCATION'] = 'eastus';
+  process.env['AZURE_VM_TEST_LOCATION'] = 'eastus2';
+  process.env['SSHCERT'] = 'test/myCert.pem';
 };
 
-exports.scopes = [];
-
- exports.randomTestIdsGenerated = function() { return ['xplatTestGAvailCreate7107','xplatTestaAvail9817'];};
+exports.scopes = [

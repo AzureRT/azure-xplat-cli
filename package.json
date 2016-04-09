@@ -127,6 +127,7 @@
     "unit-vm-live": "node scripts/unit.js testlist-vm-live.txt",
     "unit-arm-vm-live": "node scripts/unit.js testlist-arm-vm-live.txt",
     "unit-arm-vmss": "node scripts/unit.js testlist-arm-vmss.txt",
+    "unit-arm-container": "node scripts/unit.js testlist-arm-container.txt",
     "jshint": "jshint lib --jslint-reporter --extra-ext ._js",
     "preci": "jshint lib --reporter=checkstyle --extra-ext ._js > checkstyle-result.xml",
     "ci": "node scripts/unit.js testlist.txt -xunit",
