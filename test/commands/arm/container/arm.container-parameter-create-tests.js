@@ -64,7 +64,7 @@ describe('arm', function() {
       it('container empty list should pass', function(done) {
         this.timeout(vmTest.timeoutLarge * 10);
         vmTest.createGroup(groupName, location, suite, function(result) {
-          var cmd = util.format('container list-by-resource-group -g %s --json', groupName).split(' ');
+          var cmd = util.format('container list -g %s --json', groupName).split(' ');
           testUtils.executeCommand(suite, retry, cmd, function(result) {
             result.exitStatus.should.equal(0);
             result.text.should.containEql('[]');
