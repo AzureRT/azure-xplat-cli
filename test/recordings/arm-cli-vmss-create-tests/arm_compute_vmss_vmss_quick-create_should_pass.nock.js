@@ -5,23 +5,12 @@ var profile = require('../../../lib/util/profile');
 exports.getMockedProfile = function () {
   var newProfile = new profile.Profile();
 
-  newProfile.addEnvironment(new profile.Environment({
-    name: 'BrazilUSCloud',
-    portalUrl: 'http://go.microsoft.com/fwlink/?LinkId=254433',
-    publishingProfileUrl: 'http://go.microsoft.com/fwlink/?LinkId=254432',
-    managementEndpointUrl: 'https://management.core.windows.net',
-    resourceManagerEndpointUrl: 'https://brazilus.management.azure.com/',
-    sqlManagementEndpointUrl: 'https://management.core.windows.net:8443/',
-    hostNameSuffix: 'undefined',
-    sqlServerHostNameSuffix: '.database.windows.net',
-    activeDirectoryEndpointUrl: 'https://login.microsoftonline.com',
-    commonTenantName: 'undefined',
-    storageEndpoint: 'undefined',
-    galleryEndpointUrl: 'https://gallery.azure.com/'
-  }));
-
   newProfile.addSubscription(new profile.Subscription({
     id: 'e33f361b-53c2-4cc7-b829-78906708387b',
+    managementCertificate: {
+      key: 'mockedKey',
+      cert: 'mockedCert'
+    },
     name: 'Microsoft Azure Internal Consumption',
     user: {
       name: 'user@domain.example',
@@ -31,7 +20,7 @@ exports.getMockedProfile = function () {
     state: 'Enabled',
     registeredProviders: [],
     isDefault: true
-  }, newProfile.environments['BrazilUSCloud']));
+  }, newProfile.environments['AzureCloud']));
 
   return newProfile;
 };
@@ -43,7 +32,7 @@ exports.setEnvironment = function() {
 
 exports.scopes = [[function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourcegroups/xplatTestVMSSCreate972?api-version=2016-02-01')
   .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972\",\"name\":\"xplatTestVMSSCreate972\",\"location\":\"southeastasia\",\"tags\":{\"arm-cli-vmss-create-tests\":\"2016-04-09T17:10:19.704Z\"},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -60,7 +49,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourcegroups/xplatTestVMSSCreate972?api-version=2016-02-01')
   .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972\",\"name\":\"xplatTestVMSSCreate972\",\"location\":\"southeastasia\",\"tags\":{\"arm-cli-vmss-create-tests\":\"2016-04-09T17:10:19.704Z\"},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -77,7 +66,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3344067167-nic?api-version=2016-03-30')
   .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/networkInterfaces/xplat-south-3344067167-nic' under resource group 'xplatTestVMSSCreate972' was not found.\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -94,7 +83,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3344067167-nic?api-version=2016-03-30')
   .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/networkInterfaces/xplat-south-3344067167-nic' under resource group 'xplatTestVMSSCreate972' was not found.\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -111,7 +100,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualnetworks/xplat-south-3344067167-vnet?api-version=2016-03-30')
   .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/virtualNetworks/xplat-south-3344067167-vnet' under resource group 'xplatTestVMSSCreate972' was not found.\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -128,7 +117,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualnetworks/xplat-south-3344067167-vnet?api-version=2016-03-30')
   .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/virtualNetworks/xplat-south-3344067167-vnet' under resource group 'xplatTestVMSSCreate972' was not found.\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -145,7 +134,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualnetworks/xplat-south-3344067167-vnet?api-version=2016-03-30', '*')
   .reply(201, "{\r\n  \"name\": \"xplat-south-3344067167-vnet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3344067167-vnet\",\r\n  \"etag\": \"W/\\\"b293083c-3056-49a2-928d-858ef8f48588\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"cb6ec94d-57b6-4e97-b66b-6a2b055a0b6a\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-south-3344067167-snet\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3344067167-vnet/subnets/xplat-south-3344067167-snet\",\r\n        \"etag\": \"W/\\\"b293083c-3056-49a2-928d-858ef8f48588\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Updating\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
@@ -155,7 +144,7 @@ nock('http://brazilus.management.azure.com:443')
   expires: '-1',
   'retry-after': '10',
   'x-ms-request-id': '9ef66397-2e9f-4858-99f4-b5512c084258',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/9ef66397-2e9f-4858-99f4-b5512c084258?api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/9ef66397-2e9f-4858-99f4-b5512c084258?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
   'x-ms-ratelimit-remaining-subscription-writes': '1195',
@@ -166,7 +155,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualnetworks/xplat-south-3344067167-vnet?api-version=2016-03-30', '*')
   .reply(201, "{\r\n  \"name\": \"xplat-south-3344067167-vnet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3344067167-vnet\",\r\n  \"etag\": \"W/\\\"b293083c-3056-49a2-928d-858ef8f48588\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"cb6ec94d-57b6-4e97-b66b-6a2b055a0b6a\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-south-3344067167-snet\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3344067167-vnet/subnets/xplat-south-3344067167-snet\",\r\n        \"etag\": \"W/\\\"b293083c-3056-49a2-928d-858ef8f48588\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Updating\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
@@ -176,7 +165,7 @@ nock('https://brazilus.management.azure.com:443')
   expires: '-1',
   'retry-after': '10',
   'x-ms-request-id': '9ef66397-2e9f-4858-99f4-b5512c084258',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/9ef66397-2e9f-4858-99f4-b5512c084258?api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/9ef66397-2e9f-4858-99f4-b5512c084258?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
   'x-ms-ratelimit-remaining-subscription-writes': '1195',
@@ -187,7 +176,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/9ef66397-2e9f-4858-99f4-b5512c084258?api-version=2016-03-30')
   .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -205,7 +194,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/9ef66397-2e9f-4858-99f4-b5512c084258?api-version=2016-03-30')
   .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -223,7 +212,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualnetworks/xplat-south-3344067167-vnet?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3344067167-vnet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3344067167-vnet\",\r\n  \"etag\": \"W/\\\"5d2e446f-0907-4152-af4a-e1102605b731\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"cb6ec94d-57b6-4e97-b66b-6a2b055a0b6a\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-south-3344067167-snet\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3344067167-vnet/subnets/xplat-south-3344067167-snet\",\r\n        \"etag\": \"W/\\\"5d2e446f-0907-4152-af4a-e1102605b731\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -242,7 +231,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualnetworks/xplat-south-3344067167-vnet?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3344067167-vnet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3344067167-vnet\",\r\n  \"etag\": \"W/\\\"5d2e446f-0907-4152-af4a-e1102605b731\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"cb6ec94d-57b6-4e97-b66b-6a2b055a0b6a\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-south-3344067167-snet\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3344067167-vnet/subnets/xplat-south-3344067167-snet\",\r\n        \"etag\": \"W/\\\"5d2e446f-0907-4152-af4a-e1102605b731\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -261,7 +250,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualnetworks/xplat-south-3344067167-vnet?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3344067167-vnet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3344067167-vnet\",\r\n  \"etag\": \"W/\\\"5d2e446f-0907-4152-af4a-e1102605b731\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"cb6ec94d-57b6-4e97-b66b-6a2b055a0b6a\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-south-3344067167-snet\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3344067167-vnet/subnets/xplat-south-3344067167-snet\",\r\n        \"etag\": \"W/\\\"5d2e446f-0907-4152-af4a-e1102605b731\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -280,7 +269,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualnetworks/xplat-south-3344067167-vnet?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3344067167-vnet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3344067167-vnet\",\r\n  \"etag\": \"W/\\\"5d2e446f-0907-4152-af4a-e1102605b731\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"cb6ec94d-57b6-4e97-b66b-6a2b055a0b6a\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-south-3344067167-snet\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3344067167-vnet/subnets/xplat-south-3344067167-snet\",\r\n        \"etag\": \"W/\\\"5d2e446f-0907-4152-af4a-e1102605b731\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -299,7 +288,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualnetworks/xplat-south-3344067167-vnet/subnets/xplat-south-3344067167-snet?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3344067167-snet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3344067167-vnet/subnets/xplat-south-3344067167-snet\",\r\n  \"etag\": \"W/\\\"5d2e446f-0907-4152-af4a-e1102605b731\\\"\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"addressPrefix\": \"10.0.1.0/24\"\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -318,7 +307,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualnetworks/xplat-south-3344067167-vnet/subnets/xplat-south-3344067167-snet?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3344067167-snet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3344067167-vnet/subnets/xplat-south-3344067167-snet\",\r\n  \"etag\": \"W/\\\"5d2e446f-0907-4152-af4a-e1102605b731\\\"\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"addressPrefix\": \"10.0.1.0/24\"\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -337,7 +326,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip?api-version=2016-03-30')
   .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip' under resource group 'xplatTestVMSSCreate972' was not found.\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -354,7 +343,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip?api-version=2016-03-30')
   .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip' under resource group 'xplatTestVMSSCreate972' was not found.\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -371,7 +360,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip?api-version=2016-03-30', '*')
   .reply(201, "{\r\n  \"name\": \"xplat-south-3344067167-pip\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip\",\r\n  \"etag\": \"W/\\\"3069af3d-fbbc-4c29-adf8-332ee024b83c\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"690b43a5-05cf-4180-b254-d4f0d3f64a89\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-3344067167-pip\",\r\n      \"fqdn\": \"xplat-south-3344067167-pip.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
@@ -381,7 +370,7 @@ nock('http://brazilus.management.azure.com:443')
   expires: '-1',
   'retry-after': '10',
   'x-ms-request-id': '0a4af768-2f98-40fb-b6d6-e3d83517307f',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/0a4af768-2f98-40fb-b6d6-e3d83517307f?api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/0a4af768-2f98-40fb-b6d6-e3d83517307f?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
   'x-ms-ratelimit-remaining-subscription-writes': '1196',
@@ -392,7 +381,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip?api-version=2016-03-30', '*')
   .reply(201, "{\r\n  \"name\": \"xplat-south-3344067167-pip\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip\",\r\n  \"etag\": \"W/\\\"3069af3d-fbbc-4c29-adf8-332ee024b83c\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"690b43a5-05cf-4180-b254-d4f0d3f64a89\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-3344067167-pip\",\r\n      \"fqdn\": \"xplat-south-3344067167-pip.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
@@ -402,7 +391,7 @@ nock('https://brazilus.management.azure.com:443')
   expires: '-1',
   'retry-after': '10',
   'x-ms-request-id': '0a4af768-2f98-40fb-b6d6-e3d83517307f',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/0a4af768-2f98-40fb-b6d6-e3d83517307f?api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/0a4af768-2f98-40fb-b6d6-e3d83517307f?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
   'x-ms-ratelimit-remaining-subscription-writes': '1196',
@@ -413,7 +402,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/0a4af768-2f98-40fb-b6d6-e3d83517307f?api-version=2016-03-30')
   .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -431,7 +420,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/0a4af768-2f98-40fb-b6d6-e3d83517307f?api-version=2016-03-30')
   .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -449,7 +438,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3344067167-pip\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip\",\r\n  \"etag\": \"W/\\\"d5fdb9dd-abc9-4200-81dd-f7bce2651e2e\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"690b43a5-05cf-4180-b254-d4f0d3f64a89\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-3344067167-pip\",\r\n      \"fqdn\": \"xplat-south-3344067167-pip.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -468,7 +457,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3344067167-pip\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip\",\r\n  \"etag\": \"W/\\\"d5fdb9dd-abc9-4200-81dd-f7bce2651e2e\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"690b43a5-05cf-4180-b254-d4f0d3f64a89\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-3344067167-pip\",\r\n      \"fqdn\": \"xplat-south-3344067167-pip.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -487,7 +476,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3344067167-pip\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip\",\r\n  \"etag\": \"W/\\\"d5fdb9dd-abc9-4200-81dd-f7bce2651e2e\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"690b43a5-05cf-4180-b254-d4f0d3f64a89\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-3344067167-pip\",\r\n      \"fqdn\": \"xplat-south-3344067167-pip.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -506,7 +495,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3344067167-pip\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip\",\r\n  \"etag\": \"W/\\\"d5fdb9dd-abc9-4200-81dd-f7bce2651e2e\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"690b43a5-05cf-4180-b254-d4f0d3f64a89\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-3344067167-pip\",\r\n      \"fqdn\": \"xplat-south-3344067167-pip.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -525,7 +514,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3344067167-nic?api-version=2016-03-30', '*')
   .reply(201, "{\r\n  \"name\": \"xplat-south-3344067167-nic\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3344067167-nic\",\r\n  \"etag\": \"W/\\\"6ef7aefc-28db-4bb8-960c-c1e3a65f5d56\\\"\",\r\n  \"type\": \"Microsoft.Network/networkInterfaces\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"512aab87-6074-493f-918a-2d7d8216cf6a\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1460221870046\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3344067167-nic/ipConfigurations/ipconfig1460221870046\",\r\n        \"etag\": \"W/\\\"6ef7aefc-28db-4bb8-960c-c1e3a65f5d56\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3344067167-vnet/subnets/xplat-south-3344067167-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"jxew3s3wk4lu3ntlnivqkwqlnc.ix.internal.cloudapp.net\"\r\n    },\r\n    \"enableIPForwarding\": false\r\n  }\r\n}", { 'cache-control': 'no-cache',
@@ -534,7 +523,7 @@ nock('http://brazilus.management.azure.com:443')
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'x-ms-request-id': '20e04975-8b22-4c45-96d2-ff58514387fe',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/20e04975-8b22-4c45-96d2-ff58514387fe?api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/20e04975-8b22-4c45-96d2-ff58514387fe?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
   'x-ms-ratelimit-remaining-subscription-writes': '1195',
@@ -545,7 +534,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3344067167-nic?api-version=2016-03-30', '*')
   .reply(201, "{\r\n  \"name\": \"xplat-south-3344067167-nic\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3344067167-nic\",\r\n  \"etag\": \"W/\\\"6ef7aefc-28db-4bb8-960c-c1e3a65f5d56\\\"\",\r\n  \"type\": \"Microsoft.Network/networkInterfaces\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"512aab87-6074-493f-918a-2d7d8216cf6a\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1460221870046\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3344067167-nic/ipConfigurations/ipconfig1460221870046\",\r\n        \"etag\": \"W/\\\"6ef7aefc-28db-4bb8-960c-c1e3a65f5d56\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3344067167-vnet/subnets/xplat-south-3344067167-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"jxew3s3wk4lu3ntlnivqkwqlnc.ix.internal.cloudapp.net\"\r\n    },\r\n    \"enableIPForwarding\": false\r\n  }\r\n}", { 'cache-control': 'no-cache',
@@ -554,7 +543,7 @@ nock('https://brazilus.management.azure.com:443')
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'x-ms-request-id': '20e04975-8b22-4c45-96d2-ff58514387fe',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/20e04975-8b22-4c45-96d2-ff58514387fe?api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/20e04975-8b22-4c45-96d2-ff58514387fe?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
   'x-ms-ratelimit-remaining-subscription-writes': '1195',
@@ -565,7 +554,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3344067167-nic?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3344067167-nic\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3344067167-nic\",\r\n  \"etag\": \"W/\\\"6ef7aefc-28db-4bb8-960c-c1e3a65f5d56\\\"\",\r\n  \"type\": \"Microsoft.Network/networkInterfaces\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"512aab87-6074-493f-918a-2d7d8216cf6a\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1460221870046\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3344067167-nic/ipConfigurations/ipconfig1460221870046\",\r\n        \"etag\": \"W/\\\"6ef7aefc-28db-4bb8-960c-c1e3a65f5d56\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3344067167-vnet/subnets/xplat-south-3344067167-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"jxew3s3wk4lu3ntlnivqkwqlnc.ix.internal.cloudapp.net\"\r\n    },\r\n    \"enableIPForwarding\": false\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -584,7 +573,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3344067167-nic?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3344067167-nic\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3344067167-nic\",\r\n  \"etag\": \"W/\\\"6ef7aefc-28db-4bb8-960c-c1e3a65f5d56\\\"\",\r\n  \"type\": \"Microsoft.Network/networkInterfaces\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"512aab87-6074-493f-918a-2d7d8216cf6a\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1460221870046\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3344067167-nic/ipConfigurations/ipconfig1460221870046\",\r\n        \"etag\": \"W/\\\"6ef7aefc-28db-4bb8-960c-c1e3a65f5d56\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3344067167-vnet/subnets/xplat-south-3344067167-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"jxew3s3wk4lu3ntlnivqkwqlnc.ix.internal.cloudapp.net\"\r\n    },\r\n    \"enableIPForwarding\": false\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -603,7 +592,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip2?api-version=2016-03-30', '*')
   .reply(201, "{\r\n  \"name\": \"xplat-south-3344067167-pip2\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip2\",\r\n  \"etag\": \"W/\\\"44b360b0-2cfd-4b38-8f69-fa14c6d54f03\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"9b5a0334-4a6a-48fd-a114-2bf9cbe18934\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-3344067167-pip2\",\r\n      \"fqdn\": \"xplat-south-3344067167-pip2.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
@@ -613,7 +602,7 @@ nock('http://brazilus.management.azure.com:443')
   expires: '-1',
   'retry-after': '10',
   'x-ms-request-id': '4b45a8b0-e999-4618-806d-3ffb2d502b76',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/4b45a8b0-e999-4618-806d-3ffb2d502b76?api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/4b45a8b0-e999-4618-806d-3ffb2d502b76?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
   'x-ms-ratelimit-remaining-subscription-writes': '1194',
@@ -624,7 +613,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip2?api-version=2016-03-30', '*')
   .reply(201, "{\r\n  \"name\": \"xplat-south-3344067167-pip2\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip2\",\r\n  \"etag\": \"W/\\\"44b360b0-2cfd-4b38-8f69-fa14c6d54f03\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"9b5a0334-4a6a-48fd-a114-2bf9cbe18934\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-3344067167-pip2\",\r\n      \"fqdn\": \"xplat-south-3344067167-pip2.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
@@ -634,7 +623,7 @@ nock('https://brazilus.management.azure.com:443')
   expires: '-1',
   'retry-after': '10',
   'x-ms-request-id': '4b45a8b0-e999-4618-806d-3ffb2d502b76',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/4b45a8b0-e999-4618-806d-3ffb2d502b76?api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/4b45a8b0-e999-4618-806d-3ffb2d502b76?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
   'x-ms-ratelimit-remaining-subscription-writes': '1194',
@@ -645,7 +634,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/4b45a8b0-e999-4618-806d-3ffb2d502b76?api-version=2016-03-30')
   .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -663,7 +652,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/4b45a8b0-e999-4618-806d-3ffb2d502b76?api-version=2016-03-30')
   .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -681,7 +670,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip2?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3344067167-pip2\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip2\",\r\n  \"etag\": \"W/\\\"106a1a8d-69e8-4733-9d64-c8974270aae0\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"9b5a0334-4a6a-48fd-a114-2bf9cbe18934\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-3344067167-pip2\",\r\n      \"fqdn\": \"xplat-south-3344067167-pip2.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -700,7 +689,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip2?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3344067167-pip2\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip2\",\r\n  \"etag\": \"W/\\\"106a1a8d-69e8-4733-9d64-c8974270aae0\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"9b5a0334-4a6a-48fd-a114-2bf9cbe18934\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-3344067167-pip2\",\r\n      \"fqdn\": \"xplat-south-3344067167-pip2.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -719,7 +708,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3344067167-lb?api-version=2016-03-30', '*')
   .reply(201, "{\r\n  \"name\": \"xplat-south-3344067167-lb\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3344067167-lb\",\r\n  \"etag\": \"W/\\\"2b645fc2-29de-4e3d-a6f2-a9b4266373ca\\\"\",\r\n  \"type\": \"Microsoft.Network/loadBalancers\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"f5f69e21-1dbd-430f-b060-27df805dcd41\",\r\n    \"frontendIPConfigurations\": [\r\n      {\r\n        \"name\": \"loadBalancerFrontEnd\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3344067167-lb/frontendIPConfigurations/loadBalancerFrontEnd\",\r\n        \"etag\": \"W/\\\"2b645fc2-29de-4e3d-a6f2-a9b4266373ca\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip2\"\r\n          },\r\n          \"inboundNatPools\": [\r\n            {\r\n              \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3344067167-lb/inboundNatPools/xplat-south-3344067167-nat\"\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    ],\r\n    \"backendAddressPools\": [\r\n      {\r\n        \"name\": \"xplat-south-3344067167-be\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3344067167-lb/backendAddressPools/xplat-south-3344067167-be\",\r\n        \"etag\": \"W/\\\"2b645fc2-29de-4e3d-a6f2-a9b4266373ca\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\"\r\n        }\r\n      }\r\n    ],\r\n    \"loadBalancingRules\": [],\r\n    \"probes\": [],\r\n    \"inboundNatRules\": [],\r\n    \"outboundNatRules\": [],\r\n    \"inboundNatPools\": [\r\n      {\r\n        \"name\": \"xplat-south-3344067167-nat\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3344067167-lb/inboundNatPools/xplat-south-3344067167-nat\",\r\n        \"etag\": \"W/\\\"2b645fc2-29de-4e3d-a6f2-a9b4266373ca\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"frontendPortRangeStart\": 50000,\r\n          \"frontendPortRangeEnd\": 50099,\r\n          \"backendPort\": 22,\r\n          \"protocol\": \"Tcp\",\r\n          \"frontendIPConfiguration\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3344067167-lb/frontendIPConfigurations/loadBalancerFrontEnd\"\r\n          }\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
@@ -728,7 +717,7 @@ nock('http://brazilus.management.azure.com:443')
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'x-ms-request-id': 'c7164c48-093d-41d6-a778-866916f0f1c6',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/c7164c48-093d-41d6-a778-866916f0f1c6?api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/c7164c48-093d-41d6-a778-866916f0f1c6?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
   'x-ms-ratelimit-remaining-subscription-writes': '1194',
@@ -739,7 +728,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3344067167-lb?api-version=2016-03-30', '*')
   .reply(201, "{\r\n  \"name\": \"xplat-south-3344067167-lb\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3344067167-lb\",\r\n  \"etag\": \"W/\\\"2b645fc2-29de-4e3d-a6f2-a9b4266373ca\\\"\",\r\n  \"type\": \"Microsoft.Network/loadBalancers\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"f5f69e21-1dbd-430f-b060-27df805dcd41\",\r\n    \"frontendIPConfigurations\": [\r\n      {\r\n        \"name\": \"loadBalancerFrontEnd\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3344067167-lb/frontendIPConfigurations/loadBalancerFrontEnd\",\r\n        \"etag\": \"W/\\\"2b645fc2-29de-4e3d-a6f2-a9b4266373ca\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3344067167-pip2\"\r\n          },\r\n          \"inboundNatPools\": [\r\n            {\r\n              \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3344067167-lb/inboundNatPools/xplat-south-3344067167-nat\"\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    ],\r\n    \"backendAddressPools\": [\r\n      {\r\n        \"name\": \"xplat-south-3344067167-be\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3344067167-lb/backendAddressPools/xplat-south-3344067167-be\",\r\n        \"etag\": \"W/\\\"2b645fc2-29de-4e3d-a6f2-a9b4266373ca\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\"\r\n        }\r\n      }\r\n    ],\r\n    \"loadBalancingRules\": [],\r\n    \"probes\": [],\r\n    \"inboundNatRules\": [],\r\n    \"outboundNatRules\": [],\r\n    \"inboundNatPools\": [\r\n      {\r\n        \"name\": \"xplat-south-3344067167-nat\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3344067167-lb/inboundNatPools/xplat-south-3344067167-nat\",\r\n        \"etag\": \"W/\\\"2b645fc2-29de-4e3d-a6f2-a9b4266373ca\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"frontendPortRangeStart\": 50000,\r\n          \"frontendPortRangeEnd\": 50099,\r\n          \"backendPort\": 22,\r\n          \"protocol\": \"Tcp\",\r\n          \"frontendIPConfiguration\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3344067167-lb/frontendIPConfigurations/loadBalancerFrontEnd\"\r\n          }\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
@@ -748,7 +737,7 @@ nock('https://brazilus.management.azure.com:443')
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'x-ms-request-id': 'c7164c48-093d-41d6-a778-866916f0f1c6',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/c7164c48-093d-41d6-a778-866916f0f1c6?api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/c7164c48-093d-41d6-a778-866916f0f1c6?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
   'x-ms-ratelimit-remaining-subscription-writes': '1194',
@@ -759,14 +748,14 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto0334406?api-version=2015-06-15', '*')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
   expires: '-1',
-  location: 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/3f3ee714-26b3-4244-a3bd-3d82d623591c?monitor=true&api-version=2015-06-15',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/3f3ee714-26b3-4244-a3bd-3d82d623591c?monitor=true&api-version=2015-06-15',
   'retry-after': '25',
   'x-ms-ratelimit-remaining-subscription-writes': '1193',
   'x-ms-request-id': '91f67b1e-63d2-42f1-860d-7f63673bfd65',
@@ -779,14 +768,14 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto0334406?api-version=2015-06-15', '*')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
   expires: '-1',
-  location: 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/3f3ee714-26b3-4244-a3bd-3d82d623591c?monitor=true&api-version=2015-06-15',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/3f3ee714-26b3-4244-a3bd-3d82d623591c?monitor=true&api-version=2015-06-15',
   'retry-after': '25',
   'x-ms-ratelimit-remaining-subscription-writes': '1193',
   'x-ms-request-id': '91f67b1e-63d2-42f1-860d-7f63673bfd65',
@@ -799,7 +788,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/3f3ee714-26b3-4244-a3bd-3d82d623591c?monitor=true&api-version=2015-06-15')
   .reply(200, "{\"location\":\"southeastasia\",\"properties\":{\"accountType\":\"Standard_GRS\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -817,7 +806,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/3f3ee714-26b3-4244-a3bd-3d82d623591c?monitor=true&api-version=2015-06-15')
   .reply(200, "{\"location\":\"southeastasia\",\"properties\":{\"accountType\":\"Standard_GRS\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -835,14 +824,14 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto1334406?api-version=2015-06-15', '*')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
   expires: '-1',
-  location: 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/58610f0d-b57d-4f82-9335-3647bdfe9813?monitor=true&api-version=2015-06-15',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/58610f0d-b57d-4f82-9335-3647bdfe9813?monitor=true&api-version=2015-06-15',
   'retry-after': '25',
   'x-ms-ratelimit-remaining-subscription-writes': '1196',
   'x-ms-request-id': '6bce041e-a949-44b2-b48a-860e96fb39f5',
@@ -855,14 +844,14 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto1334406?api-version=2015-06-15', '*')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
   expires: '-1',
-  location: 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/58610f0d-b57d-4f82-9335-3647bdfe9813?monitor=true&api-version=2015-06-15',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/58610f0d-b57d-4f82-9335-3647bdfe9813?monitor=true&api-version=2015-06-15',
   'retry-after': '25',
   'x-ms-ratelimit-remaining-subscription-writes': '1196',
   'x-ms-request-id': '6bce041e-a949-44b2-b48a-860e96fb39f5',
@@ -875,7 +864,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/58610f0d-b57d-4f82-9335-3647bdfe9813?monitor=true&api-version=2015-06-15')
   .reply(200, "{\"location\":\"southeastasia\",\"properties\":{\"accountType\":\"Standard_GRS\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -893,7 +882,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/58610f0d-b57d-4f82-9335-3647bdfe9813?monitor=true&api-version=2015-06-15')
   .reply(200, "{\"location\":\"southeastasia\",\"properties\":{\"accountType\":\"Standard_GRS\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -911,14 +900,14 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto2334406?api-version=2015-06-15', '*')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
   expires: '-1',
-  location: 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/f65b039e-ff15-4655-b4be-6c484d1ec17d?monitor=true&api-version=2015-06-15',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/f65b039e-ff15-4655-b4be-6c484d1ec17d?monitor=true&api-version=2015-06-15',
   'retry-after': '25',
   'x-ms-ratelimit-remaining-subscription-writes': '1193',
   'x-ms-request-id': 'ddf7f186-867e-4393-960a-b9d6f22fd878',
@@ -931,14 +920,14 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto2334406?api-version=2015-06-15', '*')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
   expires: '-1',
-  location: 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/f65b039e-ff15-4655-b4be-6c484d1ec17d?monitor=true&api-version=2015-06-15',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/f65b039e-ff15-4655-b4be-6c484d1ec17d?monitor=true&api-version=2015-06-15',
   'retry-after': '25',
   'x-ms-ratelimit-remaining-subscription-writes': '1193',
   'x-ms-request-id': 'ddf7f186-867e-4393-960a-b9d6f22fd878',
@@ -951,7 +940,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/f65b039e-ff15-4655-b4be-6c484d1ec17d?monitor=true&api-version=2015-06-15')
   .reply(200, "{\"location\":\"southeastasia\",\"properties\":{\"accountType\":\"Standard_GRS\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -969,7 +958,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/f65b039e-ff15-4655-b4be-6c484d1ec17d?monitor=true&api-version=2015-06-15')
   .reply(200, "{\"location\":\"southeastasia\",\"properties\":{\"accountType\":\"Standard_GRS\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -987,14 +976,14 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto3334406?api-version=2015-06-15', '*')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
   expires: '-1',
-  location: 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/371d0787-fc08-4d82-a94b-1ee87a1fdaf8?monitor=true&api-version=2015-06-15',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/371d0787-fc08-4d82-a94b-1ee87a1fdaf8?monitor=true&api-version=2015-06-15',
   'retry-after': '25',
   'x-ms-ratelimit-remaining-subscription-writes': '1194',
   'x-ms-request-id': '9db50fba-37a5-4aac-9387-5e91ea15880b',
@@ -1007,14 +996,14 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto3334406?api-version=2015-06-15', '*')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
   expires: '-1',
-  location: 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/371d0787-fc08-4d82-a94b-1ee87a1fdaf8?monitor=true&api-version=2015-06-15',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/371d0787-fc08-4d82-a94b-1ee87a1fdaf8?monitor=true&api-version=2015-06-15',
   'retry-after': '25',
   'x-ms-ratelimit-remaining-subscription-writes': '1194',
   'x-ms-request-id': '9db50fba-37a5-4aac-9387-5e91ea15880b',
@@ -1027,7 +1016,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/371d0787-fc08-4d82-a94b-1ee87a1fdaf8?monitor=true&api-version=2015-06-15')
   .reply(200, "{\"location\":\"southeastasia\",\"properties\":{\"accountType\":\"Standard_GRS\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1045,7 +1034,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/371d0787-fc08-4d82-a94b-1ee87a1fdaf8?monitor=true&api-version=2015-06-15')
   .reply(200, "{\"location\":\"southeastasia\",\"properties\":{\"accountType\":\"Standard_GRS\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1063,14 +1052,14 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto4334406?api-version=2015-06-15', '*')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
   expires: '-1',
-  location: 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/94a0356a-8ceb-421c-9297-670fc288ff3c?monitor=true&api-version=2015-06-15',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/94a0356a-8ceb-421c-9297-670fc288ff3c?monitor=true&api-version=2015-06-15',
   'retry-after': '25',
   'x-ms-ratelimit-remaining-subscription-writes': '1195',
   'x-ms-request-id': 'f1061790-0d0a-4f13-82d8-5cc64d86e772',
@@ -1083,14 +1072,14 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto4334406?api-version=2015-06-15', '*')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
   expires: '-1',
-  location: 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/94a0356a-8ceb-421c-9297-670fc288ff3c?monitor=true&api-version=2015-06-15',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/94a0356a-8ceb-421c-9297-670fc288ff3c?monitor=true&api-version=2015-06-15',
   'retry-after': '25',
   'x-ms-ratelimit-remaining-subscription-writes': '1195',
   'x-ms-request-id': 'f1061790-0d0a-4f13-82d8-5cc64d86e772',
@@ -1103,7 +1092,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/94a0356a-8ceb-421c-9297-670fc288ff3c?monitor=true&api-version=2015-06-15')
   .reply(200, "{\"location\":\"southeastasia\",\"properties\":{\"accountType\":\"Standard_GRS\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1121,7 +1110,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/94a0356a-8ceb-421c-9297-670fc288ff3c?monitor=true&api-version=2015-06-15')
   .reply(200, "{\"location\":\"southeastasia\",\"properties\":{\"accountType\":\"Standard_GRS\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1139,7 +1128,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss1?api-version=2016-03-30', '*')
   .reply(201, "{\r\n  \"sku\": {\r\n    \"name\": \"Standard_D1\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 5\r\n  },\r\n  \"properties\": {\r\n    \"upgradePolicy\": {\r\n      \"mode\": \"Manual\"\r\n    },\r\n    \"virtualMachineProfile\": {\r\n      \"osProfile\": {\r\n        \"computerNamePrefix\": \"xplattestvmss1\",\r\n        \"adminUsername\": \"azureuser\",\r\n        \"linuxConfiguration\": {\r\n          \"disablePasswordAuthentication\": true,\r\n          \"ssh\": {\r\n            \"publicKeys\": [\r\n              {\r\n                \"path\": \"/home/azureuser/.ssh/authorized_keys\",\r\n                \"keyData\": \"MIID/zCCAuegAwIBAgIJAMUAa+XVLvAeMA0GCSqGSIb3DQEBBQUAMIGVMQswCQYD\\r\\nVQQGEwJJbjESMBAGA1UECAwJS2FybmF0YWthMRIwEAYDVQQHDAlCYW5nYWxvcmUx\\r\\nEDAOBgNVBAoMB2JyaWxsaW8xEjAQBgNVBAsMCW1pY3Jvc29mdDEQMA4GA1UEAwwH\\r\\nYnJpbGxpbzEmMCQGCSqGSIb3DQEJARYXc3JlZWthbnRoYnNAeWFob28uY28uaW4w\\r\\nHhcNMTUwMzA1MTE1MzEyWhcNMTYwMzA0MTE1MzEyWjCBlTELMAkGA1UEBhMCSW4x\\r\\nEjAQBgNVBAgMCUthcm5hdGFrYTESMBAGA1UEBwwJQmFuZ2Fsb3JlMRAwDgYDVQQK\\r\\nDAdicmlsbGlvMRIwEAYDVQQLDAltaWNyb3NvZnQxEDAOBgNVBAMMB2JyaWxsaW8x\\r\\nJjAkBgkqhkiG9w0BCQEWF3NyZWVrYW50aGJzQHlhaG9vLmNvLmluMIIBIjANBgkq\\r\\nhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyUNKaOuT0NK+S8Ck81zy9xJ6hXfZvAC6\\r\\nlhbmf/6s/WVimJ/TX5NMhQJwC9k6ZIF92KfYrojHNvHDufSZ3EtKUVwRFCDjmgMT\\r\\nDL09WkGaZt7gROYFK0iZ4KrYGovUwlwum9fHB24OJiOV4bi0ek62/rHx9fjYZpvp\\r\\naIH2PV/hN8SCZ0x7HJMberD4gVoU/Kv42nNvwjLUW6IZfVx/Gv5OeFDtWHfSvUEF\\r\\ndadHKTPn3Ab20Iu6gZIbLO9Vuf38/IpaYGfnFCouHdzmiTiLieYNe3CUPcOJNSv7\\r\\n1G8KYpx3uNJRkJPab5OsRyJw75Gvzkr9OgaPss9tVD6Gt68u3WQtVQIDAQABo1Aw\\r\\nTjAdBgNVHQ4EFgQUogvhXB+xZ2JJPfLO6cVs4ForzscwHwYDVR0jBBgwFoAUogvh\\r\\nXB+xZ2JJPfLO6cVs4ForzscwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOC\\r\\nAQEAdDj7qUNJ45xlF5cjd+4x5NHvAD1VTjOKu+Xh/uzSSjXqB2F0aOMWA9lx0qaQ\\r\\noJgHkGxj3zz/W7ik/cVGL2O+vRIOKv/y0OPogEmS3Hw+P+O6OGE7x1G6YN0zLVoL\\r\\nu4BN/BEYmjttxM9I7qqL7C5cJoE+K3s/w1/pt/68ohJcr7F9Ohi7cso62xuGY1Rm\\r\\nksAh2EUDsU9JV/P+C9AMpLSrb03JJYzVj4w1RHbrmw2AjFyGXdQYkggyXisg+Ifr\\r\\n5gbNN7HigpHf7b2i3CQBUqp9m23frh5AhnLI2qp3UXgc52U5ieLdi/t6j0TTZqqY\\r\\nHhHqofKrj938HHlBNpC5/LVh3w==\\r\\n\"\r\n              }\r\n            ]\r\n          }\r\n        },\r\n        \"secrets\": []\r\n      },\r\n      \"storageProfile\": {\r\n        \"osDisk\": {\r\n          \"vhdContainers\": [\r\n            \"https://xplattestvmss1sto0334406.blob.core.windows.net/xplat-south-3344067167-disk-container\",\r\n            \"https://xplattestvmss1sto1334406.blob.core.windows.net/xplat-south-3344067167-disk-container\",\r\n            \"https://xplattestvmss1sto2334406.blob.core.windows.net/xplat-south-3344067167-disk-container\",\r\n            \"https://xplattestvmss1sto3334406.blob.core.windows.net/xplat-south-3344067167-disk-container\",\r\n            \"https://xplattestvmss1sto4334406.blob.core.windows.net/xplat-south-3344067167-disk-container\"\r\n          ],\r\n          \"name\": \"xplat-south-3344067167-os-disk\",\r\n          \"createOption\": \"FromImage\",\r\n          \"caching\": \"ReadOnly\"\r\n        },\r\n        \"imageReference\": {\r\n          \"publisher\": \"SUSE\",\r\n          \"offer\": \"openSUSE\",\r\n          \"sku\": \"13.2\",\r\n          \"version\": \"latest\"\r\n        }\r\n      },\r\n      \"networkProfile\": {\"networkInterfaceConfigurations\":[{\"name\":\"xplat-south-3344067167-nic\",\"properties\":{\"primary\":true,\"ipConfigurations\":[{\"name\":\"xplat-south-3344067167-pip\",\"properties\":{\"subnet\":{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3344067167-vnet/subnets/xplat-south-3344067167-snet\"},\"loadBalancerBackendAddressPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3344067167-lb/backendAddressPools/xplat-south-3344067167-be\"}],\"loadBalancerInboundNatPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3344067167-lb/inboundNatPools/xplat-south-3344067167-nat\"}]}}]}}]}\r\n    },\r\n    \"provisioningState\": \"Creating\",\r\n    \"overprovision\": false\r\n  },\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss1\",\r\n  \"name\": \"xplattestvmss1\",\r\n  \"type\": \"Microsoft.Compute/virtualMachineScaleSets\",\r\n  \"location\": \"southeastasia\"\r\n}", { 'cache-control': 'no-cache',
@@ -1147,7 +1136,7 @@ nock('http://brazilus.management.azure.com:443')
   'content-length': '4327',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-ms-served-by': 'dce02487-9cda-4782-8138-773eb1573792_131024874770526851',
   'x-ms-request-id': '013fde6d-08fd-47ed-9d71-00f5dce3c256',
@@ -1160,7 +1149,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss1?api-version=2016-03-30', '*')
   .reply(201, "{\r\n  \"sku\": {\r\n    \"name\": \"Standard_D1\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 5\r\n  },\r\n  \"properties\": {\r\n    \"upgradePolicy\": {\r\n      \"mode\": \"Manual\"\r\n    },\r\n    \"virtualMachineProfile\": {\r\n      \"osProfile\": {\r\n        \"computerNamePrefix\": \"xplattestvmss1\",\r\n        \"adminUsername\": \"azureuser\",\r\n        \"linuxConfiguration\": {\r\n          \"disablePasswordAuthentication\": true,\r\n          \"ssh\": {\r\n            \"publicKeys\": [\r\n              {\r\n                \"path\": \"/home/azureuser/.ssh/authorized_keys\",\r\n                \"keyData\": \"MIID/zCCAuegAwIBAgIJAMUAa+XVLvAeMA0GCSqGSIb3DQEBBQUAMIGVMQswCQYD\\r\\nVQQGEwJJbjESMBAGA1UECAwJS2FybmF0YWthMRIwEAYDVQQHDAlCYW5nYWxvcmUx\\r\\nEDAOBgNVBAoMB2JyaWxsaW8xEjAQBgNVBAsMCW1pY3Jvc29mdDEQMA4GA1UEAwwH\\r\\nYnJpbGxpbzEmMCQGCSqGSIb3DQEJARYXc3JlZWthbnRoYnNAeWFob28uY28uaW4w\\r\\nHhcNMTUwMzA1MTE1MzEyWhcNMTYwMzA0MTE1MzEyWjCBlTELMAkGA1UEBhMCSW4x\\r\\nEjAQBgNVBAgMCUthcm5hdGFrYTESMBAGA1UEBwwJQmFuZ2Fsb3JlMRAwDgYDVQQK\\r\\nDAdicmlsbGlvMRIwEAYDVQQLDAltaWNyb3NvZnQxEDAOBgNVBAMMB2JyaWxsaW8x\\r\\nJjAkBgkqhkiG9w0BCQEWF3NyZWVrYW50aGJzQHlhaG9vLmNvLmluMIIBIjANBgkq\\r\\nhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyUNKaOuT0NK+S8Ck81zy9xJ6hXfZvAC6\\r\\nlhbmf/6s/WVimJ/TX5NMhQJwC9k6ZIF92KfYrojHNvHDufSZ3EtKUVwRFCDjmgMT\\r\\nDL09WkGaZt7gROYFK0iZ4KrYGovUwlwum9fHB24OJiOV4bi0ek62/rHx9fjYZpvp\\r\\naIH2PV/hN8SCZ0x7HJMberD4gVoU/Kv42nNvwjLUW6IZfVx/Gv5OeFDtWHfSvUEF\\r\\ndadHKTPn3Ab20Iu6gZIbLO9Vuf38/IpaYGfnFCouHdzmiTiLieYNe3CUPcOJNSv7\\r\\n1G8KYpx3uNJRkJPab5OsRyJw75Gvzkr9OgaPss9tVD6Gt68u3WQtVQIDAQABo1Aw\\r\\nTjAdBgNVHQ4EFgQUogvhXB+xZ2JJPfLO6cVs4ForzscwHwYDVR0jBBgwFoAUogvh\\r\\nXB+xZ2JJPfLO6cVs4ForzscwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOC\\r\\nAQEAdDj7qUNJ45xlF5cjd+4x5NHvAD1VTjOKu+Xh/uzSSjXqB2F0aOMWA9lx0qaQ\\r\\noJgHkGxj3zz/W7ik/cVGL2O+vRIOKv/y0OPogEmS3Hw+P+O6OGE7x1G6YN0zLVoL\\r\\nu4BN/BEYmjttxM9I7qqL7C5cJoE+K3s/w1/pt/68ohJcr7F9Ohi7cso62xuGY1Rm\\r\\nksAh2EUDsU9JV/P+C9AMpLSrb03JJYzVj4w1RHbrmw2AjFyGXdQYkggyXisg+Ifr\\r\\n5gbNN7HigpHf7b2i3CQBUqp9m23frh5AhnLI2qp3UXgc52U5ieLdi/t6j0TTZqqY\\r\\nHhHqofKrj938HHlBNpC5/LVh3w==\\r\\n\"\r\n              }\r\n            ]\r\n          }\r\n        },\r\n        \"secrets\": []\r\n      },\r\n      \"storageProfile\": {\r\n        \"osDisk\": {\r\n          \"vhdContainers\": [\r\n            \"https://xplattestvmss1sto0334406.blob.core.windows.net/xplat-south-3344067167-disk-container\",\r\n            \"https://xplattestvmss1sto1334406.blob.core.windows.net/xplat-south-3344067167-disk-container\",\r\n            \"https://xplattestvmss1sto2334406.blob.core.windows.net/xplat-south-3344067167-disk-container\",\r\n            \"https://xplattestvmss1sto3334406.blob.core.windows.net/xplat-south-3344067167-disk-container\",\r\n            \"https://xplattestvmss1sto4334406.blob.core.windows.net/xplat-south-3344067167-disk-container\"\r\n          ],\r\n          \"name\": \"xplat-south-3344067167-os-disk\",\r\n          \"createOption\": \"FromImage\",\r\n          \"caching\": \"ReadOnly\"\r\n        },\r\n        \"imageReference\": {\r\n          \"publisher\": \"SUSE\",\r\n          \"offer\": \"openSUSE\",\r\n          \"sku\": \"13.2\",\r\n          \"version\": \"latest\"\r\n        }\r\n      },\r\n      \"networkProfile\": {\"networkInterfaceConfigurations\":[{\"name\":\"xplat-south-3344067167-nic\",\"properties\":{\"primary\":true,\"ipConfigurations\":[{\"name\":\"xplat-south-3344067167-pip\",\"properties\":{\"subnet\":{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3344067167-vnet/subnets/xplat-south-3344067167-snet\"},\"loadBalancerBackendAddressPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3344067167-lb/backendAddressPools/xplat-south-3344067167-be\"}],\"loadBalancerInboundNatPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3344067167-lb/inboundNatPools/xplat-south-3344067167-nat\"}]}}]}}]}\r\n    },\r\n    \"provisioningState\": \"Creating\",\r\n    \"overprovision\": false\r\n  },\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss1\",\r\n  \"name\": \"xplattestvmss1\",\r\n  \"type\": \"Microsoft.Compute/virtualMachineScaleSets\",\r\n  \"location\": \"southeastasia\"\r\n}", { 'cache-control': 'no-cache',
@@ -1168,7 +1157,7 @@ nock('https://brazilus.management.azure.com:443')
   'content-length': '4327',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-ms-served-by': 'dce02487-9cda-4782-8138-773eb1573792_131024874770526851',
   'x-ms-request-id': '013fde6d-08fd-47ed-9d71-00f5dce3c256',
@@ -1181,7 +1170,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"013fde6d-08fd-47ed-9d71-00f5dce3c256\",\r\n  \"startTime\": \"2016-04-09T17:15:36.3698846+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1200,7 +1189,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"013fde6d-08fd-47ed-9d71-00f5dce3c256\",\r\n  \"startTime\": \"2016-04-09T17:15:36.3698846+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1219,7 +1208,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"013fde6d-08fd-47ed-9d71-00f5dce3c256\",\r\n  \"startTime\": \"2016-04-09T17:15:36.3698846+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1238,7 +1227,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"013fde6d-08fd-47ed-9d71-00f5dce3c256\",\r\n  \"startTime\": \"2016-04-09T17:15:36.3698846+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1257,7 +1246,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"013fde6d-08fd-47ed-9d71-00f5dce3c256\",\r\n  \"startTime\": \"2016-04-09T17:15:36.3698846+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1276,7 +1265,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"013fde6d-08fd-47ed-9d71-00f5dce3c256\",\r\n  \"startTime\": \"2016-04-09T17:15:36.3698846+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1295,7 +1284,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"013fde6d-08fd-47ed-9d71-00f5dce3c256\",\r\n  \"startTime\": \"2016-04-09T17:15:36.3698846+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1314,7 +1303,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"013fde6d-08fd-47ed-9d71-00f5dce3c256\",\r\n  \"startTime\": \"2016-04-09T17:15:36.3698846+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1333,7 +1322,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"013fde6d-08fd-47ed-9d71-00f5dce3c256\",\r\n  \"startTime\": \"2016-04-09T17:15:36.3698846+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1352,7 +1341,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"013fde6d-08fd-47ed-9d71-00f5dce3c256\",\r\n  \"startTime\": \"2016-04-09T17:15:36.3698846+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1371,7 +1360,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"013fde6d-08fd-47ed-9d71-00f5dce3c256\",\r\n  \"startTime\": \"2016-04-09T17:15:36.3698846+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1390,7 +1379,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"013fde6d-08fd-47ed-9d71-00f5dce3c256\",\r\n  \"startTime\": \"2016-04-09T17:15:36.3698846+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1409,7 +1398,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"013fde6d-08fd-47ed-9d71-00f5dce3c256\",\r\n  \"startTime\": \"2016-04-09T17:15:36.3698846+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1428,7 +1417,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"013fde6d-08fd-47ed-9d71-00f5dce3c256\",\r\n  \"startTime\": \"2016-04-09T17:15:36.3698846+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1447,7 +1436,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"013fde6d-08fd-47ed-9d71-00f5dce3c256\",\r\n  \"startTime\": \"2016-04-09T17:15:36.3698846+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1466,7 +1455,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"013fde6d-08fd-47ed-9d71-00f5dce3c256\",\r\n  \"startTime\": \"2016-04-09T17:15:36.3698846+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1485,7 +1474,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"013fde6d-08fd-47ed-9d71-00f5dce3c256\",\r\n  \"startTime\": \"2016-04-09T17:15:36.3698846+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1504,7 +1493,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"013fde6d-08fd-47ed-9d71-00f5dce3c256\",\r\n  \"startTime\": \"2016-04-09T17:15:36.3698846+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1523,7 +1512,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"013fde6d-08fd-47ed-9d71-00f5dce3c256\",\r\n  \"startTime\": \"2016-04-09T17:15:36.3698846+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1542,7 +1531,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"013fde6d-08fd-47ed-9d71-00f5dce3c256\",\r\n  \"startTime\": \"2016-04-09T17:15:36.3698846+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1561,7 +1550,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"013fde6d-08fd-47ed-9d71-00f5dce3c256\",\r\n  \"startTime\": \"2016-04-09T17:15:36.3698846+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1580,7 +1569,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"013fde6d-08fd-47ed-9d71-00f5dce3c256\",\r\n  \"startTime\": \"2016-04-09T17:15:36.3698846+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1599,7 +1588,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"013fde6d-08fd-47ed-9d71-00f5dce3c256\",\r\n  \"startTime\": \"2016-04-09T17:15:36.3698846+00:00\",\r\n  \"endTime\": \"2016-04-09T17:21:27.6198814+00:00\",\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1618,7 +1607,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/013fde6d-08fd-47ed-9d71-00f5dce3c256?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"013fde6d-08fd-47ed-9d71-00f5dce3c256\",\r\n  \"startTime\": \"2016-04-09T17:15:36.3698846+00:00\",\r\n  \"endTime\": \"2016-04-09T17:21:27.6198814+00:00\",\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1637,7 +1626,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss1?api-version=2016-03-30')
   .reply(200, "{\r\n  \"sku\": {\r\n    \"name\": \"Standard_D1\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 5\r\n  },\r\n  \"properties\": {\r\n    \"upgradePolicy\": {\r\n      \"mode\": \"Manual\"\r\n    },\r\n    \"virtualMachineProfile\": {\r\n      \"osProfile\": {\r\n        \"computerNamePrefix\": \"xplattestvmss1\",\r\n        \"adminUsername\": \"azureuser\",\r\n        \"linuxConfiguration\": {\r\n          \"disablePasswordAuthentication\": true,\r\n          \"ssh\": {\r\n            \"publicKeys\": [\r\n              {\r\n                \"path\": \"/home/azureuser/.ssh/authorized_keys\",\r\n                \"keyData\": \"MIID/zCCAuegAwIBAgIJAMUAa+XVLvAeMA0GCSqGSIb3DQEBBQUAMIGVMQswCQYD\\r\\nVQQGEwJJbjESMBAGA1UECAwJS2FybmF0YWthMRIwEAYDVQQHDAlCYW5nYWxvcmUx\\r\\nEDAOBgNVBAoMB2JyaWxsaW8xEjAQBgNVBAsMCW1pY3Jvc29mdDEQMA4GA1UEAwwH\\r\\nYnJpbGxpbzEmMCQGCSqGSIb3DQEJARYXc3JlZWthbnRoYnNAeWFob28uY28uaW4w\\r\\nHhcNMTUwMzA1MTE1MzEyWhcNMTYwMzA0MTE1MzEyWjCBlTELMAkGA1UEBhMCSW4x\\r\\nEjAQBgNVBAgMCUthcm5hdGFrYTESMBAGA1UEBwwJQmFuZ2Fsb3JlMRAwDgYDVQQK\\r\\nDAdicmlsbGlvMRIwEAYDVQQLDAltaWNyb3NvZnQxEDAOBgNVBAMMB2JyaWxsaW8x\\r\\nJjAkBgkqhkiG9w0BCQEWF3NyZWVrYW50aGJzQHlhaG9vLmNvLmluMIIBIjANBgkq\\r\\nhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyUNKaOuT0NK+S8Ck81zy9xJ6hXfZvAC6\\r\\nlhbmf/6s/WVimJ/TX5NMhQJwC9k6ZIF92KfYrojHNvHDufSZ3EtKUVwRFCDjmgMT\\r\\nDL09WkGaZt7gROYFK0iZ4KrYGovUwlwum9fHB24OJiOV4bi0ek62/rHx9fjYZpvp\\r\\naIH2PV/hN8SCZ0x7HJMberD4gVoU/Kv42nNvwjLUW6IZfVx/Gv5OeFDtWHfSvUEF\\r\\ndadHKTPn3Ab20Iu6gZIbLO9Vuf38/IpaYGfnFCouHdzmiTiLieYNe3CUPcOJNSv7\\r\\n1G8KYpx3uNJRkJPab5OsRyJw75Gvzkr9OgaPss9tVD6Gt68u3WQtVQIDAQABo1Aw\\r\\nTjAdBgNVHQ4EFgQUogvhXB+xZ2JJPfLO6cVs4ForzscwHwYDVR0jBBgwFoAUogvh\\r\\nXB+xZ2JJPfLO6cVs4ForzscwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOC\\r\\nAQEAdDj7qUNJ45xlF5cjd+4x5NHvAD1VTjOKu+Xh/uzSSjXqB2F0aOMWA9lx0qaQ\\r\\noJgHkGxj3zz/W7ik/cVGL2O+vRIOKv/y0OPogEmS3Hw+P+O6OGE7x1G6YN0zLVoL\\r\\nu4BN/BEYmjttxM9I7qqL7C5cJoE+K3s/w1/pt/68ohJcr7F9Ohi7cso62xuGY1Rm\\r\\nksAh2EUDsU9JV/P+C9AMpLSrb03JJYzVj4w1RHbrmw2AjFyGXdQYkggyXisg+Ifr\\r\\n5gbNN7HigpHf7b2i3CQBUqp9m23frh5AhnLI2qp3UXgc52U5ieLdi/t6j0TTZqqY\\r\\nHhHqofKrj938HHlBNpC5/LVh3w==\\r\\n\"\r\n              }\r\n            ]\r\n          }\r\n        },\r\n        \"secrets\": []\r\n      },\r\n      \"storageProfile\": {\r\n        \"osDisk\": {\r\n          \"vhdContainers\": [\r\n            \"https://xplattestvmss1sto0334406.blob.core.windows.net/xplat-south-3344067167-disk-container\",\r\n            \"https://xplattestvmss1sto1334406.blob.core.windows.net/xplat-south-3344067167-disk-container\",\r\n            \"https://xplattestvmss1sto2334406.blob.core.windows.net/xplat-south-3344067167-disk-container\",\r\n            \"https://xplattestvmss1sto3334406.blob.core.windows.net/xplat-south-3344067167-disk-container\",\r\n            \"https://xplattestvmss1sto4334406.blob.core.windows.net/xplat-south-3344067167-disk-container\"\r\n          ],\r\n          \"name\": \"xplat-south-3344067167-os-disk\",\r\n          \"createOption\": \"FromImage\",\r\n          \"caching\": \"ReadOnly\"\r\n        },\r\n        \"imageReference\": {\r\n          \"publisher\": \"SUSE\",\r\n          \"offer\": \"openSUSE\",\r\n          \"sku\": \"13.2\",\r\n          \"version\": \"latest\"\r\n        }\r\n      },\r\n      \"networkProfile\": {\"networkInterfaceConfigurations\":[{\"name\":\"xplat-south-3344067167-nic\",\"properties\":{\"primary\":true,\"ipConfigurations\":[{\"name\":\"xplat-south-3344067167-pip\",\"properties\":{\"subnet\":{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3344067167-vnet/subnets/xplat-south-3344067167-snet\"},\"loadBalancerBackendAddressPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3344067167-lb/backendAddressPools/xplat-south-3344067167-be\"}],\"loadBalancerInboundNatPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3344067167-lb/inboundNatPools/xplat-south-3344067167-nat\"}]}}]}}]}\r\n    },\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"overprovision\": false\r\n  },\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss1\",\r\n  \"name\": \"xplattestvmss1\",\r\n  \"type\": \"Microsoft.Compute/virtualMachineScaleSets\",\r\n  \"location\": \"southeastasia\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1656,7 +1645,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss1?api-version=2016-03-30')
   .reply(200, "{\r\n  \"sku\": {\r\n    \"name\": \"Standard_D1\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 5\r\n  },\r\n  \"properties\": {\r\n    \"upgradePolicy\": {\r\n      \"mode\": \"Manual\"\r\n    },\r\n    \"virtualMachineProfile\": {\r\n      \"osProfile\": {\r\n        \"computerNamePrefix\": \"xplattestvmss1\",\r\n        \"adminUsername\": \"azureuser\",\r\n        \"linuxConfiguration\": {\r\n          \"disablePasswordAuthentication\": true,\r\n          \"ssh\": {\r\n            \"publicKeys\": [\r\n              {\r\n                \"path\": \"/home/azureuser/.ssh/authorized_keys\",\r\n                \"keyData\": \"MIID/zCCAuegAwIBAgIJAMUAa+XVLvAeMA0GCSqGSIb3DQEBBQUAMIGVMQswCQYD\\r\\nVQQGEwJJbjESMBAGA1UECAwJS2FybmF0YWthMRIwEAYDVQQHDAlCYW5nYWxvcmUx\\r\\nEDAOBgNVBAoMB2JyaWxsaW8xEjAQBgNVBAsMCW1pY3Jvc29mdDEQMA4GA1UEAwwH\\r\\nYnJpbGxpbzEmMCQGCSqGSIb3DQEJARYXc3JlZWthbnRoYnNAeWFob28uY28uaW4w\\r\\nHhcNMTUwMzA1MTE1MzEyWhcNMTYwMzA0MTE1MzEyWjCBlTELMAkGA1UEBhMCSW4x\\r\\nEjAQBgNVBAgMCUthcm5hdGFrYTESMBAGA1UEBwwJQmFuZ2Fsb3JlMRAwDgYDVQQK\\r\\nDAdicmlsbGlvMRIwEAYDVQQLDAltaWNyb3NvZnQxEDAOBgNVBAMMB2JyaWxsaW8x\\r\\nJjAkBgkqhkiG9w0BCQEWF3NyZWVrYW50aGJzQHlhaG9vLmNvLmluMIIBIjANBgkq\\r\\nhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyUNKaOuT0NK+S8Ck81zy9xJ6hXfZvAC6\\r\\nlhbmf/6s/WVimJ/TX5NMhQJwC9k6ZIF92KfYrojHNvHDufSZ3EtKUVwRFCDjmgMT\\r\\nDL09WkGaZt7gROYFK0iZ4KrYGovUwlwum9fHB24OJiOV4bi0ek62/rHx9fjYZpvp\\r\\naIH2PV/hN8SCZ0x7HJMberD4gVoU/Kv42nNvwjLUW6IZfVx/Gv5OeFDtWHfSvUEF\\r\\ndadHKTPn3Ab20Iu6gZIbLO9Vuf38/IpaYGfnFCouHdzmiTiLieYNe3CUPcOJNSv7\\r\\n1G8KYpx3uNJRkJPab5OsRyJw75Gvzkr9OgaPss9tVD6Gt68u3WQtVQIDAQABo1Aw\\r\\nTjAdBgNVHQ4EFgQUogvhXB+xZ2JJPfLO6cVs4ForzscwHwYDVR0jBBgwFoAUogvh\\r\\nXB+xZ2JJPfLO6cVs4ForzscwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOC\\r\\nAQEAdDj7qUNJ45xlF5cjd+4x5NHvAD1VTjOKu+Xh/uzSSjXqB2F0aOMWA9lx0qaQ\\r\\noJgHkGxj3zz/W7ik/cVGL2O+vRIOKv/y0OPogEmS3Hw+P+O6OGE7x1G6YN0zLVoL\\r\\nu4BN/BEYmjttxM9I7qqL7C5cJoE+K3s/w1/pt/68ohJcr7F9Ohi7cso62xuGY1Rm\\r\\nksAh2EUDsU9JV/P+C9AMpLSrb03JJYzVj4w1RHbrmw2AjFyGXdQYkggyXisg+Ifr\\r\\n5gbNN7HigpHf7b2i3CQBUqp9m23frh5AhnLI2qp3UXgc52U5ieLdi/t6j0TTZqqY\\r\\nHhHqofKrj938HHlBNpC5/LVh3w==\\r\\n\"\r\n              }\r\n            ]\r\n          }\r\n        },\r\n        \"secrets\": []\r\n      },\r\n      \"storageProfile\": {\r\n        \"osDisk\": {\r\n          \"vhdContainers\": [\r\n            \"https://xplattestvmss1sto0334406.blob.core.windows.net/xplat-south-3344067167-disk-container\",\r\n            \"https://xplattestvmss1sto1334406.blob.core.windows.net/xplat-south-3344067167-disk-container\",\r\n            \"https://xplattestvmss1sto2334406.blob.core.windows.net/xplat-south-3344067167-disk-container\",\r\n            \"https://xplattestvmss1sto3334406.blob.core.windows.net/xplat-south-3344067167-disk-container\",\r\n            \"https://xplattestvmss1sto4334406.blob.core.windows.net/xplat-south-3344067167-disk-container\"\r\n          ],\r\n          \"name\": \"xplat-south-3344067167-os-disk\",\r\n          \"createOption\": \"FromImage\",\r\n          \"caching\": \"ReadOnly\"\r\n        },\r\n        \"imageReference\": {\r\n          \"publisher\": \"SUSE\",\r\n          \"offer\": \"openSUSE\",\r\n          \"sku\": \"13.2\",\r\n          \"version\": \"latest\"\r\n        }\r\n      },\r\n      \"networkProfile\": {\"networkInterfaceConfigurations\":[{\"name\":\"xplat-south-3344067167-nic\",\"properties\":{\"primary\":true,\"ipConfigurations\":[{\"name\":\"xplat-south-3344067167-pip\",\"properties\":{\"subnet\":{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3344067167-vnet/subnets/xplat-south-3344067167-snet\"},\"loadBalancerBackendAddressPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3344067167-lb/backendAddressPools/xplat-south-3344067167-be\"}],\"loadBalancerInboundNatPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3344067167-lb/inboundNatPools/xplat-south-3344067167-nat\"}]}}]}}]}\r\n    },\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"overprovision\": false\r\n  },\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss1\",\r\n  \"name\": \"xplattestvmss1\",\r\n  \"type\": \"Microsoft.Compute/virtualMachineScaleSets\",\r\n  \"location\": \"southeastasia\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1675,7 +1664,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourcegroups/xplatTestVMSSCreate972?api-version=2016-02-01')
   .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972\",\"name\":\"xplatTestVMSSCreate972\",\"location\":\"southeastasia\",\"tags\":{\"arm-cli-vmss-create-tests\":\"2016-04-09T17:10:19.704Z\"},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1692,7 +1681,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourcegroups/xplatTestVMSSCreate972?api-version=2016-02-01')
   .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972\",\"name\":\"xplatTestVMSSCreate972\",\"location\":\"southeastasia\",\"tags\":{\"arm-cli-vmss-create-tests\":\"2016-04-09T17:10:19.704Z\"},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1709,7 +1698,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .patch('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourcegroups/xplatTestVMSSCreate972?api-version=2016-02-01', '*')
   .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972\",\"name\":\"xplatTestVMSSCreate972\",\"location\":\"southeastasia\",\"tags\":{\"arm-cli-vmss-create-tests\":\"2016-04-09T17:21:54.072Z\"},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
@@ -1727,7 +1716,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .patch('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourcegroups/xplatTestVMSSCreate972?api-version=2016-02-01', '*')
   .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972\",\"name\":\"xplatTestVMSSCreate972\",\"location\":\"southeastasia\",\"tags\":{\"arm-cli-vmss-create-tests\":\"2016-04-09T17:21:54.072Z\"},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
@@ -1745,7 +1734,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourcegroups/xplatTestVMSSCreate972?api-version=2016-02-01')
   .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972\",\"name\":\"xplatTestVMSSCreate972\",\"location\":\"southeastasia\",\"tags\":{\"arm-cli-vmss-create-tests\":\"2016-04-09T17:21:54.072Z\"},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1762,7 +1751,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourcegroups/xplatTestVMSSCreate972?api-version=2016-02-01')
   .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972\",\"name\":\"xplatTestVMSSCreate972\",\"location\":\"southeastasia\",\"tags\":{\"arm-cli-vmss-create-tests\":\"2016-04-09T17:21:54.072Z\"},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1779,7 +1768,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3530523534-nic?api-version=2016-03-30')
   .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/networkInterfaces/xplat-south-3530523534-nic' under resource group 'xplatTestVMSSCreate972' was not found.\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1796,7 +1785,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3530523534-nic?api-version=2016-03-30')
   .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/networkInterfaces/xplat-south-3530523534-nic' under resource group 'xplatTestVMSSCreate972' was not found.\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1813,7 +1802,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualnetworks/xplat-south-3530523534-vnet?api-version=2016-03-30')
   .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/virtualNetworks/xplat-south-3530523534-vnet' under resource group 'xplatTestVMSSCreate972' was not found.\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1830,7 +1819,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualnetworks/xplat-south-3530523534-vnet?api-version=2016-03-30')
   .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/virtualNetworks/xplat-south-3530523534-vnet' under resource group 'xplatTestVMSSCreate972' was not found.\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1847,7 +1836,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualnetworks/xplat-south-3530523534-vnet?api-version=2016-03-30', '*')
   .reply(201, "{\r\n  \"name\": \"xplat-south-3530523534-vnet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3530523534-vnet\",\r\n  \"etag\": \"W/\\\"e197f42b-69e2-4b3d-9662-b61b8d0a50df\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"279db567-49a9-4cea-ac79-1a84e2431a24\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-south-3530523534-snet\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3530523534-vnet/subnets/xplat-south-3530523534-snet\",\r\n        \"etag\": \"W/\\\"e197f42b-69e2-4b3d-9662-b61b8d0a50df\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Updating\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
@@ -1857,7 +1846,7 @@ nock('http://brazilus.management.azure.com:443')
   expires: '-1',
   'retry-after': '10',
   'x-ms-request-id': '3f6ad7aa-2b65-492d-80be-255ab8bb125d',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/3f6ad7aa-2b65-492d-80be-255ab8bb125d?api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/3f6ad7aa-2b65-492d-80be-255ab8bb125d?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
   'x-ms-ratelimit-remaining-subscription-writes': '1191',
@@ -1868,7 +1857,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualnetworks/xplat-south-3530523534-vnet?api-version=2016-03-30', '*')
   .reply(201, "{\r\n  \"name\": \"xplat-south-3530523534-vnet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3530523534-vnet\",\r\n  \"etag\": \"W/\\\"e197f42b-69e2-4b3d-9662-b61b8d0a50df\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"279db567-49a9-4cea-ac79-1a84e2431a24\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-south-3530523534-snet\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3530523534-vnet/subnets/xplat-south-3530523534-snet\",\r\n        \"etag\": \"W/\\\"e197f42b-69e2-4b3d-9662-b61b8d0a50df\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Updating\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
@@ -1878,7 +1867,7 @@ nock('https://brazilus.management.azure.com:443')
   expires: '-1',
   'retry-after': '10',
   'x-ms-request-id': '3f6ad7aa-2b65-492d-80be-255ab8bb125d',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/3f6ad7aa-2b65-492d-80be-255ab8bb125d?api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/3f6ad7aa-2b65-492d-80be-255ab8bb125d?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
   'x-ms-ratelimit-remaining-subscription-writes': '1191',
@@ -1889,7 +1878,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/3f6ad7aa-2b65-492d-80be-255ab8bb125d?api-version=2016-03-30')
   .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1907,7 +1896,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/3f6ad7aa-2b65-492d-80be-255ab8bb125d?api-version=2016-03-30')
   .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1925,7 +1914,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualnetworks/xplat-south-3530523534-vnet?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3530523534-vnet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3530523534-vnet\",\r\n  \"etag\": \"W/\\\"25e64124-38da-48af-9050-a8e45ba155ab\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"279db567-49a9-4cea-ac79-1a84e2431a24\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-south-3530523534-snet\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3530523534-vnet/subnets/xplat-south-3530523534-snet\",\r\n        \"etag\": \"W/\\\"25e64124-38da-48af-9050-a8e45ba155ab\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1944,7 +1933,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualnetworks/xplat-south-3530523534-vnet?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3530523534-vnet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3530523534-vnet\",\r\n  \"etag\": \"W/\\\"25e64124-38da-48af-9050-a8e45ba155ab\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"279db567-49a9-4cea-ac79-1a84e2431a24\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-south-3530523534-snet\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3530523534-vnet/subnets/xplat-south-3530523534-snet\",\r\n        \"etag\": \"W/\\\"25e64124-38da-48af-9050-a8e45ba155ab\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1963,7 +1952,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualnetworks/xplat-south-3530523534-vnet?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3530523534-vnet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3530523534-vnet\",\r\n  \"etag\": \"W/\\\"25e64124-38da-48af-9050-a8e45ba155ab\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"279db567-49a9-4cea-ac79-1a84e2431a24\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-south-3530523534-snet\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3530523534-vnet/subnets/xplat-south-3530523534-snet\",\r\n        \"etag\": \"W/\\\"25e64124-38da-48af-9050-a8e45ba155ab\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -1982,7 +1971,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualnetworks/xplat-south-3530523534-vnet?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3530523534-vnet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3530523534-vnet\",\r\n  \"etag\": \"W/\\\"25e64124-38da-48af-9050-a8e45ba155ab\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"279db567-49a9-4cea-ac79-1a84e2431a24\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-south-3530523534-snet\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3530523534-vnet/subnets/xplat-south-3530523534-snet\",\r\n        \"etag\": \"W/\\\"25e64124-38da-48af-9050-a8e45ba155ab\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2001,7 +1990,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualnetworks/xplat-south-3530523534-vnet/subnets/xplat-south-3530523534-snet?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3530523534-snet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3530523534-vnet/subnets/xplat-south-3530523534-snet\",\r\n  \"etag\": \"W/\\\"25e64124-38da-48af-9050-a8e45ba155ab\\\"\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"addressPrefix\": \"10.0.1.0/24\"\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2020,7 +2009,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualnetworks/xplat-south-3530523534-vnet/subnets/xplat-south-3530523534-snet?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3530523534-snet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3530523534-vnet/subnets/xplat-south-3530523534-snet\",\r\n  \"etag\": \"W/\\\"25e64124-38da-48af-9050-a8e45ba155ab\\\"\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"addressPrefix\": \"10.0.1.0/24\"\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2039,7 +2028,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip?api-version=2016-03-30')
   .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip' under resource group 'xplatTestVMSSCreate972' was not found.\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2056,7 +2045,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip?api-version=2016-03-30')
   .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip' under resource group 'xplatTestVMSSCreate972' was not found.\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2073,7 +2062,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip?api-version=2016-03-30', '*')
   .reply(201, "{\r\n  \"name\": \"xplat-south-3530523534-pip\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip\",\r\n  \"etag\": \"W/\\\"e74ddba2-3e66-4fae-8a32-cc1bef23500e\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"d5c468fa-19d7-4d94-8ff0-2af51d68f2aa\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-3530523534-pip\",\r\n      \"fqdn\": \"xplat-south-3530523534-pip.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
@@ -2083,7 +2072,7 @@ nock('http://brazilus.management.azure.com:443')
   expires: '-1',
   'retry-after': '10',
   'x-ms-request-id': '7aa77b7d-94b9-46ee-a7fd-7dcda965c2fd',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/7aa77b7d-94b9-46ee-a7fd-7dcda965c2fd?api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/7aa77b7d-94b9-46ee-a7fd-7dcda965c2fd?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
   'x-ms-ratelimit-remaining-subscription-writes': '1192',
@@ -2094,7 +2083,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip?api-version=2016-03-30', '*')
   .reply(201, "{\r\n  \"name\": \"xplat-south-3530523534-pip\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip\",\r\n  \"etag\": \"W/\\\"e74ddba2-3e66-4fae-8a32-cc1bef23500e\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"d5c468fa-19d7-4d94-8ff0-2af51d68f2aa\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-3530523534-pip\",\r\n      \"fqdn\": \"xplat-south-3530523534-pip.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
@@ -2104,7 +2093,7 @@ nock('https://brazilus.management.azure.com:443')
   expires: '-1',
   'retry-after': '10',
   'x-ms-request-id': '7aa77b7d-94b9-46ee-a7fd-7dcda965c2fd',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/7aa77b7d-94b9-46ee-a7fd-7dcda965c2fd?api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/7aa77b7d-94b9-46ee-a7fd-7dcda965c2fd?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
   'x-ms-ratelimit-remaining-subscription-writes': '1192',
@@ -2115,7 +2104,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/7aa77b7d-94b9-46ee-a7fd-7dcda965c2fd?api-version=2016-03-30')
   .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2133,7 +2122,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/7aa77b7d-94b9-46ee-a7fd-7dcda965c2fd?api-version=2016-03-30')
   .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2151,7 +2140,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3530523534-pip\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip\",\r\n  \"etag\": \"W/\\\"3f2e201e-7079-426c-99ce-5a118e3b165c\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"d5c468fa-19d7-4d94-8ff0-2af51d68f2aa\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-3530523534-pip\",\r\n      \"fqdn\": \"xplat-south-3530523534-pip.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2170,7 +2159,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3530523534-pip\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip\",\r\n  \"etag\": \"W/\\\"3f2e201e-7079-426c-99ce-5a118e3b165c\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"d5c468fa-19d7-4d94-8ff0-2af51d68f2aa\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-3530523534-pip\",\r\n      \"fqdn\": \"xplat-south-3530523534-pip.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2189,7 +2178,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3530523534-pip\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip\",\r\n  \"etag\": \"W/\\\"3f2e201e-7079-426c-99ce-5a118e3b165c\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"d5c468fa-19d7-4d94-8ff0-2af51d68f2aa\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-3530523534-pip\",\r\n      \"fqdn\": \"xplat-south-3530523534-pip.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2208,7 +2197,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3530523534-pip\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip\",\r\n  \"etag\": \"W/\\\"3f2e201e-7079-426c-99ce-5a118e3b165c\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"d5c468fa-19d7-4d94-8ff0-2af51d68f2aa\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-3530523534-pip\",\r\n      \"fqdn\": \"xplat-south-3530523534-pip.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2227,7 +2216,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3530523534-nic?api-version=2016-03-30', '*')
   .reply(201, "{\r\n  \"name\": \"xplat-south-3530523534-nic\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3530523534-nic\",\r\n  \"etag\": \"W/\\\"a8ca3064-75bd-44e5-b140-c95e5e834b54\\\"\",\r\n  \"type\": \"Microsoft.Network/networkInterfaces\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"b66a0aff-a40a-439f-9578-5bf81eda1288\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1460222561159\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3530523534-nic/ipConfigurations/ipconfig1460222561159\",\r\n        \"etag\": \"W/\\\"a8ca3064-75bd-44e5-b140-c95e5e834b54\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3530523534-vnet/subnets/xplat-south-3530523534-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"m40z0j3jjhvezldzdkcoeqy0ee.ix.internal.cloudapp.net\"\r\n    },\r\n    \"enableIPForwarding\": false\r\n  }\r\n}", { 'cache-control': 'no-cache',
@@ -2236,7 +2225,7 @@ nock('http://brazilus.management.azure.com:443')
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'x-ms-request-id': 'f4c27757-43e2-497e-92b1-3713ea917bd5',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/f4c27757-43e2-497e-92b1-3713ea917bd5?api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/f4c27757-43e2-497e-92b1-3713ea917bd5?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
   'x-ms-ratelimit-remaining-subscription-writes': '1193',
@@ -2247,7 +2236,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3530523534-nic?api-version=2016-03-30', '*')
   .reply(201, "{\r\n  \"name\": \"xplat-south-3530523534-nic\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3530523534-nic\",\r\n  \"etag\": \"W/\\\"a8ca3064-75bd-44e5-b140-c95e5e834b54\\\"\",\r\n  \"type\": \"Microsoft.Network/networkInterfaces\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"b66a0aff-a40a-439f-9578-5bf81eda1288\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1460222561159\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3530523534-nic/ipConfigurations/ipconfig1460222561159\",\r\n        \"etag\": \"W/\\\"a8ca3064-75bd-44e5-b140-c95e5e834b54\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3530523534-vnet/subnets/xplat-south-3530523534-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"m40z0j3jjhvezldzdkcoeqy0ee.ix.internal.cloudapp.net\"\r\n    },\r\n    \"enableIPForwarding\": false\r\n  }\r\n}", { 'cache-control': 'no-cache',
@@ -2256,7 +2245,7 @@ nock('https://brazilus.management.azure.com:443')
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'x-ms-request-id': 'f4c27757-43e2-497e-92b1-3713ea917bd5',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/f4c27757-43e2-497e-92b1-3713ea917bd5?api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/f4c27757-43e2-497e-92b1-3713ea917bd5?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
   'x-ms-ratelimit-remaining-subscription-writes': '1193',
@@ -2267,7 +2256,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3530523534-nic?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3530523534-nic\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3530523534-nic\",\r\n  \"etag\": \"W/\\\"a8ca3064-75bd-44e5-b140-c95e5e834b54\\\"\",\r\n  \"type\": \"Microsoft.Network/networkInterfaces\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"b66a0aff-a40a-439f-9578-5bf81eda1288\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1460222561159\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3530523534-nic/ipConfigurations/ipconfig1460222561159\",\r\n        \"etag\": \"W/\\\"a8ca3064-75bd-44e5-b140-c95e5e834b54\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3530523534-vnet/subnets/xplat-south-3530523534-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"m40z0j3jjhvezldzdkcoeqy0ee.ix.internal.cloudapp.net\"\r\n    },\r\n    \"enableIPForwarding\": false\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2286,7 +2275,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3530523534-nic?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3530523534-nic\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3530523534-nic\",\r\n  \"etag\": \"W/\\\"a8ca3064-75bd-44e5-b140-c95e5e834b54\\\"\",\r\n  \"type\": \"Microsoft.Network/networkInterfaces\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"b66a0aff-a40a-439f-9578-5bf81eda1288\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1460222561159\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/networkInterfaces/xplat-south-3530523534-nic/ipConfigurations/ipconfig1460222561159\",\r\n        \"etag\": \"W/\\\"a8ca3064-75bd-44e5-b140-c95e5e834b54\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3530523534-vnet/subnets/xplat-south-3530523534-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"m40z0j3jjhvezldzdkcoeqy0ee.ix.internal.cloudapp.net\"\r\n    },\r\n    \"enableIPForwarding\": false\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2305,7 +2294,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip2?api-version=2016-03-30', '*')
   .reply(201, "{\r\n  \"name\": \"xplat-south-3530523534-pip2\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip2\",\r\n  \"etag\": \"W/\\\"64d1a579-c745-4760-84cc-3f84315ae602\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"985eca98-6edf-4477-898e-e1d7e9603032\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-3530523534-pip2\",\r\n      \"fqdn\": \"xplat-south-3530523534-pip2.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
@@ -2315,7 +2304,7 @@ nock('http://brazilus.management.azure.com:443')
   expires: '-1',
   'retry-after': '10',
   'x-ms-request-id': '044cf37c-26b1-47bc-b0e1-605350fb998b',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/044cf37c-26b1-47bc-b0e1-605350fb998b?api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/044cf37c-26b1-47bc-b0e1-605350fb998b?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
   'x-ms-ratelimit-remaining-subscription-writes': '1192',
@@ -2326,7 +2315,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip2?api-version=2016-03-30', '*')
   .reply(201, "{\r\n  \"name\": \"xplat-south-3530523534-pip2\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip2\",\r\n  \"etag\": \"W/\\\"64d1a579-c745-4760-84cc-3f84315ae602\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"985eca98-6edf-4477-898e-e1d7e9603032\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-3530523534-pip2\",\r\n      \"fqdn\": \"xplat-south-3530523534-pip2.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
@@ -2336,7 +2325,7 @@ nock('https://brazilus.management.azure.com:443')
   expires: '-1',
   'retry-after': '10',
   'x-ms-request-id': '044cf37c-26b1-47bc-b0e1-605350fb998b',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/044cf37c-26b1-47bc-b0e1-605350fb998b?api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/044cf37c-26b1-47bc-b0e1-605350fb998b?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
   'x-ms-ratelimit-remaining-subscription-writes': '1192',
@@ -2347,7 +2336,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/044cf37c-26b1-47bc-b0e1-605350fb998b?api-version=2016-03-30')
   .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2365,7 +2354,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/044cf37c-26b1-47bc-b0e1-605350fb998b?api-version=2016-03-30')
   .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2383,7 +2372,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip2?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3530523534-pip2\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip2\",\r\n  \"etag\": \"W/\\\"f0d97d27-a027-400c-8f0c-f24ddde61a21\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"985eca98-6edf-4477-898e-e1d7e9603032\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-3530523534-pip2\",\r\n      \"fqdn\": \"xplat-south-3530523534-pip2.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2402,7 +2391,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip2?api-version=2016-03-30')
   .reply(200, "{\r\n  \"name\": \"xplat-south-3530523534-pip2\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip2\",\r\n  \"etag\": \"W/\\\"f0d97d27-a027-400c-8f0c-f24ddde61a21\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"985eca98-6edf-4477-898e-e1d7e9603032\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-3530523534-pip2\",\r\n      \"fqdn\": \"xplat-south-3530523534-pip2.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2421,7 +2410,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3530523534-lb?api-version=2016-03-30', '*')
   .reply(201, "{\r\n  \"name\": \"xplat-south-3530523534-lb\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3530523534-lb\",\r\n  \"etag\": \"W/\\\"4593e004-4ee3-4452-a0d6-c2e160c12bb8\\\"\",\r\n  \"type\": \"Microsoft.Network/loadBalancers\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"eee44a06-febb-4ed9-965a-6af836d68309\",\r\n    \"frontendIPConfigurations\": [\r\n      {\r\n        \"name\": \"loadBalancerFrontEnd\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3530523534-lb/frontendIPConfigurations/loadBalancerFrontEnd\",\r\n        \"etag\": \"W/\\\"4593e004-4ee3-4452-a0d6-c2e160c12bb8\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip2\"\r\n          },\r\n          \"inboundNatPools\": [\r\n            {\r\n              \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3530523534-lb/inboundNatPools/xplat-south-3530523534-nat\"\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    ],\r\n    \"backendAddressPools\": [\r\n      {\r\n        \"name\": \"xplat-south-3530523534-be\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3530523534-lb/backendAddressPools/xplat-south-3530523534-be\",\r\n        \"etag\": \"W/\\\"4593e004-4ee3-4452-a0d6-c2e160c12bb8\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\"\r\n        }\r\n      }\r\n    ],\r\n    \"loadBalancingRules\": [],\r\n    \"probes\": [],\r\n    \"inboundNatRules\": [],\r\n    \"outboundNatRules\": [],\r\n    \"inboundNatPools\": [\r\n      {\r\n        \"name\": \"xplat-south-3530523534-nat\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3530523534-lb/inboundNatPools/xplat-south-3530523534-nat\",\r\n        \"etag\": \"W/\\\"4593e004-4ee3-4452-a0d6-c2e160c12bb8\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"frontendPortRangeStart\": 50000,\r\n          \"frontendPortRangeEnd\": 50099,\r\n          \"backendPort\": 22,\r\n          \"protocol\": \"Tcp\",\r\n          \"frontendIPConfiguration\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3530523534-lb/frontendIPConfigurations/loadBalancerFrontEnd\"\r\n          }\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
@@ -2430,7 +2419,7 @@ nock('http://brazilus.management.azure.com:443')
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'x-ms-request-id': '05ded88c-040c-45c0-8ccc-57b61de5a269',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/05ded88c-040c-45c0-8ccc-57b61de5a269?api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/05ded88c-040c-45c0-8ccc-57b61de5a269?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
   'x-ms-ratelimit-remaining-subscription-writes': '1193',
@@ -2441,7 +2430,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3530523534-lb?api-version=2016-03-30', '*')
   .reply(201, "{\r\n  \"name\": \"xplat-south-3530523534-lb\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3530523534-lb\",\r\n  \"etag\": \"W/\\\"4593e004-4ee3-4452-a0d6-c2e160c12bb8\\\"\",\r\n  \"type\": \"Microsoft.Network/loadBalancers\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"eee44a06-febb-4ed9-965a-6af836d68309\",\r\n    \"frontendIPConfigurations\": [\r\n      {\r\n        \"name\": \"loadBalancerFrontEnd\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3530523534-lb/frontendIPConfigurations/loadBalancerFrontEnd\",\r\n        \"etag\": \"W/\\\"4593e004-4ee3-4452-a0d6-c2e160c12bb8\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/publicIPAddresses/xplat-south-3530523534-pip2\"\r\n          },\r\n          \"inboundNatPools\": [\r\n            {\r\n              \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3530523534-lb/inboundNatPools/xplat-south-3530523534-nat\"\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    ],\r\n    \"backendAddressPools\": [\r\n      {\r\n        \"name\": \"xplat-south-3530523534-be\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3530523534-lb/backendAddressPools/xplat-south-3530523534-be\",\r\n        \"etag\": \"W/\\\"4593e004-4ee3-4452-a0d6-c2e160c12bb8\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\"\r\n        }\r\n      }\r\n    ],\r\n    \"loadBalancingRules\": [],\r\n    \"probes\": [],\r\n    \"inboundNatRules\": [],\r\n    \"outboundNatRules\": [],\r\n    \"inboundNatPools\": [\r\n      {\r\n        \"name\": \"xplat-south-3530523534-nat\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3530523534-lb/inboundNatPools/xplat-south-3530523534-nat\",\r\n        \"etag\": \"W/\\\"4593e004-4ee3-4452-a0d6-c2e160c12bb8\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"frontendPortRangeStart\": 50000,\r\n          \"frontendPortRangeEnd\": 50099,\r\n          \"backendPort\": 22,\r\n          \"protocol\": \"Tcp\",\r\n          \"frontendIPConfiguration\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3530523534-lb/frontendIPConfigurations/loadBalancerFrontEnd\"\r\n          }\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
@@ -2450,7 +2439,7 @@ nock('https://brazilus.management.azure.com:443')
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'x-ms-request-id': '05ded88c-040c-45c0-8ccc-57b61de5a269',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/05ded88c-040c-45c0-8ccc-57b61de5a269?api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/southeastasia/operations/05ded88c-040c-45c0-8ccc-57b61de5a269?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
   'x-ms-ratelimit-remaining-subscription-writes': '1193',
@@ -2461,14 +2450,14 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto03530523?api-version=2015-06-15', '*')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
   expires: '-1',
-  location: 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/e3a71b1d-e1ff-472e-a126-35698957ce55?monitor=true&api-version=2015-06-15',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/e3a71b1d-e1ff-472e-a126-35698957ce55?monitor=true&api-version=2015-06-15',
   'retry-after': '25',
   'x-ms-ratelimit-remaining-subscription-writes': '1190',
   'x-ms-request-id': '9a0fc328-625f-495c-8d02-af09bd1ca76f',
@@ -2481,14 +2470,14 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto03530523?api-version=2015-06-15', '*')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
   expires: '-1',
-  location: 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/e3a71b1d-e1ff-472e-a126-35698957ce55?monitor=true&api-version=2015-06-15',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/e3a71b1d-e1ff-472e-a126-35698957ce55?monitor=true&api-version=2015-06-15',
   'retry-after': '25',
   'x-ms-ratelimit-remaining-subscription-writes': '1190',
   'x-ms-request-id': '9a0fc328-625f-495c-8d02-af09bd1ca76f',
@@ -2501,7 +2490,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/e3a71b1d-e1ff-472e-a126-35698957ce55?monitor=true&api-version=2015-06-15')
   .reply(200, "{\"location\":\"southeastasia\",\"properties\":{\"accountType\":\"Standard_GRS\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2519,7 +2508,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/e3a71b1d-e1ff-472e-a126-35698957ce55?monitor=true&api-version=2015-06-15')
   .reply(200, "{\"location\":\"southeastasia\",\"properties\":{\"accountType\":\"Standard_GRS\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2537,14 +2526,14 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto13530523?api-version=2015-06-15', '*')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
   expires: '-1',
-  location: 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/d03ff15c-72ce-40a9-af0c-66df21d5c602?monitor=true&api-version=2015-06-15',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/d03ff15c-72ce-40a9-af0c-66df21d5c602?monitor=true&api-version=2015-06-15',
   'retry-after': '25',
   'x-ms-ratelimit-remaining-subscription-writes': '1192',
   'x-ms-request-id': '3fe969ac-6032-4298-8ea3-1798cf09c222',
@@ -2557,14 +2546,14 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto13530523?api-version=2015-06-15', '*')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
   expires: '-1',
-  location: 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/d03ff15c-72ce-40a9-af0c-66df21d5c602?monitor=true&api-version=2015-06-15',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/d03ff15c-72ce-40a9-af0c-66df21d5c602?monitor=true&api-version=2015-06-15',
   'retry-after': '25',
   'x-ms-ratelimit-remaining-subscription-writes': '1192',
   'x-ms-request-id': '3fe969ac-6032-4298-8ea3-1798cf09c222',
@@ -2577,7 +2566,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/d03ff15c-72ce-40a9-af0c-66df21d5c602?monitor=true&api-version=2015-06-15')
   .reply(200, "{\"location\":\"southeastasia\",\"properties\":{\"accountType\":\"Standard_GRS\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2595,7 +2584,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/d03ff15c-72ce-40a9-af0c-66df21d5c602?monitor=true&api-version=2015-06-15')
   .reply(200, "{\"location\":\"southeastasia\",\"properties\":{\"accountType\":\"Standard_GRS\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2613,14 +2602,14 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto23530523?api-version=2015-06-15', '*')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
   expires: '-1',
-  location: 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/af5b6a58-f446-4b14-a01a-a97822d2d05c?monitor=true&api-version=2015-06-15',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/af5b6a58-f446-4b14-a01a-a97822d2d05c?monitor=true&api-version=2015-06-15',
   'retry-after': '25',
   'x-ms-ratelimit-remaining-subscription-writes': '1191',
   'x-ms-request-id': 'd52c3ba9-4dd9-4bd0-8112-e201d2012405',
@@ -2633,14 +2622,14 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto23530523?api-version=2015-06-15', '*')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
   expires: '-1',
-  location: 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/af5b6a58-f446-4b14-a01a-a97822d2d05c?monitor=true&api-version=2015-06-15',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/af5b6a58-f446-4b14-a01a-a97822d2d05c?monitor=true&api-version=2015-06-15',
   'retry-after': '25',
   'x-ms-ratelimit-remaining-subscription-writes': '1191',
   'x-ms-request-id': 'd52c3ba9-4dd9-4bd0-8112-e201d2012405',
@@ -2653,7 +2642,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/af5b6a58-f446-4b14-a01a-a97822d2d05c?monitor=true&api-version=2015-06-15')
   .reply(200, "{\"location\":\"southeastasia\",\"properties\":{\"accountType\":\"Standard_GRS\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2671,7 +2660,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/af5b6a58-f446-4b14-a01a-a97822d2d05c?monitor=true&api-version=2015-06-15')
   .reply(200, "{\"location\":\"southeastasia\",\"properties\":{\"accountType\":\"Standard_GRS\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2689,14 +2678,14 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto33530523?api-version=2015-06-15', '*')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
   expires: '-1',
-  location: 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/1d0af3b7-6080-4c9d-a801-6bb47810fd80?monitor=true&api-version=2015-06-15',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/1d0af3b7-6080-4c9d-a801-6bb47810fd80?monitor=true&api-version=2015-06-15',
   'retry-after': '25',
   'x-ms-ratelimit-remaining-subscription-writes': '1191',
   'x-ms-request-id': '333b974c-5241-49bb-8327-f9495f28d53f',
@@ -2709,14 +2698,14 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto33530523?api-version=2015-06-15', '*')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
   expires: '-1',
-  location: 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/1d0af3b7-6080-4c9d-a801-6bb47810fd80?monitor=true&api-version=2015-06-15',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/1d0af3b7-6080-4c9d-a801-6bb47810fd80?monitor=true&api-version=2015-06-15',
   'retry-after': '25',
   'x-ms-ratelimit-remaining-subscription-writes': '1191',
   'x-ms-request-id': '333b974c-5241-49bb-8327-f9495f28d53f',
@@ -2729,7 +2718,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/1d0af3b7-6080-4c9d-a801-6bb47810fd80?monitor=true&api-version=2015-06-15')
   .reply(200, "{\"location\":\"southeastasia\",\"properties\":{\"accountType\":\"Standard_GRS\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2747,7 +2736,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/1d0af3b7-6080-4c9d-a801-6bb47810fd80?monitor=true&api-version=2015-06-15')
   .reply(200, "{\"location\":\"southeastasia\",\"properties\":{\"accountType\":\"Standard_GRS\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2765,14 +2754,14 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto43530523?api-version=2015-06-15', '*')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
   expires: '-1',
-  location: 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/772ba054-fb57-46db-bf95-3f5b184c15a7?monitor=true&api-version=2015-06-15',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/772ba054-fb57-46db-bf95-3f5b184c15a7?monitor=true&api-version=2015-06-15',
   'retry-after': '25',
   'x-ms-ratelimit-remaining-subscription-writes': '1189',
   'x-ms-request-id': '53a4f06a-0cfc-495d-8263-5d2757f84f1e',
@@ -2785,14 +2774,14 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto43530523?api-version=2015-06-15', '*')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
   expires: '-1',
-  location: 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/772ba054-fb57-46db-bf95-3f5b184c15a7?monitor=true&api-version=2015-06-15',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/772ba054-fb57-46db-bf95-3f5b184c15a7?monitor=true&api-version=2015-06-15',
   'retry-after': '25',
   'x-ms-ratelimit-remaining-subscription-writes': '1189',
   'x-ms-request-id': '53a4f06a-0cfc-495d-8263-5d2757f84f1e',
@@ -2805,7 +2794,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/772ba054-fb57-46db-bf95-3f5b184c15a7?monitor=true&api-version=2015-06-15')
   .reply(200, "{\"location\":\"southeastasia\",\"properties\":{\"accountType\":\"Standard_GRS\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2823,7 +2812,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/772ba054-fb57-46db-bf95-3f5b184c15a7?monitor=true&api-version=2015-06-15')
   .reply(200, "{\"location\":\"southeastasia\",\"properties\":{\"accountType\":\"Standard_GRS\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2841,7 +2830,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss?api-version=2016-03-30', '*')
   .reply(201, "{\r\n  \"sku\": {\r\n    \"name\": \"Standard_D1\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 5\r\n  },\r\n  \"properties\": {\r\n    \"upgradePolicy\": {\r\n      \"mode\": \"Manual\"\r\n    },\r\n    \"virtualMachineProfile\": {\r\n      \"osProfile\": {\r\n        \"computerNamePrefix\": \"xplattestvmss\",\r\n        \"adminUsername\": \"azureuser\",\r\n        \"windowsConfiguration\": {\r\n          \"provisionVMAgent\": true,\r\n          \"enableAutomaticUpdates\": true\r\n        },\r\n        \"secrets\": []\r\n      },\r\n      \"storageProfile\": {\r\n        \"osDisk\": {\r\n          \"vhdContainers\": [\r\n            \"https://xplattestvmsssto03530523.blob.core.windows.net/xplat-south-3530523534-disk-container\",\r\n            \"https://xplattestvmsssto13530523.blob.core.windows.net/xplat-south-3530523534-disk-container\",\r\n            \"https://xplattestvmsssto23530523.blob.core.windows.net/xplat-south-3530523534-disk-container\",\r\n            \"https://xplattestvmsssto33530523.blob.core.windows.net/xplat-south-3530523534-disk-container\",\r\n            \"https://xplattestvmsssto43530523.blob.core.windows.net/xplat-south-3530523534-disk-container\"\r\n          ],\r\n          \"name\": \"xplat-south-3530523534-os-disk\",\r\n          \"createOption\": \"FromImage\",\r\n          \"caching\": \"ReadOnly\"\r\n        },\r\n        \"imageReference\": {\r\n          \"publisher\": \"MicrosoftWindowsServer\",\r\n          \"offer\": \"WindowsServer\",\r\n          \"sku\": \"2008-R2-SP1\",\r\n          \"version\": \"latest\"\r\n        }\r\n      },\r\n      \"networkProfile\": {\"networkInterfaceConfigurations\":[{\"name\":\"xplat-south-3530523534-nic\",\"properties\":{\"primary\":true,\"ipConfigurations\":[{\"name\":\"xplat-south-3530523534-pip\",\"properties\":{\"subnet\":{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3530523534-vnet/subnets/xplat-south-3530523534-snet\"},\"loadBalancerBackendAddressPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3530523534-lb/backendAddressPools/xplat-south-3530523534-be\"}],\"loadBalancerInboundNatPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3530523534-lb/inboundNatPools/xplat-south-3530523534-nat\"}]}}]}}]}\r\n    },\r\n    \"provisioningState\": \"Creating\",\r\n    \"overprovision\": false\r\n  },\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss\",\r\n  \"name\": \"xplattestvmss\",\r\n  \"type\": \"Microsoft.Compute/virtualMachineScaleSets\",\r\n  \"location\": \"southeastasia\"\r\n}", { 'cache-control': 'no-cache',
@@ -2849,7 +2838,7 @@ nock('http://brazilus.management.azure.com:443')
   'content-length': '2718',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-ms-served-by': 'dce02487-9cda-4782-8138-773eb1573792_131024874770526851',
   'x-ms-request-id': '868a1a75-8ffe-43b3-a700-39c44026321c',
@@ -2862,7 +2851,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss?api-version=2016-03-30', '*')
   .reply(201, "{\r\n  \"sku\": {\r\n    \"name\": \"Standard_D1\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 5\r\n  },\r\n  \"properties\": {\r\n    \"upgradePolicy\": {\r\n      \"mode\": \"Manual\"\r\n    },\r\n    \"virtualMachineProfile\": {\r\n      \"osProfile\": {\r\n        \"computerNamePrefix\": \"xplattestvmss\",\r\n        \"adminUsername\": \"azureuser\",\r\n        \"windowsConfiguration\": {\r\n          \"provisionVMAgent\": true,\r\n          \"enableAutomaticUpdates\": true\r\n        },\r\n        \"secrets\": []\r\n      },\r\n      \"storageProfile\": {\r\n        \"osDisk\": {\r\n          \"vhdContainers\": [\r\n            \"https://xplattestvmsssto03530523.blob.core.windows.net/xplat-south-3530523534-disk-container\",\r\n            \"https://xplattestvmsssto13530523.blob.core.windows.net/xplat-south-3530523534-disk-container\",\r\n            \"https://xplattestvmsssto23530523.blob.core.windows.net/xplat-south-3530523534-disk-container\",\r\n            \"https://xplattestvmsssto33530523.blob.core.windows.net/xplat-south-3530523534-disk-container\",\r\n            \"https://xplattestvmsssto43530523.blob.core.windows.net/xplat-south-3530523534-disk-container\"\r\n          ],\r\n          \"name\": \"xplat-south-3530523534-os-disk\",\r\n          \"createOption\": \"FromImage\",\r\n          \"caching\": \"ReadOnly\"\r\n        },\r\n        \"imageReference\": {\r\n          \"publisher\": \"MicrosoftWindowsServer\",\r\n          \"offer\": \"WindowsServer\",\r\n          \"sku\": \"2008-R2-SP1\",\r\n          \"version\": \"latest\"\r\n        }\r\n      },\r\n      \"networkProfile\": {\"networkInterfaceConfigurations\":[{\"name\":\"xplat-south-3530523534-nic\",\"properties\":{\"primary\":true,\"ipConfigurations\":[{\"name\":\"xplat-south-3530523534-pip\",\"properties\":{\"subnet\":{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3530523534-vnet/subnets/xplat-south-3530523534-snet\"},\"loadBalancerBackendAddressPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3530523534-lb/backendAddressPools/xplat-south-3530523534-be\"}],\"loadBalancerInboundNatPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3530523534-lb/inboundNatPools/xplat-south-3530523534-nat\"}]}}]}}]}\r\n    },\r\n    \"provisioningState\": \"Creating\",\r\n    \"overprovision\": false\r\n  },\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss\",\r\n  \"name\": \"xplattestvmss\",\r\n  \"type\": \"Microsoft.Compute/virtualMachineScaleSets\",\r\n  \"location\": \"southeastasia\"\r\n}", { 'cache-control': 'no-cache',
@@ -2870,7 +2859,7 @@ nock('https://brazilus.management.azure.com:443')
   'content-length': '2718',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-ms-served-by': 'dce02487-9cda-4782-8138-773eb1573792_131024874770526851',
   'x-ms-request-id': '868a1a75-8ffe-43b3-a700-39c44026321c',
@@ -2883,7 +2872,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2902,7 +2891,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2921,7 +2910,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2940,7 +2929,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2959,7 +2948,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2978,7 +2967,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2997,7 +2986,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3016,7 +3005,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3035,7 +3024,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3054,7 +3043,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3073,7 +3062,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3092,7 +3081,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3111,7 +3100,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3130,7 +3119,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3149,7 +3138,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3168,7 +3157,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3187,7 +3176,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3206,7 +3195,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3225,7 +3214,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3244,7 +3233,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3263,7 +3252,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3282,7 +3271,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3301,7 +3290,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3320,7 +3309,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3339,7 +3328,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3358,7 +3347,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3377,7 +3366,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3396,7 +3385,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3415,7 +3404,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3434,7 +3423,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3453,7 +3442,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3472,7 +3461,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3491,7 +3480,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3510,7 +3499,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3529,7 +3518,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3548,7 +3537,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3567,7 +3556,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3586,7 +3575,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3605,7 +3594,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3624,7 +3613,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3643,7 +3632,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3662,7 +3651,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"status\": \"InProgress\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3681,7 +3670,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"endTime\": \"2016-04-09T17:38:48.7292559+00:00\",\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3700,7 +3689,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/868a1a75-8ffe-43b3-a700-39c44026321c?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"868a1a75-8ffe-43b3-a700-39c44026321c\",\r\n  \"startTime\": \"2016-04-09T17:27:24.9636524+00:00\",\r\n  \"endTime\": \"2016-04-09T17:38:48.7292559+00:00\",\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3719,7 +3708,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss?api-version=2016-03-30')
   .reply(200, "{\r\n  \"sku\": {\r\n    \"name\": \"Standard_D1\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 5\r\n  },\r\n  \"properties\": {\r\n    \"upgradePolicy\": {\r\n      \"mode\": \"Manual\"\r\n    },\r\n    \"virtualMachineProfile\": {\r\n      \"osProfile\": {\r\n        \"computerNamePrefix\": \"xplattestvmss\",\r\n        \"adminUsername\": \"azureuser\",\r\n        \"windowsConfiguration\": {\r\n          \"provisionVMAgent\": true,\r\n          \"enableAutomaticUpdates\": true\r\n        },\r\n        \"secrets\": []\r\n      },\r\n      \"storageProfile\": {\r\n        \"osDisk\": {\r\n          \"vhdContainers\": [\r\n            \"https://xplattestvmsssto03530523.blob.core.windows.net/xplat-south-3530523534-disk-container\",\r\n            \"https://xplattestvmsssto13530523.blob.core.windows.net/xplat-south-3530523534-disk-container\",\r\n            \"https://xplattestvmsssto23530523.blob.core.windows.net/xplat-south-3530523534-disk-container\",\r\n            \"https://xplattestvmsssto33530523.blob.core.windows.net/xplat-south-3530523534-disk-container\",\r\n            \"https://xplattestvmsssto43530523.blob.core.windows.net/xplat-south-3530523534-disk-container\"\r\n          ],\r\n          \"name\": \"xplat-south-3530523534-os-disk\",\r\n          \"createOption\": \"FromImage\",\r\n          \"caching\": \"ReadOnly\"\r\n        },\r\n        \"imageReference\": {\r\n          \"publisher\": \"MicrosoftWindowsServer\",\r\n          \"offer\": \"WindowsServer\",\r\n          \"sku\": \"2008-R2-SP1\",\r\n          \"version\": \"latest\"\r\n        }\r\n      },\r\n      \"networkProfile\": {\"networkInterfaceConfigurations\":[{\"name\":\"xplat-south-3530523534-nic\",\"properties\":{\"primary\":true,\"ipConfigurations\":[{\"name\":\"xplat-south-3530523534-pip\",\"properties\":{\"subnet\":{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3530523534-vnet/subnets/xplat-south-3530523534-snet\"},\"loadBalancerBackendAddressPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3530523534-lb/backendAddressPools/xplat-south-3530523534-be\"}],\"loadBalancerInboundNatPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3530523534-lb/inboundNatPools/xplat-south-3530523534-nat\"}]}}]}}]}\r\n    },\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"overprovision\": false\r\n  },\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss\",\r\n  \"name\": \"xplattestvmss\",\r\n  \"type\": \"Microsoft.Compute/virtualMachineScaleSets\",\r\n  \"location\": \"southeastasia\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -3738,7 +3727,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss?api-version=2016-03-30')
   .reply(200, "{\r\n  \"sku\": {\r\n    \"name\": \"Standard_D1\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 5\r\n  },\r\n  \"properties\": {\r\n    \"upgradePolicy\": {\r\n      \"mode\": \"Manual\"\r\n    },\r\n    \"virtualMachineProfile\": {\r\n      \"osProfile\": {\r\n        \"computerNamePrefix\": \"xplattestvmss\",\r\n        \"adminUsername\": \"azureuser\",\r\n        \"windowsConfiguration\": {\r\n          \"provisionVMAgent\": true,\r\n          \"enableAutomaticUpdates\": true\r\n        },\r\n        \"secrets\": []\r\n      },\r\n      \"storageProfile\": {\r\n        \"osDisk\": {\r\n          \"vhdContainers\": [\r\n            \"https://xplattestvmsssto03530523.blob.core.windows.net/xplat-south-3530523534-disk-container\",\r\n            \"https://xplattestvmsssto13530523.blob.core.windows.net/xplat-south-3530523534-disk-container\",\r\n            \"https://xplattestvmsssto23530523.blob.core.windows.net/xplat-south-3530523534-disk-container\",\r\n            \"https://xplattestvmsssto33530523.blob.core.windows.net/xplat-south-3530523534-disk-container\",\r\n            \"https://xplattestvmsssto43530523.blob.core.windows.net/xplat-south-3530523534-disk-container\"\r\n          ],\r\n          \"name\": \"xplat-south-3530523534-os-disk\",\r\n          \"createOption\": \"FromImage\",\r\n          \"caching\": \"ReadOnly\"\r\n        },\r\n        \"imageReference\": {\r\n          \"publisher\": \"MicrosoftWindowsServer\",\r\n          \"offer\": \"WindowsServer\",\r\n          \"sku\": \"2008-R2-SP1\",\r\n          \"version\": \"latest\"\r\n        }\r\n      },\r\n      \"networkProfile\": {\"networkInterfaceConfigurations\":[{\"name\":\"xplat-south-3530523534-nic\",\"properties\":{\"primary\":true,\"ipConfigurations\":[{\"name\":\"xplat-south-3530523534-pip\",\"properties\":{\"subnet\":{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/virtualNetworks/xplat-south-3530523534-vnet/subnets/xplat-south-3530523534-snet\"},\"loadBalancerBackendAddressPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3530523534-lb/backendAddressPools/xplat-south-3530523534-be\"}],\"loadBalancerInboundNatPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Network/loadBalancers/xplat-south-3530523534-lb/inboundNatPools/xplat-south-3530523534-nat\"}]}}]}}]}\r\n    },\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"overprovision\": false\r\n  },\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss\",\r\n  \"name\": \"xplattestvmss\",\r\n  \"type\": \"Microsoft.Compute/virtualMachineScaleSets\",\r\n  \"location\": \"southeastasia\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',

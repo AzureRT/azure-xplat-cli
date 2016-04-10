@@ -5,23 +5,12 @@ var profile = require('../../../lib/util/profile');
 exports.getMockedProfile = function () {
   var newProfile = new profile.Profile();
 
-  newProfile.addEnvironment(new profile.Environment({
-    name: 'BrazilUSCloud',
-    portalUrl: 'http://go.microsoft.com/fwlink/?LinkId=254433',
-    publishingProfileUrl: 'http://go.microsoft.com/fwlink/?LinkId=254432',
-    managementEndpointUrl: 'https://management.core.windows.net',
-    resourceManagerEndpointUrl: 'https://brazilus.management.azure.com/',
-    sqlManagementEndpointUrl: 'https://management.core.windows.net:8443/',
-    hostNameSuffix: 'undefined',
-    sqlServerHostNameSuffix: '.database.windows.net',
-    activeDirectoryEndpointUrl: 'https://login.microsoftonline.com',
-    commonTenantName: 'undefined',
-    storageEndpoint: 'undefined',
-    galleryEndpointUrl: 'https://gallery.azure.com/'
-  }));
-
   newProfile.addSubscription(new profile.Subscription({
     id: 'e33f361b-53c2-4cc7-b829-78906708387b',
+    managementCertificate: {
+      key: 'mockedKey',
+      cert: 'mockedCert'
+    },
     name: 'Microsoft Azure Internal Consumption',
     user: {
       name: 'user@domain.example',
@@ -31,7 +20,7 @@ exports.getMockedProfile = function () {
     state: 'Enabled',
     registeredProviders: [],
     isDefault: true
-  }, newProfile.environments['BrazilUSCloud']));
+  }, newProfile.environments['AzureCloud']));
 
   return newProfile;
 };
@@ -43,15 +32,15 @@ exports.setEnvironment = function() {
 
 exports.scopes = [[function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .post('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss1/manualupgrade?api-version=2016-03-30', '*')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
   expires: '-1',
-  location: 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/cdcf3536-6a48-4472-8142-60dde0da67c5?monitor=true&api-version=2016-03-30',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/cdcf3536-6a48-4472-8142-60dde0da67c5?api-version=2016-03-30',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/cdcf3536-6a48-4472-8142-60dde0da67c5?monitor=true&api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/cdcf3536-6a48-4472-8142-60dde0da67c5?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-ms-served-by': 'dce02487-9cda-4782-8138-773eb1573792_131024874770526851',
   'x-ms-request-id': 'cdcf3536-6a48-4472-8142-60dde0da67c5',
@@ -64,15 +53,15 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .post('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate972/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss1/manualupgrade?api-version=2016-03-30', '*')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
   expires: '-1',
-  location: 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/cdcf3536-6a48-4472-8142-60dde0da67c5?monitor=true&api-version=2016-03-30',
-  'azure-asyncoperation': 'https://brazilus.management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/cdcf3536-6a48-4472-8142-60dde0da67c5?api-version=2016-03-30',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/cdcf3536-6a48-4472-8142-60dde0da67c5?monitor=true&api-version=2016-03-30',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/cdcf3536-6a48-4472-8142-60dde0da67c5?api-version=2016-03-30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-ms-served-by': 'dce02487-9cda-4782-8138-773eb1573792_131024874770526851',
   'x-ms-request-id': 'cdcf3536-6a48-4472-8142-60dde0da67c5',
@@ -85,7 +74,7 @@ nock('https://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('http://brazilus.management.azure.com:443')
+nock('http://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/cdcf3536-6a48-4472-8142-60dde0da67c5?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"cdcf3536-6a48-4472-8142-60dde0da67c5\",\r\n  \"startTime\": \"2016-04-09T17:43:50.8230074+00:00\",\r\n  \"endTime\": \"2016-04-09T17:43:51.4792617+00:00\",\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -104,7 +93,7 @@ nock('http://brazilus.management.azure.com:443')
  return result; },
 function (nock) { 
 var result = 
-nock('https://brazilus.management.azure.com:443')
+nock('https://management.azure.com:443')
   .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/southeastasia/operations/cdcf3536-6a48-4472-8142-60dde0da67c5?api-version=2016-03-30')
   .reply(200, "{\r\n  \"operationId\": \"cdcf3536-6a48-4472-8142-60dde0da67c5\",\r\n  \"startTime\": \"2016-04-09T17:43:50.8230074+00:00\",\r\n  \"endTime\": \"2016-04-09T17:43:51.4792617+00:00\",\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',

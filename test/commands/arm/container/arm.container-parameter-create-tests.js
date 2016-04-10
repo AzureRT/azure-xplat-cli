@@ -80,7 +80,7 @@ describe('arm', function() {
       suite.teardownTest(done);
     });
 
-    describe('vmss', function() {
+    describe('cs', function() {
 
       it('container config set and create DCOS should pass', function(done) {
         this.timeout(vmTest.timeoutLarge * 10);
