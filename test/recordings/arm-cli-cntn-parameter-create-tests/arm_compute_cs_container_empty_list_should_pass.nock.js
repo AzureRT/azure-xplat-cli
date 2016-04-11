@@ -29,7 +29,7 @@ exports.setEnvironment = function() {
 exports.scopes = [[function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTstCntnGCreate3147/providers/Microsoft.ContainerService/containerServices?api-version=2016-03-30')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTstCntnGCreate5934/providers/Microsoft.ContainerService/containerServices?api-version=2016-03-30')
   .reply(200, "{\r\n  \"value\": []\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '19',
@@ -37,18 +37,18 @@ nock('http://management.azure.com:443')
   expires: '-1',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-ms-served-by': '6d8fb542-dd65-48cb-9954-9a384a89dc05_131031808034968975',
-  'x-ms-request-id': 'bcf2cdd6-a51e-4d0e-ad7d-b99df9047181',
+  'x-ms-request-id': 'd70e8db2-7a4b-42e9-878a-45b34b5cb3ef',
   server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14963',
-  'x-ms-correlation-request-id': 'a5c89a88-49d1-4437-b5b8-12fcec77eccb',
-  'x-ms-routing-request-id': 'BRAZILUS:20160410T040730Z:a5c89a88-49d1-4437-b5b8-12fcec77eccb',
-  date: 'Sun, 10 Apr 2016 04:07:29 GMT',
+  'x-ms-ratelimit-remaining-subscription-reads': '14993',
+  'x-ms-correlation-request-id': 'eeb917db-3fef-4f8b-aab4-d3e504f0a7b7',
+  'x-ms-routing-request-id': 'BRAZILUS:20160411T024118Z:eeb917db-3fef-4f8b-aab4-d3e504f0a7b7',
+  date: 'Mon, 11 Apr 2016 02:41:18 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTstCntnGCreate3147/providers/Microsoft.ContainerService/containerServices?api-version=2016-03-30')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTstCntnGCreate5934/providers/Microsoft.ContainerService/containerServices?api-version=2016-03-30')
   .reply(200, "{\r\n  \"value\": []\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '19',
@@ -56,11 +56,11 @@ nock('https://management.azure.com:443')
   expires: '-1',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-ms-served-by': '6d8fb542-dd65-48cb-9954-9a384a89dc05_131031808034968975',
-  'x-ms-request-id': 'bcf2cdd6-a51e-4d0e-ad7d-b99df9047181',
+  'x-ms-request-id': 'd70e8db2-7a4b-42e9-878a-45b34b5cb3ef',
   server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14963',
-  'x-ms-correlation-request-id': 'a5c89a88-49d1-4437-b5b8-12fcec77eccb',
-  'x-ms-routing-request-id': 'BRAZILUS:20160410T040730Z:a5c89a88-49d1-4437-b5b8-12fcec77eccb',
-  date: 'Sun, 10 Apr 2016 04:07:29 GMT',
+  'x-ms-ratelimit-remaining-subscription-reads': '14993',
+  'x-ms-correlation-request-id': 'eeb917db-3fef-4f8b-aab4-d3e504f0a7b7',
+  'x-ms-routing-request-id': 'BRAZILUS:20160411T024118Z:eeb917db-3fef-4f8b-aab4-d3e504f0a7b7',
+  date: 'Mon, 11 Apr 2016 02:41:18 GMT',
   connection: 'close' });
  return result; }]];

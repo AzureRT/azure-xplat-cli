@@ -67,6 +67,7 @@ describe('arm', function() {
     });
 
     after(function(done) {
+      this.timeout(vmTest.timeoutLarge * 10);
       vmTest.deleteUsedGroup(groupName, suite, function(result) {
         suite.teardownSuite(done);
       });
@@ -205,6 +206,17 @@ describe('arm', function() {
         });
       });
       
+      it('container get should pass', function(done) {
+        this.timeout(vmTest.timeoutLarge * 10);
+        var cmd = util.format('container get -g %s --container-service-name %s --json', groupName, containerPrefix).split(' ');
+        testUtils.executeCommand(suite, retry, cmd, function(result) {
+          result.exitStatus.should.equal(0);
+          result.text.should.containEql(containerPrefix);
+          result.text.should.containEql('DCOS');
+          done();
+        });
+      });
+
       it('container delete should pass', function(done) {
         this.timeout(vmTest.timeoutLarge * 10);
         var cmd = util.format('container delete -g %s --container-service-name %s --json', groupName, containerPrefix).split(' ');
