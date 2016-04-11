@@ -13449,20 +13449,20 @@
               "description": "the subscription identifier"
             },
             {
-              "flags": "-u, --platform-update-domain-count <platformUpdateDomainCount>",
+              "flags": "-a, --platform-update-domain-count <platformUpdateDomainCount>",
               "required": -36,
               "optional": 0,
               "bool": true,
-              "short": "-u",
+              "short": "-a",
               "long": "--platform-update-domain-count",
               "description": "Set the platform-update-domain-count value."
             },
             {
-              "flags": "-f, --platform-fault-domain-count <platformFaultDomainCount>",
+              "flags": "-b, --platform-fault-domain-count <platformFaultDomainCount>",
               "required": -35,
               "optional": 0,
               "bool": true,
-              "short": "-f",
+              "short": "-b",
               "long": "--platform-fault-domain-count",
               "description": "Set the platform-fault-domain-count value."
             }
