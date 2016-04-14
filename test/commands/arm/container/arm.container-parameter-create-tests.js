@@ -201,7 +201,7 @@ describe('arm', function() {
           result.text.should.containEql(containerPrefix);
           result.text.should.containEql('DCOS');
           result.text.should.containEql(containerPrefix2);
-          result.text.should.containEql('SwarmPreview');
+          result.text.should.containEql('Swarm');
           done();
         });
       });
