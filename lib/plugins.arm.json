@@ -11450,6 +11450,14 @@
                   "description": "the lease ID"
                 },
                 {
+                  "flags": "--snapshot <snapshotId>",
+                  "required": -12,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--snapshot",
+                  "description": "the snapshot ID"
+                },
+                {
                   "flags": "--sas <sas>",
                   "required": -7,
                   "optional": 0,
@@ -11699,6 +11707,14 @@
                   "description": "the maximum number of concurrent upload requests"
                 },
                 {
+                  "flags": "--lease <leaseId>",
+                  "required": -9,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--lease",
+                  "description": "the lease ID"
+                },
+                {
                   "flags": "--sas <sas>",
                   "required": -7,
                   "optional": 0,
@@ -11792,6 +11808,14 @@
                   "short": "-b",
                   "long": "--blob",
                   "description": "the storage blob name"
+                },
+                {
+                  "flags": "--snapshot <snapshotId>",
+                  "required": -12,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--snapshot",
+                  "description": "the snapshot ID"
                 },
                 {
                   "flags": "--lease <leaseId>",
@@ -14298,6 +14322,14 @@
                   "short": "-m",
                   "long": "--checkmd5",
                   "description": "check md5sum for the downloaded file"
+                },
+                {
+                  "flags": "--concurrenttaskcount <concurrenttaskcount>",
+                  "required": -23,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--concurrenttaskcount",
+                  "description": "the maximum number of concurrent download requests"
                 },
                 {
                   "flags": "-q, --quiet",
@@ -30471,7 +30503,7 @@
               "bool": true,
               "short": "-S",
               "long": "--subnet-id",
-              "description": "the subnet identifier\n     e.g. /subscriptions/<subscriptipn-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>/subnets/<subnet-name>"
+              "description": "the subnet identifier\n     e.g. /subscriptions/<subscriptipn-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>/subnets/<subnet-name>\n     Use this parameter if specified subnet exists only to avoid other vnet parameters to specify vnet and subnet you use\n     If you need to use subnet and virtual network from another resource group (not the same as VM resource group), just enter appropriate subnet ID"
             },
             {
               "flags": "-F, --vnet-name <vnet-name>",
@@ -57357,6 +57389,23 @@
                   "description": "application gateway instance count in range [2,10]. Default value is 2."
                 },
                 {
+                  "flags": "-t, --tags <tags>",
+                  "required": -12,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-t",
+                  "long": "--tags",
+                  "description": "the list of tags.\n     Can be multiple. In the format of \"name=value\".\n     Name is required and value is optional.\n     For example, -t \"tag1=value1;tag2\""
+                },
+                {
+                  "flags": "--nowait",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--nowait",
+                  "description": "does not wait for the operation to complete. Returns as soon as the intial request is received by the server."
+                },
+                {
                   "flags": "-s, --subscription <subscription>",
                   "required": -20,
                   "optional": 0,
@@ -57364,15 +57413,6 @@
                   "short": "-s",
                   "long": "--subscription",
                   "description": "the subscription identifier"
-                },
-                {
-                  "flags": "-t, --tags <tags>",
-                  "required": -12,
-                  "optional": 0,
-                  "bool": true,
-                  "short": "-t",
-                  "long": "--tags",
-                  "description": ""
                 }
               ]
             },
@@ -57461,6 +57501,14 @@
                   "short": "-t",
                   "long": "--tags",
                   "description": "the list of tags.\n     Can be multiple. In the format of \"name=value\".\n     Name is required and value is optional.\n     Existing tag values will be replaced by the values specified.\n     For example, -t \"tag1=value1;tag2\""
+                },
+                {
+                  "flags": "--nowait",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--nowait",
+                  "description": "does not wait for the operation to complete. Returns as soon as the intial request is received by the server."
                 },
                 {
                   "flags": "-s, --subscription <subscription>",
@@ -57644,6 +57692,14 @@
                   "short": "-q",
                   "long": "--quiet",
                   "description": "quiet mode, do not ask for unregister confirmation"
+                },
+                {
+                  "flags": "--nowait",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--nowait",
+                  "description": "does not wait for the operation to complete. Returns as soon as the intial request is received by the server."
                 },
                 {
                   "flags": "-s, --subscription <subscription>",
@@ -57865,6 +57921,14 @@
                       "description": "the certificate password"
                     },
                     {
+                      "flags": "--nowait",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--nowait",
+                      "description": "does not wait for the operation to complete. Returns as soon as the intial request is received by the server."
+                    },
+                    {
                       "flags": "-s, --subscription <subscription>",
                       "required": -20,
                       "optional": 0,
@@ -57942,6 +58006,14 @@
                       "short": "-q",
                       "long": "--quiet",
                       "description": "quiet mode, do not ask for delete confirmation"
+                    },
+                    {
+                      "flags": "--nowait",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--nowait",
+                      "description": "does not wait for the operation to complete. Returns as soon as the intial request is received by the server."
                     },
                     {
                       "flags": "-s, --subscription <subscription>",
@@ -58078,6 +58150,14 @@
                       "description": "the public ip identifier.\n     e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/publicIPAddresses/<public-ip-name>"
                     },
                     {
+                      "flags": "--nowait",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--nowait",
+                      "description": "does not wait for the operation to complete. Returns as soon as the intial request is received by the server."
+                    },
+                    {
                       "flags": "-s, --subscription <subscription>",
                       "required": -20,
                       "optional": 0,
@@ -58155,6 +58235,14 @@
                       "short": "-q",
                       "long": "--quiet",
                       "description": "quiet mode, do not ask for delete confirmation"
+                    },
+                    {
+                      "flags": "--nowait",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--nowait",
+                      "description": "does not wait for the operation to complete. Returns as soon as the intial request is received by the server."
                     },
                     {
                       "flags": "-s, --subscription <subscription>",
@@ -58246,6 +58334,14 @@
                       "description": "the port, valid range is [0,65535]"
                     },
                     {
+                      "flags": "--nowait",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--nowait",
+                      "description": "does not wait for the operation to complete. Returns as soon as the intial request is received by the server."
+                    },
+                    {
                       "flags": "-s, --subscription <subscription>",
                       "required": -20,
                       "optional": 0,
@@ -58323,6 +58419,14 @@
                       "short": "-q",
                       "long": "--quiet",
                       "description": "quiet mode, do not ask for delete confirmation"
+                    },
+                    {
+                      "flags": "--nowait",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--nowait",
+                      "description": "does not wait for the operation to complete. Returns as soon as the intial request is received by the server."
                     },
                     {
                       "flags": "-s, --subscription <subscription>",
@@ -58414,6 +58518,14 @@
                       "description": "comma separated list of IP addresses or DNS names\n     corresponding to backend servers"
                     },
                     {
+                      "flags": "--nowait",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--nowait",
+                      "description": "does not wait for the operation to complete. Returns as soon as the intial request is received by the server."
+                    },
+                    {
                       "flags": "-s, --subscription <subscription>",
                       "required": -20,
                       "optional": 0,
@@ -58491,6 +58603,14 @@
                       "short": "-q",
                       "long": "--quiet",
                       "description": "quiet mode, do not ask for unregister confirmation"
+                    },
+                    {
+                      "flags": "--nowait",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--nowait",
+                      "description": "does not wait for the operation to complete. Returns as soon as the intial request is received by the server."
                     },
                     {
                       "flags": "-s, --subscription <subscription>",
@@ -58600,6 +58720,14 @@
                       "description": "enable or disable cookie based affinity, valid values are\n     [Disabled,Enabled],\n     default value is [Disabled]"
                     },
                     {
+                      "flags": "--nowait",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--nowait",
+                      "description": "does not wait for the operation to complete. Returns as soon as the intial request is received by the server."
+                    },
+                    {
                       "flags": "-s, --subscription <subscription>",
                       "required": -20,
                       "optional": 0,
@@ -58677,6 +58805,14 @@
                       "short": "-q",
                       "long": "--quiet",
                       "description": "quiet mode, do not ask for unregister confirmation"
+                    },
+                    {
+                      "flags": "--nowait",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--nowait",
+                      "description": "does not wait for the operation to complete. Returns as soon as the intial request is received by the server."
                     },
                     {
                       "flags": "-s, --subscription <subscription>",
@@ -58795,6 +58931,14 @@
                       "description": "the name of an existing SSL certificate.\n   This parameter is required when --protocol is Https"
                     },
                     {
+                      "flags": "--nowait",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--nowait",
+                      "description": "does not wait for the operation to complete. Returns as soon as the intial request is received by the server."
+                    },
+                    {
                       "flags": "-s, --subscription <subscription>",
                       "required": -20,
                       "optional": 0,
@@ -58872,6 +59016,14 @@
                       "short": "-q",
                       "long": "--quiet",
                       "description": "quiet mode, do not ask for delete confirmation"
+                    },
+                    {
+                      "flags": "--nowait",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--nowait",
+                      "description": "does not wait for the operation to complete. Returns as soon as the intial request is received by the server."
                     },
                     {
                       "flags": "-s, --subscription <subscription>",
@@ -58990,6 +59142,14 @@
                       "description": "the type, currently supported only default value \"%s\""
                     },
                     {
+                      "flags": "--nowait",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--nowait",
+                      "description": "does not wait for the operation to complete. Returns as soon as the intial request is received by the server."
+                    },
+                    {
                       "flags": "-s, --subscription <subscription>",
                       "required": -20,
                       "optional": 0,
@@ -59067,6 +59227,14 @@
                       "short": "-q",
                       "long": "--quiet",
                       "description": "quiet mode, do not ask for delete confirmation"
+                    },
+                    {
+                      "flags": "--nowait",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--nowait",
+                      "description": "does not wait for the operation to complete. Returns as soon as the intial request is received by the server."
                     },
                     {
                       "flags": "-s, --subscription <subscription>",
@@ -59212,6 +59380,14 @@
                       "description": "probe retry count.\n   Back end server is marked down after consecutive probe failure count reaches an unhealthy threshold\n   Default value is 5"
                     },
                     {
+                      "flags": "--nowait",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--nowait",
+                      "description": "does not wait for the operation to complete. Returns as soon as the intial request is received by the server."
+                    },
+                    {
                       "flags": "-s, --subscription <subscription>",
                       "required": -20,
                       "optional": 0,
@@ -59289,6 +59465,14 @@
                       "short": "-q",
                       "long": "--quiet",
                       "description": "quiet mode, do not ask for delete confirmation"
+                    },
+                    {
+                      "flags": "--nowait",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--nowait",
+                      "description": "does not wait for the operation to complete. Returns as soon as the intial request is received by the server."
                     },
                     {
                       "flags": "-s, --subscription <subscription>",
@@ -59407,6 +59591,14 @@
                       "description": "the name of an existing backend address pool"
                     },
                     {
+                      "flags": "--nowait",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--nowait",
+                      "description": "does not wait for the operation to complete. Returns as soon as the intial request is received by the server."
+                    },
+                    {
                       "flags": "-s, --subscription <subscription>",
                       "required": -20,
                       "optional": 0,
@@ -59484,6 +59676,14 @@
                       "short": "-q",
                       "long": "--quiet",
                       "description": "quiet mode, do not ask for delete confirmation"
+                    },
+                    {
+                      "flags": "--nowait",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--nowait",
+                      "description": "does not wait for the operation to complete. Returns as soon as the intial request is received by the server."
                     },
                     {
                       "flags": "-s, --subscription <subscription>",
@@ -59601,6 +59801,14 @@
                           "description": "the name of an existing backend address pool"
                         },
                         {
+                          "flags": "--nowait",
+                          "required": 0,
+                          "optional": 0,
+                          "bool": true,
+                          "long": "--nowait",
+                          "description": "does not wait for the operation to complete. Returns as soon as the intial request is received by the server."
+                        },
+                        {
                           "flags": "-s, --subscription <subscription>",
                           "required": -20,
                           "optional": 0,
@@ -59687,6 +59895,14 @@
                           "short": "-q",
                           "long": "--quiet",
                           "description": "quiet mode, do not ask for delete confirmation"
+                        },
+                        {
+                          "flags": "--nowait",
+                          "required": 0,
+                          "optional": 0,
+                          "bool": true,
+                          "long": "--nowait",
+                          "description": "does not wait for the operation to complete. Returns as soon as the intial request is received by the server."
                         },
                         {
                           "flags": "-s, --subscription <subscription>",
