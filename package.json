@@ -13,7 +13,7 @@
     "Wang, Yugang <yugangw@microsoft.com>",
     "Chen, Hao <hach@microsoft.com>"
   ],
-  "version": "0.10.4",
+  "version": "0.10.5",
   "description": "Microsoft Azure Cross Platform Command Line tool",
   "tags": [
     "azure",
@@ -54,7 +54,7 @@
     "azure-arm-datalake-analytics": "^0.4.2",
     "azure-arm-datalake-store": "^0.4.1",
     "azure-arm-devtestlabs": "0.1.0",
-    "azure-graph": "1.0.1",
+    "azure-graph": "1.1.1",
     "azure-gallery": "2.0.0-pre.18",
     "azure-keyvault": "0.10.2",
     "azure-asm-compute": "0.17.0",
