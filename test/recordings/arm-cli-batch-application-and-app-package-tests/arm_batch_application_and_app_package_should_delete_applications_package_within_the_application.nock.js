@@ -33,36 +33,36 @@ exports.setEnvironment = function() {
 exports.scopes = [[function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .delete('/subscriptions/46241355-bb95-46a9-ba6c-42b554d71925/resourceGroups/armclibatchgroup7389/providers/Microsoft.Batch/batchAccounts/armclibatch9879/applications/armclibatchapp9288/versions/1.0?api-version=2015-12-01')
+  .delete('/subscriptions/46241355-bb95-46a9-ba6c-42b554d71925/resourceGroups/armclibatchgroup8671/providers/Microsoft.Batch/batchAccounts/armclibatch6657/applications/armclibatchapp6809/versions/1.0?api-version=2015-12-01')
   .reply(204, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
   expires: '-1',
-  'request-id': 'ae1a3f98-4423-44fe-aeb7-27f975d52fe2',
+  'request-id': 'c77118b1-e608-4f47-b504-fc43b038cdfb',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0',
   'x-ms-ratelimit-remaining-subscription-writes': '1197',
-  'x-ms-request-id': 'f25fb113-3820-4552-a8f7-1f8fa6ac7af4',
-  'x-ms-correlation-request-id': 'f25fb113-3820-4552-a8f7-1f8fa6ac7af4',
-  'x-ms-routing-request-id': 'CENTRALUS:20160913T170823Z:f25fb113-3820-4552-a8f7-1f8fa6ac7af4',
-  date: 'Tue, 13 Sep 2016 17:08:23 GMT',
+  'x-ms-request-id': 'ebd77ab2-234e-40cd-9505-44b677a36a69',
+  'x-ms-correlation-request-id': 'ebd77ab2-234e-40cd-9505-44b677a36a69',
+  'x-ms-routing-request-id': 'WESTUS2:20161004T223502Z:ebd77ab2-234e-40cd-9505-44b677a36a69',
+  date: 'Tue, 04 Oct 2016 22:35:01 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .delete('/subscriptions/46241355-bb95-46a9-ba6c-42b554d71925/resourceGroups/armclibatchgroup7389/providers/Microsoft.Batch/batchAccounts/armclibatch9879/applications/armclibatchapp9288/versions/1.0?api-version=2015-12-01')
+  .delete('/subscriptions/46241355-bb95-46a9-ba6c-42b554d71925/resourceGroups/armclibatchgroup8671/providers/Microsoft.Batch/batchAccounts/armclibatch6657/applications/armclibatchapp6809/versions/1.0?api-version=2015-12-01')
   .reply(204, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
   expires: '-1',
-  'request-id': 'ae1a3f98-4423-44fe-aeb7-27f975d52fe2',
+  'request-id': 'c77118b1-e608-4f47-b504-fc43b038cdfb',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0',
   'x-ms-ratelimit-remaining-subscription-writes': '1197',
-  'x-ms-request-id': 'f25fb113-3820-4552-a8f7-1f8fa6ac7af4',
-  'x-ms-correlation-request-id': 'f25fb113-3820-4552-a8f7-1f8fa6ac7af4',
-  'x-ms-routing-request-id': 'CENTRALUS:20160913T170823Z:f25fb113-3820-4552-a8f7-1f8fa6ac7af4',
-  date: 'Tue, 13 Sep 2016 17:08:23 GMT',
+  'x-ms-request-id': 'ebd77ab2-234e-40cd-9505-44b677a36a69',
+  'x-ms-correlation-request-id': 'ebd77ab2-234e-40cd-9505-44b677a36a69',
+  'x-ms-routing-request-id': 'WESTUS2:20161004T223502Z:ebd77ab2-234e-40cd-9505-44b677a36a69',
+  date: 'Tue, 04 Oct 2016 22:35:01 GMT',
   connection: 'close' });
  return result; }]];

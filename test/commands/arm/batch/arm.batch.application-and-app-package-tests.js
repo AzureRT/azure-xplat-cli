@@ -26,7 +26,6 @@ var batchGroupPrefix = 'armclibatchgroup';
 var accountName;
 var applicationName;
 var resourceGroupName;
-var emptyGroupName;
 var autoStorageAccountPrefix = 'armclibatch';
 var autoStorageAccountName;
 var location;
@@ -36,13 +35,13 @@ var requiredEnvironment = [
   { name: 'AZURE_ARM_TEST_LOCATION', defaultValue: 'westus' },
 ];
 
-var testPrefix = 'arm-cli-batch-application-tests';
+var testPrefix = 'arm-cli-batch-application-and-app-package-tests';
 var suite;
 var liveOnly = process.env.NOCK_OFF ? it : it.skip;
 var storageAccount;
 
 describe('arm', function () {
-  describe('batch application', function () {
+  describe('batch application and app package', function () {
 
     before(function (done) {
       suite = new CLITest(this, testPrefix, requiredEnvironment);
@@ -95,10 +94,7 @@ describe('arm', function () {
               result.exitStatus.should.equal(0);
               suite.execute('group delete %s --json -q', resourceGroupName, function (result) {
                 result.exitStatus.should.equal(0);
-                suite.execute('group delete %s --json -q', emptyGroupName, function (result) {
-                  result.exitStatus.should.equal(0);
-                  done();
-                });
+                done();
               });
             });
           });

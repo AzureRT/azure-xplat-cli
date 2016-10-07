@@ -33,36 +33,38 @@ exports.setEnvironment = function() {
 exports.scopes = [[function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .delete('/subscriptions/46241355-bb95-46a9-ba6c-42b554d71925/resourceGroups/armclibatchgroup7389/providers/Microsoft.Batch/batchAccounts/armclibatch9879/applications/armclibatchapp9288?api-version=2015-12-01')
-  .reply(204, "", { 'cache-control': 'no-cache',
+  .get('/subscriptions/46241355-bb95-46a9-ba6c-42b554d71925/providers/Microsoft.Batch/locations/westus/quotas?api-version=2015-12-01')
+  .reply(200, "{\"accountQuota\":10}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
-  'content-length': '0',
+  'content-length': '19',
+  'content-type': 'application/json; charset=utf-8',
   expires: '-1',
-  'request-id': 'b3670857-bb96-459a-a9f4-91c2bc09e5a5',
+  'request-id': '0ba2c8b4-9082-40a1-963f-fbabc761eab0',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-writes': '1197',
-  'x-ms-request-id': '54247f03-e4ad-4081-8304-41e070c160b2',
-  'x-ms-correlation-request-id': '54247f03-e4ad-4081-8304-41e070c160b2',
-  'x-ms-routing-request-id': 'CENTRALUS:20160913T170824Z:54247f03-e4ad-4081-8304-41e070c160b2',
-  date: 'Tue, 13 Sep 2016 17:08:24 GMT',
+  'x-ms-ratelimit-remaining-subscription-reads': '14993',
+  'x-ms-request-id': 'af94a683-f230-4f38-bae5-8686bea34ee9',
+  'x-ms-correlation-request-id': 'af94a683-f230-4f38-bae5-8686bea34ee9',
+  'x-ms-routing-request-id': 'WESTUS2:20161004T214944Z:af94a683-f230-4f38-bae5-8686bea34ee9',
+  date: 'Tue, 04 Oct 2016 21:49:43 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .delete('/subscriptions/46241355-bb95-46a9-ba6c-42b554d71925/resourceGroups/armclibatchgroup7389/providers/Microsoft.Batch/batchAccounts/armclibatch9879/applications/armclibatchapp9288?api-version=2015-12-01')
-  .reply(204, "", { 'cache-control': 'no-cache',
+  .get('/subscriptions/46241355-bb95-46a9-ba6c-42b554d71925/providers/Microsoft.Batch/locations/westus/quotas?api-version=2015-12-01')
+  .reply(200, "{\"accountQuota\":10}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
-  'content-length': '0',
+  'content-length': '19',
+  'content-type': 'application/json; charset=utf-8',
   expires: '-1',
-  'request-id': 'b3670857-bb96-459a-a9f4-91c2bc09e5a5',
+  'request-id': '0ba2c8b4-9082-40a1-963f-fbabc761eab0',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-writes': '1197',
-  'x-ms-request-id': '54247f03-e4ad-4081-8304-41e070c160b2',
-  'x-ms-correlation-request-id': '54247f03-e4ad-4081-8304-41e070c160b2',
-  'x-ms-routing-request-id': 'CENTRALUS:20160913T170824Z:54247f03-e4ad-4081-8304-41e070c160b2',
-  date: 'Tue, 13 Sep 2016 17:08:24 GMT',
+  'x-ms-ratelimit-remaining-subscription-reads': '14993',
+  'x-ms-request-id': 'af94a683-f230-4f38-bae5-8686bea34ee9',
+  'x-ms-correlation-request-id': 'af94a683-f230-4f38-bae5-8686bea34ee9',
+  'x-ms-routing-request-id': 'WESTUS2:20161004T214944Z:af94a683-f230-4f38-bae5-8686bea34ee9',
+  date: 'Tue, 04 Oct 2016 21:49:43 GMT',
   connection: 'close' });
  return result; }]];

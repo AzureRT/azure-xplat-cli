@@ -184,8 +184,6 @@
     </Compile>
     <Compile Include="test\commands\arm\insights\arm.insights.diagnostic.get-tests.js" />
     <Compile Include="test\commands\arm\insights\arm.insights.diagnostic.set-tests.js" />
-    <Compile Include="test\commands\arm\batch\arm.batch.account-tests.js" />
-    <Compile Include="test\commands\arm\batch\arm.batch.subscription-tests.js" />
     <Compile Include="test\commands\arm\vm\arm.vm-disk-encryption-tests.js">
       <TestFramework>
       </TestFramework>

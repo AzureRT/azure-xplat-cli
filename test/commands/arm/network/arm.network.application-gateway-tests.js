@@ -1126,6 +1126,14 @@ describe('arm', function () {
         });
       });
 
+      it('backend-health show should display application gateway backend health details', function (done) {
+        var cmd = 'network application-gateway backend-health show -g {group} --gateway-name {name} --json'.formatArgs(gatewayProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.equal(0);
+          done();
+        });
+      });
+
       it('delete should delete application gateway', function (done) {
         var cmd = 'network application-gateway delete {group} {name} -q --json'.formatArgs(gatewayProp);
         testUtils.executeCommand(suite, retry, cmd, function (result) {

@@ -32,4 +32,4 @@ exports.setEnvironment = function() {
 
 exports.scopes = [];
 
- exports.randomTestIdsGenerated = function() { return ['armclibatch2928','armclibatch9879','armclibatchgroup7389'];};
+ exports.randomTestIdsGenerated = function() { return ['armclibatch265','armclibatch6657','armclibatchgroup8671'];};

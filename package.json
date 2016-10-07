@@ -71,7 +71,7 @@
     "azure-asm-subscription": "0.10.1",
     "azure-asm-website": "0.10.4",
     "azure-storage": "1.3.0",
-    "azure-arm-batch": "0.2.0",
+    "azure-arm-batch": "0.3.0",
     "azure-batch": "0.5.2",
     "azure-servicefabric": "0.1.4",
     "applicationinsights": "0.15.12",

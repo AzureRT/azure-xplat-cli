@@ -25,12 +25,12 @@ var requiredEnvironment = [
   { name: 'AZURE_ARM_TEST_LOCATION', defaultValue: 'westus' },
 ];
 
-var testPrefix = 'arm-cli-batch-subscription-tests';
+var testPrefix = 'arm-cli-batch-location-tests';
 var suite;
 var liveOnly = process.env.NOCK_OFF ? it : it.skip;
 
 describe('arm', function () {
-  describe('batch subscription', function () {
+  describe('batch location', function () {
 
     before(function (done) {
       suite = new CLITest(this, testPrefix, requiredEnvironment);
@@ -59,8 +59,8 @@ describe('arm', function () {
       suite.teardownTest(done);
     });
     
-    it('should list batch subscription quotas', function (done) {
-      suite.execute('batch subscription list-quotas %s --json', location, function (result) {
+    it('should get batch location quotas', function (done) {
+      suite.execute('batch location quotas show %s --json', location, function (result) {
         var quotas = JSON.parse(result.text);
         quotas.accountQuota.should.not.be.null;
         result.exitStatus.should.equal(0);
