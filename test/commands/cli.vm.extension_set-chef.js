@@ -106,14 +106,21 @@ describe('cli', function() {
         });
       });
 
-      it('Set Chef extensions with client-pem option', function(done) {
+      it('Set Chef extensions with custom json attributes', function(done) {
+        var cmd = util.format('vm extension set-chef %s -V %s -c %s -O %s --json-attributes %s --json', vmName, chefversion, clientconfig, validationpem, '{"chef_node_name":"mynode"}').split(' ');
+        testUtils.executeCommand(suite, retry, cmd, function(result) {
+          result.exitStatus.should.equal(0);
+          done();
+        });
+      });
 
+      it('Set Chef extensions with client-pem option', function(done) {
         var cmd = util.format('vm extension set-chef %s -V %s -c %s -C %s --json', vmName, chefversion, clientconfig, clientpem).split(' ');
         testUtils.executeCommand(suite, retry, cmd, function(result) {
           result.exitStatus.should.equal(0);
           done();
         });
-      });      
+      });
     });
   });
 });

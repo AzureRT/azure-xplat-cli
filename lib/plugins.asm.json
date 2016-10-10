@@ -43708,6 +43708,14 @@
                   "short": "-s",
                   "long": "--subscription",
                   "description": "the subscription id"
+                },
+                {
+                  "flags": "--json-attributes <json-attributes>",
+                  "required": -19,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--json-attributes",
+                  "description": "A JSON string to be added to the first run of chef-client. Ex: --json-attributes '{\"foo\" : \"bar\"}'"
                 }
               ]
             },

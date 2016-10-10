@@ -26644,6 +26644,15 @@
               "description": "the number of instances in the App Service Plan, Default is 1"
             },
             {
+              "flags": "-x --islinux <islinux>",
+              "required": -14,
+              "optional": 0,
+              "bool": true,
+              "short": "-x",
+              "long": "--islinux",
+              "description": "enables a linux App Service Plan, E.g --islinux true"
+            },
+            {
               "flags": "-s --subscription <subscription>",
               "required": -19,
               "optional": 0,
@@ -38810,6 +38819,14 @@
                   "short": "-s",
                   "long": "--subscription",
                   "description": "the subscription id"
+                },
+                {
+                  "flags": "--json-attributes <json-attributes>",
+                  "required": -19,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--json-attributes",
+                  "description": "A JSON string to be added to the first run of chef-client. Ex: --json-attributes '{\"foo\" : \"bar\"}'"
                 }
               ]
             },
@@ -66997,6 +67014,24 @@
                   "description": "the resource group name of the connected local network gateway"
                 },
                 {
+                  "flags": "-p, --peer-name <peer-name>",
+                  "required": -17,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-p",
+                  "long": "--peer-name",
+                  "description": "the name of the connected express route circuit"
+                },
+                {
+                  "flags": "-x, --peer-group <peer-group>",
+                  "required": -18,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-x",
+                  "long": "--peer-group",
+                  "description": "the resource group of the connected express route circuit"
+                },
+                {
                   "flags": "-y, --type <type>",
                   "required": -12,
                   "optional": 0,
@@ -68707,7 +68742,7 @@
                       "bool": true,
                       "short": "-a",
                       "long": "--static-ip-address",
-                      "description": "the static IP address name"
+                      "description": "the static IP address"
                     },
                     {
                       "flags": "-p, --public-ip-name <public-ip-name>",
@@ -68839,7 +68874,7 @@
                       "bool": true,
                       "short": "-a",
                       "long": "--static-ip-address",
-                      "description": "the static IP address name"
+                      "description": "the static IP address"
                     },
                     {
                       "flags": "-p, --public-ip-name <public-ip-name>",

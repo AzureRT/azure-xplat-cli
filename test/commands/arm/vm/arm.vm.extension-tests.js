@@ -216,6 +216,14 @@ describe('arm', function() {
         });
       });
 
+      it('Set Chef extensions with custom json attributes', function(done) {
+        this.timeout(vmTest.timeoutLarge);
+        var cmd = util.format('vm extension set-chef %s %s --client-config %s --validation-pem %s --json-attributes %s --json', groupName, vmPrefix, clientConfig, validationPem, '{"chef_node_name":"mynode"}').split(' ');
+        testUtils.executeCommand(suite, retry, cmd, function(result) {
+          result.exitStatus.should.equal(0);
+          done();
+        });
+      });
 
       //Get chef extension
       it('Extension Get-Chef should list only chef extension', function(done) {

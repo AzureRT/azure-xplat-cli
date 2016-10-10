@@ -51,9 +51,9 @@ commands/arm/vm/arm.vm.extension-tests.js
 commands/arm/vm/arm.vm.enable-aem-tests.no-wad.js
 commands/arm/vm/arm.vm-disk-encryption-extension-tests.js
 # END - Compute Tests
-commands/arm/batch/arm.batch.batch-account-tests.js
-commands/arm/batch/arm.batch.location-tests.js
-commands/arm/batch/arm.batch.application-and-app-package-tests.js
+commands/arm/batch/arm.batch.account-tests.js
+commands/arm/batch/arm.batch.subscription-tests.js
+commands/arm/batch/arm.batch.application-tests.js
 commands/arm/network/arm.network.publicip-tests.js
 commands/arm/network/arm.network.nsg-tests.js
 commands/arm/network/arm.network.nsg-rule-tests.js

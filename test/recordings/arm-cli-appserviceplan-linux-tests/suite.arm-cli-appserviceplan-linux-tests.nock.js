@@ -6,13 +6,13 @@ exports.getMockedProfile = function () {
   var newProfile = new profile.Profile();
 
   newProfile.addSubscription(new profile.Subscription({
-    id: '3d1cd7a8-b035-4563-9288-dbe706cd672e',
-    name: 'SAAS InfoNav Test_564339',
+    id: '8d57ddbd-c779-40ea-b660-1015f4bf027d',
+    name: 'Visual Studio Enterprise',
     user: {
       name: 'user@domain.example',
-      type: 'servicePrincipal'
+      type: 'user'
     },
-    tenantId: 'microsoft.com',
+    tenantId: '72f988bf-86f1-41af-91ab-2d7cd011db47',
     state: 'Enabled',
     registeredProviders: [],
     _eventsCount: '1',
@@ -23,11 +23,8 @@ exports.getMockedProfile = function () {
 };
 
 exports.setEnvironment = function() {
-  process.env['AZURE_POWERBIEMBEDDED_TEST_LOCATION'] = 'southcentralus';
-  process.env['AZURE_POWERBIEMBEDDED_TEST_SKU'] = 'S1';
-  process.env['AZURE_POWERBIEMBEDDED_TEST_TIER'] = 'Standard';
 };
 
 exports.scopes = [];
 
- exports.randomTestIdsGenerated = function() { return ['azureXplatCliTestResourceGroup5228'];};
+ exports.randomTestIdsGenerated = function() { return ['armappserviceplanlinuxtests3884','testrg14049'];};
