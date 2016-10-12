@@ -13,7 +13,7 @@
     "Wang, Yugang <yugangw@microsoft.com>",
     "Chen, Hao <hach@microsoft.com>"
   ],
-  "version": "0.10.5",
+  "version": "0.10.6",
   "description": "Microsoft Azure Cross Platform Command Line tool",
   "tags": [
     "azure",
@@ -49,7 +49,7 @@
     "azure-arm-powerbiembedded": "0.1.0",
     "azure-arm-trafficmanager": "0.10.5",
     "azure-arm-dns": "0.11.1",
-    "azure-arm-website": "0.11.3",
+    "azure-arm-website": "0.11.4",
     "azure-arm-rediscache": "0.2.1",
     "azure-arm-datalake-analytics": "^0.4.2",
     "azure-arm-datalake-store": "^0.4.1",

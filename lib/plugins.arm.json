@@ -80597,6 +80597,14 @@
                   "description": "number of workers"
                 },
                 {
+                  "flags": "--appcommandline <appcommandline>",
+                  "required": -18,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--appcommandline",
+                  "description": "app command line"
+                },
+                {
                   "flags": "--netframeworkversion <netframeworkversion>",
                   "required": -23,
                   "optional": 0,
