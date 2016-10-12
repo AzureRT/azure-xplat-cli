@@ -53403,6 +53403,15 @@
                       "description": "validity of the certificate in months"
                     },
                     {
+                      "flags": "-c, --certificate-type <certificate-type>",
+                      "required": -24,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-c",
+                      "long": "--certificate-type",
+                      "description": "Type of certificate to be requested from the issuer"
+                    },
+                    {
                       "flags": "--renew-days-before-expiry <renew-days-before-expiry>",
                       "required": -28,
                       "optional": 0,

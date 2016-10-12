@@ -93,7 +93,7 @@ describe('arm', function() {
         var certificateName = suite.generateId(certificatePrefix, knownNames);
         var importCertificateContent = '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';
         var importCertificatePassword = '123';
-        var importCertificatePolicy = '{ \"keyProperties\" : { \"exportable\" : true, \"keyType\" : \"RSA\", \"keySize\" : 2048, \"reuseKey\" : false }, \"secretProperties\" : { \"contentType\" : \"application/x-pkcs12\" }, \"issuerReference\" : { \"name\" : \"Self\" } }';
+        var importCertificatePolicy = '{ \"keyProperties\" : { \"exportable\" : true, \"keyType\" : \"RSA\", \"keySize\" : 2048, \"reuseKey\" : false }, \"secretProperties\" : { \"contentType\" : \"application/x-pkcs12\" }, \"issuerParameters\" : { \"name\" : \"Self\" } }';
         var certificateId;
         importCertificateMustSucceed();
 
@@ -210,7 +210,7 @@ describe('arm', function() {
           "+Figx8pgk29H6LM+N9Y=" + '\n' +
           "-----END ENCRYPTED PRIVATE KEY-----";
         var importCertificatePassword = '1234';
-        var importCertificatePolicy = '{ \"keyProperties\" : { \"exportable\" : true, \"keyType\" : \"RSA\", \"keySize\" : 2048, \"reuseKey\" : false }, \"secretProperties\" : { \"contentType\" : \"application/x-pem-file\" }, \"issuerReference\" : { \"name\" : \"Self\" } }';
+        var importCertificatePolicy = '{ \"keyProperties\" : { \"exportable\" : true, \"keyType\" : \"RSA\", \"keySize\" : 2048, \"reuseKey\" : false }, \"secretProperties\" : { \"contentType\" : \"application/x-pem-file\" }, \"issuerParameters\" : { \"name\" : \"Self\" } }';
         var certificateFile = 'cert.pem';
         fs.writeFileSync(certificateFile, importCertificateContent);
 
@@ -369,6 +369,33 @@ describe('arm', function() {
 
       });
 
+      it('certificate create with OV certificateType failure should work', function (done) {
+
+        var certificateName = suite.generateId(certificatePrefix, knownNames);
+        var certificatePolicy, certificatePolicyFile;
+
+        createSelfSignedCertificateMustSucceed();
+
+        function createSelfSignedCertificateMustSucceed() {
+          suite.execute('keyvault certificate policy create --issuer-name Self --certificate-type OV --subject-name CN=AZURE --secret-content-type application/x-pem-file --validity-in-months 24 --json', function (result) {
+            result.exitStatus.should.be.equal(0);
+            certificatePolicy = JSON.parse(result.text);
+            certificatePolicyFile = 'policy.js';
+            fs.writeFileSync(certificatePolicyFile, JSON.stringify(certificatePolicy));
+            createCertificateMustFail();
+          });
+        }
+
+        function createCertificateMustFail() {
+          suite.execute('keyvault certificate create %s %s --certificate-policy-file %s --json', testVault, certificateName, certificatePolicyFile, function (result) {
+            result.exitStatus.should.be.equal(1);
+            result.errorText.should.include('The certificate type specified is either invalid or not supported.');
+            done();
+          });
+        }
+
+      });
+
       it('certificate (test provider based) create and management commands should work', function(done) {
 
         var certificateName = suite.generateId(certificatePrefix, knownNames);
@@ -501,7 +528,7 @@ describe('arm', function() {
         var certificateName = suite.generateId(certificatePrefix, knownNames);
         var importCertificateContent = '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';
         var importCertificatePassword = '123';
-        var importCertificatePolicy = '{ \"keyProperties\" : { \"exportable\" : true, \"keyType\" : \"RSA\", \"keySize\" : 2048, \"reuseKey\" : false }, \"secretProperties\" : { \"contentType\" : \"application/x-pkcs12\" }, \"issuerReference\" : { \"name\" : \"Self\" } }';
+        var importCertificatePolicy = '{ \"keyProperties\" : { \"exportable\" : true, \"keyType\" : \"RSA\", \"keySize\" : 2048, \"reuseKey\" : false }, \"secretProperties\" : { \"contentType\" : \"application/x-pkcs12\" }, \"issuerParameters\" : { \"name\" : \"Self\" } }';
 
         var certificatePolicy, certificatePolicyFile;
         var certificateId;
