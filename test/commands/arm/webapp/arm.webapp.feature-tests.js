@@ -32,6 +32,8 @@ var createdResources = [];
 var createdAppSettingsKeys = [];
 var createdAppSettingsValues = [];
 
+var username = 'MyUsername';
+
 var hostingPlanName, groupName;
 var appSettingKey, appSettingValue, finalAppSetting;
 var client;
@@ -144,6 +146,27 @@ describe('arm', function () {
 
     it('config appsettings delete should work', function (done) {
       suite.execute('webapp config appsettings delete %s %s %s --json', groupName, sitename, appSettingKey, function (result) {
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+
+    it('config container set should work', function (done) {
+      suite.execute('webapp config container set %s %s -u %s --json', groupName, sitename, username, function (result) {
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+
+    it('config container list should work', function (done) {
+      suite.execute('webapp config container list %s %s --json', groupName, sitename, function (result) {
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+
+    it('config container delete should work', function (done) {
+      suite.execute('webapp config container delete %s %s --json', groupName, sitename, function (result) {
         result.exitStatus.should.equal(0);
         done();
       });

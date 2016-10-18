@@ -652,7 +652,7 @@ describe('arm', function () {
         suite.execute('group create %s --location %s --json', groupName, testLocation, function (result) {
           result.exitStatus.should.equal(0);
           suite.execute(commandToCreateDeployment, function (result) {
-            result.exitStatus.should.equal(0);
+            result.exitStatus.should.equal(1);
             result.text.indexOf('RequestDisallowedByPolicy').should.be.below(0);
             cleanup(done);
           });

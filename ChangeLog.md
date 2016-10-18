@@ -1,4 +1,44 @@
-﻿##2016-09-28 Version 0.10.5
+##2016-10-12 Version 0.10.6
+* General
+  * Changed log output filename to be trivially sortable into chronological order #3215
+* Datalake
+  * Removed erroneous not from the help #3205
+* Network
+  * Made resource-group positional parameter work in application-gateway list command #3207
+  * Ensured that default values are not used in set commands
+  * Added required parameters to the usage string and allowed to use required parameters as positional w/o using --<option-name> #3201
+  * Reworked request routing rules show/list commands #3218
+  * Added app-gateway backend-health show command #3226
+  * Fixed app gateway url path map rule options #3208
+  * Fixed issues in url path map show/list commands #3217
+  * Reworked app gateway http listener show/list command #3219
+  * Reworked app gateway address pool show/list command #3222
+  * Reworked http settings show/list commands #3223
+  * Fixed peer info messages #3243
+  * Fixed issue in DNS info message #3244
+  * Fixed incorrect option naming for appGatewayFrontendIp command #3238
+  * Fixed issue with Express Route VPN connection #3235
+  * Reworked application gateway show command - separated json format #3224
+  * Added --json-attributes for ASM and ARM. User can set custom json attributes using this option which will get set in first_boot.json #3216
+* ResourceManager
+  * Throw error when deployment fails #3241
+* WebApp #3227
+  * Implemented App Service on linux
+  * Added linux option when creating appserviceplans
+  * Added islinux option in webapp config show
+* Batch
+  * Renamed the 'batch subscription list-quotas' command to 'batch location quotas show' for consistency with the management API and the CLI naming conventions #3232
+* HDInsight
+  * Fixed logClusterOperationInfo to log both operation status and state #3234
+* Keyvault
+  * 'keyvault certificate policy create' now supports --certificate-type argument.
+* Compute
+  * Fixed #3248 in the VM command. #3250 
+* ASM
+  * Website
+    * Update kuduscript to v1.0.9 #3214
+
+##2016-09-28 Version 0.10.5
 * General
   * **By default azure-cli will now save access tokens to ~/.azure/accessTokens.json for OSX and Window, like it does on Linux**. When you install this version, **please run login to re-establish the credentials**. If you prefer **old behaviors** of using secure storage, you can turn on the env variable of **AZURE_USE_SECURE_TOKEN_STORAGE**
   * Typo fixes in log messages, help of some commands, help files and README

@@ -80965,6 +80965,259 @@
               ],
               "categories": {}
             },
+            "container": {
+              "name": "container",
+              "description": "Commands to manage your Azure webapps container configurations",
+              "fullName": "webapp config container",
+              "usage": "[options] [command]",
+              "options": [],
+              "commands": [
+                {
+                  "name": "set",
+                  "description": "Set webapp Container configurations (available only for linux webapps)",
+                  "fullName": "webapp config container set",
+                  "usage": "[options] <resource-group> <name>",
+                  "filePath": "commands/arm/webapp/webapp.config._js",
+                  "options": [
+                    {
+                      "flags": "-v, --verbose",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-v",
+                      "long": "--verbose",
+                      "description": "use verbose output"
+                    },
+                    {
+                      "flags": "-vv",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "-vv",
+                      "description": "more verbose with debug output"
+                    },
+                    {
+                      "flags": "--json",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--json",
+                      "description": "use json output"
+                    },
+                    {
+                      "flags": "-g --resource-group <resource-group>",
+                      "required": -21,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-g",
+                      "long": "--resource-group",
+                      "description": "the name of the resource group"
+                    },
+                    {
+                      "flags": "-n --name <name>",
+                      "required": -11,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-n",
+                      "long": "--name",
+                      "description": "the name of the webapp"
+                    },
+                    {
+                      "flags": "-r --url <url>",
+                      "required": -10,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-r",
+                      "long": "--url",
+                      "description": "the container registry server url"
+                    },
+                    {
+                      "flags": "-u --username <username>",
+                      "required": -15,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-u",
+                      "long": "--username",
+                      "description": "the container registry server username"
+                    },
+                    {
+                      "flags": "-p --password <password>",
+                      "required": -15,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-p",
+                      "long": "--password",
+                      "description": "the container registry server password"
+                    },
+                    {
+                      "flags": "-c --custom-image-name <customimagename>",
+                      "required": -24,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-c",
+                      "long": "--custom-image-name",
+                      "description": "the container custom image name and optionally the tag name"
+                    },
+                    {
+                      "flags": "--slot <slot>",
+                      "required": -8,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--slot",
+                      "description": "the name of the slot to show"
+                    },
+                    {
+                      "flags": "-s --subscription <subscription>",
+                      "required": -19,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-s",
+                      "long": "--subscription",
+                      "description": "the subscription identifier"
+                    }
+                  ]
+                },
+                {
+                  "name": "list",
+                  "description": "List Container configurations  (available only for linux webapps)",
+                  "fullName": "webapp config container list",
+                  "usage": "[options] <resource-group> <name>",
+                  "filePath": "commands/arm/webapp/webapp.config._js",
+                  "options": [
+                    {
+                      "flags": "-v, --verbose",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-v",
+                      "long": "--verbose",
+                      "description": "use verbose output"
+                    },
+                    {
+                      "flags": "-vv",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "-vv",
+                      "description": "more verbose with debug output"
+                    },
+                    {
+                      "flags": "--json",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--json",
+                      "description": "use json output"
+                    },
+                    {
+                      "flags": "-g --resource-group <resource-group>",
+                      "required": -21,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-g",
+                      "long": "--resource-group",
+                      "description": "the name of the resource group"
+                    },
+                    {
+                      "flags": "-n --name <name>",
+                      "required": -11,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-n",
+                      "long": "--name",
+                      "description": "the name of the webapp"
+                    },
+                    {
+                      "flags": "--slot <slot>",
+                      "required": -8,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--slot",
+                      "description": "the name of the slot to show"
+                    },
+                    {
+                      "flags": "-s --subscription <subscription>",
+                      "required": -19,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-s",
+                      "long": "--subscription",
+                      "description": "the subscription identifier"
+                    }
+                  ]
+                },
+                {
+                  "name": "delete",
+                  "description": "Delete all webapp Container configurations (available only for linux webapps)",
+                  "fullName": "webapp config container delete",
+                  "usage": "[options] <resource-group> <name>",
+                  "filePath": "commands/arm/webapp/webapp.config._js",
+                  "options": [
+                    {
+                      "flags": "-v, --verbose",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-v",
+                      "long": "--verbose",
+                      "description": "use verbose output"
+                    },
+                    {
+                      "flags": "-vv",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "-vv",
+                      "description": "more verbose with debug output"
+                    },
+                    {
+                      "flags": "--json",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--json",
+                      "description": "use json output"
+                    },
+                    {
+                      "flags": "-g --resource-group <resource-group>",
+                      "required": -21,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-g",
+                      "long": "--resource-group",
+                      "description": "the name of the resource group"
+                    },
+                    {
+                      "flags": "-n --name <name>",
+                      "required": -11,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-n",
+                      "long": "--name",
+                      "description": "the name of the webapp"
+                    },
+                    {
+                      "flags": "--slot <slot>",
+                      "required": -8,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--slot",
+                      "description": "the name of the slot to show"
+                    },
+                    {
+                      "flags": "-s --subscription <subscription>",
+                      "required": -19,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-s",
+                      "long": "--subscription",
+                      "description": "the subscription identifier"
+                    }
+                  ]
+                }
+              ],
+              "categories": {}
+            },
             "hostnames": {
               "name": "hostnames",
               "description": "Commands to get your Azure webapps hostnames",
