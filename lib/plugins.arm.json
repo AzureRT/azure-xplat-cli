@@ -50184,6 +50184,158 @@
         }
       ],
       "categories": {
+        "ipfilter-rules": {
+          "name": "ipfilter-rules",
+          "description": "Commands to manage the IP filter rules of an IoT hub",
+          "fullName": "iothub ipfilter-rules",
+          "usage": "[options] [command]",
+          "options": [],
+          "commands": [
+            {
+              "name": "list",
+              "description": "List the IoT hub IP filter rules",
+              "fullName": "iothub ipfilter-rules list",
+              "usage": "<resourceGroup> <name> [options]",
+              "filePath": "commands/arm/iothub/iothub._js",
+              "options": [
+                {
+                  "flags": "-v, --verbose",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-v",
+                  "long": "--verbose",
+                  "description": "use verbose output"
+                },
+                {
+                  "flags": "-vv",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "-vv",
+                  "description": "more verbose with debug output"
+                },
+                {
+                  "flags": "--json",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--json",
+                  "description": "use json output"
+                },
+                {
+                  "flags": "-g --resource-group <resourceGroup>",
+                  "required": -21,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-g",
+                  "long": "--resource-group",
+                  "description": "The name of the resource group"
+                },
+                {
+                  "flags": "-n --name <name>",
+                  "required": -11,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-n",
+                  "long": "--name",
+                  "description": "The name of the IoT hub"
+                },
+                {
+                  "flags": "-s --subscription [subscription]",
+                  "required": 0,
+                  "optional": -19,
+                  "bool": true,
+                  "short": "-s",
+                  "long": "--subscription",
+                  "description": "The subscription identifier"
+                },
+                {
+                  "flags": "-f --output-file [output-file]",
+                  "required": 0,
+                  "optional": -18,
+                  "bool": true,
+                  "short": "-f",
+                  "long": "--output-file",
+                  "description": "the path to the JSON-formatted output IP filter rules file in the file system",
+                  "fileRelatedOption": true
+                }
+              ]
+            },
+            {
+              "name": "set",
+              "description": "set the IoT hub IP filter rules",
+              "fullName": "iothub ipfilter-rules set",
+              "usage": "<resourceGroup> <name> <inputFile> [options]",
+              "filePath": "commands/arm/iothub/iothub._js",
+              "options": [
+                {
+                  "flags": "-v, --verbose",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-v",
+                  "long": "--verbose",
+                  "description": "use verbose output"
+                },
+                {
+                  "flags": "-vv",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "-vv",
+                  "description": "more verbose with debug output"
+                },
+                {
+                  "flags": "--json",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--json",
+                  "description": "use json output"
+                },
+                {
+                  "flags": "-g --resource-group <resourceGroup>",
+                  "required": -21,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-g",
+                  "long": "--resource-group",
+                  "description": "The name of the resource group"
+                },
+                {
+                  "flags": "-n --name <name>",
+                  "required": -11,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-n",
+                  "long": "--name",
+                  "description": "The name of the IoT hub"
+                },
+                {
+                  "flags": "-s --subscription [subscription]",
+                  "required": 0,
+                  "optional": -19,
+                  "bool": true,
+                  "short": "-s",
+                  "long": "--subscription",
+                  "description": "The subscription identifier"
+                },
+                {
+                  "flags": "-f --input-file <inputFile>",
+                  "required": -17,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-f",
+                  "long": "--input-file",
+                  "description": "the path to the JSON-formatted input IP filter rules file in the file system",
+                  "fileRelatedOption": true
+                }
+              ]
+            }
+          ],
+          "categories": {}
+        },
         "device-to-cloud-properties": {
           "name": "device-to-cloud-properties",
           "description": "Commands to manage the Device to Cloud Properties of an IoT hub",

@@ -6,15 +6,16 @@ exports.getMockedProfile = function () {
   var newProfile = new profile.Profile();
 
   newProfile.addSubscription(new profile.Subscription({
-    id: '2c224e7e-3ef5-431d-a57b-e71f4662e3a6',
-    name: 'Node CLI Test',
+    id: 'e0b81f36-36ba-44f7-b550-7c9344a35893',
+    name: 'IOTHUB_PERF_1',
     user: {
       name: 'user@domain.example',
       type: 'servicePrincipal'
     },
     tenantId: 'microsoft.com',
     state: 'Enabled',
-    registeredProviders: ['mobileservice'],
+    registeredProviders: [],
+    _eventsCount: '1',
     isDefault: true
   }, newProfile.environments['AzureCloud']));
 
