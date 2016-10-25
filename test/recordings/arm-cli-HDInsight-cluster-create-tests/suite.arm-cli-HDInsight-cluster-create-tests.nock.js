@@ -14,7 +14,8 @@ exports.getMockedProfile = function () {
     },
     tenantId: '72f988bf-86f1-41af-91ab-2d7cd011db47',
     state: 'Enabled',
-    registeredProviders: ['mobileservice'],
+    registeredProviders: [],
+    _eventsCount: '1',
     isDefault: true
   }, newProfile.environments['AzureCloud']));
 
@@ -28,4 +29,4 @@ exports.setEnvironment = function() {
 
 exports.scopes = [];
 
- exports.randomTestIdsGenerated = function() { return ['xplatTestRgHDInsightClusterCreate5990','xplatTestHDInsightClusterCreate5806','xplatTestHDInsightClusterCreate8208','xplatTestHDInsightClusterCreate2772','xplatTestHDInsightClusterCreate4415','xplatSampleApp378'];};
+ exports.randomTestIdsGenerated = function() { return ['xplatTestRgHDInsightClusterCreate5990','xplatTestHDInsightClusterCreate5806','xplatTestHDInsightClusterCreate8208','xplatTestHDInsightClusterCreate2772','xplatTestHDInsightClusterCreate4415','xplatSampleApp378','xplatTestHDInsightClusterCreate4189','xplatTestHDInsightClusterCreate3418','xplatTestHDInsightClusterCreate885','xplatTestHDInsightClusterCreate7666','xplatSampleApp9509'];};

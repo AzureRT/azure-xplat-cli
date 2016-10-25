@@ -45823,6 +45823,54 @@
                   "description": "(Optional) HDInsight cluster configuration file path"
                 },
                 {
+                  "flags": "--domain <domain>",
+                  "required": -10,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--domain",
+                  "description": "(Optional) Active Directory domain name (for Secure Clusters)"
+                },
+                {
+                  "flags": "--organizationalUnitDN <organizationalUnitDN>",
+                  "required": -24,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--organizationalUnitDN",
+                  "description": "(Optional) Distinguished Name for OU to use for creating principals (for Secure Clusters)"
+                },
+                {
+                  "flags": "--ldapsUrls <ldapsUrls>",
+                  "required": -13,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--ldapsUrls",
+                  "description": "(Optional) List of comma separated secure LDAP URLs (for Secure Clusters)"
+                },
+                {
+                  "flags": "--domainUsername <domainUsername>",
+                  "required": -18,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--domainUsername",
+                  "description": "(Optional) Active Directory domain user name (for Secure Clusters)"
+                },
+                {
+                  "flags": "--domainUserPassword <domainUserPassword>",
+                  "required": -22,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--domainUserPassword",
+                  "description": "(Optional) Active Directory domain user password (for Secure Clusters)"
+                },
+                {
+                  "flags": "--clusterUsersGroupDNs <clusterUsersGroupDNs>",
+                  "required": -24,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--clusterUsersGroupDNs",
+                  "description": "(Optional) List of comma separated user groups that can access the cluster (for Secure Clusters)"
+                },
+                {
                   "flags": "-s, --subscription <id>",
                   "required": -20,
                   "optional": 0,

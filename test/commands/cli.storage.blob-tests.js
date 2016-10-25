@@ -1331,7 +1331,7 @@ describe('cli', function () {
           });
         });
 
-        it('should show the copy status of the specified blob with SAS', function (done) {
+        liveOnly('should show the copy status of the specified blob with SAS', function (done) {
           var start = new Date('2014-10-01').toISOString();
           var expiry = new Date('2099-12-31').toISOString();
           suite.execute('storage container sas create %s r %s --start %s --json', destContainer, expiry, start, function (result) {
@@ -1375,17 +1375,18 @@ describe('cli', function () {
           }
         });
         
+        var copyid;
         it('should start to copy the blob specified by container and blob name asynchronously', function (done) {
           suite.execute('storage blob copy start --source-container %s --source-blob %s --dest-container %s -q --json', sourceContainer, blobName, destContainer, function (result) {
             var copy = JSON.parse(result.text);
-            copy.copy.id.length.should.greaterThan(0);
+            copyid = copy.copy.id;
+            copyid.length.should.greaterThan(0);
             result.errorText.should.be.empty;
             done();
           });
         });
         
-        var copyid;
-        it('should show the copy status of the specified blob', function (done) {
+        liveOnly('should show the copy status of the specified blob', function (done) {
           suite.execute('storage blob copy show --container %s --blob %s --json', destContainer, blobName, function (result) {
             var copy = JSON.parse(result.text);
             copyid = copy.copy.id;
@@ -1432,7 +1433,7 @@ describe('cli', function () {
           }
         });
 
-        it('should show the copy status of the specified file to the blob', function (done) {
+        liveOnly('should show the copy status of the specified file to the blob', function (done) {
           suite.execute('storage blob copy show --container %s --blob %s --json', destContainer, sourceFilePath, function (result) {
             var copy = JSON.parse(result.text);
             copyid = copy.copy.id;
@@ -1442,7 +1443,7 @@ describe('cli', function () {
           });
         });
         
-        it('should stop the copy of the specified file to the blob', function (done) {
+        liveOnly('should stop the copy of the specified file to the blob', function (done) {
           suite.execute('storage blob copy stop --container %s --blob %s --copyid %s --json', destContainer, sourceFilePath, copyid, function (result) {
             result.errorText.should.startWith('error: There is currently no pending copy operation');
             done();
