@@ -80701,7 +80701,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--slot",
-                  "description": "the name of the slot to show"
+                  "description": "the name of the slot"
                 },
                 {
                   "flags": "-s --subscription <subscription>",
@@ -80915,7 +80915,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--slot",
-                  "description": "the name of the slot to update"
+                  "description": "the name of the slot"
                 },
                 {
                   "flags": "-s --subscription <subscription>",
@@ -81002,7 +81002,7 @@
                       "optional": 0,
                       "bool": true,
                       "long": "--slot",
-                      "description": "the name of the slot to show"
+                      "description": "the name of the slot"
                     },
                     {
                       "flags": "-s --subscription <subscription>",
@@ -81072,7 +81072,7 @@
                       "bool": true,
                       "short": "-a",
                       "long": "--appsettings",
-                      "description": "the appsettings of the webapp to add"
+                      "description": "the appsettings of the webapp to delete"
                     },
                     {
                       "flags": "--slot <slot>",
@@ -81080,7 +81080,7 @@
                       "optional": 0,
                       "bool": true,
                       "long": "--slot",
-                      "description": "the name of the slot to show"
+                      "description": "the name of the slot"
                     },
                     {
                       "flags": "-s --subscription <subscription>",
@@ -81149,7 +81149,7 @@
                       "optional": 0,
                       "bool": true,
                       "long": "--slot",
-                      "description": "the name of the slot to list"
+                      "description": "the name of the slot"
                     },
                     {
                       "flags": "-s --subscription <subscription>",
@@ -81250,7 +81250,7 @@
                       "description": "the container registry server password"
                     },
                     {
-                      "flags": "-c --custom-image-name <customimagename>",
+                      "flags": "-c --custom-image-name <custom-image-name>",
                       "required": -24,
                       "optional": 0,
                       "bool": true,
@@ -81264,7 +81264,7 @@
                       "optional": 0,
                       "bool": true,
                       "long": "--slot",
-                      "description": "the name of the slot to show"
+                      "description": "the name of the slot"
                     },
                     {
                       "flags": "-s --subscription <subscription>",
@@ -81333,7 +81333,7 @@
                       "optional": 0,
                       "bool": true,
                       "long": "--slot",
-                      "description": "the name of the slot to show"
+                      "description": "the name of the slot"
                     },
                     {
                       "flags": "-s --subscription <subscription>",
@@ -81402,7 +81402,7 @@
                       "optional": 0,
                       "bool": true,
                       "long": "--slot",
-                      "description": "the name of the slot to show"
+                      "description": "the name of the slot"
                     },
                     {
                       "flags": "-s --subscription <subscription>",
@@ -81420,7 +81420,7 @@
             },
             "hostnames": {
               "name": "hostnames",
-              "description": "Commands to get your Azure webapps hostnames",
+              "description": "Commands to manage your Azure webapps hostnames",
               "fullName": "webapp config hostnames",
               "usage": "[options] [command]",
               "options": [],
@@ -81616,6 +81616,14 @@
                       "description": "the name of the web app"
                     },
                     {
+                      "flags": "--slot <slot>",
+                      "required": -8,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--slot",
+                      "description": "the name of the slot"
+                    },
+                    {
                       "flags": "-s --subscription <subscription>",
                       "required": -19,
                       "optional": 0,
@@ -81694,7 +81702,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--slot",
-                  "description": "the name of the slot to show"
+                  "description": "the name of the slot"
                 },
                 {
                   "flags": "-s --subscription <subscription>",
