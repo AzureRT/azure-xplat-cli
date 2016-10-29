@@ -285,7 +285,7 @@ describe('arm', function () {
     it('read should work', function (done) {
       var contentFromRead = content + content[0];
       var regexPattern = /.*data:(\s+)(.+)/ig
-      suite.execute('datalake store filesystem read --accountName %s --path %s --length %s --offset 0', filesystemAccountName, concatFile, content.length + 1, function (result) {
+      suite.execute('datalake store filesystem read --accountName %s --path %s --length %s --offset 0 --json', filesystemAccountName, concatFile, content.length + 1, function (result) {
         result.exitStatus.should.be.equal(0);
         var matches = regexPattern.exec(result.text);
         matches.should.be.ok;

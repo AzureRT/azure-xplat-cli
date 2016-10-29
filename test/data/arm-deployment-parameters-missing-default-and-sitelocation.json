@@ -1,0 +1,11 @@
+{
+  "siteName": {
+    "value": "xDeploymentTestSite12314"
+  },
+  "hostingPlanName": {
+    "value": "xDeploymentTestHost24431"
+  },
+  "workerSize": {
+    "value": "0"
+  }
+}

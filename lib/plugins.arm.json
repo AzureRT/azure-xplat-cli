@@ -25370,7 +25370,7 @@
           "commands": [
             {
               "name": "list",
-              "description": "Get Active Directory groups in current subscription's tenant",
+              "description": "Get Active Directory groups in current subscription's tenant. When --json flag is used, it will get the information from all the pages and then provide the final json array.",
               "fullName": "ad group list",
               "usage": "[options]",
               "filePath": "commands/arm/ad/ad.groups._js",
@@ -25578,7 +25578,7 @@
               "commands": [
                 {
                   "name": "list",
-                  "description": "Provides an Active Directory sub group or member info",
+                  "description": "Provides an Active Directory sub group or member info. When --json flag is used, it will get the information from all the pages and then provide the final json array.",
                   "fullName": "ad group member list",
                   "usage": "[options] <objectId>",
                   "filePath": "commands/arm/ad/ad.groups._js",
@@ -25616,6 +25616,15 @@
                       "short": "-o",
                       "long": "--objectId",
                       "description": "Object id of group whose members to return."
+                    },
+                    {
+                      "flags": "| more",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "",
+                      "long": "more",
+                      "description": "Provides paging support. Press 'Enter' for more information."
                     }
                   ]
                 },
@@ -25816,7 +25825,7 @@
           "commands": [
             {
               "name": "list",
-              "description": "Get all Active Directory service principals in current subscription's tenant",
+              "description": "Get all Active Directory service principals in current subscription's tenant. When --json flag is used, it will get the information from all the pages and then provide the final json array.",
               "fullName": "ad sp list",
               "usage": "[options]",
               "filePath": "commands/arm/ad/ad.servicePrincipals._js",
@@ -26161,7 +26170,7 @@
           "commands": [
             {
               "name": "list",
-              "description": "Get all Active Directory users in current subscription's tenant",
+              "description": "Get all Active Directory users in current subscription's tenant. When --json flag is used, it will get the information from all the pages and then provide the final json array.",
               "fullName": "ad user list",
               "usage": "[options]",
               "filePath": "commands/arm/ad/ad.users._js",
@@ -80053,7 +80062,7 @@
       "commands": [
         {
           "name": "list",
-          "description": "List the usage aggregates for a provided time range",
+          "description": "List the usage aggregates for a provided time range. When --json flag is used, it will get the information from all the pages and then provide the final json array.",
           "fullName": "usage list",
           "usage": "[options] [reportedStartTime] [reportedEndTime]",
           "filePath": "commands/arm/usage/usage._js",
@@ -80108,12 +80117,12 @@
               "description": "Value is either daily (default) or hourly to tell the API how to return the results grouped by day or hour."
             },
             {
-              "flags": "--showDetails <bool>",
-              "required": -15,
+              "flags": "--showDetails",
+              "required": 0,
               "optional": 0,
               "bool": true,
               "long": "--showDetails",
-              "description": "When set to true (default), the aggregates are broken down into the instance metadata which is more granular."
+              "description": "When this boolean flag is provided, the aggregates are broken down into the instance metadata which is more granular."
             },
             {
               "flags": "--continuationToken <url>",
@@ -80130,6 +80139,15 @@
               "bool": true,
               "long": "--subscription",
               "description": "the subscription identifier"
+            },
+            {
+              "flags": "| more",
+              "required": 0,
+              "optional": 0,
+              "bool": true,
+              "short": "",
+              "long": "more",
+              "description": "Provides paging support. Press 'Enter' for more information."
             }
           ]
         }

@@ -38173,6 +38173,14 @@
               "description": "Create a deployment script for python website"
             },
             {
+              "flags": "--functionApp",
+              "required": 0,
+              "optional": 0,
+              "bool": true,
+              "long": "--functionApp",
+              "description": "Create a deployment script for function App"
+            },
+            {
               "flags": "--basic",
               "required": 0,
               "optional": 0,
