@@ -1,3 +1,23 @@
+##2016-11-2 Version 0.10.7
+* IotHub #3265
+  * Added support for the following IP filter-rules commands in IotHub:
+    1. List IP filter rules: azure iothub ipfilter-rules list [resource-group] [name]
+    2. Set IP filter rules: azure iothub ipfilter-rules set [resource-group] [name] [input-file]
+* HDInsight #3268
+  * Added new securityProfile section to input payload when creating a cluster. This enables integration with Active Directory.
+* WebApp #3260
+  * Added slot support for all webapp commands
+  * Updated descriptions of some webapp commands
+  * Made some minor optimizations for appsettings and hostnames
+* ResourceManager #3277
+  * Modified the group deployment command to not throw when optional parameters are omitted
+* Usage #3276
+   * Ported azure-arm-commerce to use Autorest based library
+   * Provided support for `| more` while paging
+   * Fixed bugs #3239 and #3255.
+* ActiveDirectory #3276
+   * Fixed the implementation of `| more` while paging in `azure ad sp|user|group|group memeber list` commands
+
 ##2016-10-12 Version 0.10.6
 * General
   * Changed log output filename to be trivially sortable into chronological order #3215

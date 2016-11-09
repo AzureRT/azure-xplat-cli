@@ -6,8 +6,8 @@ exports.getMockedProfile = function () {
   var newProfile = new profile.Profile();
 
   newProfile.addSubscription(new profile.Subscription({
-    id: '00977cdb-163f-435f-9c32-39ec8ae61f4d',
-    name: 'node',
+    id: '8d57ddbd-c779-40ea-b660-1015f4bf027d',
+    name: 'Visual Studio Enterprise',
     user: {
       name: 'user@domain.example',
       type: 'user'
@@ -23,2513 +23,337 @@ exports.getMockedProfile = function () {
 };
 
 exports.setEnvironment = function() {
-  process.env['AZURE_GIT_USERNAME'] = 'amarzavery';
-  process.env['AZURE_SITE_TEST_LOCATION'] = 'West US';
-  process.env['AZURE_STORAGE_ACCOUNT'] = 'cchs001';
-  process.env['AZURE_STORAGE_ACCESS_KEY'] = 't1tPM0TOMUDeY4MCvI19GFfbyeVAXrGoUgZfSiBMIcePz7I2krEXFmSJi1pJEugUei0MK3CFa60++2WqGrTXfw==';
+  process.env['AZURE_GIT_USERNAME'] = '"LukaszStem"';
+  process.env['AZURE_SITE_TEST_LOCATION'] = 'dummy';
+  process.env['AZURE_STORAGE_ACCOUNT'] = 'dummy';
+  process.env['AZURE_STORAGE_ACCESS_KEY'] = 'dummy';
 };
 
 exports.scopes = [[function (nock) { 
 var result = 
 nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces')
-  .reply(200, "<WebSpaces xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource3538-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource5092-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource6240-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource7120-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource3670-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource4821-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource6011-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource8409-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource9344-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests1220-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests1465-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests4226-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests4283-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests5077-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests5743-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests6650-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup1632-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup5153-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup7183-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup7477-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>BLU</GeoLocation><GeoRegion>East US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xplatResourceTagGrp3555-EastUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup624-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup6794-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup5455-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic0e946b8adc4646d3baadb815e28d8439-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic273cf451b685461588adc0abc36bab41-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic3bdc7093990d4f4daa9d9d09ef25649f-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc8da6e35f1e9407fad7a6bbd150340d9-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicd74ccd19ef6a443d85ea814d1197f848-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicf648c72acb024d4680e22aceac10ca04-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>BLU</GeoLocation><GeoRegion>East US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xplatResourceTagGrp845-EastUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg2630-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg3613-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg5857-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg634-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg8822-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>BLU</GeoLocation><GeoRegion>East US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xplatResourceTagGrp7236-EastUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>BLU</GeoLocation><GeoRegion>East US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xplatResourceTagGrp7813-EastUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup355-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup4725-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup9764-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource2633-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource5886-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource7903-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup6257-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource7891-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic060a3d3f0e1c464ab5fad780da2df346-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic2294bbed7fed4ffda3ca53a926793769-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic3432be8ae8cb453bae523fbb816ffe8b-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic440c5218c16a475bb54d2c3725874c66-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic6aac79e91bcd4aefa991e9794e0a5232-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic6d11a4a067db45678e66ae00fba1d11a-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic741c3cbf831b428bb05d212ab63c665a-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic7b8e63eae19b46ec9a92284d15eb8cf3-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic838a2cdcab43424c81fdd23861201382-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicb4d18b9446e34629919c7e47b64f14fd-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc234c5bbaaad41c08251adf181e072d1-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc3e628993e6248ff99b0dc7092ab060a-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc71cc0ba1e144a76adf2bb82612e9109-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc73f876c0b464af7a0384be6305d7849-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasiccbab0dd015e9453ca1dc471eabff02c9-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasice84eec8877284de4a54e7fd8cfda6d53-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasice948a83056e84617906f34aff3a0814f-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicf51d5b788a7a41089b465676045dcdb4-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource2174-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource3091-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource4833-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource9703-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource1072-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace></WebSpaces>", { 'cache-control': 'private',
-  'content-length': '34709',
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces')
+  .reply(200, "<WebSpaces xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>LukaszPersonalResourceGroup-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><ResourceGroup i:nil=\"true\"/><Status>Ready</Status><Subscription>8d57ddbd-c779-40ea-b660-1015f4bf027d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace></WebSpaces>", { 'cache-control': 'private',
+  'content-length': '644',
   'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '6da158287d28085fadca442222582c6e',
-  date: 'Tue, 02 Aug 2016 19:50:00 GMT',
+  'x-ms-request-id': '0f6fe889ba5534dc89f85d2e1d78ff63',
+  date: 'Wed, 02 Nov 2016 16:38:51 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces')
-  .reply(200, "<WebSpaces xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource3538-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource5092-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource6240-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource7120-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource3670-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource4821-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource6011-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource8409-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource9344-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests1220-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests1465-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests4226-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests4283-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests5077-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests5743-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests6650-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup1632-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup5153-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup7183-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup7477-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>BLU</GeoLocation><GeoRegion>East US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xplatResourceTagGrp3555-EastUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup624-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup6794-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup5455-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic0e946b8adc4646d3baadb815e28d8439-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic273cf451b685461588adc0abc36bab41-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic3bdc7093990d4f4daa9d9d09ef25649f-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc8da6e35f1e9407fad7a6bbd150340d9-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicd74ccd19ef6a443d85ea814d1197f848-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicf648c72acb024d4680e22aceac10ca04-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>BLU</GeoLocation><GeoRegion>East US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xplatResourceTagGrp845-EastUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg2630-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg3613-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg5857-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg634-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg8822-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>BLU</GeoLocation><GeoRegion>East US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xplatResourceTagGrp7236-EastUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>BLU</GeoLocation><GeoRegion>East US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xplatResourceTagGrp7813-EastUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup355-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup4725-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup9764-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource2633-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource5886-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource7903-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup6257-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource7891-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic060a3d3f0e1c464ab5fad780da2df346-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic2294bbed7fed4ffda3ca53a926793769-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic3432be8ae8cb453bae523fbb816ffe8b-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic440c5218c16a475bb54d2c3725874c66-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic6aac79e91bcd4aefa991e9794e0a5232-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic6d11a4a067db45678e66ae00fba1d11a-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic741c3cbf831b428bb05d212ab63c665a-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic7b8e63eae19b46ec9a92284d15eb8cf3-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic838a2cdcab43424c81fdd23861201382-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicb4d18b9446e34629919c7e47b64f14fd-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc234c5bbaaad41c08251adf181e072d1-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc3e628993e6248ff99b0dc7092ab060a-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc71cc0ba1e144a76adf2bb82612e9109-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc73f876c0b464af7a0384be6305d7849-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasiccbab0dd015e9453ca1dc471eabff02c9-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasice84eec8877284de4a54e7fd8cfda6d53-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasice948a83056e84617906f34aff3a0814f-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicf51d5b788a7a41089b465676045dcdb4-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource2174-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource3091-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource4833-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource9703-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource1072-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace></WebSpaces>", { 'cache-control': 'private',
-  'content-length': '34709',
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces')
+  .reply(200, "<WebSpaces xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>LukaszPersonalResourceGroup-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><ResourceGroup i:nil=\"true\"/><Status>Ready</Status><Subscription>8d57ddbd-c779-40ea-b660-1015f4bf027d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace></WebSpaces>", { 'cache-control': 'private',
+  'content-length': '644',
   'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '6da158287d28085fadca442222582c6e',
-  date: 'Tue, 02 Aug 2016 19:50:00 GMT',
+  'x-ms-request-id': '0f6fe889ba5534dc89f85d2e1d78ff63',
+  date: 'Wed, 02 Nov 2016 16:38:51 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource8409-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces/LukaszPersonalResourceGroup-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
+  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><Site><AdminEnabled>true</AdminEnabled><AvailabilityState>Normal</AvailabilityState><Cers i:nil=\"true\"/><ClientAffinityEnabled>true</ClientAffinityEnabled><ClientCertEnabled>false</ClientCertEnabled><CloningInfo i:nil=\"true\"/><ComputeMode i:nil=\"true\"/><ContainerSize>0</ContainerSize><ContentAvailabilityState>Normal</ContentAvailabilityState><Csrs/><DailyMemoryTimeQuota>0</DailyMemoryTimeQuota><DefaultHostName>lukaszapplol321321.azurewebsites.net</DefaultHostName><DeploymentId>lukaszapplol321321</DeploymentId><DomainVerificationIdentifiers i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><Enabled>true</Enabled><EnabledHostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>lukaszapplol321321.azurewebsites.net</a:string><a:string>lukaszapplol321321.scm.azurewebsites.net</a:string></EnabledHostNames><FunctionExecutionUnitsCache i:nil=\"true\"/><GatewaySiteName i:nil=\"true\"/><HomeStamp>waws-prod-bay-067</HomeStamp><HostNameSslStates><HostNameSslState><HostType>Standard</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>lukaszapplol321321.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState><HostNameSslState><HostType>Repository</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>lukaszapplol321321.scm.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState></HostNameSslStates><HostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>lukaszapplol321321.azurewebsites.net</a:string></HostNames><HostNamesDisabled>false</HostNamesDisabled><HostingEnvironment i:nil=\"true\"/><HostingEnvironmentId i:nil=\"true\"/><HostingEnvironmentProfile i:nil=\"true\"/><Kind i:nil=\"true\"/><LastModifiedTimeUtc>2016-11-02T15:12:05.63</LastModifiedTimeUtc><MaxNumberOfWorkers i:nil=\"true\"/><MicroService>WebSites</MicroService><Name>lukaszapplol321321</Name><OutboundIpAddresses>23.99.58.14,23.99.60.163,23.99.57.5,23.99.60.173</OutboundIpAddresses><Owner i:nil=\"true\"/><PremiumAppDeployed i:nil=\"true\"/><RepositorySiteName>lukaszapplol321321</RepositorySiteName><Reserved>false</Reserved><ResourceGroup>LukaszPersonalResourceGroup</ResourceGroup><RuntimeAvailabilityState>Normal</RuntimeAvailabilityState><SKU>Free</SKU><SSLCertificates i:nil=\"true\"/><ScmSiteAlsoStopped>false</ScmSiteAlsoStopped><SelfLink>https://waws-prod-bay-067.api.azurewebsites.windows.net:454/subscriptions/8d57ddbd-c779-40ea-b660-1015f4bf027d/webspaces/LukaszPersonalResourceGroup-WestUSwebspace/sites/lukaszapplol321321</SelfLink><ServerFarm>appsvcplan</ServerFarm><ServerFarmId i:nil=\"true\"/><SiteConfig i:nil=\"true\"/><SiteDisabledReason>0</SiteDisabledReason><SiteMode i:nil=\"true\"/><SiteProperties><AppSettings i:nil=\"true\"/><Metadata i:nil=\"true\"/><Properties><NameValuePair><Name>RepositoryUri</Name><Value>https://lukaszapplol321321.scm.azurewebsites.net</Value></NameValuePair><NameValuePair><Name>PublishingUsername</Name><Value>$lukaszapplol321321</Value></NameValuePair><NameValuePair><Name>PublishingPassword</Name><Value>Sn3Ji0rRbNv0Q9HKadzldQp8Lj0gjZZAx8cJC9dMq4yE4yTHHRvu7iNzXz8x</Value></NameValuePair></Properties></SiteProperties><State>Running</State><StorageRecoveryDefaultState>Running</StorageRecoveryDefaultState><SuspendedTill i:nil=\"true\"/><Tags i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><TargetSwapSlot i:nil=\"true\"/><TrafficManagerHostNames i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><UsageState>Normal</UsageState><WebSpace>LukaszPersonalResourceGroup-WestUSwebspace</WebSpace></Site></Sites>", { 'cache-control': 'private',
+  'content-length': '4015',
   'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '2b44db89b1cba4fbb7da5d023ad3a47e',
-  date: 'Tue, 02 Aug 2016 19:50:00 GMT',
+  'x-ms-request-id': '5a5cf86f604a38d89008f01b41db4e65',
+  date: 'Wed, 02 Nov 2016 16:38:51 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource8409-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces/LukaszPersonalResourceGroup-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
+  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><Site><AdminEnabled>true</AdminEnabled><AvailabilityState>Normal</AvailabilityState><Cers i:nil=\"true\"/><ClientAffinityEnabled>true</ClientAffinityEnabled><ClientCertEnabled>false</ClientCertEnabled><CloningInfo i:nil=\"true\"/><ComputeMode i:nil=\"true\"/><ContainerSize>0</ContainerSize><ContentAvailabilityState>Normal</ContentAvailabilityState><Csrs/><DailyMemoryTimeQuota>0</DailyMemoryTimeQuota><DefaultHostName>lukaszapplol321321.azurewebsites.net</DefaultHostName><DeploymentId>lukaszapplol321321</DeploymentId><DomainVerificationIdentifiers i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><Enabled>true</Enabled><EnabledHostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>lukaszapplol321321.azurewebsites.net</a:string><a:string>lukaszapplol321321.scm.azurewebsites.net</a:string></EnabledHostNames><FunctionExecutionUnitsCache i:nil=\"true\"/><GatewaySiteName i:nil=\"true\"/><HomeStamp>waws-prod-bay-067</HomeStamp><HostNameSslStates><HostNameSslState><HostType>Standard</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>lukaszapplol321321.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState><HostNameSslState><HostType>Repository</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>lukaszapplol321321.scm.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState></HostNameSslStates><HostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>lukaszapplol321321.azurewebsites.net</a:string></HostNames><HostNamesDisabled>false</HostNamesDisabled><HostingEnvironment i:nil=\"true\"/><HostingEnvironmentId i:nil=\"true\"/><HostingEnvironmentProfile i:nil=\"true\"/><Kind i:nil=\"true\"/><LastModifiedTimeUtc>2016-11-02T15:12:05.63</LastModifiedTimeUtc><MaxNumberOfWorkers i:nil=\"true\"/><MicroService>WebSites</MicroService><Name>lukaszapplol321321</Name><OutboundIpAddresses>23.99.58.14,23.99.60.163,23.99.57.5,23.99.60.173</OutboundIpAddresses><Owner i:nil=\"true\"/><PremiumAppDeployed i:nil=\"true\"/><RepositorySiteName>lukaszapplol321321</RepositorySiteName><Reserved>false</Reserved><ResourceGroup>LukaszPersonalResourceGroup</ResourceGroup><RuntimeAvailabilityState>Normal</RuntimeAvailabilityState><SKU>Free</SKU><SSLCertificates i:nil=\"true\"/><ScmSiteAlsoStopped>false</ScmSiteAlsoStopped><SelfLink>https://waws-prod-bay-067.api.azurewebsites.windows.net:454/subscriptions/8d57ddbd-c779-40ea-b660-1015f4bf027d/webspaces/LukaszPersonalResourceGroup-WestUSwebspace/sites/lukaszapplol321321</SelfLink><ServerFarm>appsvcplan</ServerFarm><ServerFarmId i:nil=\"true\"/><SiteConfig i:nil=\"true\"/><SiteDisabledReason>0</SiteDisabledReason><SiteMode i:nil=\"true\"/><SiteProperties><AppSettings i:nil=\"true\"/><Metadata i:nil=\"true\"/><Properties><NameValuePair><Name>RepositoryUri</Name><Value>https://lukaszapplol321321.scm.azurewebsites.net</Value></NameValuePair><NameValuePair><Name>PublishingUsername</Name><Value>$lukaszapplol321321</Value></NameValuePair><NameValuePair><Name>PublishingPassword</Name><Value>Sn3Ji0rRbNv0Q9HKadzldQp8Lj0gjZZAx8cJC9dMq4yE4yTHHRvu7iNzXz8x</Value></NameValuePair></Properties></SiteProperties><State>Running</State><StorageRecoveryDefaultState>Running</StorageRecoveryDefaultState><SuspendedTill i:nil=\"true\"/><Tags i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><TargetSwapSlot i:nil=\"true\"/><TrafficManagerHostNames i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><UsageState>Normal</UsageState><WebSpace>LukaszPersonalResourceGroup-WestUSwebspace</WebSpace></Site></Sites>", { 'cache-control': 'private',
+  'content-length': '4015',
   'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '2b44db89b1cba4fbb7da5d023ad3a47e',
-  date: 'Tue, 02 Aug 2016 19:50:00 GMT',
+  'x-ms-request-id': '5a5cf86f604a38d89008f01b41db4e65',
+  date: 'Wed, 02 Nov 2016 16:38:51 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource7120-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces?properties=georegions')
+  .reply(200, "<GeoRegions xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><GeoRegion><Description i:nil=\"true\"/><DisplayName>South Central US</DisplayName><Name>South Central US</Name><SortOrder>0</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>North Europe</DisplayName><Name>North Europe</Name><SortOrder>1</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>West Europe</DisplayName><Name>West Europe</Name><SortOrder>2</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Southeast Asia</DisplayName><Name>Southeast Asia</Name><SortOrder>3</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>East Asia</DisplayName><Name>East Asia</Name><SortOrder>4</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>West US</DisplayName><Name>West US</Name><SortOrder>5</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>East US</DisplayName><Name>East US</Name><SortOrder>6</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Japan West</DisplayName><Name>Japan West</Name><SortOrder>7</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Japan East</DisplayName><Name>Japan East</Name><SortOrder>8</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>East US 2</DisplayName><Name>East US 2</Name><SortOrder>9</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>North Central US</DisplayName><Name>North Central US</Name><SortOrder>10</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Central US</DisplayName><Name>Central US</Name><SortOrder>11</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Brazil South</DisplayName><Name>Brazil South</Name><SortOrder>12</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Australia East</DisplayName><Name>Australia East</Name><SortOrder>13</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Australia Southeast</DisplayName><Name>Australia Southeast</Name><SortOrder>14</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Canada Central</DisplayName><Name>Canada Central</Name><SortOrder>2147483647</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Canada East</DisplayName><Name>Canada East</Name><SortOrder>2147483647</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>West Central US</DisplayName><Name>West Central US</Name><SortOrder>2147483647</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>West US 2</DisplayName><Name>West US 2</Name><SortOrder>2147483647</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>UK West</DisplayName><Name>UK West</Name><SortOrder>2147483647</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>UK South</DisplayName><Name>UK South</Name><SortOrder>2147483647</SortOrder></GeoRegion></GeoRegions>", { 'cache-control': 'private',
+  'content-length': '3060',
   'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '560be71c85c204b0a946692b2b4b2cc3',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
+  'x-ms-request-id': '37346f04c0483b8ba70af0d9791e541d',
+  date: 'Wed, 02 Nov 2016 16:38:53 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource7120-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces?properties=georegions')
+  .reply(200, "<GeoRegions xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><GeoRegion><Description i:nil=\"true\"/><DisplayName>South Central US</DisplayName><Name>South Central US</Name><SortOrder>0</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>North Europe</DisplayName><Name>North Europe</Name><SortOrder>1</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>West Europe</DisplayName><Name>West Europe</Name><SortOrder>2</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Southeast Asia</DisplayName><Name>Southeast Asia</Name><SortOrder>3</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>East Asia</DisplayName><Name>East Asia</Name><SortOrder>4</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>West US</DisplayName><Name>West US</Name><SortOrder>5</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>East US</DisplayName><Name>East US</Name><SortOrder>6</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Japan West</DisplayName><Name>Japan West</Name><SortOrder>7</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Japan East</DisplayName><Name>Japan East</Name><SortOrder>8</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>East US 2</DisplayName><Name>East US 2</Name><SortOrder>9</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>North Central US</DisplayName><Name>North Central US</Name><SortOrder>10</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Central US</DisplayName><Name>Central US</Name><SortOrder>11</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Brazil South</DisplayName><Name>Brazil South</Name><SortOrder>12</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Australia East</DisplayName><Name>Australia East</Name><SortOrder>13</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Australia Southeast</DisplayName><Name>Australia Southeast</Name><SortOrder>14</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Canada Central</DisplayName><Name>Canada Central</Name><SortOrder>2147483647</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Canada East</DisplayName><Name>Canada East</Name><SortOrder>2147483647</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>West Central US</DisplayName><Name>West Central US</Name><SortOrder>2147483647</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>West US 2</DisplayName><Name>West US 2</Name><SortOrder>2147483647</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>UK West</DisplayName><Name>UK West</Name><SortOrder>2147483647</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>UK South</DisplayName><Name>UK South</Name><SortOrder>2147483647</SortOrder></GeoRegion></GeoRegions>", { 'cache-control': 'private',
+  'content-length': '3060',
   'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '560be71c85c204b0a946692b2b4b2cc3',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
+  'x-ms-request-id': '37346f04c0483b8ba70af0d9791e541d',
+  date: 'Wed, 02 Nov 2016 16:38:53 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource4821-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces')
+  .reply(200, "<WebSpaces xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>LukaszPersonalResourceGroup-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><ResourceGroup i:nil=\"true\"/><Status>Ready</Status><Subscription>8d57ddbd-c779-40ea-b660-1015f4bf027d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace></WebSpaces>", { 'cache-control': 'private',
+  'content-length': '644',
   'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '2eac9875d5eb0254a517a317911b87c1',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
+  'x-ms-request-id': 'b33ede73a7e635f9a330cdd969447e69',
+  date: 'Wed, 02 Nov 2016 16:38:53 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource4821-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces')
+  .reply(200, "<WebSpaces xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>LukaszPersonalResourceGroup-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><ResourceGroup i:nil=\"true\"/><Status>Ready</Status><Subscription>8d57ddbd-c779-40ea-b660-1015f4bf027d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace></WebSpaces>", { 'cache-control': 'private',
+  'content-length': '644',
   'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '2eac9875d5eb0254a517a317911b87c1',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
+  'x-ms-request-id': 'b33ede73a7e635f9a330cdd969447e69',
+  date: 'Wed, 02 Nov 2016 16:38:53 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource5092-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'e81a156807be0c6dbb8ee48bbebe0c73',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource5092-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'e81a156807be0c6dbb8ee48bbebe0c73',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasic0e946b8adc4646d3baadb815e28d8439-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '98c9429ef808065cbe5a04107eb77e99',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasic0e946b8adc4646d3baadb815e28d8439-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '98c9429ef808065cbe5a04107eb77e99',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource3670-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'ee022352f81d06a7b1f30bea869600a1',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource3670-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'ee022352f81d06a7b1f30bea869600a1',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource3538-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '8cfbadaddac707a1b2c78c0a98848e70',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource3538-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '8cfbadaddac707a1b2c78c0a98848e70',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasicc8da6e35f1e9407fad7a6bbd150340d9-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '6a5dceb04812ad9291dc243f74de3795',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasicc8da6e35f1e9407fad7a6bbd150340d9-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '6a5dceb04812ad9291dc243f74de3795',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasic3432be8ae8cb453bae523fbb816ffe8b-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '77213dc21a1107d09afdd1ccce088a46',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasic3432be8ae8cb453bae523fbb816ffe8b-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '77213dc21a1107d09afdd1ccce088a46',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xDeploymentTestGroup624-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'e092b8d5c009ab278c9ba5e79ff7fbd7',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xDeploymentTestGroup624-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'e092b8d5c009ab278c9ba5e79ff7fbd7',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xDeploymentTestGroup5455-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'ff7df7a9bb0d06f68112283f1e9ae5f1',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xDeploymentTestGroup5455-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'ff7df7a9bb0d06f68112283f1e9ae5f1',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource6240-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '32a5ab225fd10878b7197b154a2a4f91',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource6240-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '32a5ab225fd10878b7197b154a2a4f91',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasic838a2cdcab43424c81fdd23861201382-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '5274f482796906d3ae8cd501014d0ee4',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasic838a2cdcab43424c81fdd23861201382-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '5274f482796906d3ae8cd501014d0ee4',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasic3bdc7093990d4f4daa9d9d09ef25649f-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '36f6a2bcbddd02f0aed6aac9e67c3c31',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasic3bdc7093990d4f4daa9d9d09ef25649f-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '36f6a2bcbddd02f0aed6aac9e67c3c31',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xDeploymentTestGroup7183-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'b815f9e205ec0acaa0937728b650277f',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xDeploymentTestGroup7183-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'b815f9e205ec0acaa0937728b650277f',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/csmrg634-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '137ebe8e0aef00db87ee4813f104215d',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/csmrg634-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '137ebe8e0aef00db87ee4813f104215d',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xDeploymentTestGroup5153-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'e747d7939574008e9ba7fce5456e477d',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xDeploymentTestGroup5153-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'e747d7939574008e9ba7fce5456e477d',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/arm-apiapp-tests5743-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '78664f70c3aaac4a965b3306997993f6',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/arm-apiapp-tests5743-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '78664f70c3aaac4a965b3306997993f6',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/csmrg2630-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '8dd61c2b5c9707cf8bb7f739fa626ef3',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/csmrg2630-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '8dd61c2b5c9707cf8bb7f739fa626ef3',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource4833-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '5337024e80cc0594b286376c644cc64e',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource4833-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '5337024e80cc0594b286376c644cc64e',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource3091-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'a13d19b6322aac88a8d04004753f7483',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource3091-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'a13d19b6322aac88a8d04004753f7483',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource2174-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '5ec0540f0f8a0dc58933e241dd185988',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource2174-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '5ec0540f0f8a0dc58933e241dd185988',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasic741c3cbf831b428bb05d212ab63c665a-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '29da8e30981ba909a1ece06d9a261818',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasic741c3cbf831b428bb05d212ab63c665a-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '29da8e30981ba909a1ece06d9a261818',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasic6d11a4a067db45678e66ae00fba1d11a-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '786bdebc947e0ed7bae2caa5ff3ebddd',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasic6d11a4a067db45678e66ae00fba1d11a-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '786bdebc947e0ed7bae2caa5ff3ebddd',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasice84eec8877284de4a54e7fd8cfda6d53-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '1738ce1f2fa9094aabc72b3bae83dd2e',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasice84eec8877284de4a54e7fd8cfda6d53-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '1738ce1f2fa9094aabc72b3bae83dd2e',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xDeploymentTestGroup4725-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '10f219fc2a3706e49af86b75f892db0f',
-  date: 'Tue, 02 Aug 2016 19:50:00 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xDeploymentTestGroup4725-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '10f219fc2a3706e49af86b75f892db0f',
-  date: 'Tue, 02 Aug 2016 19:50:00 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasicc234c5bbaaad41c08251adf181e072d1-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'a1f8db43881d09e1ac37764fddf3edac',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasicc234c5bbaaad41c08251adf181e072d1-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'a1f8db43881d09e1ac37764fddf3edac',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasicb4d18b9446e34629919c7e47b64f14fd-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '5155b4c5cdca0a6e8dd61ede050bc7c4',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasicb4d18b9446e34629919c7e47b64f14fd-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '5155b4c5cdca0a6e8dd61ede050bc7c4',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasiccbab0dd015e9453ca1dc471eabff02c9-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'e8ff205aec9808b9a62d48e6cc5f8a72',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasiccbab0dd015e9453ca1dc471eabff02c9-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'e8ff205aec9808b9a62d48e6cc5f8a72',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/arm-apiapp-tests4226-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '3ad343287d5706ee8bd72e5dd4049ab1',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/arm-apiapp-tests4226-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '3ad343287d5706ee8bd72e5dd4049ab1',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasicf51d5b788a7a41089b465676045dcdb4-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '4a95e527ee110c78aec8acb4625b147c',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasicf51d5b788a7a41089b465676045dcdb4-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '4a95e527ee110c78aec8acb4625b147c',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasic273cf451b685461588adc0abc36bab41-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '3596050040e70805bcb104d69e0ca5b1',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasic273cf451b685461588adc0abc36bab41-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '3596050040e70805bcb104d69e0ca5b1',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/arm-apiapp-tests6650-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '498cb63c5f9a0329a6cc95882563879e',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/arm-apiapp-tests6650-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '498cb63c5f9a0329a6cc95882563879e',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource9344-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '735c04da3bbe0bbc9465753de8cf3550',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource9344-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '735c04da3bbe0bbc9465753de8cf3550',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/csmrg8822-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'b233d0067d300aa78397436233991321',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/csmrg8822-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'b233d0067d300aa78397436233991321',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xDeploymentTestGroup6794-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '94fbc0ce35f00ca691b98cd9e5fba84f',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xDeploymentTestGroup6794-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '94fbc0ce35f00ca691b98cd9e5fba84f',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/arm-apiapp-tests1220-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'ca90a53c0f4a0224bfdb21d3461c8bd0',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/arm-apiapp-tests1220-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'ca90a53c0f4a0224bfdb21d3461c8bd0',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasicc3e628993e6248ff99b0dc7092ab060a-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'dc307ab5c753008e8cc946ea5ec0fcb7',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasicc3e628993e6248ff99b0dc7092ab060a-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'dc307ab5c753008e8cc946ea5ec0fcb7',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasic6aac79e91bcd4aefa991e9794e0a5232-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '6f034059ea000bb9bf7dea3c93f2767a',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasic6aac79e91bcd4aefa991e9794e0a5232-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '6f034059ea000bb9bf7dea3c93f2767a',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xplatResourceTagGrp3555-EastUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'a66f1b20a1b30eba82c9e079fd287839',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xplatResourceTagGrp3555-EastUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'a66f1b20a1b30eba82c9e079fd287839',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource2633-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '05af52032bf1082c83aad547aca4f7ca',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource2633-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '05af52032bf1082c83aad547aca4f7ca',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/csmrg5857-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '3224016d99750804b219c5582c215e87',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/csmrg5857-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '3224016d99750804b219c5582c215e87',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource1072-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '3b5fbe8f70a807d98a19f2f946cf1a56',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource1072-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '3b5fbe8f70a807d98a19f2f946cf1a56',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasicc71cc0ba1e144a76adf2bb82612e9109-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '44ad650d50c70410a8a578d100909dc2',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasicc71cc0ba1e144a76adf2bb82612e9109-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '44ad650d50c70410a8a578d100909dc2',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasicf648c72acb024d4680e22aceac10ca04-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '524abf4fb24709dab74d82e170248313',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasicf648c72acb024d4680e22aceac10ca04-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '524abf4fb24709dab74d82e170248313',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource6011-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '09b2c030fa5902c2a150ad86e4c75885',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource6011-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '09b2c030fa5902c2a150ad86e4c75885',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/arm-apiapp-tests5077-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'afa294ca002a014d88c9f1af492e1b97',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/arm-apiapp-tests5077-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'afa294ca002a014d88c9f1af492e1b97',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xDeploymentTestGroup6257-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'ba6d3bb2ba0f04bba825c489fad8e736',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xDeploymentTestGroup6257-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'ba6d3bb2ba0f04bba825c489fad8e736',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasicc73f876c0b464af7a0384be6305d7849-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '17c779e36c7f0d44bf57e4580e1e993a',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasicc73f876c0b464af7a0384be6305d7849-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '17c779e36c7f0d44bf57e4580e1e993a',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource5886-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'eb365f03c8c00e02aeb6d3f74fe8af2b',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource5886-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'eb365f03c8c00e02aeb6d3f74fe8af2b',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xplatResourceTagGrp7813-EastUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'dea76a6012f10a408f9523726d7f4ab9',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xplatResourceTagGrp7813-EastUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'dea76a6012f10a408f9523726d7f4ab9',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource7891-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'f7fc7187aae7a9f1ab4c94c295ee0960',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource7891-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'f7fc7187aae7a9f1ab4c94c295ee0960',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasicd74ccd19ef6a443d85ea814d1197f848-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'e3613d6520a1a7c29cc116d30cb1955f',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasicd74ccd19ef6a443d85ea814d1197f848-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'e3613d6520a1a7c29cc116d30cb1955f',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xDeploymentTestGroup7477-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '9cf86cfc075406d4ae6d64695f38c0c8',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xDeploymentTestGroup7477-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '9cf86cfc075406d4ae6d64695f38c0c8',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasic060a3d3f0e1c464ab5fad780da2df346-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '77b43fe56c81a7a1b2a5f871d845fcc4',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasic060a3d3f0e1c464ab5fad780da2df346-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '77b43fe56c81a7a1b2a5f871d845fcc4',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasic2294bbed7fed4ffda3ca53a926793769-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '4132ba9082320de1b66a32ee1fdcefc1',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasic2294bbed7fed4ffda3ca53a926793769-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '4132ba9082320de1b66a32ee1fdcefc1',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasic7b8e63eae19b46ec9a92284d15eb8cf3-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '7eb4e540773e0934a91365db8f1e3d93',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasic7b8e63eae19b46ec9a92284d15eb8cf3-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '7eb4e540773e0934a91365db8f1e3d93',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource9703-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '53e663d15e5809258ac16778d0182dd3',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource9703-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '53e663d15e5809258ac16778d0182dd3',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/csmrg3613-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'd47de49b64140ffa8474630efbabc4a4',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/csmrg3613-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'd47de49b64140ffa8474630efbabc4a4',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/arm-apiapp-tests4283-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'dab041735228accba2bc0b68ce486cd3',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/arm-apiapp-tests4283-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'dab041735228accba2bc0b68ce486cd3',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xDeploymentTestGroup1632-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'a5e446f088a90174b738f290740dbc80',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xDeploymentTestGroup1632-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'a5e446f088a90174b738f290740dbc80',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xplatResourceTagGrp7236-EastUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '23908e3d7a5707f2bbcf99eefcb7cbef',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xplatResourceTagGrp7236-EastUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '23908e3d7a5707f2bbcf99eefcb7cbef',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/arm-apiapp-tests1465-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'ad920580d7940f9d81ba6dd6b92bfe1f',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/arm-apiapp-tests1465-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'ad920580d7940f9d81ba6dd6b92bfe1f',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xDeploymentTestGroup355-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'ce44fa0654dd0c9eb6abe0bda2743046',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xDeploymentTestGroup355-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'ce44fa0654dd0c9eb6abe0bda2743046',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasice948a83056e84617906f34aff3a0814f-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '71ef0bc889bc0fa5a5342596c4fb3c69',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasice948a83056e84617906f34aff3a0814f-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '71ef0bc889bc0fa5a5342596c4fb3c69',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xDeploymentTestGroup9764-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'f2ae717dbc5905a0a93420527faf7a1b',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xDeploymentTestGroup9764-WestUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'f2ae717dbc5905a0a93420527faf7a1b',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource7903-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '878aa930ff0da35dbefe8ea29a5098ad',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xTestResource7903-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '878aa930ff0da35dbefe8ea29a5098ad',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasic440c5218c16a475bb54d2c3725874c66-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '1f1240213171017c8c63c24acc2c1035',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/CIStressbasic440c5218c16a475bb54d2c3725874c66-SouthCentralUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '1f1240213171017c8c63c24acc2c1035',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xplatResourceTagGrp845-EastUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '7ad668ee587e0bc3bd40f54ab5ce1433',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/xplatResourceTagGrp845-EastUSwebspace/sites?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Sites xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"/>", { 'cache-control': 'private',
-  'content-length': '110',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '7ad668ee587e0bc3bd40f54ab5ce1433',
-  date: 'Tue, 02 Aug 2016 19:50:01 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces?properties=georegions')
-  .reply(200, "<GeoRegions xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><GeoRegion><Description i:nil=\"true\"/><DisplayName>South Central US</DisplayName><Name>South Central US</Name><SortOrder>0</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>North Europe</DisplayName><Name>North Europe</Name><SortOrder>1</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>West Europe</DisplayName><Name>West Europe</Name><SortOrder>2</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Southeast Asia</DisplayName><Name>Southeast Asia</Name><SortOrder>3</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>East Asia</DisplayName><Name>East Asia</Name><SortOrder>4</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>West US</DisplayName><Name>West US</Name><SortOrder>5</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>East US</DisplayName><Name>East US</Name><SortOrder>6</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Japan West</DisplayName><Name>Japan West</Name><SortOrder>7</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Japan East</DisplayName><Name>Japan East</Name><SortOrder>8</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>East US 2</DisplayName><Name>East US 2</Name><SortOrder>9</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>North Central US</DisplayName><Name>North Central US</Name><SortOrder>10</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Central US</DisplayName><Name>Central US</Name><SortOrder>11</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Brazil South</DisplayName><Name>Brazil South</Name><SortOrder>12</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Australia East</DisplayName><Name>Australia East</Name><SortOrder>13</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Australia Southeast</DisplayName><Name>Australia Southeast</Name><SortOrder>14</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Central India</DisplayName><Name>Central India</Name><SortOrder>2147483647</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>West India</DisplayName><Name>West India</Name><SortOrder>2147483647</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>South India</DisplayName><Name>South India</Name><SortOrder>2147483647</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Canada Central</DisplayName><Name>Canada Central</Name><SortOrder>2147483647</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Canada East</DisplayName><Name>Canada East</Name><SortOrder>2147483647</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>West Central US</DisplayName><Name>West Central US</Name><SortOrder>2147483647</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>West US 2</DisplayName><Name>West US 2</Name><SortOrder>2147483647</SortOrder></GeoRegion></GeoRegions>", { 'cache-control': 'private',
-  'content-length': '3221',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'f4d9f43d435705fa928a5e7b39d257c5',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces?properties=georegions')
-  .reply(200, "<GeoRegions xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><GeoRegion><Description i:nil=\"true\"/><DisplayName>South Central US</DisplayName><Name>South Central US</Name><SortOrder>0</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>North Europe</DisplayName><Name>North Europe</Name><SortOrder>1</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>West Europe</DisplayName><Name>West Europe</Name><SortOrder>2</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Southeast Asia</DisplayName><Name>Southeast Asia</Name><SortOrder>3</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>East Asia</DisplayName><Name>East Asia</Name><SortOrder>4</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>West US</DisplayName><Name>West US</Name><SortOrder>5</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>East US</DisplayName><Name>East US</Name><SortOrder>6</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Japan West</DisplayName><Name>Japan West</Name><SortOrder>7</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Japan East</DisplayName><Name>Japan East</Name><SortOrder>8</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>East US 2</DisplayName><Name>East US 2</Name><SortOrder>9</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>North Central US</DisplayName><Name>North Central US</Name><SortOrder>10</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Central US</DisplayName><Name>Central US</Name><SortOrder>11</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Brazil South</DisplayName><Name>Brazil South</Name><SortOrder>12</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Australia East</DisplayName><Name>Australia East</Name><SortOrder>13</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Australia Southeast</DisplayName><Name>Australia Southeast</Name><SortOrder>14</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Central India</DisplayName><Name>Central India</Name><SortOrder>2147483647</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>West India</DisplayName><Name>West India</Name><SortOrder>2147483647</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>South India</DisplayName><Name>South India</Name><SortOrder>2147483647</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Canada Central</DisplayName><Name>Canada Central</Name><SortOrder>2147483647</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>Canada East</DisplayName><Name>Canada East</Name><SortOrder>2147483647</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>West Central US</DisplayName><Name>West Central US</Name><SortOrder>2147483647</SortOrder></GeoRegion><GeoRegion><Description i:nil=\"true\"/><DisplayName>West US 2</DisplayName><Name>West US 2</Name><SortOrder>2147483647</SortOrder></GeoRegion></GeoRegions>", { 'cache-control': 'private',
-  'content-length': '3221',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'f4d9f43d435705fa928a5e7b39d257c5',
-  date: 'Tue, 02 Aug 2016 19:50:02 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces')
-  .reply(200, "<WebSpaces xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic0e946b8adc4646d3baadb815e28d8439-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic273cf451b685461588adc0abc36bab41-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic3bdc7093990d4f4daa9d9d09ef25649f-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc8da6e35f1e9407fad7a6bbd150340d9-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicd74ccd19ef6a443d85ea814d1197f848-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicf648c72acb024d4680e22aceac10ca04-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic060a3d3f0e1c464ab5fad780da2df346-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic2294bbed7fed4ffda3ca53a926793769-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic3432be8ae8cb453bae523fbb816ffe8b-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic440c5218c16a475bb54d2c3725874c66-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic6aac79e91bcd4aefa991e9794e0a5232-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic6d11a4a067db45678e66ae00fba1d11a-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic741c3cbf831b428bb05d212ab63c665a-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic7b8e63eae19b46ec9a92284d15eb8cf3-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic838a2cdcab43424c81fdd23861201382-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicb4d18b9446e34629919c7e47b64f14fd-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc234c5bbaaad41c08251adf181e072d1-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc3e628993e6248ff99b0dc7092ab060a-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc71cc0ba1e144a76adf2bb82612e9109-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc73f876c0b464af7a0384be6305d7849-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasiccbab0dd015e9453ca1dc471eabff02c9-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasice84eec8877284de4a54e7fd8cfda6d53-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasice948a83056e84617906f34aff3a0814f-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicf51d5b788a7a41089b465676045dcdb4-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource2174-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource3091-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource4833-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource9703-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource3538-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource5092-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource6240-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource7120-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg2630-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg3613-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg5857-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg634-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg8822-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup5455-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource2633-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource5886-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource7903-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup624-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup6794-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup4725-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup9764-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>BLU</GeoLocation><GeoRegion>East US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xplatResourceTagGrp7813-EastUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource7891-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>BLU</GeoLocation><GeoRegion>East US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xplatResourceTagGrp3555-EastUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup355-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>BLU</GeoLocation><GeoRegion>East US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xplatResourceTagGrp7236-EastUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>BLU</GeoLocation><GeoRegion>East US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xplatResourceTagGrp845-EastUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup6257-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource1072-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource3670-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource4821-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource6011-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource8409-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource9344-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests1220-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests1465-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests4226-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests4283-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests5077-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests5743-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests6650-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup1632-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup5153-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup7183-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup7477-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace></WebSpaces>", { 'cache-control': 'private',
-  'content-length': '34709',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'f070e2bb699100718bd477939261ba37',
-  date: 'Tue, 02 Aug 2016 19:50:03 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces')
-  .reply(200, "<WebSpaces xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic0e946b8adc4646d3baadb815e28d8439-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic273cf451b685461588adc0abc36bab41-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic3bdc7093990d4f4daa9d9d09ef25649f-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc8da6e35f1e9407fad7a6bbd150340d9-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicd74ccd19ef6a443d85ea814d1197f848-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicf648c72acb024d4680e22aceac10ca04-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic060a3d3f0e1c464ab5fad780da2df346-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic2294bbed7fed4ffda3ca53a926793769-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic3432be8ae8cb453bae523fbb816ffe8b-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic440c5218c16a475bb54d2c3725874c66-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic6aac79e91bcd4aefa991e9794e0a5232-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic6d11a4a067db45678e66ae00fba1d11a-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic741c3cbf831b428bb05d212ab63c665a-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic7b8e63eae19b46ec9a92284d15eb8cf3-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic838a2cdcab43424c81fdd23861201382-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicb4d18b9446e34629919c7e47b64f14fd-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc234c5bbaaad41c08251adf181e072d1-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc3e628993e6248ff99b0dc7092ab060a-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc71cc0ba1e144a76adf2bb82612e9109-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc73f876c0b464af7a0384be6305d7849-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasiccbab0dd015e9453ca1dc471eabff02c9-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasice84eec8877284de4a54e7fd8cfda6d53-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasice948a83056e84617906f34aff3a0814f-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicf51d5b788a7a41089b465676045dcdb4-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource2174-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource3091-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource4833-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource9703-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource3538-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource5092-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource6240-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource7120-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg2630-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg3613-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg5857-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg634-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg8822-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup5455-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource2633-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource5886-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource7903-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup624-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup6794-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup4725-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup9764-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>BLU</GeoLocation><GeoRegion>East US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xplatResourceTagGrp7813-EastUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource7891-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>BLU</GeoLocation><GeoRegion>East US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xplatResourceTagGrp3555-EastUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup355-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>BLU</GeoLocation><GeoRegion>East US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xplatResourceTagGrp7236-EastUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>BLU</GeoLocation><GeoRegion>East US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xplatResourceTagGrp845-EastUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup6257-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource1072-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource3670-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource4821-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource6011-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource8409-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource9344-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests1220-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests1465-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests4226-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests4283-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests5077-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests5743-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests6650-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup1632-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup5153-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup7183-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup7477-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace></WebSpaces>", { 'cache-control': 'private',
-  'content-length': '34709',
-  'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
-  'x-ms-servedbyregion': 'ussouth3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'f070e2bb699100718bd477939261ba37',
-  date: 'Tue, 02 Aug 2016 19:50:03 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces?properties=dnssuffix')
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces?properties=dnssuffix')
   .reply(200, "<string xmlns=\"http://schemas.microsoft.com/2003/10/Serialization/\">azurewebsites.net</string>", { 'cache-control': 'private',
   'content-length': '94',
   'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '57249a54a927052bb86552aad0eaed21',
-  date: 'Tue, 02 Aug 2016 19:50:04 GMT',
+  'x-ms-request-id': '5a6e8eac2dbb317a88eab8d09cb849d3',
+  date: 'Wed, 02 Nov 2016 16:38:53 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces?properties=dnssuffix')
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces?properties=dnssuffix')
   .reply(200, "<string xmlns=\"http://schemas.microsoft.com/2003/10/Serialization/\">azurewebsites.net</string>", { 'cache-control': 'private',
   'content-length': '94',
   'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '57249a54a927052bb86552aad0eaed21',
-  date: 'Tue, 02 Aug 2016 19:50:04 GMT',
+  'x-ms-request-id': '5a6e8eac2dbb317a88eab8d09cb849d3',
+  date: 'Wed, 02 Nov 2016 16:38:53 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('http://management.core.windows.net:443')
   .filteringRequestBody(function (path) { return '*';})
-.post('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/westuswebspace/sites', '*')
-  .reply(200, "<Site xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><AdminEnabled>true</AdminEnabled><AvailabilityState>Normal</AvailabilityState><Cers i:nil=\"true\"/><ClientAffinityEnabled>true</ClientAffinityEnabled><ClientCertEnabled>false</ClientCertEnabled><CloningInfo i:nil=\"true\"/><ComputeMode i:nil=\"true\"/><ContainerSize>0</ContainerSize><ContentAvailabilityState>Normal</ContentAvailabilityState><Csrs/><DefaultHostName>clitests2391.azurewebsites.net</DefaultHostName><DeploymentId>clitests2391</DeploymentId><DomainVerificationIdentifiers i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><Enabled>true</Enabled><EnabledHostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>clitests2391.azurewebsites.net</a:string><a:string>clitests2391.scm.azurewebsites.net</a:string></EnabledHostNames><GatewaySiteName i:nil=\"true\"/><HomeStamp>waws-prod-bay-051</HomeStamp><HostNameSslStates><HostNameSslState><HostType>Standard</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>clitests2391.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState><HostNameSslState><HostType>Repository</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>clitests2391.scm.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState></HostNameSslStates><HostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>clitests2391.azurewebsites.net</a:string></HostNames><HostNamesDisabled>false</HostNamesDisabled><HostingEnvironment i:nil=\"true\"/><HostingEnvironmentId i:nil=\"true\"/><HostingEnvironmentProfile i:nil=\"true\"/><Kind i:nil=\"true\"/><LastModifiedTimeUtc>2016-08-02T19:50:09.09</LastModifiedTimeUtc><MaxNumberOfWorkers i:nil=\"true\"/><MicroService>WebSites</MicroService><Name>clitests2391</Name><OutboundIpAddresses>40.78.17.157,40.78.21.191,40.78.22.38,40.78.21.180</OutboundIpAddresses><Owner i:nil=\"true\"/><PremiumAppDeployed i:nil=\"true\"/><RepositorySiteName>clitests2391</RepositorySiteName><Reserved i:nil=\"true\"/><ResourceGroup>Default-Web-WestUS</ResourceGroup><RuntimeAvailabilityState>Normal</RuntimeAvailabilityState><SKU>Free</SKU><SSLCertificates i:nil=\"true\"/><ScmSiteAlsoStopped>false</ScmSiteAlsoStopped><SelfLink>https://waws-prod-bay-051.api.azurewebsites.windows.net:454/subscriptions/00977cdb-163f-435f-9c32-39ec8ae61f4d/webspaces/westuswebspace/sites/clitests2391</SelfLink><ServerFarm>Default1</ServerFarm><ServerFarmId i:nil=\"true\"/><SiteConfig i:nil=\"true\"/><SiteMode i:nil=\"true\"/><SiteProperties><AppSettings i:nil=\"true\"/><Metadata i:nil=\"true\"/><Properties/></SiteProperties><State>Running</State><StorageRecoveryDefaultState>Running</StorageRecoveryDefaultState><Tags i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><TargetSwapSlot i:nil=\"true\"/><TrafficManagerHostNames i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><UsageState>Normal</UsageState><WebSpace>westuswebspace</WebSpace></Site>", { 'cache-control': 'private',
-  'content-length': '3348',
+.post('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces/uksouthwebspace/sites', '*')
+  .reply(200, "<Site xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><AdminEnabled>true</AdminEnabled><AvailabilityState>Normal</AvailabilityState><Cers i:nil=\"true\"/><ClientAffinityEnabled>true</ClientAffinityEnabled><ClientCertEnabled>false</ClientCertEnabled><CloningInfo i:nil=\"true\"/><ComputeMode i:nil=\"true\"/><ContainerSize>0</ContainerSize><ContentAvailabilityState>Normal</ContentAvailabilityState><Csrs/><DailyMemoryTimeQuota>0</DailyMemoryTimeQuota><DefaultHostName>clitests5648.azurewebsites.net</DefaultHostName><DeploymentId>clitests5648</DeploymentId><DomainVerificationIdentifiers i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><Enabled>true</Enabled><EnabledHostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>clitests5648.azurewebsites.net</a:string><a:string>clitests5648.scm.azurewebsites.net</a:string></EnabledHostNames><FunctionExecutionUnitsCache i:nil=\"true\"/><GatewaySiteName i:nil=\"true\"/><HomeStamp>waws-prod-ln1-003</HomeStamp><HostNameSslStates><HostNameSslState><HostType>Standard</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>clitests5648.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState><HostNameSslState><HostType>Repository</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>clitests5648.scm.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState></HostNameSslStates><HostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>clitests5648.azurewebsites.net</a:string></HostNames><HostNamesDisabled>false</HostNamesDisabled><HostingEnvironment i:nil=\"true\"/><HostingEnvironmentId i:nil=\"true\"/><HostingEnvironmentProfile i:nil=\"true\"/><Kind i:nil=\"true\"/><LastModifiedTimeUtc>2016-11-02T16:39:00.0766667</LastModifiedTimeUtc><MaxNumberOfWorkers i:nil=\"true\"/><MicroService>WebSites</MicroService><Name>clitests5648</Name><OutboundIpAddresses>51.140.180.76,51.140.191.115,51.140.176.159,51.140.176.11,51.140.185.39,51.140.177.87,51.140.185.119,51.140.188.39,51.140.188.241,51.140.183.68,51.140.184.173</OutboundIpAddresses><Owner i:nil=\"true\"/><PremiumAppDeployed i:nil=\"true\"/><RepositorySiteName>clitests5648</RepositorySiteName><Reserved>false</Reserved><ResourceGroup>Default-Web-UKSouth</ResourceGroup><RuntimeAvailabilityState>Normal</RuntimeAvailabilityState><SKU>Free</SKU><SSLCertificates i:nil=\"true\"/><ScmSiteAlsoStopped>false</ScmSiteAlsoStopped><SelfLink>https://waws-prod-ln1-003.api.azurewebsites.windows.net:454/subscriptions/8d57ddbd-c779-40ea-b660-1015f4bf027d/webspaces/uksouthwebspace/sites/clitests5648</SelfLink><ServerFarm>Default1</ServerFarm><ServerFarmId i:nil=\"true\"/><SiteConfig i:nil=\"true\"/><SiteDisabledReason>0</SiteDisabledReason><SiteMode i:nil=\"true\"/><SiteProperties><AppSettings i:nil=\"true\"/><Metadata i:nil=\"true\"/><Properties/></SiteProperties><State>Running</State><StorageRecoveryDefaultState>Running</StorageRecoveryDefaultState><SuspendedTill i:nil=\"true\"/><Tags i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><TargetSwapSlot i:nil=\"true\"/><TrafficManagerHostNames i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><UsageState>Normal</UsageState><WebSpace>uksouthwebspace</WebSpace></Site>", { 'cache-control': 'private',
+  'content-length': '3626',
   'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '15b28a4125950520844688857e4f4bad',
-  date: 'Tue, 02 Aug 2016 19:50:16 GMT',
+  'x-ms-request-id': '0b841878e9d235a2b28f14384598e531',
+  date: 'Wed, 02 Nov 2016 16:39:01 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.core.windows.net:443')
   .filteringRequestBody(function (path) { return '*';})
-.post('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/westuswebspace/sites', '*')
-  .reply(200, "<Site xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><AdminEnabled>true</AdminEnabled><AvailabilityState>Normal</AvailabilityState><Cers i:nil=\"true\"/><ClientAffinityEnabled>true</ClientAffinityEnabled><ClientCertEnabled>false</ClientCertEnabled><CloningInfo i:nil=\"true\"/><ComputeMode i:nil=\"true\"/><ContainerSize>0</ContainerSize><ContentAvailabilityState>Normal</ContentAvailabilityState><Csrs/><DefaultHostName>clitests2391.azurewebsites.net</DefaultHostName><DeploymentId>clitests2391</DeploymentId><DomainVerificationIdentifiers i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><Enabled>true</Enabled><EnabledHostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>clitests2391.azurewebsites.net</a:string><a:string>clitests2391.scm.azurewebsites.net</a:string></EnabledHostNames><GatewaySiteName i:nil=\"true\"/><HomeStamp>waws-prod-bay-051</HomeStamp><HostNameSslStates><HostNameSslState><HostType>Standard</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>clitests2391.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState><HostNameSslState><HostType>Repository</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>clitests2391.scm.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState></HostNameSslStates><HostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>clitests2391.azurewebsites.net</a:string></HostNames><HostNamesDisabled>false</HostNamesDisabled><HostingEnvironment i:nil=\"true\"/><HostingEnvironmentId i:nil=\"true\"/><HostingEnvironmentProfile i:nil=\"true\"/><Kind i:nil=\"true\"/><LastModifiedTimeUtc>2016-08-02T19:50:09.09</LastModifiedTimeUtc><MaxNumberOfWorkers i:nil=\"true\"/><MicroService>WebSites</MicroService><Name>clitests2391</Name><OutboundIpAddresses>40.78.17.157,40.78.21.191,40.78.22.38,40.78.21.180</OutboundIpAddresses><Owner i:nil=\"true\"/><PremiumAppDeployed i:nil=\"true\"/><RepositorySiteName>clitests2391</RepositorySiteName><Reserved i:nil=\"true\"/><ResourceGroup>Default-Web-WestUS</ResourceGroup><RuntimeAvailabilityState>Normal</RuntimeAvailabilityState><SKU>Free</SKU><SSLCertificates i:nil=\"true\"/><ScmSiteAlsoStopped>false</ScmSiteAlsoStopped><SelfLink>https://waws-prod-bay-051.api.azurewebsites.windows.net:454/subscriptions/00977cdb-163f-435f-9c32-39ec8ae61f4d/webspaces/westuswebspace/sites/clitests2391</SelfLink><ServerFarm>Default1</ServerFarm><ServerFarmId i:nil=\"true\"/><SiteConfig i:nil=\"true\"/><SiteMode i:nil=\"true\"/><SiteProperties><AppSettings i:nil=\"true\"/><Metadata i:nil=\"true\"/><Properties/></SiteProperties><State>Running</State><StorageRecoveryDefaultState>Running</StorageRecoveryDefaultState><Tags i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><TargetSwapSlot i:nil=\"true\"/><TrafficManagerHostNames i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><UsageState>Normal</UsageState><WebSpace>westuswebspace</WebSpace></Site>", { 'cache-control': 'private',
-  'content-length': '3348',
+.post('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces/uksouthwebspace/sites', '*')
+  .reply(200, "<Site xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><AdminEnabled>true</AdminEnabled><AvailabilityState>Normal</AvailabilityState><Cers i:nil=\"true\"/><ClientAffinityEnabled>true</ClientAffinityEnabled><ClientCertEnabled>false</ClientCertEnabled><CloningInfo i:nil=\"true\"/><ComputeMode i:nil=\"true\"/><ContainerSize>0</ContainerSize><ContentAvailabilityState>Normal</ContentAvailabilityState><Csrs/><DailyMemoryTimeQuota>0</DailyMemoryTimeQuota><DefaultHostName>clitests5648.azurewebsites.net</DefaultHostName><DeploymentId>clitests5648</DeploymentId><DomainVerificationIdentifiers i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><Enabled>true</Enabled><EnabledHostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>clitests5648.azurewebsites.net</a:string><a:string>clitests5648.scm.azurewebsites.net</a:string></EnabledHostNames><FunctionExecutionUnitsCache i:nil=\"true\"/><GatewaySiteName i:nil=\"true\"/><HomeStamp>waws-prod-ln1-003</HomeStamp><HostNameSslStates><HostNameSslState><HostType>Standard</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>clitests5648.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState><HostNameSslState><HostType>Repository</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>clitests5648.scm.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState></HostNameSslStates><HostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>clitests5648.azurewebsites.net</a:string></HostNames><HostNamesDisabled>false</HostNamesDisabled><HostingEnvironment i:nil=\"true\"/><HostingEnvironmentId i:nil=\"true\"/><HostingEnvironmentProfile i:nil=\"true\"/><Kind i:nil=\"true\"/><LastModifiedTimeUtc>2016-11-02T16:39:00.0766667</LastModifiedTimeUtc><MaxNumberOfWorkers i:nil=\"true\"/><MicroService>WebSites</MicroService><Name>clitests5648</Name><OutboundIpAddresses>51.140.180.76,51.140.191.115,51.140.176.159,51.140.176.11,51.140.185.39,51.140.177.87,51.140.185.119,51.140.188.39,51.140.188.241,51.140.183.68,51.140.184.173</OutboundIpAddresses><Owner i:nil=\"true\"/><PremiumAppDeployed i:nil=\"true\"/><RepositorySiteName>clitests5648</RepositorySiteName><Reserved>false</Reserved><ResourceGroup>Default-Web-UKSouth</ResourceGroup><RuntimeAvailabilityState>Normal</RuntimeAvailabilityState><SKU>Free</SKU><SSLCertificates i:nil=\"true\"/><ScmSiteAlsoStopped>false</ScmSiteAlsoStopped><SelfLink>https://waws-prod-ln1-003.api.azurewebsites.windows.net:454/subscriptions/8d57ddbd-c779-40ea-b660-1015f4bf027d/webspaces/uksouthwebspace/sites/clitests5648</SelfLink><ServerFarm>Default1</ServerFarm><ServerFarmId i:nil=\"true\"/><SiteConfig i:nil=\"true\"/><SiteDisabledReason>0</SiteDisabledReason><SiteMode i:nil=\"true\"/><SiteProperties><AppSettings i:nil=\"true\"/><Metadata i:nil=\"true\"/><Properties/></SiteProperties><State>Running</State><StorageRecoveryDefaultState>Running</StorageRecoveryDefaultState><SuspendedTill i:nil=\"true\"/><Tags i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><TargetSwapSlot i:nil=\"true\"/><TrafficManagerHostNames i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><UsageState>Normal</UsageState><WebSpace>uksouthwebspace</WebSpace></Site>", { 'cache-control': 'private',
+  'content-length': '3626',
   'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '15b28a4125950520844688857e4f4bad',
-  date: 'Tue, 02 Aug 2016 19:50:16 GMT',
+  'x-ms-request-id': '0b841878e9d235a2b28f14384598e531',
+  date: 'Wed, 02 Nov 2016 16:39:01 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces')
-  .reply(200, "<WebSpaces xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg2630-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg3613-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg5857-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg634-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg8822-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic0e946b8adc4646d3baadb815e28d8439-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic273cf451b685461588adc0abc36bab41-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic3bdc7093990d4f4daa9d9d09ef25649f-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc8da6e35f1e9407fad7a6bbd150340d9-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicd74ccd19ef6a443d85ea814d1197f848-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicf648c72acb024d4680e22aceac10ca04-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource1072-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource3670-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource4821-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource6011-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource8409-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource9344-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup624-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup6794-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup4725-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup9764-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>BLU</GeoLocation><GeoRegion>East US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xplatResourceTagGrp7813-EastUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup5455-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>westuswebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic060a3d3f0e1c464ab5fad780da2df346-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic2294bbed7fed4ffda3ca53a926793769-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic3432be8ae8cb453bae523fbb816ffe8b-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic440c5218c16a475bb54d2c3725874c66-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic6aac79e91bcd4aefa991e9794e0a5232-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic6d11a4a067db45678e66ae00fba1d11a-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic741c3cbf831b428bb05d212ab63c665a-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic7b8e63eae19b46ec9a92284d15eb8cf3-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic838a2cdcab43424c81fdd23861201382-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicb4d18b9446e34629919c7e47b64f14fd-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc234c5bbaaad41c08251adf181e072d1-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc3e628993e6248ff99b0dc7092ab060a-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc71cc0ba1e144a76adf2bb82612e9109-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc73f876c0b464af7a0384be6305d7849-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasiccbab0dd015e9453ca1dc471eabff02c9-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasice84eec8877284de4a54e7fd8cfda6d53-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasice948a83056e84617906f34aff3a0814f-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicf51d5b788a7a41089b465676045dcdb4-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource2174-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource3091-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource4833-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource9703-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource7891-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>BLU</GeoLocation><GeoRegion>East US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xplatResourceTagGrp7236-EastUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests1220-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests1465-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests4226-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests4283-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests5077-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests5743-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests6650-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup1632-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup5153-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup7183-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup7477-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup355-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>BLU</GeoLocation><GeoRegion>East US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xplatResourceTagGrp845-EastUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup6257-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>BLU</GeoLocation><GeoRegion>East US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xplatResourceTagGrp3555-EastUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource2633-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource5886-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource7903-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource3538-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource5092-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource6240-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource7120-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace></WebSpaces>", { 'cache-control': 'private',
-  'content-length': '35171',
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces')
+  .reply(200, "<WebSpaces xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>LukaszPersonalResourceGroup-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><ResourceGroup i:nil=\"true\"/><Status>Ready</Status><Subscription>8d57ddbd-c779-40ea-b660-1015f4bf027d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>ln1</GeoLocation><GeoRegion>UK South</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>uksouthwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><ResourceGroup i:nil=\"true\"/><Status>Ready</Status><Subscription>8d57ddbd-c779-40ea-b660-1015f4bf027d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace></WebSpaces>", { 'cache-control': 'private',
+  'content-length': '1137',
   'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '0c48cc0cca9f05d2a18325d14a35e88f',
-  date: 'Tue, 02 Aug 2016 19:50:18 GMT',
+  'x-ms-request-id': '255498ae7e9b373ea28cc7749f4ca06f',
+  date: 'Wed, 02 Nov 2016 16:39:03 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces')
-  .reply(200, "<WebSpaces xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg2630-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg3613-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg5857-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg634-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>csmrg8822-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic0e946b8adc4646d3baadb815e28d8439-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic273cf451b685461588adc0abc36bab41-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic3bdc7093990d4f4daa9d9d09ef25649f-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc8da6e35f1e9407fad7a6bbd150340d9-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicd74ccd19ef6a443d85ea814d1197f848-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicf648c72acb024d4680e22aceac10ca04-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource1072-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource3670-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource4821-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource6011-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource8409-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource9344-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup624-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup6794-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup4725-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup9764-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>BLU</GeoLocation><GeoRegion>East US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xplatResourceTagGrp7813-EastUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup5455-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>westuswebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic060a3d3f0e1c464ab5fad780da2df346-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic2294bbed7fed4ffda3ca53a926793769-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic3432be8ae8cb453bae523fbb816ffe8b-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic440c5218c16a475bb54d2c3725874c66-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic6aac79e91bcd4aefa991e9794e0a5232-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic6d11a4a067db45678e66ae00fba1d11a-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic741c3cbf831b428bb05d212ab63c665a-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic7b8e63eae19b46ec9a92284d15eb8cf3-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasic838a2cdcab43424c81fdd23861201382-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicb4d18b9446e34629919c7e47b64f14fd-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc234c5bbaaad41c08251adf181e072d1-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc3e628993e6248ff99b0dc7092ab060a-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc71cc0ba1e144a76adf2bb82612e9109-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicc73f876c0b464af7a0384be6305d7849-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasiccbab0dd015e9453ca1dc471eabff02c9-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasice84eec8877284de4a54e7fd8cfda6d53-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasice948a83056e84617906f34aff3a0814f-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>CIStressbasicf51d5b788a7a41089b465676045dcdb4-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource2174-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource3091-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource4833-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource9703-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource7891-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>BLU</GeoLocation><GeoRegion>East US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xplatResourceTagGrp7236-EastUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests1220-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests1465-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests4226-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests4283-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests5077-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests5743-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>arm-apiapp-tests6650-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup1632-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup5153-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup7183-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup7477-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup355-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>BLU</GeoLocation><GeoRegion>East US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xplatResourceTagGrp845-EastUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xDeploymentTestGroup6257-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>BLU</GeoLocation><GeoRegion>East US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xplatResourceTagGrp3555-EastUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource2633-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource5886-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource7903-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource3538-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource5092-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource6240-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>sn1</GeoLocation><GeoRegion>South Central US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>xTestResource7120-SouthCentralUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><Status>Ready</Status><Subscription>00977cdb-163f-435f-9c32-39ec8ae61f4d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace></WebSpaces>", { 'cache-control': 'private',
-  'content-length': '35171',
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces')
+  .reply(200, "<WebSpaces xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>bay</GeoLocation><GeoRegion>West US</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>LukaszPersonalResourceGroup-WestUSwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><ResourceGroup i:nil=\"true\"/><Status>Ready</Status><Subscription>8d57ddbd-c779-40ea-b660-1015f4bf027d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace><WebSpace><AvailabilityState>Normal</AvailabilityState><ComputeMode i:nil=\"true\"/><CurrentNumberOfWorkers i:nil=\"true\"/><CurrentWorkerSize i:nil=\"true\"/><GeoLocation>ln1</GeoLocation><GeoRegion>UK South</GeoRegion><HostingEnvironment i:nil=\"true\"/><Name>uksouthwebspace</Name><NumberOfWorkers i:nil=\"true\"/><Plan>VirtualDedicatedPlan</Plan><ResourceGroup i:nil=\"true\"/><Status>Ready</Status><Subscription>8d57ddbd-c779-40ea-b660-1015f4bf027d</Subscription><WorkerSize i:nil=\"true\"/></WebSpace></WebSpaces>", { 'cache-control': 'private',
+  'content-length': '1137',
   'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '0c48cc0cca9f05d2a18325d14a35e88f',
-  date: 'Tue, 02 Aug 2016 19:50:18 GMT',
+  'x-ms-request-id': '255498ae7e9b373ea28cc7749f4ca06f',
+  date: 'Wed, 02 Nov 2016 16:39:03 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('http://management.core.windows.net:443')
-  .post('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/westuswebspace/sites/clitests2391/repository')
+  .post('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces/uksouthwebspace/sites/clitests5648/repository')
   .reply(200, "", { 'cache-control': 'private',
   'transfer-encoding': 'chunked',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '9202d630208f0954aa2322482bc9e349',
-  date: 'Tue, 02 Aug 2016 19:50:18 GMT',
+  'x-ms-request-id': 'e5a166ac49fd3df3a067566ced7fa4b0',
+  date: 'Wed, 02 Nov 2016 16:39:04 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.core.windows.net:443')
-  .post('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/westuswebspace/sites/clitests2391/repository')
+  .post('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces/uksouthwebspace/sites/clitests5648/repository')
   .reply(200, "", { 'cache-control': 'private',
   'transfer-encoding': 'chunked',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '9202d630208f0954aa2322482bc9e349',
-  date: 'Tue, 02 Aug 2016 19:50:18 GMT',
+  'x-ms-request-id': 'e5a166ac49fd3df3a067566ced7fa4b0',
+  date: 'Wed, 02 Nov 2016 16:39:04 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/westuswebspace/sites/clitests2391?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Site xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><AdminEnabled>true</AdminEnabled><AvailabilityState>Normal</AvailabilityState><Cers i:nil=\"true\"/><ClientAffinityEnabled>true</ClientAffinityEnabled><ClientCertEnabled>false</ClientCertEnabled><CloningInfo i:nil=\"true\"/><ComputeMode i:nil=\"true\"/><ContainerSize>0</ContainerSize><ContentAvailabilityState>Normal</ContentAvailabilityState><Csrs/><DefaultHostName>clitests2391.azurewebsites.net</DefaultHostName><DeploymentId>clitests2391</DeploymentId><DomainVerificationIdentifiers i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><Enabled>true</Enabled><EnabledHostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>clitests2391.azurewebsites.net</a:string><a:string>clitests2391.scm.azurewebsites.net</a:string></EnabledHostNames><GatewaySiteName i:nil=\"true\"/><HomeStamp>waws-prod-bay-051</HomeStamp><HostNameSslStates><HostNameSslState><HostType>Standard</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>clitests2391.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState><HostNameSslState><HostType>Repository</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>clitests2391.scm.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState></HostNameSslStates><HostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>clitests2391.azurewebsites.net</a:string></HostNames><HostNamesDisabled>false</HostNamesDisabled><HostingEnvironment i:nil=\"true\"/><HostingEnvironmentId i:nil=\"true\"/><HostingEnvironmentProfile i:nil=\"true\"/><Kind i:nil=\"true\"/><LastModifiedTimeUtc>2016-08-02T19:50:20.04</LastModifiedTimeUtc><MaxNumberOfWorkers i:nil=\"true\"/><MicroService>WebSites</MicroService><Name>clitests2391</Name><OutboundIpAddresses>40.78.17.157,40.78.21.191,40.78.22.38,40.78.21.180</OutboundIpAddresses><Owner i:nil=\"true\"/><PremiumAppDeployed i:nil=\"true\"/><RepositorySiteName>clitests2391</RepositorySiteName><Reserved i:nil=\"true\"/><ResourceGroup>Default-Web-WestUS</ResourceGroup><RuntimeAvailabilityState>Normal</RuntimeAvailabilityState><SKU>Free</SKU><SSLCertificates i:nil=\"true\"/><ScmSiteAlsoStopped>false</ScmSiteAlsoStopped><SelfLink>https://waws-prod-bay-051.api.azurewebsites.windows.net:454/subscriptions/00977cdb-163f-435f-9c32-39ec8ae61f4d/webspaces/westuswebspace/sites/clitests2391</SelfLink><ServerFarm>Default1</ServerFarm><ServerFarmId i:nil=\"true\"/><SiteConfig i:nil=\"true\"/><SiteMode i:nil=\"true\"/><SiteProperties><AppSettings i:nil=\"true\"/><Metadata i:nil=\"true\"/><Properties><NameValuePair><Name>RepositoryUri</Name><Value>https://clitests2391.scm.azurewebsites.net</Value></NameValuePair><NameValuePair><Name>PublishingUsername</Name><Value>$clitests2391</Value></NameValuePair><NameValuePair><Name>PublishingPassword</Name><Value>cADjLTnDwTteK4XkqLln8HynJv2u8JisMCjpae8pqpAd1W93w5aN7a2Ay17i</Value></NameValuePair></Properties></SiteProperties><State>Running</State><StorageRecoveryDefaultState>Running</StorageRecoveryDefaultState><Tags i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><TargetSwapSlot i:nil=\"true\"/><TrafficManagerHostNames i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><UsageState>Normal</UsageState><WebSpace>westuswebspace</WebSpace></Site>", { 'cache-control': 'private',
-  'content-length': '3701',
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces/uksouthwebspace/sites/clitests5648?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
+  .reply(200, "<Site xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><AdminEnabled>true</AdminEnabled><AvailabilityState>Normal</AvailabilityState><Cers i:nil=\"true\"/><ClientAffinityEnabled>true</ClientAffinityEnabled><ClientCertEnabled>false</ClientCertEnabled><CloningInfo i:nil=\"true\"/><ComputeMode i:nil=\"true\"/><ContainerSize>0</ContainerSize><ContentAvailabilityState>Normal</ContentAvailabilityState><Csrs/><DailyMemoryTimeQuota>0</DailyMemoryTimeQuota><DefaultHostName>clitests5648.azurewebsites.net</DefaultHostName><DeploymentId>clitests5648</DeploymentId><DomainVerificationIdentifiers i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><Enabled>true</Enabled><EnabledHostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>clitests5648.azurewebsites.net</a:string><a:string>clitests5648.scm.azurewebsites.net</a:string></EnabledHostNames><FunctionExecutionUnitsCache i:nil=\"true\"/><GatewaySiteName i:nil=\"true\"/><HomeStamp>waws-prod-ln1-003</HomeStamp><HostNameSslStates><HostNameSslState><HostType>Standard</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>clitests5648.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState><HostNameSslState><HostType>Repository</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>clitests5648.scm.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState></HostNameSslStates><HostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>clitests5648.azurewebsites.net</a:string></HostNames><HostNamesDisabled>false</HostNamesDisabled><HostingEnvironment i:nil=\"true\"/><HostingEnvironmentId i:nil=\"true\"/><HostingEnvironmentProfile i:nil=\"true\"/><Kind i:nil=\"true\"/><LastModifiedTimeUtc>2016-11-02T16:39:04.9166667</LastModifiedTimeUtc><MaxNumberOfWorkers i:nil=\"true\"/><MicroService>WebSites</MicroService><Name>clitests5648</Name><OutboundIpAddresses>51.140.180.76,51.140.191.115,51.140.176.159,51.140.176.11,51.140.185.39,51.140.177.87,51.140.185.119,51.140.188.39,51.140.188.241,51.140.183.68,51.140.184.173</OutboundIpAddresses><Owner i:nil=\"true\"/><PremiumAppDeployed i:nil=\"true\"/><RepositorySiteName>clitests5648</RepositorySiteName><Reserved>false</Reserved><ResourceGroup>Default-Web-UKSouth</ResourceGroup><RuntimeAvailabilityState>Normal</RuntimeAvailabilityState><SKU>Free</SKU><SSLCertificates i:nil=\"true\"/><ScmSiteAlsoStopped>false</ScmSiteAlsoStopped><SelfLink>https://waws-prod-ln1-003.api.azurewebsites.windows.net:454/subscriptions/8d57ddbd-c779-40ea-b660-1015f4bf027d/webspaces/uksouthwebspace/sites/clitests5648</SelfLink><ServerFarm>Default1</ServerFarm><ServerFarmId i:nil=\"true\"/><SiteConfig i:nil=\"true\"/><SiteDisabledReason>0</SiteDisabledReason><SiteMode i:nil=\"true\"/><SiteProperties><AppSettings i:nil=\"true\"/><Metadata i:nil=\"true\"/><Properties><NameValuePair><Name>RepositoryUri</Name><Value>https://clitests5648.scm.azurewebsites.net</Value></NameValuePair><NameValuePair><Name>PublishingUsername</Name><Value>$clitests5648</Value></NameValuePair><NameValuePair><Name>PublishingPassword</Name><Value>DeX3NhC4J135qCYoHeFq3csanb4q97oRvRvl8xZ8TA36mszi0RKLwr9Jjet7</Value></NameValuePair></Properties></SiteProperties><State>Running</State><StorageRecoveryDefaultState>Running</StorageRecoveryDefaultState><SuspendedTill i:nil=\"true\"/><Tags i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><TargetSwapSlot i:nil=\"true\"/><TrafficManagerHostNames i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><UsageState>Normal</UsageState><WebSpace>uksouthwebspace</WebSpace></Site>", { 'cache-control': 'private',
+  'content-length': '3979',
   'content-type': 'application/xml; charset=utf-8',
-  etag: '"1D1ECF719900080"',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  etag: '"1D235279FDC234B"',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '3b4ac713a04f0051baa5b9bb2e4a0e34',
-  date: 'Tue, 02 Aug 2016 19:50:20 GMT',
+  'x-ms-request-id': '24b2e7ae03be3d50a88a1d445af25841',
+  date: 'Wed, 02 Nov 2016 16:39:06 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/westuswebspace/sites/clitests2391?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Site xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><AdminEnabled>true</AdminEnabled><AvailabilityState>Normal</AvailabilityState><Cers i:nil=\"true\"/><ClientAffinityEnabled>true</ClientAffinityEnabled><ClientCertEnabled>false</ClientCertEnabled><CloningInfo i:nil=\"true\"/><ComputeMode i:nil=\"true\"/><ContainerSize>0</ContainerSize><ContentAvailabilityState>Normal</ContentAvailabilityState><Csrs/><DefaultHostName>clitests2391.azurewebsites.net</DefaultHostName><DeploymentId>clitests2391</DeploymentId><DomainVerificationIdentifiers i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><Enabled>true</Enabled><EnabledHostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>clitests2391.azurewebsites.net</a:string><a:string>clitests2391.scm.azurewebsites.net</a:string></EnabledHostNames><GatewaySiteName i:nil=\"true\"/><HomeStamp>waws-prod-bay-051</HomeStamp><HostNameSslStates><HostNameSslState><HostType>Standard</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>clitests2391.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState><HostNameSslState><HostType>Repository</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>clitests2391.scm.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState></HostNameSslStates><HostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>clitests2391.azurewebsites.net</a:string></HostNames><HostNamesDisabled>false</HostNamesDisabled><HostingEnvironment i:nil=\"true\"/><HostingEnvironmentId i:nil=\"true\"/><HostingEnvironmentProfile i:nil=\"true\"/><Kind i:nil=\"true\"/><LastModifiedTimeUtc>2016-08-02T19:50:20.04</LastModifiedTimeUtc><MaxNumberOfWorkers i:nil=\"true\"/><MicroService>WebSites</MicroService><Name>clitests2391</Name><OutboundIpAddresses>40.78.17.157,40.78.21.191,40.78.22.38,40.78.21.180</OutboundIpAddresses><Owner i:nil=\"true\"/><PremiumAppDeployed i:nil=\"true\"/><RepositorySiteName>clitests2391</RepositorySiteName><Reserved i:nil=\"true\"/><ResourceGroup>Default-Web-WestUS</ResourceGroup><RuntimeAvailabilityState>Normal</RuntimeAvailabilityState><SKU>Free</SKU><SSLCertificates i:nil=\"true\"/><ScmSiteAlsoStopped>false</ScmSiteAlsoStopped><SelfLink>https://waws-prod-bay-051.api.azurewebsites.windows.net:454/subscriptions/00977cdb-163f-435f-9c32-39ec8ae61f4d/webspaces/westuswebspace/sites/clitests2391</SelfLink><ServerFarm>Default1</ServerFarm><ServerFarmId i:nil=\"true\"/><SiteConfig i:nil=\"true\"/><SiteMode i:nil=\"true\"/><SiteProperties><AppSettings i:nil=\"true\"/><Metadata i:nil=\"true\"/><Properties><NameValuePair><Name>RepositoryUri</Name><Value>https://clitests2391.scm.azurewebsites.net</Value></NameValuePair><NameValuePair><Name>PublishingUsername</Name><Value>$clitests2391</Value></NameValuePair><NameValuePair><Name>PublishingPassword</Name><Value>cADjLTnDwTteK4XkqLln8HynJv2u8JisMCjpae8pqpAd1W93w5aN7a2Ay17i</Value></NameValuePair></Properties></SiteProperties><State>Running</State><StorageRecoveryDefaultState>Running</StorageRecoveryDefaultState><Tags i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><TargetSwapSlot i:nil=\"true\"/><TrafficManagerHostNames i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><UsageState>Normal</UsageState><WebSpace>westuswebspace</WebSpace></Site>", { 'cache-control': 'private',
-  'content-length': '3701',
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces/uksouthwebspace/sites/clitests5648?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
+  .reply(200, "<Site xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><AdminEnabled>true</AdminEnabled><AvailabilityState>Normal</AvailabilityState><Cers i:nil=\"true\"/><ClientAffinityEnabled>true</ClientAffinityEnabled><ClientCertEnabled>false</ClientCertEnabled><CloningInfo i:nil=\"true\"/><ComputeMode i:nil=\"true\"/><ContainerSize>0</ContainerSize><ContentAvailabilityState>Normal</ContentAvailabilityState><Csrs/><DailyMemoryTimeQuota>0</DailyMemoryTimeQuota><DefaultHostName>clitests5648.azurewebsites.net</DefaultHostName><DeploymentId>clitests5648</DeploymentId><DomainVerificationIdentifiers i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><Enabled>true</Enabled><EnabledHostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>clitests5648.azurewebsites.net</a:string><a:string>clitests5648.scm.azurewebsites.net</a:string></EnabledHostNames><FunctionExecutionUnitsCache i:nil=\"true\"/><GatewaySiteName i:nil=\"true\"/><HomeStamp>waws-prod-ln1-003</HomeStamp><HostNameSslStates><HostNameSslState><HostType>Standard</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>clitests5648.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState><HostNameSslState><HostType>Repository</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>clitests5648.scm.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState></HostNameSslStates><HostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>clitests5648.azurewebsites.net</a:string></HostNames><HostNamesDisabled>false</HostNamesDisabled><HostingEnvironment i:nil=\"true\"/><HostingEnvironmentId i:nil=\"true\"/><HostingEnvironmentProfile i:nil=\"true\"/><Kind i:nil=\"true\"/><LastModifiedTimeUtc>2016-11-02T16:39:04.9166667</LastModifiedTimeUtc><MaxNumberOfWorkers i:nil=\"true\"/><MicroService>WebSites</MicroService><Name>clitests5648</Name><OutboundIpAddresses>51.140.180.76,51.140.191.115,51.140.176.159,51.140.176.11,51.140.185.39,51.140.177.87,51.140.185.119,51.140.188.39,51.140.188.241,51.140.183.68,51.140.184.173</OutboundIpAddresses><Owner i:nil=\"true\"/><PremiumAppDeployed i:nil=\"true\"/><RepositorySiteName>clitests5648</RepositorySiteName><Reserved>false</Reserved><ResourceGroup>Default-Web-UKSouth</ResourceGroup><RuntimeAvailabilityState>Normal</RuntimeAvailabilityState><SKU>Free</SKU><SSLCertificates i:nil=\"true\"/><ScmSiteAlsoStopped>false</ScmSiteAlsoStopped><SelfLink>https://waws-prod-ln1-003.api.azurewebsites.windows.net:454/subscriptions/8d57ddbd-c779-40ea-b660-1015f4bf027d/webspaces/uksouthwebspace/sites/clitests5648</SelfLink><ServerFarm>Default1</ServerFarm><ServerFarmId i:nil=\"true\"/><SiteConfig i:nil=\"true\"/><SiteDisabledReason>0</SiteDisabledReason><SiteMode i:nil=\"true\"/><SiteProperties><AppSettings i:nil=\"true\"/><Metadata i:nil=\"true\"/><Properties><NameValuePair><Name>RepositoryUri</Name><Value>https://clitests5648.scm.azurewebsites.net</Value></NameValuePair><NameValuePair><Name>PublishingUsername</Name><Value>$clitests5648</Value></NameValuePair><NameValuePair><Name>PublishingPassword</Name><Value>DeX3NhC4J135qCYoHeFq3csanb4q97oRvRvl8xZ8TA36mszi0RKLwr9Jjet7</Value></NameValuePair></Properties></SiteProperties><State>Running</State><StorageRecoveryDefaultState>Running</StorageRecoveryDefaultState><SuspendedTill i:nil=\"true\"/><Tags i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><TargetSwapSlot i:nil=\"true\"/><TrafficManagerHostNames i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><UsageState>Normal</UsageState><WebSpace>uksouthwebspace</WebSpace></Site>", { 'cache-control': 'private',
+  'content-length': '3979',
   'content-type': 'application/xml; charset=utf-8',
-  etag: '"1D1ECF719900080"',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  etag: '"1D235279FDC234B"',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '3b4ac713a04f0051baa5b9bb2e4a0e34',
-  date: 'Tue, 02 Aug 2016 19:50:20 GMT',
+  'x-ms-request-id': '24b2e7ae03be3d50a88a1d445af25841',
+  date: 'Wed, 02 Nov 2016 16:39:06 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces?properties=dnssuffix')
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces?properties=dnssuffix')
   .reply(200, "<string xmlns=\"http://schemas.microsoft.com/2003/10/Serialization/\">azurewebsites.net</string>", { 'cache-control': 'private',
   'content-length': '94',
   'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '100188b62681043e8af465fdf284cbbd',
-  date: 'Tue, 02 Aug 2016 19:50:20 GMT',
+  'x-ms-request-id': 'e970c0b321d03ce7a3206d7f53771efe',
+  date: 'Wed, 02 Nov 2016 16:39:07 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces?properties=dnssuffix')
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces?properties=dnssuffix')
   .reply(200, "<string xmlns=\"http://schemas.microsoft.com/2003/10/Serialization/\">azurewebsites.net</string>", { 'cache-control': 'private',
   'content-length': '94',
   'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '100188b62681043e8af465fdf284cbbd',
-  date: 'Tue, 02 Aug 2016 19:50:20 GMT',
+  'x-ms-request-id': 'e970c0b321d03ce7a3206d7f53771efe',
+  date: 'Wed, 02 Nov 2016 16:39:07 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
-nock('http://clitests2391.scm.azurewebsites.net:443')
+nock('http://clitests5648.scm.azurewebsites.net:443')
   .get('/api/diagnostics/settings/')
   .reply(200, "{\"AzureDriveEnabled\":false,\"AzureDriveTraceLevel\":\"Error\",\"AzureTableEnabled\":false,\"AzureTableTraceLevel\":\"Error\",\"AzureBlobEnabled\":false,\"AzureBlobTraceLevel\":\"Error\"}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2537,16 +361,16 @@ nock('http://clitests2391.scm.azurewebsites.net:443')
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   server: 'Microsoft-IIS/8.0',
-  'x-ms-request-id': '9aed6c20-37da-4bd7-89f1-4e96cca0c8f4',
+  'x-ms-request-id': '7ef63629-56b1-4781-aae9-120aeec33d35',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'set-cookie': [ 'ARRAffinity=fb57a3bf1d74e20c0bfc5885e186d0a68caf113d87c013f01c720cf53015215f;Path=/;Domain=clitests2391.scm.azurewebsites.net' ],
-  date: 'Tue, 02 Aug 2016 19:50:27 GMT',
+  'set-cookie': [ 'ARRAffinity=40246b89542972727ac11c54edceb52d89c7db18f79fd8034ec2ba95cd1d438f;Path=/;Domain=clitests5648.scm.azurewebsites.net' ],
+  date: 'Wed, 02 Nov 2016 16:39:12 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
-nock('https://clitests2391.scm.azurewebsites.net:443')
+nock('https://clitests5648.scm.azurewebsites.net:443')
   .get('/api/diagnostics/settings/')
   .reply(200, "{\"AzureDriveEnabled\":false,\"AzureDriveTraceLevel\":\"Error\",\"AzureTableEnabled\":false,\"AzureTableTraceLevel\":\"Error\",\"AzureBlobEnabled\":false,\"AzureBlobTraceLevel\":\"Error\"}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2554,244 +378,244 @@ nock('https://clitests2391.scm.azurewebsites.net:443')
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   server: 'Microsoft-IIS/8.0',
-  'x-ms-request-id': '9aed6c20-37da-4bd7-89f1-4e96cca0c8f4',
+  'x-ms-request-id': '7ef63629-56b1-4781-aae9-120aeec33d35',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'set-cookie': [ 'ARRAffinity=fb57a3bf1d74e20c0bfc5885e186d0a68caf113d87c013f01c720cf53015215f;Path=/;Domain=clitests2391.scm.azurewebsites.net' ],
-  date: 'Tue, 02 Aug 2016 19:50:27 GMT',
+  'set-cookie': [ 'ARRAffinity=40246b89542972727ac11c54edceb52d89c7db18f79fd8034ec2ba95cd1d438f;Path=/;Domain=clitests5648.scm.azurewebsites.net' ],
+  date: 'Wed, 02 Nov 2016 16:39:12 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
-nock('http://clitests2391.scm.azurewebsites.net:443')
+nock('http://clitests5648.scm.azurewebsites.net:443')
   .filteringRequestBody(function (path) { return '*';})
 .post('/api/diagnostics/settings/', '*')
   .reply(204, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   expires: '-1',
   server: 'Microsoft-IIS/8.0',
-  'x-ms-request-id': '43f78d2e-bb4b-4b9a-8a19-04d8e0fc5c3b',
+  'x-ms-request-id': '076b6048-0f2d-4372-a869-ea344555f13e',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'set-cookie': [ 'ARRAffinity=fb57a3bf1d74e20c0bfc5885e186d0a68caf113d87c013f01c720cf53015215f;Path=/;Domain=clitests2391.scm.azurewebsites.net' ],
-  date: 'Tue, 02 Aug 2016 19:50:32 GMT',
+  'set-cookie': [ 'ARRAffinity=40246b89542972727ac11c54edceb52d89c7db18f79fd8034ec2ba95cd1d438f;Path=/;Domain=clitests5648.scm.azurewebsites.net' ],
+  date: 'Wed, 02 Nov 2016 16:39:17 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
-nock('https://clitests2391.scm.azurewebsites.net:443')
+nock('https://clitests5648.scm.azurewebsites.net:443')
   .filteringRequestBody(function (path) { return '*';})
 .post('/api/diagnostics/settings/', '*')
   .reply(204, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   expires: '-1',
   server: 'Microsoft-IIS/8.0',
-  'x-ms-request-id': '43f78d2e-bb4b-4b9a-8a19-04d8e0fc5c3b',
+  'x-ms-request-id': '076b6048-0f2d-4372-a869-ea344555f13e',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'set-cookie': [ 'ARRAffinity=fb57a3bf1d74e20c0bfc5885e186d0a68caf113d87c013f01c720cf53015215f;Path=/;Domain=clitests2391.scm.azurewebsites.net' ],
-  date: 'Tue, 02 Aug 2016 19:50:32 GMT',
+  'set-cookie': [ 'ARRAffinity=40246b89542972727ac11c54edceb52d89c7db18f79fd8034ec2ba95cd1d438f;Path=/;Domain=clitests5648.scm.azurewebsites.net' ],
+  date: 'Wed, 02 Nov 2016 16:39:17 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('http://management.core.windows.net:443')
   .filteringRequestBody(function (path) { return '*';})
-.put('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/westuswebspace/sites/clitests2391/config', '*')
+.put('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces/uksouthwebspace/sites/clitests5648/config', '*')
   .reply(200, "", { 'cache-control': 'private',
   'transfer-encoding': 'chunked',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'd1d0092dbc12a8fd986e284ece9795c1',
-  date: 'Tue, 02 Aug 2016 19:50:33 GMT',
+  'x-ms-request-id': 'b11496ef94113c628b8037a1fce241fc',
+  date: 'Wed, 02 Nov 2016 16:39:18 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.core.windows.net:443')
   .filteringRequestBody(function (path) { return '*';})
-.put('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/westuswebspace/sites/clitests2391/config', '*')
+.put('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces/uksouthwebspace/sites/clitests5648/config', '*')
   .reply(200, "", { 'cache-control': 'private',
   'transfer-encoding': 'chunked',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'd1d0092dbc12a8fd986e284ece9795c1',
-  date: 'Tue, 02 Aug 2016 19:50:33 GMT',
+  'x-ms-request-id': 'b11496ef94113c628b8037a1fce241fc',
+  date: 'Wed, 02 Nov 2016 16:39:18 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/westuswebspace/sites/clitests2391?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Site xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><AdminEnabled>true</AdminEnabled><AvailabilityState>Normal</AvailabilityState><Cers i:nil=\"true\"/><ClientAffinityEnabled>true</ClientAffinityEnabled><ClientCertEnabled>false</ClientCertEnabled><CloningInfo i:nil=\"true\"/><ComputeMode i:nil=\"true\"/><ContainerSize>0</ContainerSize><ContentAvailabilityState>Normal</ContentAvailabilityState><Csrs/><DefaultHostName>clitests2391.azurewebsites.net</DefaultHostName><DeploymentId>clitests2391</DeploymentId><DomainVerificationIdentifiers i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><Enabled>true</Enabled><EnabledHostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>clitests2391.azurewebsites.net</a:string><a:string>clitests2391.scm.azurewebsites.net</a:string></EnabledHostNames><GatewaySiteName i:nil=\"true\"/><HomeStamp>waws-prod-bay-051</HomeStamp><HostNameSslStates><HostNameSslState><HostType>Standard</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>clitests2391.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState><HostNameSslState><HostType>Repository</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>clitests2391.scm.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState></HostNameSslStates><HostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>clitests2391.azurewebsites.net</a:string></HostNames><HostNamesDisabled>false</HostNamesDisabled><HostingEnvironment i:nil=\"true\"/><HostingEnvironmentId i:nil=\"true\"/><HostingEnvironmentProfile i:nil=\"true\"/><Kind i:nil=\"true\"/><LastModifiedTimeUtc>2016-08-02T19:50:34.23</LastModifiedTimeUtc><MaxNumberOfWorkers i:nil=\"true\"/><MicroService>WebSites</MicroService><Name>clitests2391</Name><OutboundIpAddresses>40.78.17.157,40.78.21.191,40.78.22.38,40.78.21.180</OutboundIpAddresses><Owner i:nil=\"true\"/><PremiumAppDeployed i:nil=\"true\"/><RepositorySiteName>clitests2391</RepositorySiteName><Reserved i:nil=\"true\"/><ResourceGroup>Default-Web-WestUS</ResourceGroup><RuntimeAvailabilityState>Normal</RuntimeAvailabilityState><SKU>Free</SKU><SSLCertificates i:nil=\"true\"/><ScmSiteAlsoStopped>false</ScmSiteAlsoStopped><SelfLink>https://waws-prod-bay-051.api.azurewebsites.windows.net:454/subscriptions/00977cdb-163f-435f-9c32-39ec8ae61f4d/webspaces/westuswebspace/sites/clitests2391</SelfLink><ServerFarm>Default1</ServerFarm><ServerFarmId i:nil=\"true\"/><SiteConfig i:nil=\"true\"/><SiteMode i:nil=\"true\"/><SiteProperties><AppSettings i:nil=\"true\"/><Metadata i:nil=\"true\"/><Properties><NameValuePair><Name>RepositoryUri</Name><Value>https://clitests2391.scm.azurewebsites.net</Value></NameValuePair><NameValuePair><Name>PublishingUsername</Name><Value>$clitests2391</Value></NameValuePair><NameValuePair><Name>PublishingPassword</Name><Value>cADjLTnDwTteK4XkqLln8HynJv2u8JisMCjpae8pqpAd1W93w5aN7a2Ay17i</Value></NameValuePair></Properties></SiteProperties><State>Running</State><StorageRecoveryDefaultState>Running</StorageRecoveryDefaultState><Tags i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><TargetSwapSlot i:nil=\"true\"/><TrafficManagerHostNames i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><UsageState>Normal</UsageState><WebSpace>westuswebspace</WebSpace></Site>", { 'cache-control': 'private',
-  'content-length': '3701',
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces/uksouthwebspace/sites/clitests5648?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
+  .reply(200, "<Site xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><AdminEnabled>true</AdminEnabled><AvailabilityState>Normal</AvailabilityState><Cers i:nil=\"true\"/><ClientAffinityEnabled>true</ClientAffinityEnabled><ClientCertEnabled>false</ClientCertEnabled><CloningInfo i:nil=\"true\"/><ComputeMode i:nil=\"true\"/><ContainerSize>0</ContainerSize><ContentAvailabilityState>Normal</ContentAvailabilityState><Csrs/><DailyMemoryTimeQuota>0</DailyMemoryTimeQuota><DefaultHostName>clitests5648.azurewebsites.net</DefaultHostName><DeploymentId>clitests5648</DeploymentId><DomainVerificationIdentifiers i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><Enabled>true</Enabled><EnabledHostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>clitests5648.azurewebsites.net</a:string><a:string>clitests5648.scm.azurewebsites.net</a:string></EnabledHostNames><FunctionExecutionUnitsCache i:nil=\"true\"/><GatewaySiteName i:nil=\"true\"/><HomeStamp>waws-prod-ln1-003</HomeStamp><HostNameSslStates><HostNameSslState><HostType>Standard</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>clitests5648.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState><HostNameSslState><HostType>Repository</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>clitests5648.scm.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState></HostNameSslStates><HostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>clitests5648.azurewebsites.net</a:string></HostNames><HostNamesDisabled>false</HostNamesDisabled><HostingEnvironment i:nil=\"true\"/><HostingEnvironmentId i:nil=\"true\"/><HostingEnvironmentProfile i:nil=\"true\"/><Kind i:nil=\"true\"/><LastModifiedTimeUtc>2016-11-02T16:39:18.46</LastModifiedTimeUtc><MaxNumberOfWorkers i:nil=\"true\"/><MicroService>WebSites</MicroService><Name>clitests5648</Name><OutboundIpAddresses>51.140.180.76,51.140.191.115,51.140.176.159,51.140.176.11,51.140.185.39,51.140.177.87,51.140.185.119,51.140.188.39,51.140.188.241,51.140.183.68,51.140.184.173</OutboundIpAddresses><Owner i:nil=\"true\"/><PremiumAppDeployed i:nil=\"true\"/><RepositorySiteName>clitests5648</RepositorySiteName><Reserved>false</Reserved><ResourceGroup>Default-Web-UKSouth</ResourceGroup><RuntimeAvailabilityState>Normal</RuntimeAvailabilityState><SKU>Free</SKU><SSLCertificates i:nil=\"true\"/><ScmSiteAlsoStopped>false</ScmSiteAlsoStopped><SelfLink>https://waws-prod-ln1-003.api.azurewebsites.windows.net:454/subscriptions/8d57ddbd-c779-40ea-b660-1015f4bf027d/webspaces/uksouthwebspace/sites/clitests5648</SelfLink><ServerFarm>Default1</ServerFarm><ServerFarmId i:nil=\"true\"/><SiteConfig i:nil=\"true\"/><SiteDisabledReason>0</SiteDisabledReason><SiteMode i:nil=\"true\"/><SiteProperties><AppSettings i:nil=\"true\"/><Metadata i:nil=\"true\"/><Properties><NameValuePair><Name>RepositoryUri</Name><Value>https://clitests5648.scm.azurewebsites.net</Value></NameValuePair><NameValuePair><Name>PublishingUsername</Name><Value>$clitests5648</Value></NameValuePair><NameValuePair><Name>PublishingPassword</Name><Value>DeX3NhC4J135qCYoHeFq3csanb4q97oRvRvl8xZ8TA36mszi0RKLwr9Jjet7</Value></NameValuePair></Properties></SiteProperties><State>Running</State><StorageRecoveryDefaultState>Running</StorageRecoveryDefaultState><SuspendedTill i:nil=\"true\"/><Tags i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><TargetSwapSlot i:nil=\"true\"/><TrafficManagerHostNames i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><UsageState>Normal</UsageState><WebSpace>uksouthwebspace</WebSpace></Site>", { 'cache-control': 'private',
+  'content-length': '3974',
   'content-type': 'application/xml; charset=utf-8',
-  etag: '"1D1ECF722053960"',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  etag: '"1D23527A7EEAFC0"',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '48388cf3be3f05c78dffc3694173de5e',
-  date: 'Tue, 02 Aug 2016 19:50:34 GMT',
+  'x-ms-request-id': 'ba378b1103513bc7871f73ebff225f38',
+  date: 'Wed, 02 Nov 2016 16:39:20 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/westuswebspace/sites/clitests2391?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
-  .reply(200, "<Site xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><AdminEnabled>true</AdminEnabled><AvailabilityState>Normal</AvailabilityState><Cers i:nil=\"true\"/><ClientAffinityEnabled>true</ClientAffinityEnabled><ClientCertEnabled>false</ClientCertEnabled><CloningInfo i:nil=\"true\"/><ComputeMode i:nil=\"true\"/><ContainerSize>0</ContainerSize><ContentAvailabilityState>Normal</ContentAvailabilityState><Csrs/><DefaultHostName>clitests2391.azurewebsites.net</DefaultHostName><DeploymentId>clitests2391</DeploymentId><DomainVerificationIdentifiers i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><Enabled>true</Enabled><EnabledHostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>clitests2391.azurewebsites.net</a:string><a:string>clitests2391.scm.azurewebsites.net</a:string></EnabledHostNames><GatewaySiteName i:nil=\"true\"/><HomeStamp>waws-prod-bay-051</HomeStamp><HostNameSslStates><HostNameSslState><HostType>Standard</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>clitests2391.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState><HostNameSslState><HostType>Repository</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>clitests2391.scm.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState></HostNameSslStates><HostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>clitests2391.azurewebsites.net</a:string></HostNames><HostNamesDisabled>false</HostNamesDisabled><HostingEnvironment i:nil=\"true\"/><HostingEnvironmentId i:nil=\"true\"/><HostingEnvironmentProfile i:nil=\"true\"/><Kind i:nil=\"true\"/><LastModifiedTimeUtc>2016-08-02T19:50:34.23</LastModifiedTimeUtc><MaxNumberOfWorkers i:nil=\"true\"/><MicroService>WebSites</MicroService><Name>clitests2391</Name><OutboundIpAddresses>40.78.17.157,40.78.21.191,40.78.22.38,40.78.21.180</OutboundIpAddresses><Owner i:nil=\"true\"/><PremiumAppDeployed i:nil=\"true\"/><RepositorySiteName>clitests2391</RepositorySiteName><Reserved i:nil=\"true\"/><ResourceGroup>Default-Web-WestUS</ResourceGroup><RuntimeAvailabilityState>Normal</RuntimeAvailabilityState><SKU>Free</SKU><SSLCertificates i:nil=\"true\"/><ScmSiteAlsoStopped>false</ScmSiteAlsoStopped><SelfLink>https://waws-prod-bay-051.api.azurewebsites.windows.net:454/subscriptions/00977cdb-163f-435f-9c32-39ec8ae61f4d/webspaces/westuswebspace/sites/clitests2391</SelfLink><ServerFarm>Default1</ServerFarm><ServerFarmId i:nil=\"true\"/><SiteConfig i:nil=\"true\"/><SiteMode i:nil=\"true\"/><SiteProperties><AppSettings i:nil=\"true\"/><Metadata i:nil=\"true\"/><Properties><NameValuePair><Name>RepositoryUri</Name><Value>https://clitests2391.scm.azurewebsites.net</Value></NameValuePair><NameValuePair><Name>PublishingUsername</Name><Value>$clitests2391</Value></NameValuePair><NameValuePair><Name>PublishingPassword</Name><Value>cADjLTnDwTteK4XkqLln8HynJv2u8JisMCjpae8pqpAd1W93w5aN7a2Ay17i</Value></NameValuePair></Properties></SiteProperties><State>Running</State><StorageRecoveryDefaultState>Running</StorageRecoveryDefaultState><Tags i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><TargetSwapSlot i:nil=\"true\"/><TrafficManagerHostNames i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><UsageState>Normal</UsageState><WebSpace>westuswebspace</WebSpace></Site>", { 'cache-control': 'private',
-  'content-length': '3701',
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces/uksouthwebspace/sites/clitests5648?propertiesToInclude=repositoryuri%2Cpublishingpassword%2Cpublishingusername')
+  .reply(200, "<Site xmlns=\"http://schemas.microsoft.com/windowsazure\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><AdminEnabled>true</AdminEnabled><AvailabilityState>Normal</AvailabilityState><Cers i:nil=\"true\"/><ClientAffinityEnabled>true</ClientAffinityEnabled><ClientCertEnabled>false</ClientCertEnabled><CloningInfo i:nil=\"true\"/><ComputeMode i:nil=\"true\"/><ContainerSize>0</ContainerSize><ContentAvailabilityState>Normal</ContentAvailabilityState><Csrs/><DailyMemoryTimeQuota>0</DailyMemoryTimeQuota><DefaultHostName>clitests5648.azurewebsites.net</DefaultHostName><DeploymentId>clitests5648</DeploymentId><DomainVerificationIdentifiers i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><Enabled>true</Enabled><EnabledHostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>clitests5648.azurewebsites.net</a:string><a:string>clitests5648.scm.azurewebsites.net</a:string></EnabledHostNames><FunctionExecutionUnitsCache i:nil=\"true\"/><GatewaySiteName i:nil=\"true\"/><HomeStamp>waws-prod-ln1-003</HomeStamp><HostNameSslStates><HostNameSslState><HostType>Standard</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>clitests5648.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState><HostNameSslState><HostType>Repository</HostType><IPBasedSslState>NotConfigured</IPBasedSslState><IpBasedSslResult i:nil=\"true\"/><Name>clitests5648.scm.azurewebsites.net</Name><SslState>Disabled</SslState><Thumbprint i:nil=\"true\"/><ToUpdate i:nil=\"true\"/><ToUpdateIpBasedSsl i:nil=\"true\"/><VirtualIP i:nil=\"true\"/></HostNameSslState></HostNameSslStates><HostNames xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><a:string>clitests5648.azurewebsites.net</a:string></HostNames><HostNamesDisabled>false</HostNamesDisabled><HostingEnvironment i:nil=\"true\"/><HostingEnvironmentId i:nil=\"true\"/><HostingEnvironmentProfile i:nil=\"true\"/><Kind i:nil=\"true\"/><LastModifiedTimeUtc>2016-11-02T16:39:18.46</LastModifiedTimeUtc><MaxNumberOfWorkers i:nil=\"true\"/><MicroService>WebSites</MicroService><Name>clitests5648</Name><OutboundIpAddresses>51.140.180.76,51.140.191.115,51.140.176.159,51.140.176.11,51.140.185.39,51.140.177.87,51.140.185.119,51.140.188.39,51.140.188.241,51.140.183.68,51.140.184.173</OutboundIpAddresses><Owner i:nil=\"true\"/><PremiumAppDeployed i:nil=\"true\"/><RepositorySiteName>clitests5648</RepositorySiteName><Reserved>false</Reserved><ResourceGroup>Default-Web-UKSouth</ResourceGroup><RuntimeAvailabilityState>Normal</RuntimeAvailabilityState><SKU>Free</SKU><SSLCertificates i:nil=\"true\"/><ScmSiteAlsoStopped>false</ScmSiteAlsoStopped><SelfLink>https://waws-prod-ln1-003.api.azurewebsites.windows.net:454/subscriptions/8d57ddbd-c779-40ea-b660-1015f4bf027d/webspaces/uksouthwebspace/sites/clitests5648</SelfLink><ServerFarm>Default1</ServerFarm><ServerFarmId i:nil=\"true\"/><SiteConfig i:nil=\"true\"/><SiteDisabledReason>0</SiteDisabledReason><SiteMode i:nil=\"true\"/><SiteProperties><AppSettings i:nil=\"true\"/><Metadata i:nil=\"true\"/><Properties><NameValuePair><Name>RepositoryUri</Name><Value>https://clitests5648.scm.azurewebsites.net</Value></NameValuePair><NameValuePair><Name>PublishingUsername</Name><Value>$clitests5648</Value></NameValuePair><NameValuePair><Name>PublishingPassword</Name><Value>DeX3NhC4J135qCYoHeFq3csanb4q97oRvRvl8xZ8TA36mszi0RKLwr9Jjet7</Value></NameValuePair></Properties></SiteProperties><State>Running</State><StorageRecoveryDefaultState>Running</StorageRecoveryDefaultState><SuspendedTill i:nil=\"true\"/><Tags i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><TargetSwapSlot i:nil=\"true\"/><TrafficManagerHostNames i:nil=\"true\" xmlns:a=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"/><UsageState>Normal</UsageState><WebSpace>uksouthwebspace</WebSpace></Site>", { 'cache-control': 'private',
+  'content-length': '3974',
   'content-type': 'application/xml; charset=utf-8',
-  etag: '"1D1ECF722053960"',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  etag: '"1D23527A7EEAFC0"',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '48388cf3be3f05c78dffc3694173de5e',
-  date: 'Tue, 02 Aug 2016 19:50:34 GMT',
+  'x-ms-request-id': 'ba378b1103513bc7871f73ebff225f38',
+  date: 'Wed, 02 Nov 2016 16:39:20 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/westuswebspace/sites/clitests2391/config')
-  .reply(200, "{\"AlwaysOn\":false,\"ApiDefinition\":null,\"AppCommandLine\":null,\"AppSettings\":[{\"Name\":\"WEBSITE_NODE_DEFAULT_VERSION\",\"Value\":\"4.2.3\"}],\"AutoHealEnabled\":false,\"AutoHealRules\":{\"Actions\":null,\"Triggers\":null},\"AutoSwapSlotName\":null,\"ConnectionStrings\":[],\"Cors\":null,\"CustomAppPoolIdentityAdminState\":false,\"CustomAppPoolIdentityTenantState\":false,\"DefaultDocuments\":[\"Default.htm\",\"Default.html\",\"Default.asp\",\"index.htm\",\"index.html\",\"iisstart.htm\",\"default.aspx\",\"index.php\",\"hostingstart.html\"],\"DetailedErrorLoggingEnabled\":true,\"DocumentRoot\":null,\"Experiments\":null,\"HandlerMappings\":null,\"HttpLoggingEnabled\":true,\"IpSecurityRestrictions\":null,\"JavaContainer\":null,\"JavaContainerVersion\":null,\"JavaVersion\":null,\"Limits\":null,\"LoadBalancing\":1,\"LocalMySqlEnabled\":false,\"LogsDirectorySizeLimit\":35,\"MachineKey\":{\"Decryption\":\"AES\",\"DecryptionKey\":\"069BB75487EF664318F6B3CDA073F449150D0387E3F9B918A5467F650AA4D30D\",\"Validation\":null,\"ValidationKey\":\"9D536254F68F29CFE5BAA21DFCB51C6A4A7DC95DA34FA31A1D770A4FA047FE19\"},\"ManagedPipelineMode\":0,\"Metadata\":[],\"NetFrameworkVersion\":\"v4.0\",\"NodeVersion\":null,\"NumberOfWorkers\":1,\"PhpVersion\":\"5.4\",\"PublishingPassword\":\"cADjLTnDwTteK4XkqLln8HynJv2u8JisMCjpae8pqpAd1W93w5aN7a2Ay17i\",\"PublishingUsername\":\"$clitests2391\",\"PythonVersion\":\"\",\"RemoteDebuggingEnabled\":false,\"RemoteDebuggingVersion\":null,\"RequestTracingEnabled\":true,\"RequestTracingExpirationTime\":\"\\/Date(1470171000000)\\/\",\"RoutingRules\":[],\"RuntimeADUser\":null,\"RuntimeADUserPassword\":null,\"ScmType\":\"LocalGit\",\"SiteAuthEnabled\":false,\"SiteAuthSettings\":{\"AdditionalLoginParams\":null,\"AllowedAudiences\":null,\"AllowedExternalRedirectUrls\":null,\"ClientId\":null,\"ClientSecret\":null,\"DefaultProvider\":null,\"Enabled\":false,\"FacebookAppId\":null,\"FacebookAppSecret\":null,\"FacebookOAuthScopes\":null,\"GoogleClientId\":null,\"GoogleClientSecret\":null,\"GoogleOAuthScopes\":null,\"HttpApiPrefixPath\":null,\"IsAadAutoProvisioned\":false,\"Issuer\":null,\"MicrosoftAccountClientId\":null,\"MicrosoftAccountClientSecret\":null,\"MicrosoftAccountOAuthScopes\":null,\"TokenStoreEnabled\":null,\"TwitterConsumerKey\":null,\"TwitterConsumerSecret\":null,\"UnauthenticatedClientAction\":null},\"TracingOptions\":null,\"Use32BitWorkerProcess\":true,\"VirtualApplications\":[{\"PhysicalPath\":\"site\\\\wwwroot\",\"PreloadEnabled\":false,\"VirtualDirectories\":null,\"VirtualPath\":\"\\/\"}],\"VnetName\":\"\",\"WebSocketsEnabled\":false,\"WinAuthAdminState\":0,\"WinAuthTenantState\":0}", { 'cache-control': 'private',
-  'content-length': '2424',
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces/uksouthwebspace/sites/clitests5648/config')
+  .reply(200, "{\"AlwaysOn\":false,\"ApiDefinition\":null,\"AppCommandLine\":\"\",\"AppSettings\":[{\"Name\":\"WEBSITE_NODE_DEFAULT_VERSION\",\"Value\":\"4.4.7\"}],\"AutoHealEnabled\":false,\"AutoHealRules\":{\"Actions\":null,\"Triggers\":null},\"AutoSwapSlotName\":null,\"ConnectionStrings\":[],\"Cors\":null,\"CustomAppPoolIdentityAdminState\":false,\"CustomAppPoolIdentityTenantState\":false,\"DefaultDocuments\":[\"Default.htm\",\"Default.html\",\"Default.asp\",\"index.htm\",\"index.html\",\"iisstart.htm\",\"default.aspx\",\"index.php\",\"hostingstart.html\"],\"DetailedErrorLoggingEnabled\":true,\"DocumentRoot\":null,\"Experiments\":null,\"HandlerMappings\":null,\"HttpLoggingEnabled\":true,\"IpSecurityRestrictions\":null,\"JavaContainer\":null,\"JavaContainerVersion\":null,\"JavaVersion\":null,\"Limits\":null,\"LoadBalancing\":1,\"LocalMySqlEnabled\":false,\"LogsDirectorySizeLimit\":35,\"MachineKey\":{\"Decryption\":\"AES\",\"DecryptionKey\":\"27625794A9F489636CD22A2920CC9DD9C7E55558E8873B117575FEE3A1DE3E10\",\"Validation\":null,\"ValidationKey\":\"5DEFFF26E70ED731E9CC1E4D399CD267ADB684E530B0AFF047774617CDA33C5F\"},\"ManagedPipelineMode\":0,\"Metadata\":[],\"NetFrameworkVersion\":\"v4.0\",\"NodeVersion\":\"\",\"NumberOfWorkers\":1,\"PhpVersion\":\"5.6\",\"PublishingPassword\":\"DeX3NhC4J135qCYoHeFq3csanb4q97oRvRvl8xZ8TA36mszi0RKLwr9Jjet7\",\"PublishingUsername\":\"$clitests5648\",\"Push\":null,\"PythonVersion\":\"\",\"RemoteDebuggingEnabled\":false,\"RemoteDebuggingVersion\":null,\"RequestTracingEnabled\":true,\"RequestTracingExpirationTime\":\"\\/Date(1478108340000)\\/\",\"RoutingRules\":[],\"RuntimeADUser\":null,\"RuntimeADUserPassword\":null,\"ScmType\":\"LocalGit\",\"SiteAuthEnabled\":false,\"SiteAuthSettings\":{\"AdditionalLoginParams\":null,\"AllowedAudiences\":null,\"AllowedExternalRedirectUrls\":null,\"ClientId\":null,\"ClientSecret\":null,\"DefaultProvider\":null,\"Enabled\":false,\"FacebookAppId\":null,\"FacebookAppSecret\":null,\"FacebookOAuthScopes\":null,\"GoogleClientId\":null,\"GoogleClientSecret\":null,\"GoogleOAuthScopes\":null,\"HttpApiPrefixPath\":null,\"IsAadAutoProvisioned\":false,\"Issuer\":null,\"MicrosoftAccountClientId\":null,\"MicrosoftAccountClientSecret\":null,\"MicrosoftAccountOAuthScopes\":null,\"TokenStoreEnabled\":null,\"TwitterConsumerKey\":null,\"TwitterConsumerSecret\":null,\"UnauthenticatedClientAction\":null},\"TracingOptions\":null,\"Use32BitWorkerProcess\":true,\"VirtualApplications\":[{\"PhysicalPath\":\"site\\\\wwwroot\",\"PreloadEnabled\":false,\"VirtualDirectories\":null,\"VirtualPath\":\"\\/\"}],\"VnetName\":\"\",\"WebSocketsEnabled\":false,\"WinAuthAdminState\":0,\"WinAuthTenantState\":0}", { 'cache-control': 'private',
+  'content-length': '2432',
   'content-type': 'application/json; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'f047e461a5bf0072bea7536b3b8268c5',
-  date: 'Tue, 02 Aug 2016 19:50:34 GMT',
+  'x-ms-request-id': '3d1d4b572e7938cea8d794443c8647a2',
+  date: 'Wed, 02 Nov 2016 16:39:20 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/westuswebspace/sites/clitests2391/config')
-  .reply(200, "{\"AlwaysOn\":false,\"ApiDefinition\":null,\"AppCommandLine\":null,\"AppSettings\":[{\"Name\":\"WEBSITE_NODE_DEFAULT_VERSION\",\"Value\":\"4.2.3\"}],\"AutoHealEnabled\":false,\"AutoHealRules\":{\"Actions\":null,\"Triggers\":null},\"AutoSwapSlotName\":null,\"ConnectionStrings\":[],\"Cors\":null,\"CustomAppPoolIdentityAdminState\":false,\"CustomAppPoolIdentityTenantState\":false,\"DefaultDocuments\":[\"Default.htm\",\"Default.html\",\"Default.asp\",\"index.htm\",\"index.html\",\"iisstart.htm\",\"default.aspx\",\"index.php\",\"hostingstart.html\"],\"DetailedErrorLoggingEnabled\":true,\"DocumentRoot\":null,\"Experiments\":null,\"HandlerMappings\":null,\"HttpLoggingEnabled\":true,\"IpSecurityRestrictions\":null,\"JavaContainer\":null,\"JavaContainerVersion\":null,\"JavaVersion\":null,\"Limits\":null,\"LoadBalancing\":1,\"LocalMySqlEnabled\":false,\"LogsDirectorySizeLimit\":35,\"MachineKey\":{\"Decryption\":\"AES\",\"DecryptionKey\":\"069BB75487EF664318F6B3CDA073F449150D0387E3F9B918A5467F650AA4D30D\",\"Validation\":null,\"ValidationKey\":\"9D536254F68F29CFE5BAA21DFCB51C6A4A7DC95DA34FA31A1D770A4FA047FE19\"},\"ManagedPipelineMode\":0,\"Metadata\":[],\"NetFrameworkVersion\":\"v4.0\",\"NodeVersion\":null,\"NumberOfWorkers\":1,\"PhpVersion\":\"5.4\",\"PublishingPassword\":\"cADjLTnDwTteK4XkqLln8HynJv2u8JisMCjpae8pqpAd1W93w5aN7a2Ay17i\",\"PublishingUsername\":\"$clitests2391\",\"PythonVersion\":\"\",\"RemoteDebuggingEnabled\":false,\"RemoteDebuggingVersion\":null,\"RequestTracingEnabled\":true,\"RequestTracingExpirationTime\":\"\\/Date(1470171000000)\\/\",\"RoutingRules\":[],\"RuntimeADUser\":null,\"RuntimeADUserPassword\":null,\"ScmType\":\"LocalGit\",\"SiteAuthEnabled\":false,\"SiteAuthSettings\":{\"AdditionalLoginParams\":null,\"AllowedAudiences\":null,\"AllowedExternalRedirectUrls\":null,\"ClientId\":null,\"ClientSecret\":null,\"DefaultProvider\":null,\"Enabled\":false,\"FacebookAppId\":null,\"FacebookAppSecret\":null,\"FacebookOAuthScopes\":null,\"GoogleClientId\":null,\"GoogleClientSecret\":null,\"GoogleOAuthScopes\":null,\"HttpApiPrefixPath\":null,\"IsAadAutoProvisioned\":false,\"Issuer\":null,\"MicrosoftAccountClientId\":null,\"MicrosoftAccountClientSecret\":null,\"MicrosoftAccountOAuthScopes\":null,\"TokenStoreEnabled\":null,\"TwitterConsumerKey\":null,\"TwitterConsumerSecret\":null,\"UnauthenticatedClientAction\":null},\"TracingOptions\":null,\"Use32BitWorkerProcess\":true,\"VirtualApplications\":[{\"PhysicalPath\":\"site\\\\wwwroot\",\"PreloadEnabled\":false,\"VirtualDirectories\":null,\"VirtualPath\":\"\\/\"}],\"VnetName\":\"\",\"WebSocketsEnabled\":false,\"WinAuthAdminState\":0,\"WinAuthTenantState\":0}", { 'cache-control': 'private',
-  'content-length': '2424',
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces/uksouthwebspace/sites/clitests5648/config')
+  .reply(200, "{\"AlwaysOn\":false,\"ApiDefinition\":null,\"AppCommandLine\":\"\",\"AppSettings\":[{\"Name\":\"WEBSITE_NODE_DEFAULT_VERSION\",\"Value\":\"4.4.7\"}],\"AutoHealEnabled\":false,\"AutoHealRules\":{\"Actions\":null,\"Triggers\":null},\"AutoSwapSlotName\":null,\"ConnectionStrings\":[],\"Cors\":null,\"CustomAppPoolIdentityAdminState\":false,\"CustomAppPoolIdentityTenantState\":false,\"DefaultDocuments\":[\"Default.htm\",\"Default.html\",\"Default.asp\",\"index.htm\",\"index.html\",\"iisstart.htm\",\"default.aspx\",\"index.php\",\"hostingstart.html\"],\"DetailedErrorLoggingEnabled\":true,\"DocumentRoot\":null,\"Experiments\":null,\"HandlerMappings\":null,\"HttpLoggingEnabled\":true,\"IpSecurityRestrictions\":null,\"JavaContainer\":null,\"JavaContainerVersion\":null,\"JavaVersion\":null,\"Limits\":null,\"LoadBalancing\":1,\"LocalMySqlEnabled\":false,\"LogsDirectorySizeLimit\":35,\"MachineKey\":{\"Decryption\":\"AES\",\"DecryptionKey\":\"27625794A9F489636CD22A2920CC9DD9C7E55558E8873B117575FEE3A1DE3E10\",\"Validation\":null,\"ValidationKey\":\"5DEFFF26E70ED731E9CC1E4D399CD267ADB684E530B0AFF047774617CDA33C5F\"},\"ManagedPipelineMode\":0,\"Metadata\":[],\"NetFrameworkVersion\":\"v4.0\",\"NodeVersion\":\"\",\"NumberOfWorkers\":1,\"PhpVersion\":\"5.6\",\"PublishingPassword\":\"DeX3NhC4J135qCYoHeFq3csanb4q97oRvRvl8xZ8TA36mszi0RKLwr9Jjet7\",\"PublishingUsername\":\"$clitests5648\",\"Push\":null,\"PythonVersion\":\"\",\"RemoteDebuggingEnabled\":false,\"RemoteDebuggingVersion\":null,\"RequestTracingEnabled\":true,\"RequestTracingExpirationTime\":\"\\/Date(1478108340000)\\/\",\"RoutingRules\":[],\"RuntimeADUser\":null,\"RuntimeADUserPassword\":null,\"ScmType\":\"LocalGit\",\"SiteAuthEnabled\":false,\"SiteAuthSettings\":{\"AdditionalLoginParams\":null,\"AllowedAudiences\":null,\"AllowedExternalRedirectUrls\":null,\"ClientId\":null,\"ClientSecret\":null,\"DefaultProvider\":null,\"Enabled\":false,\"FacebookAppId\":null,\"FacebookAppSecret\":null,\"FacebookOAuthScopes\":null,\"GoogleClientId\":null,\"GoogleClientSecret\":null,\"GoogleOAuthScopes\":null,\"HttpApiPrefixPath\":null,\"IsAadAutoProvisioned\":false,\"Issuer\":null,\"MicrosoftAccountClientId\":null,\"MicrosoftAccountClientSecret\":null,\"MicrosoftAccountOAuthScopes\":null,\"TokenStoreEnabled\":null,\"TwitterConsumerKey\":null,\"TwitterConsumerSecret\":null,\"UnauthenticatedClientAction\":null},\"TracingOptions\":null,\"Use32BitWorkerProcess\":true,\"VirtualApplications\":[{\"PhysicalPath\":\"site\\\\wwwroot\",\"PreloadEnabled\":false,\"VirtualDirectories\":null,\"VirtualPath\":\"\\/\"}],\"VnetName\":\"\",\"WebSocketsEnabled\":false,\"WinAuthAdminState\":0,\"WinAuthTenantState\":0}", { 'cache-control': 'private',
+  'content-length': '2432',
   'content-type': 'application/json; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'f047e461a5bf0072bea7536b3b8268c5',
-  date: 'Tue, 02 Aug 2016 19:50:34 GMT',
+  'x-ms-request-id': '3d1d4b572e7938cea8d794443c8647a2',
+  date: 'Wed, 02 Nov 2016 16:39:20 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces?properties=dnssuffix')
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces?properties=dnssuffix')
   .reply(200, "<string xmlns=\"http://schemas.microsoft.com/2003/10/Serialization/\">azurewebsites.net</string>", { 'cache-control': 'private',
   'content-length': '94',
   'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '123cb269bae70ddc909562e0ae1e76ef',
-  date: 'Tue, 02 Aug 2016 19:50:35 GMT',
+  'x-ms-request-id': '223d10b236be331ab7f6894bdc20e456',
+  date: 'Wed, 02 Nov 2016 16:39:20 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces?properties=dnssuffix')
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces?properties=dnssuffix')
   .reply(200, "<string xmlns=\"http://schemas.microsoft.com/2003/10/Serialization/\">azurewebsites.net</string>", { 'cache-control': 'private',
   'content-length': '94',
   'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '123cb269bae70ddc909562e0ae1e76ef',
-  date: 'Tue, 02 Aug 2016 19:50:35 GMT',
+  'x-ms-request-id': '223d10b236be331ab7f6894bdc20e456',
+  date: 'Wed, 02 Nov 2016 16:39:20 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
-nock('http://clitests2391.scm.azurewebsites.net:443')
+nock('http://clitests5648.scm.azurewebsites.net:443')
   .get('/api/settings')
-  .reply(200, "{\"deployment_branch\":\"master\",\"SCM_TRACE_LEVEL\":\"1\",\"SCM_COMMAND_IDLE_TIMEOUT\":\"60\",\"SCM_LOGSTREAM_TIMEOUT\":\"1800\",\"SCM_BUILD_ARGS\":\"\",\"aspnet:PortableCompilationOutput\":\"true\",\"aspnet:PortableCompilationOutputSnapshotType\":\"Microsoft.Web.Compilation.Snapshots.SnapshotHelper, Microsoft.Web.Compilation.Snapshots, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35\",\"aspnet:DisableFcnDaclRead\":\"true\",\"SCM_GIT_USERNAME\":\"windowsazure\",\"SCM_GIT_EMAIL\":\"windowsazure\",\"webpages:Version\":\"3.0.0.0\",\"webpages:Enabled\":\"true\",\"WEBSITE_SITE_NAME\":\"clitests2391\",\"ScmType\":\"LocalGit\",\"WEBSITE_NODE_DEFAULT_VERSION\":\"4.2.3\",\"WEBSITE_AUTH_ENABLED\":\"False\"}", { 'cache-control': 'no-cache',
+  .reply(200, "{\"deployment_branch\":\"master\",\"SCM_TRACE_LEVEL\":\"1\",\"SCM_COMMAND_IDLE_TIMEOUT\":\"60\",\"SCM_LOGSTREAM_TIMEOUT\":\"1800\",\"SCM_BUILD_ARGS\":\"\",\"aspnet:PortableCompilationOutput\":\"true\",\"aspnet:PortableCompilationOutputSnapshotType\":\"Microsoft.Web.Compilation.Snapshots.SnapshotHelper, Microsoft.Web.Compilation.Snapshots, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35\",\"aspnet:DisableFcnDaclRead\":\"true\",\"SCM_GIT_USERNAME\":\"windowsazure\",\"SCM_GIT_EMAIL\":\"windowsazure\",\"webpages:Version\":\"3.0.0.0\",\"webpages:Enabled\":\"true\",\"webactivator:assembliesToScan\":\"Kudu.Services.Web\",\"WEBSITE_SITE_NAME\":\"clitests5648\",\"ScmType\":\"LocalGit\",\"WEBSITE_NODE_DEFAULT_VERSION\":\"4.4.7\",\"WEBSITE_AUTH_ENABLED\":\"False\"}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
-  'content-length': '662',
+  'content-length': '714',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   server: 'Microsoft-IIS/8.0',
-  'x-ms-request-id': '0b5e2cdf-ae1c-45cf-83ee-feb0e94609e9',
+  'x-ms-request-id': 'feea8d08-528b-4a69-afda-4416d5216653',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'set-cookie': [ 'ARRAffinity=fb57a3bf1d74e20c0bfc5885e186d0a68caf113d87c013f01c720cf53015215f;Path=/;Domain=clitests2391.scm.azurewebsites.net:443' ],
-  date: 'Tue, 02 Aug 2016 19:50:42 GMT',
+  'set-cookie': [ 'ARRAffinity=40246b89542972727ac11c54edceb52d89c7db18f79fd8034ec2ba95cd1d438f;Path=/;Domain=clitests5648.scm.azurewebsites.net:443' ],
+  date: 'Wed, 02 Nov 2016 16:39:25 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
-nock('https://clitests2391.scm.azurewebsites.net:443')
+nock('https://clitests5648.scm.azurewebsites.net:443')
   .get('/api/settings')
-  .reply(200, "{\"deployment_branch\":\"master\",\"SCM_TRACE_LEVEL\":\"1\",\"SCM_COMMAND_IDLE_TIMEOUT\":\"60\",\"SCM_LOGSTREAM_TIMEOUT\":\"1800\",\"SCM_BUILD_ARGS\":\"\",\"aspnet:PortableCompilationOutput\":\"true\",\"aspnet:PortableCompilationOutputSnapshotType\":\"Microsoft.Web.Compilation.Snapshots.SnapshotHelper, Microsoft.Web.Compilation.Snapshots, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35\",\"aspnet:DisableFcnDaclRead\":\"true\",\"SCM_GIT_USERNAME\":\"windowsazure\",\"SCM_GIT_EMAIL\":\"windowsazure\",\"webpages:Version\":\"3.0.0.0\",\"webpages:Enabled\":\"true\",\"WEBSITE_SITE_NAME\":\"clitests2391\",\"ScmType\":\"LocalGit\",\"WEBSITE_NODE_DEFAULT_VERSION\":\"4.2.3\",\"WEBSITE_AUTH_ENABLED\":\"False\"}", { 'cache-control': 'no-cache',
+  .reply(200, "{\"deployment_branch\":\"master\",\"SCM_TRACE_LEVEL\":\"1\",\"SCM_COMMAND_IDLE_TIMEOUT\":\"60\",\"SCM_LOGSTREAM_TIMEOUT\":\"1800\",\"SCM_BUILD_ARGS\":\"\",\"aspnet:PortableCompilationOutput\":\"true\",\"aspnet:PortableCompilationOutputSnapshotType\":\"Microsoft.Web.Compilation.Snapshots.SnapshotHelper, Microsoft.Web.Compilation.Snapshots, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35\",\"aspnet:DisableFcnDaclRead\":\"true\",\"SCM_GIT_USERNAME\":\"windowsazure\",\"SCM_GIT_EMAIL\":\"windowsazure\",\"webpages:Version\":\"3.0.0.0\",\"webpages:Enabled\":\"true\",\"webactivator:assembliesToScan\":\"Kudu.Services.Web\",\"WEBSITE_SITE_NAME\":\"clitests5648\",\"ScmType\":\"LocalGit\",\"WEBSITE_NODE_DEFAULT_VERSION\":\"4.4.7\",\"WEBSITE_AUTH_ENABLED\":\"False\"}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
-  'content-length': '662',
+  'content-length': '714',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   server: 'Microsoft-IIS/8.0',
-  'x-ms-request-id': '0b5e2cdf-ae1c-45cf-83ee-feb0e94609e9',
+  'x-ms-request-id': 'feea8d08-528b-4a69-afda-4416d5216653',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'set-cookie': [ 'ARRAffinity=fb57a3bf1d74e20c0bfc5885e186d0a68caf113d87c013f01c720cf53015215f;Path=/;Domain=clitests2391.scm.azurewebsites.net:443' ],
-  date: 'Tue, 02 Aug 2016 19:50:42 GMT',
+  'set-cookie': [ 'ARRAffinity=40246b89542972727ac11c54edceb52d89c7db18f79fd8034ec2ba95cd1d438f;Path=/;Domain=clitests5648.scm.azurewebsites.net:443' ],
+  date: 'Wed, 02 Nov 2016 16:39:25 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces?properties=dnssuffix')
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces?properties=dnssuffix')
   .reply(200, "<string xmlns=\"http://schemas.microsoft.com/2003/10/Serialization/\">azurewebsites.net</string>", { 'cache-control': 'private',
   'content-length': '94',
   'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'feabddc60bd009c2b7928abe68f2192c',
-  date: 'Tue, 02 Aug 2016 19:50:42 GMT',
+  'x-ms-request-id': '6e661b2bb3bc361db1762b1f4d584c20',
+  date: 'Wed, 02 Nov 2016 16:39:26 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces?properties=dnssuffix')
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces?properties=dnssuffix')
   .reply(200, "<string xmlns=\"http://schemas.microsoft.com/2003/10/Serialization/\">azurewebsites.net</string>", { 'cache-control': 'private',
   'content-length': '94',
   'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': 'feabddc60bd009c2b7928abe68f2192c',
-  date: 'Tue, 02 Aug 2016 19:50:42 GMT',
+  'x-ms-request-id': '6e661b2bb3bc361db1762b1f4d584c20',
+  date: 'Wed, 02 Nov 2016 16:39:26 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
-nock('http://clitests2391.scm.azurewebsites.net:443')
+nock('http://clitests5648.scm.azurewebsites.net:443')
   .get('/api/diagnostics/settings/')
   .reply(200, "{\"AzureDriveEnabled\":true,\"AzureDriveTraceLevel\":\"Error\",\"AzureTableEnabled\":false,\"AzureTableTraceLevel\":\"Error\",\"AzureBlobEnabled\":false,\"AzureBlobTraceLevel\":\"Error\"}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2799,16 +623,16 @@ nock('http://clitests2391.scm.azurewebsites.net:443')
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   server: 'Microsoft-IIS/8.0',
-  'x-ms-request-id': 'c2a9b9c6-5a4a-4ac0-be03-cb6bb01d60da',
+  'x-ms-request-id': 'b5d82ba0-6a4b-4382-9c21-7b5e4f9e1b16',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'set-cookie': [ 'ARRAffinity=fb57a3bf1d74e20c0bfc5885e186d0a68caf113d87c013f01c720cf53015215f;Path=/;Domain=clitests2391.scm.azurewebsites.net' ],
-  date: 'Tue, 02 Aug 2016 19:50:44 GMT',
+  'set-cookie': [ 'ARRAffinity=40246b89542972727ac11c54edceb52d89c7db18f79fd8034ec2ba95cd1d438f;Path=/;Domain=clitests5648.scm.azurewebsites.net' ],
+  date: 'Wed, 02 Nov 2016 16:39:27 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
-nock('https://clitests2391.scm.azurewebsites.net:443')
+nock('https://clitests5648.scm.azurewebsites.net:443')
   .get('/api/diagnostics/settings/')
   .reply(200, "{\"AzureDriveEnabled\":true,\"AzureDriveTraceLevel\":\"Error\",\"AzureTableEnabled\":false,\"AzureTableTraceLevel\":\"Error\",\"AzureBlobEnabled\":false,\"AzureBlobTraceLevel\":\"Error\"}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
@@ -2816,75 +640,75 @@ nock('https://clitests2391.scm.azurewebsites.net:443')
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   server: 'Microsoft-IIS/8.0',
-  'x-ms-request-id': 'c2a9b9c6-5a4a-4ac0-be03-cb6bb01d60da',
+  'x-ms-request-id': 'b5d82ba0-6a4b-4382-9c21-7b5e4f9e1b16',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'set-cookie': [ 'ARRAffinity=fb57a3bf1d74e20c0bfc5885e186d0a68caf113d87c013f01c720cf53015215f;Path=/;Domain=clitests2391.scm.azurewebsites.net' ],
-  date: 'Tue, 02 Aug 2016 19:50:44 GMT',
+  'set-cookie': [ 'ARRAffinity=40246b89542972727ac11c54edceb52d89c7db18f79fd8034ec2ba95cd1d438f;Path=/;Domain=clitests5648.scm.azurewebsites.net' ],
+  date: 'Wed, 02 Nov 2016 16:39:27 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('http://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/westuswebspace/sites/clitests2391/instanceids')
-  .reply(200, "<ArrayOfstring xmlns=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><string>fb57a3bf1d74e20c0bfc5885e186d0a68caf113d87c013f01c720cf53015215f</string></ArrayOfstring>", { 'cache-control': 'private',
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces/uksouthwebspace/sites/clitests5648/instanceids')
+  .reply(200, "<ArrayOfstring xmlns=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><string>40246b89542972727ac11c54edceb52d89c7db18f79fd8034ec2ba95cd1d438f</string></ArrayOfstring>", { 'cache-control': 'private',
   'content-length': '230',
   'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '77b0154cc8ae0dc5a9c1073b612013ef',
-  date: 'Tue, 02 Aug 2016 19:50:44 GMT',
+  'x-ms-request-id': 'e0c1b04c52f43e1c889c02d1a5d38d41',
+  date: 'Wed, 02 Nov 2016 16:39:28 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.core.windows.net:443')
-  .get('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/westuswebspace/sites/clitests2391/instanceids')
-  .reply(200, "<ArrayOfstring xmlns=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><string>fb57a3bf1d74e20c0bfc5885e186d0a68caf113d87c013f01c720cf53015215f</string></ArrayOfstring>", { 'cache-control': 'private',
+  .get('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces/uksouthwebspace/sites/clitests5648/instanceids')
+  .reply(200, "<ArrayOfstring xmlns=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><string>40246b89542972727ac11c54edceb52d89c7db18f79fd8034ec2ba95cd1d438f</string></ArrayOfstring>", { 'cache-control': 'private',
   'content-length': '230',
   'content-type': 'application/xml; charset=utf-8',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '77b0154cc8ae0dc5a9c1073b612013ef',
-  date: 'Tue, 02 Aug 2016 19:50:44 GMT',
+  'x-ms-request-id': 'e0c1b04c52f43e1c889c02d1a5d38d41',
+  date: 'Wed, 02 Nov 2016 16:39:28 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('http://management.core.windows.net:443')
-  .delete('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/westuswebspace/sites/clitests2391?deleteEmptyServerFarm=true&deleteMetrics=true&deleteAllSlots=true')
+  .delete('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces/uksouthwebspace/sites/clitests5648?deleteEmptyServerFarm=true&deleteMetrics=true&deleteAllSlots=true')
   .reply(200, "", { 'cache-control': 'private',
   'transfer-encoding': 'chunked',
-  etag: '"1D1ECF722053960"',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  etag: '"1D23527A7EEAFC0"',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '5a11598e329b0f7fa256d17cf601c753',
-  date: 'Tue, 02 Aug 2016 19:50:46 GMT',
+  'x-ms-request-id': 'e338c0af9bcf3a6cb5a70a9505e6fa08',
+  date: 'Wed, 02 Nov 2016 16:39:29 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.core.windows.net:443')
-  .delete('/00977cdb-163f-435f-9c32-39ec8ae61f4d/services/WebSpaces/westuswebspace/sites/clitests2391?deleteEmptyServerFarm=true&deleteMetrics=true&deleteAllSlots=true')
+  .delete('/8d57ddbd-c779-40ea-b660-1015f4bf027d/services/WebSpaces/uksouthwebspace/sites/clitests5648?deleteEmptyServerFarm=true&deleteMetrics=true&deleteAllSlots=true')
   .reply(200, "", { 'cache-control': 'private',
   'transfer-encoding': 'chunked',
-  etag: '"1D1ECF722053960"',
-  server: '1.0.6198.405 (rd_rdfe_stable.160723-1634) Microsoft-HTTPAPI/2.0',
+  etag: '"1D23527A7EEAFC0"',
+  server: '1.0.6198.442 (rd_rdfe_stable.161012-2349) Microsoft-HTTPAPI/2.0',
   'x-ms-servedbyregion': 'ussouth3',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-request-id': '5a11598e329b0f7fa256d17cf601c753',
-  date: 'Tue, 02 Aug 2016 19:50:46 GMT',
+  'x-ms-request-id': 'e338c0af9bcf3a6cb5a70a9505e6fa08',
+  date: 'Wed, 02 Nov 2016 16:39:29 GMT',
   connection: 'close' });
  return result; }]];
- exports.randomTestIdsGenerated = function() { return ['clitests2391'];};
+ exports.randomTestIdsGenerated = function() { return ['clitests5648'];};

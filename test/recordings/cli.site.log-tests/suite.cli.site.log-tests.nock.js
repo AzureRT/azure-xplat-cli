@@ -6,8 +6,8 @@ exports.getMockedProfile = function () {
   var newProfile = new profile.Profile();
 
   newProfile.addSubscription(new profile.Subscription({
-    id: '00977cdb-163f-435f-9c32-39ec8ae61f4d',
-    name: 'node',
+    id: '8d57ddbd-c779-40ea-b660-1015f4bf027d',
+    name: 'Visual Studio Enterprise',
     user: {
       name: 'user@domain.example',
       type: 'user'
@@ -23,10 +23,10 @@ exports.getMockedProfile = function () {
 };
 
 exports.setEnvironment = function() {
-  process.env['AZURE_GIT_USERNAME'] = 'amarzavery';
-  process.env['AZURE_SITE_TEST_LOCATION'] = 'West US';
-  process.env['AZURE_STORAGE_ACCOUNT'] = 'cchs001';
-  process.env['AZURE_STORAGE_ACCESS_KEY'] = 't1tPM0TOMUDeY4MCvI19GFfbyeVAXrGoUgZfSiBMIcePz7I2krEXFmSJi1pJEugUei0MK3CFa60++2WqGrTXfw==';
+  process.env['AZURE_GIT_USERNAME'] = '"LukaszStem"';
+  process.env['AZURE_SITE_TEST_LOCATION'] = 'dummy';
+  process.env['AZURE_STORAGE_ACCOUNT'] = 'dummy';
+  process.env['AZURE_STORAGE_ACCESS_KEY'] = 'dummy';
 };
 
 exports.scopes = [];

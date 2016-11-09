@@ -33,10 +33,17 @@ var requiredEnvironment = [
   'AZURE_GIT_USERNAME',
   {
     name: 'AZURE_SITE_TEST_LOCATION',
-    defaultValue: 'East US'
+    defaultValue: 'UK South',
+    secure: true
   }, 
-  'AZURE_STORAGE_ACCOUNT',
-  'AZURE_STORAGE_ACCESS_KEY'
+  {
+    name: 'AZURE_STORAGE_ACCOUNT',
+    secure: true
+  },
+  {
+    name: 'AZURE_STORAGE_ACCESS_KEY',
+    secure: true
+  }
 ];
 
 describe('cli', function () {
