@@ -48,7 +48,7 @@ var namespacePrefix = 'xpltsbtst';
 var namespaces = [];
 
 var requiredEnvironment = [
-  { name: 'AZURE_SITE_TEST_LOCATION', defaultValue: 'West US' }
+  { name: 'AZURE_SITE_TEST_LOCATION', defaultValue: 'West US', secure: true }
 ];
 var location;
 

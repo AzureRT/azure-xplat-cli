@@ -157,7 +157,7 @@ describe('arm', function () {
       });
     });
     
-    it('should renew batch keys', function (done) {
+    liveOnly('should renew batch keys', function (done) {
       suite.execute('batch account keys list %s --resource-group %s --json', accountName, resourceGroupName, function (result) {
         var batchAccountKeys = JSON.parse(result.text);
         batchAccountKeys.primary.should.not.be.null;

@@ -88,7 +88,7 @@ function (nock) {
 var result = 
 nock('https://management.azure.com:443')
   .post('/subscriptions/04db7ed3-6ed9-4861-8b22-7c0c0c98490b/resourceGroups/xplatTestCacheRG/providers/Microsoft.Cache/Redis/xplatTestCache5287/listKeys?api-version=2015-08-01')
-  .reply(200, "{\"primaryKey\":\"ZGAht9hSfjkOvHOJY7jeEWuBpQKQXXV8XdtYlkyyG1I=\",\"secondaryKey\":\"EOAVZfjO9hyzLxvDljXUSD/JJQCCmwBxZ0yAHCiih9k=\"}", { 'cache-control': 'no-cache',
+  .reply(200, "{\"primaryKey\":\"<dummy-value>\",\"secondaryKey\":\"<dummy-value>\"}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '123',
   'content-type': 'application/json; charset=utf-8',

@@ -21,6 +21,7 @@ var util = require('util');
 var CLITest = require('../../../framework/arm-cli-test');
 var testprefix = 'arm-cli-ad-group-tests';
 var groupObjectId;
+var liveOnly = process.env.NOCK_OFF ? it : it.skip;
 
 describe('arm', function () {
   describe('ad', function () {
@@ -44,7 +45,7 @@ describe('arm', function () {
     });
     
     describe('group', function () {
-      it('create list show and delete should work', function (done) {
+      liveOnly('create list show and delete should work', function (done) {
         var groupName = 'testGroup1034';
         var mailNickname = 'testG1034';
         suite.execute('ad group create -d %s -m %s --json', groupName, mailNickname, function (result) {
@@ -71,7 +72,7 @@ describe('arm', function () {
         });
       });
 
-      it ('add list check and remove member should work', function (done) {
+      liveOnly('add list check and remove member should work', function (done) {
         var groupName = 'testGroup4301';
         var mailNickname = 'testG4301';
         var upn = 'testuser9007@rbacclitest.onmicrosoft.com';

@@ -28,16 +28,12 @@ var aclTimeout;
 var testPrefix = 'cli.storage.file-tests';
 var crypto = require('crypto');
 
-function stripAccessKey(connectionString) {
-  return connectionString.replace(/AccountKey=[^;]+/, 'AccountKey=null');
-}
-
 function fetchAccountName(connectionString) {
   return connectionString.match(/AccountName=[^;]+/)[0].split('=')[1];
 }
 
 var requiredEnvironment = [
-  { name: 'AZURE_STORAGE_CONNECTION_STRING', secure: stripAccessKey }
+  { name: 'AZURE_STORAGE_CONNECTION_STRING', secure: true}
 ];
 
 /**

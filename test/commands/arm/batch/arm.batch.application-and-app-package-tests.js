@@ -144,7 +144,7 @@ describe('arm', function () {
       });
     });
     
-    it('should create applications package within the application', function (done) {
+    liveOnly('should create applications package within the application', function (done) {
       var uploadFilePath = path.resolve(__dirname, '../../../data/test.zip');
       suite.execute('batch application package create --resource-group %s --account-name %s --application-id %s --version %s --package-file %s --json', resourceGroupName, accountName, applicationName, appPackageVersion, uploadFilePath, function (result) {
         result.text.should.equal('');
@@ -179,7 +179,7 @@ describe('arm', function () {
       });
     });
 
-    it('should show applications package within the application', function (done) {
+    liveOnly('should show applications package within the application', function (done) {
       suite.execute('batch application package show --resource-group %s --account-name %s --application-id %s --version 1.0 --json', resourceGroupName, accountName, applicationName, function (result) {
         result.exitStatus.should.equal(0);
         var batchApp = JSON.parse(result.text);
@@ -192,7 +192,7 @@ describe('arm', function () {
       });
     });
     
-    it('should list applications by TLSFE', function (done) {
+    liveOnly('should list applications by TLSFE', function (done) {
       suite.execute('batch account show %s --resource-group %s --json', accountName, resourceGroupName, function (result) {
         result.exitStatus.should.equal(0);
         var batchAcc = JSON.parse(result.text);
@@ -220,7 +220,7 @@ describe('arm', function () {
       });
     });
 
-    it('should show application by TLSFE', function (done) {
+    liveOnly('should show application by TLSFE', function (done) {
       suite.execute('batch account show %s --resource-group %s --json', accountName, resourceGroupName, function (result) {
         result.exitStatus.should.equal(0);
         var batchAcc = JSON.parse(result.text);

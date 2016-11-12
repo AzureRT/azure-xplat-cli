@@ -24,6 +24,7 @@ var userPrefix = 'testuser1012';
 var testdomain = '@rbacclitest.onmicrosoft.com';
 var userObjectId;
 var createdUsers = [];
+var liveOnly = process.env.NOCK_OFF ? it : it.skip;
 
 describe('arm', function () {
   describe('ad', function () {
@@ -47,7 +48,7 @@ describe('arm', function () {
     });
     
     describe('user', function () {
-      it('create set list show and delete should work', function (done) {
+      liveOnly('create set list show and delete should work', function (done) {
         var upn = userPrefix + testdomain;
         var displayName = 'test101 user101', mailNickname = 'testu101', password = 'DummyM12#';
         suite.execute('ad user create -u %s -d %s -m %s -p %s --json', upn, displayName, mailNickname, password, function(result) {

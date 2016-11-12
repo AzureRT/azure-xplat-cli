@@ -30,7 +30,8 @@ var requiredEnvironment = [{
   defaultValue: 'West US'
 }, {
   name: 'AZURE_COMMUNITY_IMAGE_ID',
-  defaultValue: null
+  defaultValue: null,
+  secure: true
 }];
 
 var currentRandom = 0;
