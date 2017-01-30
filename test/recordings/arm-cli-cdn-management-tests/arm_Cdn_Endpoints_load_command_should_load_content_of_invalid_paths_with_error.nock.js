@@ -34,52 +34,52 @@ exports.setEnvironment = function() {
   process.env['AZURE_ARM_TEST_CDN_ORIGIN_2'] = 'cliTestOrigin02';
   process.env['AZURE_ARM_TEST_ENDPOINT_TEST_LOCATION_1'] = 'eastus';
   process.env['AZURE_ARM_TEST_CUSTOM_DOMAIN_NAME_1'] = 'cliTestCustomDomain01';
-  process.env['AZURE_ARM_TEST_CUSTOM_DOMAIN_HOST_NAME_1'] = 'cli-0a51dd4a-33ca-4c25-91d7-42ae35c12cdd.azureedge-test.net';
+  process.env['AZURE_ARM_TEST_CUSTOM_DOMAIN_HOST_NAME_1'] = 'cli-0dbedc55-0d09-4eb8-974a-ed9cfe6f9558.azureedge-test.net';
 };
 
 exports.scopes = [[function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
-.post('/subscriptions/8fbd19e9-e8e0-4224-89f6-b1d5d86fb4c4/resourceGroups/xplattestadlsrgr01/providers/Microsoft.Cdn/profiles/cliTestProfile01/endpoints/cliTestEndpoint01/load?api-version=2016-04-02', '*')
+.post('/subscriptions/8fbd19e9-e8e0-4224-89f6-b1d5d86fb4c4/resourceGroups/xplattestadlsrgr01/providers/Microsoft.Cdn/profiles/cliTestProfile01/endpoints/cliTestEndpoint01/load?api-version=2016-10-02', '*')
   .reply(400, "{\r\n  \"error\": {\r\n    \"code\": \"BadRequest\",\r\n    \"message\": \"Invalid ContentPath \\\"/movies/*\\\". ContentPath for load action must be a relative path for a single resource \\\"/path/pic.jpg\\\".\"\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '196',
   'content-type': 'application/json; charset=utf-8',
   'content-language': 'en-US',
   expires: '-1',
-  'x-ms-request-id': '5ee9fd0a-68f3-4c5d-96ef-f66717b7aad8',
-  'x-ms-client-request-id': '11492390-b5e0-4970-8876-71f6c17429fd',
+  'x-ms-request-id': '6d22bae7-0dd7-4c7e-993b-a9ea0d5c6ff6',
+  'x-ms-client-request-id': 'dbb41438-8261-4ae3-b55d-d4e42027d874',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-IIS/8.5',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-ratelimit-remaining-subscription-writes': '1199',
-  'x-ms-correlation-request-id': '1491af5c-2653-4b90-97d9-95a452d39386',
-  'x-ms-routing-request-id': 'CENTRALUS:20160518T214708Z:1491af5c-2653-4b90-97d9-95a452d39386',
-  date: 'Wed, 18 May 2016 21:47:08 GMT',
+  'x-ms-ratelimit-remaining-subscription-writes': '1198',
+  'x-ms-correlation-request-id': '10d6ec5c-1f4c-483f-8554-5c98f57a2bff',
+  'x-ms-routing-request-id': 'NORTHCENTRALUS:20161104T004201Z:10d6ec5c-1f4c-483f-8554-5c98f57a2bff',
+  date: 'Fri, 04 Nov 2016 00:42:01 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
-.post('/subscriptions/8fbd19e9-e8e0-4224-89f6-b1d5d86fb4c4/resourceGroups/xplattestadlsrgr01/providers/Microsoft.Cdn/profiles/cliTestProfile01/endpoints/cliTestEndpoint01/load?api-version=2016-04-02', '*')
+.post('/subscriptions/8fbd19e9-e8e0-4224-89f6-b1d5d86fb4c4/resourceGroups/xplattestadlsrgr01/providers/Microsoft.Cdn/profiles/cliTestProfile01/endpoints/cliTestEndpoint01/load?api-version=2016-10-02', '*')
   .reply(400, "{\r\n  \"error\": {\r\n    \"code\": \"BadRequest\",\r\n    \"message\": \"Invalid ContentPath \\\"/movies/*\\\". ContentPath for load action must be a relative path for a single resource \\\"/path/pic.jpg\\\".\"\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '196',
   'content-type': 'application/json; charset=utf-8',
   'content-language': 'en-US',
   expires: '-1',
-  'x-ms-request-id': '5ee9fd0a-68f3-4c5d-96ef-f66717b7aad8',
-  'x-ms-client-request-id': '11492390-b5e0-4970-8876-71f6c17429fd',
+  'x-ms-request-id': '6d22bae7-0dd7-4c7e-993b-a9ea0d5c6ff6',
+  'x-ms-client-request-id': 'dbb41438-8261-4ae3-b55d-d4e42027d874',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-IIS/8.5',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-ratelimit-remaining-subscription-writes': '1199',
-  'x-ms-correlation-request-id': '1491af5c-2653-4b90-97d9-95a452d39386',
-  'x-ms-routing-request-id': 'CENTRALUS:20160518T214708Z:1491af5c-2653-4b90-97d9-95a452d39386',
-  date: 'Wed, 18 May 2016 21:47:08 GMT',
+  'x-ms-ratelimit-remaining-subscription-writes': '1198',
+  'x-ms-correlation-request-id': '10d6ec5c-1f4c-483f-8554-5c98f57a2bff',
+  'x-ms-routing-request-id': 'NORTHCENTRALUS:20161104T004201Z:10d6ec5c-1f4c-483f-8554-5c98f57a2bff',
+  date: 'Fri, 04 Nov 2016 00:42:01 GMT',
   connection: 'close' });
  return result; }]];

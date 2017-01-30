@@ -37,7 +37,10 @@ var firstGatewayProp = {
   publicIpName: 'test-ip-1',
   gatewayType: 'Vpn',
   vpnType: 'RouteBased',
-  sku: 'Basic',
+  sku: 'Standard',
+  bgpSettingsAsn: 65010,
+  bgpPeeringAddress: '10.12.255.30',
+  bgpPeerWeight: 0,
   privateIpAddress: '10.1.0.11',
   enableBgp: false,
   tags: networkUtil.tags
@@ -53,7 +56,10 @@ var secondGatewayProp = {
   publicIpName: 'test-ip-2',
   gatewayType: 'Vpn',
   vpnType: 'RouteBased',
-  sku: 'Basic',
+  sku: 'Standard',
+  bgpSettingsAsn: 65060,
+  bgpPeeringAddress: '10.14.255.30',
+  bgpPeerWeight: 0,
   privateIpAddress: '10.2.0.11',
   enableBgp: false,
   tags: networkUtil.tags
@@ -67,6 +73,7 @@ var connectionProp = {
   keyLength: 6,
   routingWeight: 22,
   newRoutingWeight: 33,
+  enableBgp: true,
   tags: networkUtil.tags,
   newTags: networkUtil.newTags
 };
@@ -110,13 +117,15 @@ describe('arm', function () {
       });
     });
     after(function (done) {
-      // Note: VPN operations are long running and takes about 20-30 minutes to complete,
-      // so we need to increase mocha timeout a lot
+      /*
+       Note: VPN operations are long running and takes about 20-30 minutes to complete,
+       so we need to increase mocha timeout a lot
+      */
       this.timeout(hour);
 
       networkUtil.deleteGroup(firstGatewayProp.group, suite, function () {
         networkUtil.deleteGroup(secondGatewayProp.group, suite, function () {
-          suite.teardownSuite(done);
+           suite.teardownSuite(done);
         });
       });
     });
@@ -128,8 +137,10 @@ describe('arm', function () {
     });
 
     describe('vpn-connection', function () {
-      // Note: VPN operations are long running and takes about 20-30 minutes to complete,
-      // so we need to increase mocha timeout a lot
+      /*
+       Note: VPN operations are long running and takes about 20-30 minutes to complete,
+       so we need to increase mocha timeout a lot
+      */
       this.timeout(hour);
 
       it('create first gateway should create vpn gateway in resource group', function (done) {
@@ -148,7 +159,8 @@ describe('arm', function () {
       });
       it('create connection should create connection between vpn gateways in different resource groups', function (done) {
         var cmd = util.format('network vpn-connection create -g {group} -n {name} -l {location} -i {gatewayName1} -r {gatewayGroup1} ' +
-          '-e {gatewayName2} -m {gatewayGroup2} -y {type} -w {routingWeight} -k {sharedKey} -t {tags} --json').formatArgs(connectionProp);
+          '-b {enableBgp} -e {gatewayName2} -m {gatewayGroup2} -y {type} -w {routingWeight} -k {sharedKey} -t {tags} --json')
+          .formatArgs(connectionProp);
 
         testUtils.executeCommand(suite, retry, cmd, function (result) {
           result.exitStatus.should.equal(0);

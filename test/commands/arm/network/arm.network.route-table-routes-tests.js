@@ -33,7 +33,10 @@ var routeProp = {
   newAddressPrefix: '12.0.0.0/8',
   nextHopType: 'VirtualNetworkGateway',
   newNextHopType: 'VirtualAppliance',
-  nextHopIpAddress: '10.0.0.7'
+  nextHopIpAddress: '10.0.0.7',
+  // Negative test values
+  invalidPrefixes: '10.11.12.13/8',
+  nextHopTypeOutOfRange: 'NextHop'
 };
 
 var tableName = 'test-route-table',
@@ -97,6 +100,18 @@ describe('arm', function () {
           });
         });
       });
+      it('show should display details about route', function (done) {
+        var cmd = 'network route-table route show -g {group} -r {tableName} -n {name} --json'.formatArgs(routeProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.equal(0);
+          var route = JSON.parse(result.text);
+          route.name.should.equal(routeProp.name);
+          route.addressPrefix.should.equal(routeProp.addressPrefix);
+          route.nextHopType.should.equal(routeProp.nextHopType);
+          networkUtil.shouldBeSucceeded(route);
+          done();
+        });
+      });
       it('set should modify route in route table', function (done) {
         var cmd = util.format('network route-table route set -g {group} -r {tableName} -n {name} -a {newAddressPrefix} ' +
           '-y {newNextHopType} -p {nextHopIpAddress} --json').formatArgs(routeProp);
@@ -122,15 +137,6 @@ describe('arm', function () {
           done();
         });
       });
-      it('show should display details about route', function (done) {
-        var cmd = 'network route-table route show -g {group} -r {tableName} -n {name} --json'.formatArgs(routeProp);
-        testUtils.executeCommand(suite, retry, cmd, function (result) {
-          result.exitStatus.should.equal(0);
-          var route = JSON.parse(result.text);
-          route.name.should.equal(routeProp.name);
-          done();
-        });
-      });
       it('delete should delete route in route table', function (done) {
         var cmd = 'network route-table route delete -g {group} -r {tableName} -n {name} --quiet --json'.formatArgs(routeProp);
         testUtils.executeCommand(suite, retry, cmd, function (result) {
@@ -142,6 +148,44 @@ describe('arm', function () {
             var route = JSON.parse(result.text);
             route.should.be.empty;
             done();
+          });
+        });
+      });
+      it('create should fail for invalid prefixes', function (done) {
+        var cmd = 'network route-table route create -g {group} -n {name} --address-prefix {invalidPrefixes} --next-hop-type {nextHopType} --route-table-name {tableName}  --json'.formatArgs(routeProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.not.equal(0);
+          done();
+        });
+      });
+      it('create should fail for next hop type out of range', function (done) {
+        var cmd = 'network route-table route create -g {group} -n {name} --next-hop-type {nextHopTypeOutOfRange} --address-prefix {addressPrefix} --route-table-name {tableName} --json'.formatArgs(routeProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.not.equal(0);
+          done();
+        });
+      });
+      it('create should pass for update next hop type from virtual appliance to any', function (done) {
+        var cmd = 'network route-table route create -g {group} -n {name} --next-hop-type {newNextHopType} --address-prefix {addressPrefix} --next-hop-ip-address {nextHopIpAddress} --route-table-name {tableName} --json'.formatArgs(routeProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.equal(0);
+          var output = JSON.parse(result.text);
+          output.name.should.equal(routeProp.name);
+          output.nextHopType.toLowerCase().should.equal(routeProp.newNextHopType.toLowerCase());
+          output.addressPrefix.toLowerCase().should.equal(routeProp.addressPrefix.toLowerCase());
+          output.nextHopIpAddress.toLowerCase().should.equal(routeProp.nextHopIpAddress.toLowerCase());
+          var cmd = 'network route-table route set -g {group} -n {name} --next-hop-type {nextHopType} --route-table-name {tableName} --json'.formatArgs(routeProp);
+          testUtils.executeCommand(suite, retry, cmd, function (result) {
+            result.exitStatus.should.equal(0);
+            var output = JSON.parse(result.text);
+            output.name.should.equal(routeProp.name);
+            output.nextHopType.toLowerCase().should.equal(routeProp.nextHopType.toLowerCase());
+            should.not.exist(output.nextHopIpAddress); 
+            var cmd = 'network route-table route delete -g {group} -n {name} --route-table-name {tableName} --json --quiet'.formatArgs(routeProp);
+            testUtils.executeCommand(suite, retry, cmd, function (result) {
+              result.exitStatus.should.equal(0);
+              done();
+            });
           });
         });
       });

@@ -172,6 +172,16 @@ describe('arm', function() {
         });
       });
 
+      it('should deserialize and then fail on invalid thumbprint when client secret not specified', function(done) {
+        var cmd = util.format('vm enable-disk-encryption -g %s -n %s -a %s -c %s -k %s -r %s --quiet --json', groupName, vmPrefix, spn, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', diskEncryptionKeySecretUrl, diskEncryptionKeyVaultId).split(' ');
+        testUtils.executeCommand(suite, retry, cmd, function(result) {
+          result.exitStatus.should.not.equal(0);
+	  // presence of this error text implies that extension did not fail earlier at the deserialization stage 
+          should(result.errorText.indexOf('Cannot find AAD client certificate with thumprint') > -1).ok;
+          done();
+        });
+      });
+
       it('should enable encryption on the Windows VM', function(done) {
         var cmd = util.format('vm enable-disk-encryption -g %s -n %s -a %s -p %s -k %s -r %s --quiet --json', groupName, vmPrefix, spn, aadClientSecret, diskEncryptionKeySecretUrl, diskEncryptionKeyVaultId).split(' ');
         testUtils.executeCommand(suite, retry, cmd, function(result) {

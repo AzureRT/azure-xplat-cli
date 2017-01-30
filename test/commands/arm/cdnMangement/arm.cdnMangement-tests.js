@@ -63,7 +63,7 @@ var requiredEnvironment = [{
   defaultValue: 'cliTestCustomDomain01',
 }, {
   name: 'AZURE_ARM_TEST_CUSTOM_DOMAIN_HOST_NAME_1',
-  defaultValue: 'cli-0a51dd4a-33ca-4c25-91d7-42ae35c12cdd.azureedge-test.net',
+  defaultValue: 'cli-0dbedc55-0d09-4eb8-974a-ed9cfe6f9558.azureedge-test.net',
 }];
 
 var suite;
@@ -199,7 +199,7 @@ describe('arm', function() {
       });
     });
 
-    it('show command should get the profile info', function(done) {
+    it('show command should get the profile info', function(done) { 
       suite.execute('cdn profile show %s %s --json', testProfileName_1, testResourceGroup_1, function(result) {
         result.exitStatus.should.be.equal(0);
         var profileJson = JSON.parse(result.text);
@@ -220,19 +220,11 @@ describe('arm', function() {
       });
     });
 
-    it('delete command should successfully delete the profile', function(done) {
-      suite.execute('cdn profile delete %s %s --json', testProfileName_2, testResourceGroup_2, function(result) {
-        result.exitStatus.should.be.equal(0);
-        done();
-      });
-    });
-
-    it('list command should now list only one profile', function(done) {
+    it('list command should now list two profiles', function(done) {
       suite.execute('cdn profile list --json', function(result) {
         result.exitStatus.should.be.equal(0);
         var profileListJson = JSON.parse(result.text);
-        profileListJson.length.should.equal(1);
-        profileListJson[0].name.should.equal(testProfileName_1);
+        profileListJson.length.should.equal(2);
         done();
       });
     });
@@ -352,8 +344,8 @@ describe('arm', function() {
     });
 
     it('create command should create endpoint successfully with options', function(done) {
-      suite.execute('cdn endpoint create %s %s %s %s %s %s -a false  --json', testEndpointName_2, testProfileName_1,
-        testResourceGroup_1, testEndpointLocation, testOriginName_2, "test2.azure.net",
+      suite.execute('cdn endpoint create %s %s %s %s %s %s -a false  --json', testEndpointName_2, testProfileName_2,
+        testResourceGroup_2, testEndpointLocation, testOriginName_2, "test2.azure.net",
         function(result) {
           result.exitStatus.should.be.equal(0);
           var endpointJson = JSON.parse(result.text);
@@ -374,11 +366,59 @@ describe('arm', function() {
       });
     });
 
-    it('list command should list one after the deletion', function(done) {
+    it('list command should list none after the deletion', function(done) {
       suite.execute('cdn endpoint list %s %s --json', testProfileName_1, testResourceGroup_1, function(result) {
         result.exitStatus.should.be.equal(0);
         var endpointListJson = JSON.parse(result.text);
-        endpointListJson.length.should.equal(1);
+        endpointListJson.length.should.equal(0);
+        done();
+      });
+    });
+    
+    it('create command should create endpoint successfully again', function(done) {
+      suite.execute('cdn endpoint create %s %s %s %s %s %s -t tag1=val1;tag2=val2 --json', testEndpointName_1, testProfileName_1,
+        testResourceGroup_1, testEndpointLocation, testOriginName_2, "test.azure.net",
+        function(result) {
+          result.exitStatus.should.be.equal(0);
+          var endpointJson = JSON.parse(result.text);
+          endpointJson.name.should.equal(testEndpointName_1);
+          endpointJson.isHttpAllowed.should.equal(true);
+          endpointJson.isHttpsAllowed.should.equal(true);
+          endpointJson.resourceState.should.equal("Running");
+          endpointJson.location.should.equal("EastUs");
+          endpointJson.origins[0].name.should.equal(testOriginName_2);
+          endpointJson.tags.tag1.should.equal("val1");
+          endpointJson.tags.tag2.should.equal("val2");
+          done();
+        });
+    });
+  });
+  
+  describe('Cdn geo filters', function() {
+    it('add command should create a geo filter under endpoint', function(done) {
+      suite.execute('cdn geofilter add /war %s %s %s %s %s --json', testEndpointName_2, testProfileName_2, testResourceGroup_2, "Block", "AL,AS", function(result) {
+        result.exitStatus.should.be.equal(0);
+        done();
+      });
+    });
+
+    it('list command should list geo filters under the endpoint', function(done) {
+      suite.execute('cdn geofilter list %s %s %s --json', testEndpointName_2, testProfileName_2, testResourceGroup_2, function(result) {
+        result.exitStatus.should.be.equal(0);
+        done();
+      });
+    });
+
+    it('set command should fail with non-exist relative path', function(done) {
+      suite.execute('cdn geofilter set /wars %s %s %s -a Allow --json', testEndpointName_2, testProfileName_2, testResourceGroup_2, function(result) {
+        result.exitStatus.should.be.equal(1);
+        done();
+      });
+    });
+
+    it('add command should fail with existing relative path under endpoint', function(done) {
+      suite.execute('cdn geofilter add /war %s %s %s %s %s --json', testEndpointName_2, testProfileName_2, testResourceGroup_2, "Block", "AL,AS", function(result) {
+        result.exitStatus.should.be.equal(1);
         done();
       });
     });
@@ -386,7 +426,7 @@ describe('arm', function() {
 
   describe('Cdn Origins', function() {
     it('show command should get the existing origin under endpoint', function(done) {
-      suite.execute('cdn origin show %s %s %s %s --json', testOriginName_2, testEndpointName_2, testProfileName_1, testResourceGroup_1, function(result) {
+      suite.execute('cdn origin show %s %s %s %s --json', testOriginName_2, testEndpointName_1, testProfileName_1, testResourceGroup_1, function(result) {
         result.exitStatus.should.be.equal(0);
         var originJson = JSON.parse(result.text);
         originJson.name.should.equal(testOriginName_2);
@@ -395,7 +435,7 @@ describe('arm', function() {
     });
 
     it('set command should update the origin', function(done) {
-      suite.execute('cdn origin set %s %s %s %s -o testtest.azure.com -r 500 -w 501 --json', testOriginName_2, testEndpointName_2, testProfileName_1, testResourceGroup_1, function(result) {
+      suite.execute('cdn origin set %s %s %s %s -o testtest.azure.com -r 500 -w 501 --json', testOriginName_2, testEndpointName_1, testProfileName_1, testResourceGroup_1, function(result) {
         result.exitStatus.should.be.equal(0);
         var originJson = JSON.parse(result.text);
         originJson.name.should.equal(testOriginName_2);
@@ -407,14 +447,14 @@ describe('arm', function() {
     });
 
     it('set command should fail with invalid host name', function(done) {
-      suite.execute('cdn origin set %s %s %s %s -o testtest --json', testOriginName_2, testEndpointName_2, testProfileName_1, testResourceGroup_1, function(result) {
+      suite.execute('cdn origin set %s %s %s %s -o testtest --json', testOriginName_2, testEndpointName_1, testProfileName_1, testResourceGroup_1, function(result) {
         result.exitStatus.should.be.equal(1);
         done();
       });
     });
 
     it('set command should fail with invalid port number', function(done) {
-      suite.execute('cdn origin set %s %s %s %s -r 0 --json', testOriginName_2, testEndpointName_2, testProfileName_1, testResourceGroup_1, function(result) {
+      suite.execute('cdn origin set %s %s %s %s -r 0 --json', testOriginName_2, testEndpointName_1, testProfileName_1, testResourceGroup_1, function(result) {
         result.exitStatus.should.be.equal(1);
         done();
       });
@@ -423,7 +463,7 @@ describe('arm', function() {
 
   describe('Cdn Custom Domains', function() {
     it('list command should list nothing under existing endpoint', function(done) {
-      suite.execute('cdn customDomain list %s %s %s --json', testEndpointName_2, testProfileName_1, testResourceGroup_1, function(result) {
+      suite.execute('cdn customDomain list %s %s %s --json', testEndpointName_1, testProfileName_1, testResourceGroup_1, function(result) {
         result.exitStatus.should.be.equal(0);
         var customDomainListJson = JSON.parse(result.text);
         customDomainListJson.length.should.equal(0);
@@ -432,7 +472,7 @@ describe('arm', function() {
     });
 
     it('validate command should pass on a registered custom domain host name', function(done) {
-      suite.execute('cdn customDomain validate %s %s %s %s --json', testEndpointName_2, testProfileName_1, testResourceGroup_1, testCustomDomainHostName_1, function(result) {
+      suite.execute('cdn customDomain validate %s %s %s %s --json', testEndpointName_1, testProfileName_1, testResourceGroup_1, testCustomDomainHostName_1, function(result) {
         result.exitStatus.should.be.equal(0);
         var answer = JSON.parse(result.text);
         answer.customDomainValidated.should.equal(true);
@@ -441,7 +481,7 @@ describe('arm', function() {
     });
 
     it('validate command should not pass on a non-registered custom domain host name', function(done) {
-      suite.execute('cdn customDomain validate %s %s %s %s --json', testEndpointName_2, testProfileName_1, testResourceGroup_1, 'cli-non-existing-test.net', function(result) {
+      suite.execute('cdn customDomain validate %s %s %s %s --json', testEndpointName_1, testProfileName_1, testResourceGroup_1, 'cli-non-existing-test.net', function(result) {
         result.exitStatus.should.be.equal(0);
         var answer = JSON.parse(result.text);
         answer.customDomainValidated.should.equal(false);
@@ -450,14 +490,14 @@ describe('arm', function() {
     });
 
     it('validate command should fail on invalid custom domain host name', function(done) {
-      suite.execute('cdn customDomain validate %s %s %s %s --json', testEndpointName_2, testProfileName_1, testResourceGroup_1, '??cli-6029da3a-835e-4506-b4ea-bd5375165cdf??', function(result) {
+      suite.execute('cdn customDomain validate %s %s %s %s --json', testEndpointName_1, testProfileName_1, testResourceGroup_1, '??cli-6029da3a-835e-4506-b4ea-bd5375165cdf??', function(result) {
         result.exitStatus.should.be.equal(1);
         done();
       });
     });
 
     it('create command should success on a registered custom domain', function(done) {
-      suite.execute('cdn customDomain create %s %s %s %s %s --json', testCustomDomainName_1, testEndpointName_2, testProfileName_1, testResourceGroup_1, testCustomDomainHostName_1, function(result) {
+      suite.execute('cdn customDomain create %s %s %s %s %s --json', testCustomDomainName_1, testEndpointName_1, testProfileName_1, testResourceGroup_1, testCustomDomainHostName_1, function(result) {
         result.exitStatus.should.be.equal(0);
         var customDomainJson = JSON.parse(result.text);
         customDomainJson.name.should.equal(testCustomDomainName_1);
@@ -467,7 +507,7 @@ describe('arm', function() {
     });
 
     it('show command should get the created custom Domain', function(done) {
-      suite.execute('cdn customDomain show %s %s %s %s testtest --json', testCustomDomainName_1, testEndpointName_2, testProfileName_1, testResourceGroup_1, function(result) {
+      suite.execute('cdn customDomain show %s %s %s %s testtest --json', testCustomDomainName_1, testEndpointName_1, testProfileName_1, testResourceGroup_1, function(result) {
         result.exitStatus.should.be.equal(0);
         var customDomainJson = JSON.parse(result.text);
         customDomainJson.name.should.equal(testCustomDomainName_1);
@@ -477,7 +517,7 @@ describe('arm', function() {
     });
 
     it('list command should list one under existing endpoint', function(done) {
-      suite.execute('cdn customDomain list %s %s %s --json', testEndpointName_2, testProfileName_1, testResourceGroup_1, function(result) {
+      suite.execute('cdn customDomain list %s %s %s --json', testEndpointName_1, testProfileName_1, testResourceGroup_1, function(result) {
         result.exitStatus.should.be.equal(0);
         var customDomainListJson = JSON.parse(result.text);
         customDomainListJson.length.should.equal(1);
@@ -488,14 +528,14 @@ describe('arm', function() {
     });
 
     it('delete command should successfully delete the custom domain', function(done) {
-      suite.execute('cdn customDomain delete %s %s %s %s testtest --json', testCustomDomainName_1, testEndpointName_2, testProfileName_1, testResourceGroup_1, function(result) {
+      suite.execute('cdn customDomain delete %s %s %s %s testtest --json', testCustomDomainName_1, testEndpointName_1, testProfileName_1, testResourceGroup_1, function(result) {
         result.exitStatus.should.be.equal(0);
         done();
       });
     });
 
     it('list command should list nothing under existing endpoint after the deletion', function(done) {
-      suite.execute('cdn customDomain list %s %s %s --json', testEndpointName_2, testProfileName_1, testResourceGroup_1, function(result) {
+      suite.execute('cdn customDomain list %s %s %s --json', testEndpointName_1, testProfileName_1, testResourceGroup_1, function(result) {
         result.exitStatus.should.be.equal(0);
         var customDomainListJson = JSON.parse(result.text);
         customDomainListJson.length.should.equal(0);

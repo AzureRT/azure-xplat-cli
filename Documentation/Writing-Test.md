@@ -36,7 +36,7 @@ var requiredEnvironment = [
   'AZURE_STORAGE_ACCESS_KEY'
 ];
 
-//We are using a poplular javascript testing framework named "mocha" (http://mochajs.org/) for writing tests.
+//We are using a popular javascript testing framework named "mocha" (http://mochajs.org/) for writing tests.
 //As per mocha, describe() defines a "test-suite" and it() defines a "test" in a test-suite.
 describe('arm', function () {
   describe('location', function () {

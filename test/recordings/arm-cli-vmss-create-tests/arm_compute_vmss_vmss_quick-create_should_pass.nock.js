@@ -6,15 +6,16 @@ exports.getMockedProfile = function () {
   var newProfile = new profile.Profile();
 
   newProfile.addSubscription(new profile.Subscription({
-    id: '2c224e7e-3ef5-431d-a57b-e71f4662e3a6',
-    name: 'Node CLI Test',
+    id: 'e33f361b-53c2-4cc7-b829-78906708387b',
+    name: 'Microsoft Azure Internal Consumption',
     user: {
       name: 'user@domain.example',
-      type: 'user'
+      type: 'servicePrincipal'
     },
     tenantId: '72f988bf-86f1-41af-91ab-2d7cd011db47',
     state: 'Enabled',
     registeredProviders: [],
+    _eventsCount: '1',
     isDefault: true
   }, newProfile.environments['AzureCloud']));
 
@@ -22,1747 +23,3606 @@ exports.getMockedProfile = function () {
 };
 
 exports.setEnvironment = function() {
-  process.env['AZURE_VM_TEST_LOCATION'] = 'southeastasia';
+  process.env['AZURE_VM_TEST_LOCATION'] = 'eastus';
 };
 
 exports.scopes = [[function (nock) { 
 var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/vmSizes?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"value\": [\r\n    {\r\n      \"name\": \"Standard_A0\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 20480,\r\n      \"memoryInMB\": 768,\r\n      \"maxDataDiskCount\": 1\r\n    },\r\n    {\r\n      \"name\": \"Standard_A1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 71680,\r\n      \"memoryInMB\": 1792,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_A2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 138240,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_A3\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 291840,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_A5\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 138240,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_A4\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 619520,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_A6\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 291840,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_A7\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 619520,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Basic_A0\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 20480,\r\n      \"memoryInMB\": 768,\r\n      \"maxDataDiskCount\": 1\r\n    },\r\n    {\r\n      \"name\": \"Basic_A1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 40960,\r\n      \"memoryInMB\": 1792,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Basic_A2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 61440,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Basic_A3\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 122880,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Basic_A4\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 245760,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D1_v2\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 51200,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_D2_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 102400,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_D3_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 204800,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_D4_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 409600,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D5_v2\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 819200,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_D11_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 102400,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_D12_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 204800,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_D13_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 409600,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D14_v2\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 819200,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_D15_v2\",\r\n      \"numberOfCores\": 20,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 286720,\r\n      \"memoryInMB\": 143360,\r\n      \"maxDataDiskCount\": 40\r\n    },\r\n    {\r\n      \"name\": \"Standard_F1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 16384,\r\n      \"memoryInMB\": 2048,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_F2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 32768,\r\n      \"memoryInMB\": 4096,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_F4\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 65536,\r\n      \"memoryInMB\": 8192,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_F8\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 131072,\r\n      \"memoryInMB\": 16384,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_F16\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 262144,\r\n      \"memoryInMB\": 32768,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_D1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 51200,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_D2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 102400,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_D3\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 204800,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_D4\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 409600,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D11\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 102400,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_D12\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 204800,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_D13\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 409600,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D14\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 819200,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 7168,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 14336,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS3\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 28672,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS4\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS11\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 28672,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS12\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS13\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 114688,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS14\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 229376,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS1_v2\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 7168,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS2_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 14336,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS3_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 28672,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS4_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS5_v2\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 114688,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS11_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 28672,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS12_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS13_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 114688,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS14_v2\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 229376,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS15_v2\",\r\n      \"numberOfCores\": 20,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 286720,\r\n      \"memoryInMB\": 143360,\r\n      \"maxDataDiskCount\": 40\r\n    },\r\n    {\r\n      \"name\": \"Standard_F1s\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 4096,\r\n      \"memoryInMB\": 2048,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_F2s\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 8192,\r\n      \"memoryInMB\": 4096,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_F4s\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 16384,\r\n      \"memoryInMB\": 8192,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_F8s\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 32768,\r\n      \"memoryInMB\": 16384,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_F16s\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 65536,\r\n      \"memoryInMB\": 32768,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_G1\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 393216,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_G2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 786432,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_G3\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 1572864,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_G4\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 3145728,\r\n      \"memoryInMB\": 229376,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_G5\",\r\n      \"numberOfCores\": 32,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 6291456,\r\n      \"memoryInMB\": 458752,\r\n      \"maxDataDiskCount\": 64\r\n    },\r\n    {\r\n      \"name\": \"Standard_GS1\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_GS2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 114688,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_GS3\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 229376,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_GS4\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 458752,\r\n      \"memoryInMB\": 229376,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_GS5\",\r\n      \"numberOfCores\": 32,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 917504,\r\n      \"memoryInMB\": 458752,\r\n      \"maxDataDiskCount\": 64\r\n    }\r\n  ]\r\n}", { 'cache-control': 'no-cache',
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"value\": [\r\n    {\r\n      \"name\": \"Standard_A0\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 20480,\r\n      \"memoryInMB\": 768,\r\n      \"maxDataDiskCount\": 1\r\n    },\r\n    {\r\n      \"name\": \"Standard_A1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 71680,\r\n      \"memoryInMB\": 1792,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_A2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 138240,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_A3\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 291840,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_A5\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 138240,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_A4\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 619520,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_A6\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 291840,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_A7\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 619520,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Basic_A0\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 20480,\r\n      \"memoryInMB\": 768,\r\n      \"maxDataDiskCount\": 1\r\n    },\r\n    {\r\n      \"name\": \"Basic_A1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 40960,\r\n      \"memoryInMB\": 1792,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Basic_A2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 61440,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Basic_A3\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 122880,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Basic_A4\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 245760,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D1_v2\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 51200,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_D2_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 102400,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_D3_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 204800,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_D4_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 409600,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D5_v2\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 819200,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_D11_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 102400,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_D12_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 204800,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_D13_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 409600,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D14_v2\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 819200,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_D15_v2\",\r\n      \"numberOfCores\": 20,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 286720,\r\n      \"memoryInMB\": 143360,\r\n      \"maxDataDiskCount\": 40\r\n    },\r\n    {\r\n      \"name\": \"Standard_F1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 16384,\r\n      \"memoryInMB\": 2048,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_F2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 32768,\r\n      \"memoryInMB\": 4096,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_F4\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 65536,\r\n      \"memoryInMB\": 8192,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_F8\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 131072,\r\n      \"memoryInMB\": 16384,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_F16\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 262144,\r\n      \"memoryInMB\": 32768,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_A1_v2\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 10240,\r\n      \"memoryInMB\": 2048,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_A2m_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 20480,\r\n      \"memoryInMB\": 16384,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_A2_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 20480,\r\n      \"memoryInMB\": 4096,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_A4m_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 40960,\r\n      \"memoryInMB\": 32768,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_A4_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 40960,\r\n      \"memoryInMB\": 8192,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_A8m_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 81920,\r\n      \"memoryInMB\": 65536,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_A8_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 81920,\r\n      \"memoryInMB\": 16384,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS1_v2\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 7168,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS2_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 14336,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS3_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 28672,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS4_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS5_v2\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 114688,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS11_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 28672,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS12_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS13_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 114688,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS14_v2\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 229376,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS15_v2\",\r\n      \"numberOfCores\": 20,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 286720,\r\n      \"memoryInMB\": 143360,\r\n      \"maxDataDiskCount\": 40\r\n    },\r\n    {\r\n      \"name\": \"Standard_F1s\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 4096,\r\n      \"memoryInMB\": 2048,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_F2s\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 8192,\r\n      \"memoryInMB\": 4096,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_F4s\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 16384,\r\n      \"memoryInMB\": 8192,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_F8s\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 32768,\r\n      \"memoryInMB\": 16384,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_F16s\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 65536,\r\n      \"memoryInMB\": 32768,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_H8\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 1024000,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_H16\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 2048000,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_H8m\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 1024000,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_H16m\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 2048000,\r\n      \"memoryInMB\": 229376,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_H16r\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 2048000,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_H16mr\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 2048000,\r\n      \"memoryInMB\": 229376,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_D1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 51200,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_D2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 102400,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_D3\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 204800,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_D4\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 409600,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D11\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 102400,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_D12\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 204800,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_D13\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 409600,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D14\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 819200,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_NV6\",\r\n      \"numberOfCores\": 6,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 389120,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_NV12\",\r\n      \"numberOfCores\": 12,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 696320,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_NV24\",\r\n      \"numberOfCores\": 24,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 1474560,\r\n      \"memoryInMB\": 229376,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 7168,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 14336,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS3\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 28672,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS4\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS11\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 28672,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS12\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS13\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 114688,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS14\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 229376,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_NC6\",\r\n      \"numberOfCores\": 6,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 389120,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_NC12\",\r\n      \"numberOfCores\": 12,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 696320,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_NC24\",\r\n      \"numberOfCores\": 24,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 1474560,\r\n      \"memoryInMB\": 229376,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_NC24r\",\r\n      \"numberOfCores\": 24,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 1474560,\r\n      \"memoryInMB\": 229376,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_A8\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 391168,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_A9\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 391168,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_A10\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 391168,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_A11\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 391168,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 16\r\n    }\r\n  ]\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
-  'content-length': '14055',
+  'content-length': '16947',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': 'c2813e03-d21b-49a2-b1fa-4951f8989f97',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14920',
-  'x-ms-correlation-request-id': '5b6ce1e8-7ec0-403c-a270-b386b47dd9e9',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074328Z:5b6ce1e8-7ec0-403c-a270-b386b47dd9e9',
-  date: 'Tue, 16 Aug 2016 07:43:28 GMT' });
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '24293291-2c55-42f0-aa19-bf43831912b8',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14990',
+  'x-ms-correlation-request-id': 'df6f1376-9c7c-4a74-bbec-653d2e0982b3',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081211Z:df6f1376-9c7c-4a74-bbec-653d2e0982b3',
+  date: 'Sun, 29 Jan 2017 08:12:11 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourcegroups/xplatTestVMSSCreate4329?api-version=2016-02-01')
-  .reply(200, "{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329\",\"name\":\"xplatTestVMSSCreate4329\",\"location\":\"southeastasia\",\"tags\":{\"arm-cli-vmss-create-tests\":\"2016-08-16T07:42:50.202Z\"},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"value\": [\r\n    {\r\n      \"name\": \"Standard_A0\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 20480,\r\n      \"memoryInMB\": 768,\r\n      \"maxDataDiskCount\": 1\r\n    },\r\n    {\r\n      \"name\": \"Standard_A1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 71680,\r\n      \"memoryInMB\": 1792,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_A2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 138240,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_A3\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 291840,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_A5\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 138240,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_A4\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 619520,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_A6\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 291840,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_A7\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 619520,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Basic_A0\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 20480,\r\n      \"memoryInMB\": 768,\r\n      \"maxDataDiskCount\": 1\r\n    },\r\n    {\r\n      \"name\": \"Basic_A1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 40960,\r\n      \"memoryInMB\": 1792,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Basic_A2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 61440,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Basic_A3\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 122880,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Basic_A4\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 245760,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D1_v2\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 51200,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_D2_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 102400,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_D3_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 204800,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_D4_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 409600,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D5_v2\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 819200,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_D11_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 102400,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_D12_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 204800,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_D13_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 409600,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D14_v2\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 819200,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_D15_v2\",\r\n      \"numberOfCores\": 20,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 286720,\r\n      \"memoryInMB\": 143360,\r\n      \"maxDataDiskCount\": 40\r\n    },\r\n    {\r\n      \"name\": \"Standard_F1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 16384,\r\n      \"memoryInMB\": 2048,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_F2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 32768,\r\n      \"memoryInMB\": 4096,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_F4\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 65536,\r\n      \"memoryInMB\": 8192,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_F8\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 131072,\r\n      \"memoryInMB\": 16384,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_F16\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 262144,\r\n      \"memoryInMB\": 32768,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_A1_v2\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 10240,\r\n      \"memoryInMB\": 2048,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_A2m_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 20480,\r\n      \"memoryInMB\": 16384,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_A2_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 20480,\r\n      \"memoryInMB\": 4096,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_A4m_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 40960,\r\n      \"memoryInMB\": 32768,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_A4_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 40960,\r\n      \"memoryInMB\": 8192,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_A8m_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 81920,\r\n      \"memoryInMB\": 65536,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_A8_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 81920,\r\n      \"memoryInMB\": 16384,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS1_v2\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 7168,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS2_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 14336,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS3_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 28672,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS4_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS5_v2\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 114688,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS11_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 28672,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS12_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS13_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 114688,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS14_v2\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 229376,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS15_v2\",\r\n      \"numberOfCores\": 20,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 286720,\r\n      \"memoryInMB\": 143360,\r\n      \"maxDataDiskCount\": 40\r\n    },\r\n    {\r\n      \"name\": \"Standard_F1s\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 4096,\r\n      \"memoryInMB\": 2048,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_F2s\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 8192,\r\n      \"memoryInMB\": 4096,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_F4s\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 16384,\r\n      \"memoryInMB\": 8192,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_F8s\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 32768,\r\n      \"memoryInMB\": 16384,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_F16s\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 65536,\r\n      \"memoryInMB\": 32768,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_H8\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 1024000,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_H16\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 2048000,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_H8m\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 1024000,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_H16m\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 2048000,\r\n      \"memoryInMB\": 229376,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_H16r\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 2048000,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_H16mr\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 2048000,\r\n      \"memoryInMB\": 229376,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_D1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 51200,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_D2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 102400,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_D3\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 204800,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_D4\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 409600,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D11\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 102400,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_D12\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 204800,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_D13\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 409600,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D14\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 819200,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_NV6\",\r\n      \"numberOfCores\": 6,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 389120,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_NV12\",\r\n      \"numberOfCores\": 12,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 696320,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_NV24\",\r\n      \"numberOfCores\": 24,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 1474560,\r\n      \"memoryInMB\": 229376,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 7168,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 14336,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS3\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 28672,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS4\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS11\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 28672,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS12\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS13\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 114688,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS14\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 229376,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_NC6\",\r\n      \"numberOfCores\": 6,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 389120,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_NC12\",\r\n      \"numberOfCores\": 12,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 696320,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_NC24\",\r\n      \"numberOfCores\": 24,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 1474560,\r\n      \"memoryInMB\": 229376,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_NC24r\",\r\n      \"numberOfCores\": 24,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 1474560,\r\n      \"memoryInMB\": 229376,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_A8\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 391168,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_A9\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 391168,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_A10\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 391168,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_A11\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 391168,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 16\r\n    }\r\n  ]\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '16947',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '24293291-2c55-42f0-aa19-bf43831912b8',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14990',
+  'x-ms-correlation-request-id': 'df6f1376-9c7c-4a74-bbec-653d2e0982b3',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081211Z:df6f1376-9c7c-4a74-bbec-653d2e0982b3',
+  date: 'Sun, 29 Jan 2017 08:12:11 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourcegroups/xplatTestVMSSCreate2582?api-version=2016-09-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582\",\"name\":\"xplatTestVMSSCreate2582\",\"location\":\"eastus\",\"tags\":{\"arm-cli-vmss-create-tests\":\"2017-01-29T08:11:35.449Z\"},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
-  'x-ms-ratelimit-remaining-subscription-reads': '14824',
-  'x-ms-request-id': '33756246-3501-4be3-a1b5-742a35ffd78a',
-  'x-ms-correlation-request-id': '33756246-3501-4be3-a1b5-742a35ffd78a',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074329Z:33756246-3501-4be3-a1b5-742a35ffd78a',
+  'x-ms-ratelimit-remaining-subscription-reads': '14989',
+  'x-ms-request-id': '374442de-a0f0-4bee-a300-c04c1a200e1a',
+  'x-ms-correlation-request-id': '374442de-a0f0-4bee-a300-c04c1a200e1a',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081212Z:374442de-a0f0-4bee-a300-c04c1a200e1a',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:43:28 GMT',
-  'content-length': '270' });
+  date: 'Sun, 29 Jan 2017 08:12:11 GMT',
+  connection: 'close',
+  'content-length': '263' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/networkInterfaces/xplat-south-949583-nic?api-version=2016-09-01')
-  .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/networkInterfaces/xplat-south-949583-nic' under resource group 'xplatTestVMSSCreate4329' was not found.\"}}", { 'cache-control': 'no-cache',
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourcegroups/xplatTestVMSSCreate2582?api-version=2016-09-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582\",\"name\":\"xplatTestVMSSCreate2582\",\"location\":\"eastus\",\"tags\":{\"arm-cli-vmss-create-tests\":\"2017-01-29T08:11:35.449Z\"},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
-  'x-ms-failure-cause': 'gateway',
-  'x-ms-request-id': 'd2b643ac-5349-4ed2-a83d-43256d08d563',
-  'x-ms-correlation-request-id': 'd2b643ac-5349-4ed2-a83d-43256d08d563',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074330Z:d2b643ac-5349-4ed2-a83d-43256d08d563',
+  'x-ms-ratelimit-remaining-subscription-reads': '14989',
+  'x-ms-request-id': '374442de-a0f0-4bee-a300-c04c1a200e1a',
+  'x-ms-correlation-request-id': '374442de-a0f0-4bee-a300-c04c1a200e1a',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081212Z:374442de-a0f0-4bee-a300-c04c1a200e1a',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:43:30 GMT',
-  'content-length': '185' });
+  date: 'Sun, 29 Jan 2017 08:12:11 GMT',
+  connection: 'close',
+  'content-length': '263' });
  return result; },
 function (nock) { 
 var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-949583-vnet?api-version=2016-09-01')
-  .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/virtualNetworks/xplat-south-949583-vnet' under resource group 'xplatTestVMSSCreate4329' was not found.\"}}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'x-ms-failure-cause': 'gateway',
-  'x-ms-request-id': 'e569e136-27f4-4b5d-870b-52e05b6b580a',
-  'x-ms-correlation-request-id': 'e569e136-27f4-4b5d-870b-52e05b6b580a',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074331Z:e569e136-27f4-4b5d-870b-52e05b6b580a',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:43:30 GMT',
-  'content-length': '184' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-949583-vnet?api-version=2016-09-01', '*')
-  .reply(201, "{\r\n  \"name\": \"xplat-south-949583-vnet\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-949583-vnet\",\r\n  \"etag\": \"W/\\\"8e3b6202-b49b-4575-9a2c-972b965b5965\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"16063cb1-6483-4ac2-a99e-c4b20cb29f78\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-south-949583-snet\",\r\n        \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-949583-vnet/subnets/xplat-south-949583-snet\",\r\n        \"etag\": \"W/\\\"8e3b6202-b49b-4575-9a2c-972b965b5965\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Updating\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ],\r\n    \"virtualNetworkPeerings\": []\r\n  }\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '1134',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'retry-after': '10',
-  'x-ms-request-id': 'dca38649-0c73-4ed7-b402-7dfaf03b2a32',
-  'azure-asyncoperation': 'https://management.azure.com/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Network/locations/southeastasia/operations/dca38649-0c73-4ed7-b402-7dfaf03b2a32?api-version=2016-09-01',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-writes': '1195',
-  'x-ms-correlation-request-id': '2b089760-f06d-4971-b261-fa174f2c6d61',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074335Z:2b089760-f06d-4971-b261-fa174f2c6d61',
-  date: 'Tue, 16 Aug 2016 07:43:35 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Network/locations/southeastasia/operations/dca38649-0c73-4ed7-b402-7dfaf03b2a32?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '29',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'x-ms-request-id': 'bd23b8ef-de06-4838-bd34-c26d4c5cc750',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14926',
-  'x-ms-correlation-request-id': '7003e759-fbee-4070-93a2-ebffac3e7458',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074406Z:7003e759-fbee-4070-93a2-ebffac3e7458',
-  date: 'Tue, 16 Aug 2016 07:44:06 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-949583-vnet?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"name\": \"xplat-south-949583-vnet\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-949583-vnet\",\r\n  \"etag\": \"W/\\\"2f360a16-42de-4c87-a7cd-e953aacb68f7\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"16063cb1-6483-4ac2-a99e-c4b20cb29f78\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-south-949583-snet\",\r\n        \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-949583-vnet/subnets/xplat-south-949583-snet\",\r\n        \"etag\": \"W/\\\"2f360a16-42de-4c87-a7cd-e953aacb68f7\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ],\r\n    \"virtualNetworkPeerings\": []\r\n  }\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '1136',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  etag: 'W/"2f360a16-42de-4c87-a7cd-e953aacb68f7"',
-  'x-ms-request-id': '66e25d71-a262-446c-b235-96dafd4b0614',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14979',
-  'x-ms-correlation-request-id': '91079976-17fc-4155-8822-38ff441cb484',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074407Z:91079976-17fc-4155-8822-38ff441cb484',
-  date: 'Tue, 16 Aug 2016 07:44:07 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-949583-vnet?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"name\": \"xplat-south-949583-vnet\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-949583-vnet\",\r\n  \"etag\": \"W/\\\"2f360a16-42de-4c87-a7cd-e953aacb68f7\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"16063cb1-6483-4ac2-a99e-c4b20cb29f78\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-south-949583-snet\",\r\n        \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-949583-vnet/subnets/xplat-south-949583-snet\",\r\n        \"etag\": \"W/\\\"2f360a16-42de-4c87-a7cd-e953aacb68f7\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ],\r\n    \"virtualNetworkPeerings\": []\r\n  }\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '1136',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  etag: 'W/"2f360a16-42de-4c87-a7cd-e953aacb68f7"',
-  'x-ms-request-id': '8063d197-9475-4fa8-8e9b-069e20429621',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14742',
-  'x-ms-correlation-request-id': 'd0e47359-c948-4c6d-8ed7-89d3e1defa1f',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074409Z:d0e47359-c948-4c6d-8ed7-89d3e1defa1f',
-  date: 'Tue, 16 Aug 2016 07:44:08 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-949583-vnet/subnets/xplat-south-949583-snet?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"name\": \"xplat-south-949583-snet\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-949583-vnet/subnets/xplat-south-949583-snet\",\r\n  \"etag\": \"W/\\\"2f360a16-42de-4c87-a7cd-e953aacb68f7\\\"\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"addressPrefix\": \"10.0.1.0/24\"\r\n  }\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '401',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  etag: 'W/"2f360a16-42de-4c87-a7cd-e953aacb68f7"',
-  'x-ms-request-id': 'd4409370-b263-4c6c-bd93-8de04cab8caf',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14949',
-  'x-ms-correlation-request-id': '10a77d5e-e918-423d-a2db-f5248bc90fb2',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074410Z:10a77d5e-e918-423d-a2db-f5248bc90fb2',
-  date: 'Tue, 16 Aug 2016 07:44:09 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-949583-pip?api-version=2016-09-01')
-  .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/publicIPAddresses/xplat-south-949583-pip' under resource group 'xplatTestVMSSCreate4329' was not found.\"}}", { 'cache-control': 'no-cache',
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-1494473829-nic?api-version=2016-09-01')
+  .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/networkInterfaces/xplat-eastu-1494473829-nic' under resource group 'xplatTestVMSSCreate2582' was not found.\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'x-ms-failure-cause': 'gateway',
-  'x-ms-request-id': '858b1c88-42f7-4b68-9151-55c21a52f277',
-  'x-ms-correlation-request-id': '858b1c88-42f7-4b68-9151-55c21a52f277',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074411Z:858b1c88-42f7-4b68-9151-55c21a52f277',
+  'x-ms-request-id': 'f6ff41c7-99e8-4555-b89a-6617176905c2',
+  'x-ms-correlation-request-id': 'f6ff41c7-99e8-4555-b89a-6617176905c2',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081212Z:f6ff41c7-99e8-4555-b89a-6617176905c2',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:44:11 GMT',
-  'content-length': '185' });
+  date: 'Sun, 29 Jan 2017 08:12:12 GMT',
+  connection: 'close',
+  'content-length': '189' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-949583-pip?api-version=2016-09-01', '*')
-  .reply(201, "{\r\n  \"name\": \"xplat-south-949583-pip\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-949583-pip\",\r\n  \"etag\": \"W/\\\"06787a9b-08e5-4a0c-95cb-4bb1da1243ac\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"7471c774-f76b-4baa-a60f-a5937caaffd5\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-949583-pip\",\r\n      \"fqdn\": \"xplat-south-949583-pip.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '744',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'retry-after': '10',
-  'x-ms-request-id': '40f1f093-d0ae-4448-8c01-6b1d916565a2',
-  'azure-asyncoperation': 'https://management.azure.com/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Network/locations/southeastasia/operations/40f1f093-d0ae-4448-8c01-6b1d916565a2?api-version=2016-09-01',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-writes': '1197',
-  'x-ms-correlation-request-id': '6cb3b2da-d09f-4204-adc5-e521b590987f',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074417Z:6cb3b2da-d09f-4204-adc5-e521b590987f',
-  date: 'Tue, 16 Aug 2016 07:44:16 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Network/locations/southeastasia/operations/40f1f093-d0ae-4448-8c01-6b1d916565a2?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '29',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'x-ms-request-id': '11e843f8-df07-4290-a630-e8215c9f5be5',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14822',
-  'x-ms-correlation-request-id': 'd9332cab-9866-45ff-9f67-c4acd7c8cdf8',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074448Z:d9332cab-9866-45ff-9f67-c4acd7c8cdf8',
-  date: 'Tue, 16 Aug 2016 07:44:47 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-949583-pip?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"name\": \"xplat-south-949583-pip\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-949583-pip\",\r\n  \"etag\": \"W/\\\"8ebbc5c1-0a01-4475-9250-3cc863646e53\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"7471c774-f76b-4baa-a60f-a5937caaffd5\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-949583-pip\",\r\n      \"fqdn\": \"xplat-south-949583-pip.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '745',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  etag: 'W/"8ebbc5c1-0a01-4475-9250-3cc863646e53"',
-  'x-ms-request-id': '8dc95081-e581-4ee2-8d76-6b7edf714410',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14879',
-  'x-ms-correlation-request-id': '9acf03bd-c3a6-4358-9466-9d191d9d6523',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074449Z:9acf03bd-c3a6-4358-9466-9d191d9d6523',
-  date: 'Tue, 16 Aug 2016 07:44:48 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-949583-pip?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"name\": \"xplat-south-949583-pip\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-949583-pip\",\r\n  \"etag\": \"W/\\\"8ebbc5c1-0a01-4475-9250-3cc863646e53\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"7471c774-f76b-4baa-a60f-a5937caaffd5\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-949583-pip\",\r\n      \"fqdn\": \"xplat-south-949583-pip.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '745',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  etag: 'W/"8ebbc5c1-0a01-4475-9250-3cc863646e53"',
-  'x-ms-request-id': 'c7cc9c1d-8422-454a-aa06-bdee2f3f417d',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14890',
-  'x-ms-correlation-request-id': '1dd35dcc-1126-4e73-b94c-37596efe32e9',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074450Z:1dd35dcc-1126-4e73-b94c-37596efe32e9',
-  date: 'Tue, 16 Aug 2016 07:44:49 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/networkInterfaces/xplat-south-949583-nic?api-version=2016-09-01', '*')
-  .reply(201, "{\r\n  \"name\": \"xplat-south-949583-nic\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/networkInterfaces/xplat-south-949583-nic\",\r\n  \"etag\": \"W/\\\"91290ecd-baa0-4a34-b3d3-063fe2aaaa7b\\\"\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"5860c6fb-b5fb-40a7-8880-e5700abb9d6d\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1471333451035\",\r\n        \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/networkInterfaces/xplat-south-949583-nic/ipConfigurations/ipconfig1471333451035\",\r\n        \"etag\": \"W/\\\"91290ecd-baa0-4a34-b3d3-063fe2aaaa7b\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-949583-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-949583-vnet/subnets/xplat-south-949583-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"we4amfudmtbevkm4yszazmu5pa.ix.internal.cloudapp.net\"\r\n    },\r\n    \"enableIPForwarding\": false\r\n  },\r\n  \"type\": \"Microsoft.Network/networkInterfaces\"\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '1784',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'x-ms-request-id': '8bcc7fab-4f94-4c1a-9544-4abaae5eb336',
-  'azure-asyncoperation': 'https://management.azure.com/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Network/locations/southeastasia/operations/8bcc7fab-4f94-4c1a-9544-4abaae5eb336?api-version=2016-09-01',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-writes': '1195',
-  'x-ms-correlation-request-id': '5607f747-9e4f-45ab-bd85-839fe47ad6b9',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074453Z:5607f747-9e4f-45ab-bd85-839fe47ad6b9',
-  date: 'Tue, 16 Aug 2016 07:44:52 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/networkInterfaces/xplat-south-949583-nic?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"name\": \"xplat-south-949583-nic\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/networkInterfaces/xplat-south-949583-nic\",\r\n  \"etag\": \"W/\\\"91290ecd-baa0-4a34-b3d3-063fe2aaaa7b\\\"\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"5860c6fb-b5fb-40a7-8880-e5700abb9d6d\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1471333451035\",\r\n        \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/networkInterfaces/xplat-south-949583-nic/ipConfigurations/ipconfig1471333451035\",\r\n        \"etag\": \"W/\\\"91290ecd-baa0-4a34-b3d3-063fe2aaaa7b\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-949583-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-949583-vnet/subnets/xplat-south-949583-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"we4amfudmtbevkm4yszazmu5pa.ix.internal.cloudapp.net\"\r\n    },\r\n    \"enableIPForwarding\": false\r\n  },\r\n  \"type\": \"Microsoft.Network/networkInterfaces\"\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '1784',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  etag: 'W/"91290ecd-baa0-4a34-b3d3-063fe2aaaa7b"',
-  'x-ms-request-id': '2a744423-d753-4a7c-b378-014802e3b76d',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14987',
-  'x-ms-correlation-request-id': '0cda1a04-b067-4528-b723-22b7f51e04f7',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074454Z:0cda1a04-b067-4528-b723-22b7f51e04f7',
-  date: 'Tue, 16 Aug 2016 07:44:53 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/networkInterfaces/xplat-south-949583-nic?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"name\": \"xplat-south-949583-nic\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/networkInterfaces/xplat-south-949583-nic\",\r\n  \"etag\": \"W/\\\"91290ecd-baa0-4a34-b3d3-063fe2aaaa7b\\\"\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"5860c6fb-b5fb-40a7-8880-e5700abb9d6d\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1471333451035\",\r\n        \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/networkInterfaces/xplat-south-949583-nic/ipConfigurations/ipconfig1471333451035\",\r\n        \"etag\": \"W/\\\"91290ecd-baa0-4a34-b3d3-063fe2aaaa7b\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-949583-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-949583-vnet/subnets/xplat-south-949583-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"we4amfudmtbevkm4yszazmu5pa.ix.internal.cloudapp.net\"\r\n    },\r\n    \"enableIPForwarding\": false\r\n  },\r\n  \"type\": \"Microsoft.Network/networkInterfaces\"\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '1784',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  etag: 'W/"91290ecd-baa0-4a34-b3d3-063fe2aaaa7b"',
-  'x-ms-request-id': 'cf906cd6-2812-49e2-a7a5-0d93464ed9a7',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14823',
-  'x-ms-correlation-request-id': '52787f06-f13b-41f5-a399-705f8143f62e',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074455Z:52787f06-f13b-41f5-a399-705f8143f62e',
-  date: 'Tue, 16 Aug 2016 07:44:54 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-949583-pip2?api-version=2016-09-01', '*')
-  .reply(201, "{\r\n  \"name\": \"xplat-south-949583-pip2\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-949583-pip2\",\r\n  \"etag\": \"W/\\\"8225401f-b39a-4640-8860-b5e34a7d7b86\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"fa6dddde-c8d2-4db4-8cda-28325202f7e8\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-949583-pip2\",\r\n      \"fqdn\": \"xplat-south-949583-pip2.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '748',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'retry-after': '10',
-  'x-ms-request-id': '14148684-749c-4980-9114-61a24acf6e4c',
-  'azure-asyncoperation': 'https://management.azure.com/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Network/locations/southeastasia/operations/14148684-749c-4980-9114-61a24acf6e4c?api-version=2016-09-01',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-writes': '1194',
-  'x-ms-correlation-request-id': '4b8f915d-6310-4132-a366-5fb0502f529e',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074459Z:4b8f915d-6310-4132-a366-5fb0502f529e',
-  date: 'Tue, 16 Aug 2016 07:44:59 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Network/locations/southeastasia/operations/14148684-749c-4980-9114-61a24acf6e4c?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '29',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'x-ms-request-id': 'e3d06547-56a8-4ce4-84c5-47ba674c50ed',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14936',
-  'x-ms-correlation-request-id': '44699045-b45a-4e9a-b65b-2c1e616866db',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074531Z:44699045-b45a-4e9a-b65b-2c1e616866db',
-  date: 'Tue, 16 Aug 2016 07:45:30 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-949583-pip2?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"name\": \"xplat-south-949583-pip2\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-949583-pip2\",\r\n  \"etag\": \"W/\\\"348c0303-550c-406a-ad8f-de5f2e8698a5\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"fa6dddde-c8d2-4db4-8cda-28325202f7e8\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-949583-pip2\",\r\n      \"fqdn\": \"xplat-south-949583-pip2.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '749',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  etag: 'W/"348c0303-550c-406a-ad8f-de5f2e8698a5"',
-  'x-ms-request-id': '6290d1f2-cb46-4258-b99a-fcfcc8048344',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14923',
-  'x-ms-correlation-request-id': 'e9b80128-2440-4709-b0e7-32f2fbcbf2f4',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074531Z:e9b80128-2440-4709-b0e7-32f2fbcbf2f4',
-  date: 'Tue, 16 Aug 2016 07:45:31 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-949583-lb?api-version=2016-09-01', '*')
-  .reply(201, "{\r\n  \"name\": \"xplat-south-949583-lb\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-949583-lb\",\r\n  \"etag\": \"W/\\\"38590bd4-5e79-4987-8e98-1d9c1fa683ae\\\"\",\r\n  \"type\": \"Microsoft.Network/loadBalancers\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"1c8e7792-343f-450a-b0dc-8514f1e3f175\",\r\n    \"frontendIPConfigurations\": [\r\n      {\r\n        \"name\": \"loadBalancerFrontEnd\",\r\n        \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-949583-lb/frontendIPConfigurations/loadBalancerFrontEnd\",\r\n        \"etag\": \"W/\\\"38590bd4-5e79-4987-8e98-1d9c1fa683ae\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-949583-pip2\"\r\n          },\r\n          \"inboundNatPools\": [\r\n            {\r\n              \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-949583-lb/inboundNatPools/xplat-south-949583-nat\"\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    ],\r\n    \"backendAddressPools\": [\r\n      {\r\n        \"name\": \"xplat-south-949583-be\",\r\n        \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-949583-lb/backendAddressPools/xplat-south-949583-be\",\r\n        \"etag\": \"W/\\\"38590bd4-5e79-4987-8e98-1d9c1fa683ae\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\"\r\n        }\r\n      }\r\n    ],\r\n    \"loadBalancingRules\": [],\r\n    \"probes\": [],\r\n    \"inboundNatRules\": [],\r\n    \"outboundNatRules\": [],\r\n    \"inboundNatPools\": [\r\n      {\r\n        \"name\": \"xplat-south-949583-nat\",\r\n        \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-949583-lb/inboundNatPools/xplat-south-949583-nat\",\r\n        \"etag\": \"W/\\\"38590bd4-5e79-4987-8e98-1d9c1fa683ae\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"frontendPortRangeStart\": 50000,\r\n          \"frontendPortRangeEnd\": 50099,\r\n          \"backendPort\": 22,\r\n          \"protocol\": \"Tcp\",\r\n          \"frontendIPConfiguration\": {\r\n            \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-949583-lb/frontendIPConfigurations/loadBalancerFrontEnd\"\r\n          }\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '2936',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'x-ms-request-id': '03e699f7-21eb-453b-b90f-fb497042280c',
-  'azure-asyncoperation': 'https://management.azure.com/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Network/locations/southeastasia/operations/03e699f7-21eb-453b-b90f-fb497042280c?api-version=2016-09-01',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-writes': '1194',
-  'x-ms-correlation-request-id': '63c696b7-8aa1-4da0-a8ec-fee54f70be88',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074536Z:63c696b7-8aa1-4da0-a8ec-fee54f70be88',
-  date: 'Tue, 16 Aug 2016 07:45:36 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-949583-lb?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"name\": \"xplat-south-949583-lb\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-949583-lb\",\r\n  \"etag\": \"W/\\\"38590bd4-5e79-4987-8e98-1d9c1fa683ae\\\"\",\r\n  \"type\": \"Microsoft.Network/loadBalancers\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"1c8e7792-343f-450a-b0dc-8514f1e3f175\",\r\n    \"frontendIPConfigurations\": [\r\n      {\r\n        \"name\": \"loadBalancerFrontEnd\",\r\n        \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-949583-lb/frontendIPConfigurations/loadBalancerFrontEnd\",\r\n        \"etag\": \"W/\\\"38590bd4-5e79-4987-8e98-1d9c1fa683ae\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-949583-pip2\"\r\n          },\r\n          \"inboundNatPools\": [\r\n            {\r\n              \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-949583-lb/inboundNatPools/xplat-south-949583-nat\"\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    ],\r\n    \"backendAddressPools\": [\r\n      {\r\n        \"name\": \"xplat-south-949583-be\",\r\n        \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-949583-lb/backendAddressPools/xplat-south-949583-be\",\r\n        \"etag\": \"W/\\\"38590bd4-5e79-4987-8e98-1d9c1fa683ae\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\"\r\n        }\r\n      }\r\n    ],\r\n    \"loadBalancingRules\": [],\r\n    \"probes\": [],\r\n    \"inboundNatRules\": [],\r\n    \"outboundNatRules\": [],\r\n    \"inboundNatPools\": [\r\n      {\r\n        \"name\": \"xplat-south-949583-nat\",\r\n        \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-949583-lb/inboundNatPools/xplat-south-949583-nat\",\r\n        \"etag\": \"W/\\\"38590bd4-5e79-4987-8e98-1d9c1fa683ae\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"frontendPortRangeStart\": 50000,\r\n          \"frontendPortRangeEnd\": 50099,\r\n          \"backendPort\": 22,\r\n          \"protocol\": \"Tcp\",\r\n          \"frontendIPConfiguration\": {\r\n            \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-949583-lb/frontendIPConfigurations/loadBalancerFrontEnd\"\r\n          }\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '2936',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  etag: 'W/"38590bd4-5e79-4987-8e98-1d9c1fa683ae"',
-  'x-ms-request-id': 'dcac551d-3ba0-41f6-8ce7-472f3b3a05be',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14956',
-  'x-ms-correlation-request-id': '31c82246-4907-4869-9020-183f03ca3ad0',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074537Z:31c82246-4907-4869-9020-183f03ca3ad0',
-  date: 'Tue, 16 Aug 2016 07:45:36 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto0949583?api-version=2016-01-01', '*')
-  .reply(202, "", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '0',
-  expires: '-1',
-  location: 'https://management.azure.com/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Storage/operations/30b69461-f5e0-41eb-8acc-b1e8c13f207e?monitor=true&api-version=2016-01-01',
-  'retry-after': '25',
-  'x-ms-ratelimit-remaining-subscription-writes': '1194',
-  'x-ms-request-id': 'a132fd3b-1661-4140-b9ce-68cf884a8ce6',
-  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0',
-  'x-ms-correlation-request-id': 'a132fd3b-1661-4140-b9ce-68cf884a8ce6',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074539Z:a132fd3b-1661-4140-b9ce-68cf884a8ce6',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:45:39 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Storage/operations/30b69461-f5e0-41eb-8acc-b1e8c13f207e?monitor=true&api-version=2016-01-01')
-  .reply(200, "{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplattestvmsscreate4329/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto0949583\",\"kind\":\"Storage\",\"location\":\"southeastasia\",\"name\":\"xplattestvmss1sto0949583\",\"properties\":{\"creationTime\":\"2016-08-16T07:45:38.2265774Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmss1sto0949583.blob.core.windows.net/\",\"file\":\"https://xplattestvmss1sto0949583.file.core.windows.net/\",\"queue\":\"https://xplattestvmss1sto0949583.queue.core.windows.net/\",\"table\":\"https://xplattestvmss1sto0949583.table.core.windows.net/\"},\"primaryLocation\":\"southeastasia\",\"provisioningState\":\"Succeeded\",\"secondaryLocation\":\"eastasia\",\"statusOfPrimary\":\"available\",\"statusOfSecondary\":\"available\"},\"sku\":{\"name\":\"Standard_GRS\",\"tier\":\"Standard\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '853',
-  'content-type': 'application/json',
-  expires: '-1',
-  'x-ms-request-id': '625e1e2e-50aa-4801-a185-2960517a2cb7',
-  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14950',
-  'x-ms-correlation-request-id': '625e1e2e-50aa-4801-a185-2960517a2cb7',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074610Z:625e1e2e-50aa-4801-a185-2960517a2cb7',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:46:10 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto1949583?api-version=2016-01-01', '*')
-  .reply(202, "", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '0',
-  expires: '-1',
-  location: 'https://management.azure.com/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Storage/operations/9184850a-0f62-4f61-aed8-94dfdce8ff7f?monitor=true&api-version=2016-01-01',
-  'retry-after': '25',
-  'x-ms-ratelimit-remaining-subscription-writes': '1198',
-  'x-ms-request-id': '1d65e451-90e1-40a7-9768-a69ae0ee5627',
-  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0',
-  'x-ms-correlation-request-id': '1d65e451-90e1-40a7-9768-a69ae0ee5627',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074614Z:1d65e451-90e1-40a7-9768-a69ae0ee5627',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:46:14 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Storage/operations/9184850a-0f62-4f61-aed8-94dfdce8ff7f?monitor=true&api-version=2016-01-01')
-  .reply(200, "{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplattestvmsscreate4329/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto1949583\",\"kind\":\"Storage\",\"location\":\"southeastasia\",\"name\":\"xplattestvmss1sto1949583\",\"properties\":{\"creationTime\":\"2016-08-16T07:46:13.2365828Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmss1sto1949583.blob.core.windows.net/\",\"file\":\"https://xplattestvmss1sto1949583.file.core.windows.net/\",\"queue\":\"https://xplattestvmss1sto1949583.queue.core.windows.net/\",\"table\":\"https://xplattestvmss1sto1949583.table.core.windows.net/\"},\"primaryLocation\":\"southeastasia\",\"provisioningState\":\"Succeeded\",\"secondaryLocation\":\"eastasia\",\"statusOfPrimary\":\"available\",\"statusOfSecondary\":\"available\"},\"sku\":{\"name\":\"Standard_GRS\",\"tier\":\"Standard\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '853',
-  'content-type': 'application/json',
-  expires: '-1',
-  'x-ms-request-id': '9e4df767-0516-45c6-9171-932e638fb881',
-  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14741',
-  'x-ms-correlation-request-id': '9e4df767-0516-45c6-9171-932e638fb881',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074645Z:9e4df767-0516-45c6-9171-932e638fb881',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:46:45 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto2949583?api-version=2016-01-01', '*')
-  .reply(202, "", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '0',
-  expires: '-1',
-  location: 'https://management.azure.com/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Storage/operations/19ce0047-0ecf-4ea4-a495-d2fba2559be8?monitor=true&api-version=2016-01-01',
-  'retry-after': '25',
-  'x-ms-ratelimit-remaining-subscription-writes': '1195',
-  'x-ms-request-id': '8d959b03-9270-482f-b0c8-8c514c40d5c3',
-  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0',
-  'x-ms-correlation-request-id': '8d959b03-9270-482f-b0c8-8c514c40d5c3',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074649Z:8d959b03-9270-482f-b0c8-8c514c40d5c3',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:46:48 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Storage/operations/19ce0047-0ecf-4ea4-a495-d2fba2559be8?monitor=true&api-version=2016-01-01')
-  .reply(200, "{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplattestvmsscreate4329/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto2949583\",\"kind\":\"Storage\",\"location\":\"southeastasia\",\"name\":\"xplattestvmss1sto2949583\",\"properties\":{\"creationTime\":\"2016-08-16T07:46:47.6232304Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmss1sto2949583.blob.core.windows.net/\",\"file\":\"https://xplattestvmss1sto2949583.file.core.windows.net/\",\"queue\":\"https://xplattestvmss1sto2949583.queue.core.windows.net/\",\"table\":\"https://xplattestvmss1sto2949583.table.core.windows.net/\"},\"primaryLocation\":\"southeastasia\",\"provisioningState\":\"Succeeded\",\"secondaryLocation\":\"eastasia\",\"statusOfPrimary\":\"available\",\"statusOfSecondary\":\"available\"},\"sku\":{\"name\":\"Standard_GRS\",\"tier\":\"Standard\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '853',
-  'content-type': 'application/json',
-  expires: '-1',
-  'x-ms-request-id': '1617ffbc-4c4a-4537-8c7f-c14a784feec0',
-  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14889',
-  'x-ms-correlation-request-id': '1617ffbc-4c4a-4537-8c7f-c14a784feec0',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074720Z:1617ffbc-4c4a-4537-8c7f-c14a784feec0',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:47:20 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto3949583?api-version=2016-01-01', '*')
-  .reply(202, "", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '0',
-  expires: '-1',
-  location: 'https://management.azure.com/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Storage/operations/912d1aed-1567-4fdb-8274-fbd01254d0d2?monitor=true&api-version=2016-01-01',
-  'retry-after': '25',
-  'x-ms-ratelimit-remaining-subscription-writes': '1194',
-  'x-ms-request-id': '683e08a0-3bdb-4dc1-bfa5-a403e50c49c7',
-  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0',
-  'x-ms-correlation-request-id': '683e08a0-3bdb-4dc1-bfa5-a403e50c49c7',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074722Z:683e08a0-3bdb-4dc1-bfa5-a403e50c49c7',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:47:21 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Storage/operations/912d1aed-1567-4fdb-8274-fbd01254d0d2?monitor=true&api-version=2016-01-01')
-  .reply(200, "{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplattestvmsscreate4329/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto3949583\",\"kind\":\"Storage\",\"location\":\"southeastasia\",\"name\":\"xplattestvmss1sto3949583\",\"properties\":{\"creationTime\":\"2016-08-16T07:47:20.5880597Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmss1sto3949583.blob.core.windows.net/\",\"file\":\"https://xplattestvmss1sto3949583.file.core.windows.net/\",\"queue\":\"https://xplattestvmss1sto3949583.queue.core.windows.net/\",\"table\":\"https://xplattestvmss1sto3949583.table.core.windows.net/\"},\"primaryLocation\":\"southeastasia\",\"provisioningState\":\"Succeeded\",\"secondaryLocation\":\"eastasia\",\"statusOfPrimary\":\"available\",\"statusOfSecondary\":\"available\"},\"sku\":{\"name\":\"Standard_GRS\",\"tier\":\"Standard\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '853',
-  'content-type': 'application/json',
-  expires: '-1',
-  'x-ms-request-id': '049deb04-7fd5-4da8-bf92-f116f7e14c53',
-  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14935',
-  'x-ms-correlation-request-id': '049deb04-7fd5-4da8-bf92-f116f7e14c53',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074753Z:049deb04-7fd5-4da8-bf92-f116f7e14c53',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:47:52 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto4949583?api-version=2016-01-01', '*')
-  .reply(202, "", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '0',
-  expires: '-1',
-  location: 'https://management.azure.com/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Storage/operations/d82ec6f9-9f2d-4ad1-addc-75cc988e9662?monitor=true&api-version=2016-01-01',
-  'retry-after': '25',
-  'x-ms-ratelimit-remaining-subscription-writes': '1197',
-  'x-ms-request-id': 'bd5e0d64-da7a-43ec-8ad0-64e7bc489f79',
-  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0',
-  'x-ms-correlation-request-id': 'bd5e0d64-da7a-43ec-8ad0-64e7bc489f79',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074756Z:bd5e0d64-da7a-43ec-8ad0-64e7bc489f79',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:47:55 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Storage/operations/d82ec6f9-9f2d-4ad1-addc-75cc988e9662?monitor=true&api-version=2016-01-01')
-  .reply(200, "{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplattestvmsscreate4329/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto4949583\",\"kind\":\"Storage\",\"location\":\"southeastasia\",\"name\":\"xplattestvmss1sto4949583\",\"properties\":{\"creationTime\":\"2016-08-16T07:47:54.9510884Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmss1sto4949583.blob.core.windows.net/\",\"file\":\"https://xplattestvmss1sto4949583.file.core.windows.net/\",\"queue\":\"https://xplattestvmss1sto4949583.queue.core.windows.net/\",\"table\":\"https://xplattestvmss1sto4949583.table.core.windows.net/\"},\"primaryLocation\":\"southeastasia\",\"provisioningState\":\"Succeeded\",\"secondaryLocation\":\"eastasia\",\"statusOfPrimary\":\"available\",\"statusOfSecondary\":\"available\"},\"sku\":{\"name\":\"Standard_GRS\",\"tier\":\"Standard\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '853',
-  'content-type': 'application/json',
-  expires: '-1',
-  'x-ms-request-id': 'e2d478b3-3f02-4aaa-a2ed-521de8b9e37e',
-  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14920',
-  'x-ms-correlation-request-id': 'e2d478b3-3f02-4aaa-a2ed-521de8b9e37e',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074827Z:e2d478b3-3f02-4aaa-a2ed-521de8b9e37e',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:48:27 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss1?api-version=2016-03-30', '*')
-  .reply(201, "{\r\n  \"sku\": {\r\n    \"name\": \"Standard_DS1\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 5\r\n  },\r\n  \"properties\": {\r\n    \"upgradePolicy\": {\r\n      \"mode\": \"Manual\"\r\n    },\r\n    \"virtualMachineProfile\": {\r\n      \"osProfile\": {\r\n        \"computerNamePrefix\": \"xplattestvmss1\",\r\n        \"adminUsername\": \"azureuser\",\r\n        \"linuxConfiguration\": {\r\n          \"disablePasswordAuthentication\": true,\r\n          \"ssh\": {\r\n            \"publicKeys\": [\r\n              {\r\n                \"path\": \"/home/azureuser/.ssh/authorized_keys\",\r\n                \"keyData\": \"MIID/zCCAuegAwIBAgIJAMUAa+XVLvAeMA0GCSqGSIb3DQEBBQUAMIGVMQswCQYD\\r\\nVQQGEwJJbjESMBAGA1UECAwJS2FybmF0YWthMRIwEAYDVQQHDAlCYW5nYWxvcmUx\\r\\nEDAOBgNVBAoMB2JyaWxsaW8xEjAQBgNVBAsMCW1pY3Jvc29mdDEQMA4GA1UEAwwH\\r\\nYnJpbGxpbzEmMCQGCSqGSIb3DQEJARYXc3JlZWthbnRoYnNAeWFob28uY28uaW4w\\r\\nHhcNMTUwMzA1MTE1MzEyWhcNMTYwMzA0MTE1MzEyWjCBlTELMAkGA1UEBhMCSW4x\\r\\nEjAQBgNVBAgMCUthcm5hdGFrYTESMBAGA1UEBwwJQmFuZ2Fsb3JlMRAwDgYDVQQK\\r\\nDAdicmlsbGlvMRIwEAYDVQQLDAltaWNyb3NvZnQxEDAOBgNVBAMMB2JyaWxsaW8x\\r\\nJjAkBgkqhkiG9w0BCQEWF3NyZWVrYW50aGJzQHlhaG9vLmNvLmluMIIBIjANBgkq\\r\\nhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyUNKaOuT0NK+S8Ck81zy9xJ6hXfZvAC6\\r\\nlhbmf/6s/WVimJ/TX5NMhQJwC9k6ZIF92KfYrojHNvHDufSZ3EtKUVwRFCDjmgMT\\r\\nDL09WkGaZt7gROYFK0iZ4KrYGovUwlwum9fHB24OJiOV4bi0ek62/rHx9fjYZpvp\\r\\naIH2PV/hN8SCZ0x7HJMberD4gVoU/Kv42nNvwjLUW6IZfVx/Gv5OeFDtWHfSvUEF\\r\\ndadHKTPn3Ab20Iu6gZIbLO9Vuf38/IpaYGfnFCouHdzmiTiLieYNe3CUPcOJNSv7\\r\\n1G8KYpx3uNJRkJPab5OsRyJw75Gvzkr9OgaPss9tVD6Gt68u3WQtVQIDAQABo1Aw\\r\\nTjAdBgNVHQ4EFgQUogvhXB+xZ2JJPfLO6cVs4ForzscwHwYDVR0jBBgwFoAUogvh\\r\\nXB+xZ2JJPfLO6cVs4ForzscwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOC\\r\\nAQEAdDj7qUNJ45xlF5cjd+4x5NHvAD1VTjOKu+Xh/uzSSjXqB2F0aOMWA9lx0qaQ\\r\\noJgHkGxj3zz/W7ik/cVGL2O+vRIOKv/y0OPogEmS3Hw+P+O6OGE7x1G6YN0zLVoL\\r\\nu4BN/BEYmjttxM9I7qqL7C5cJoE+K3s/w1/pt/68ohJcr7F9Ohi7cso62xuGY1Rm\\r\\nksAh2EUDsU9JV/P+C9AMpLSrb03JJYzVj4w1RHbrmw2AjFyGXdQYkggyXisg+Ifr\\r\\n5gbNN7HigpHf7b2i3CQBUqp9m23frh5AhnLI2qp3UXgc52U5ieLdi/t6j0TTZqqY\\r\\nHhHqofKrj938HHlBNpC5/LVh3w==\\r\\n\"\r\n              }\r\n            ]\r\n          }\r\n        },\r\n        \"secrets\": []\r\n      },\r\n      \"storageProfile\": {\r\n        \"osDisk\": {\r\n          \"vhdContainers\": [\r\n            \"https://xplattestvmss1sto0949583.blob.core.windows.net/xplat-south-949583-disk-container\",\r\n            \"https://xplattestvmss1sto1949583.blob.core.windows.net/xplat-south-949583-disk-container\",\r\n            \"https://xplattestvmss1sto2949583.blob.core.windows.net/xplat-south-949583-disk-container\",\r\n            \"https://xplattestvmss1sto3949583.blob.core.windows.net/xplat-south-949583-disk-container\",\r\n            \"https://xplattestvmss1sto4949583.blob.core.windows.net/xplat-south-949583-disk-container\"\r\n          ],\r\n          \"name\": \"xplat-south-949583-os-disk\",\r\n          \"createOption\": \"FromImage\",\r\n          \"caching\": \"ReadOnly\"\r\n        },\r\n        \"imageReference\": {\r\n          \"publisher\": \"SUSE\",\r\n          \"offer\": \"openSUSE\",\r\n          \"sku\": \"13.2\",\r\n          \"version\": \"latest\"\r\n        }\r\n      },\r\n      \"networkProfile\": {\"networkInterfaceConfigurations\":[{\"name\":\"xplat-south-949583-nic\",\"properties\":{\"primary\":true,\"ipConfigurations\":[{\"name\":\"xplat-south-949583-pip\",\"properties\":{\"subnet\":{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-949583-vnet/subnets/xplat-south-949583-snet\"},\"loadBalancerBackendAddressPools\":[{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-949583-lb/backendAddressPools/xplat-south-949583-be\"}],\"loadBalancerInboundNatPools\":[{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-949583-lb/inboundNatPools/xplat-south-949583-nat\"}]}}]}}]}\r\n    },\r\n    \"provisioningState\": \"Creating\",\r\n    \"overprovision\": false,\r\n    \"uniqueId\": \"ec9a3b5a-7de4-4722-8c7a-d2e70965da02\"\r\n  },\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss1\",\r\n  \"name\": \"xplattestvmss1\",\r\n  \"type\": \"Microsoft.Compute/virtualMachineScaleSets\",\r\n  \"location\": \"southeastasia\"\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '4333',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'azure-asyncoperation': 'https://management.azure.com/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/c0644b3c-8d26-4b6b-93da-398731219982?api-version=2016-03-30',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': 'c0644b3c-8d26-4b6b-93da-398731219982',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-writes': '1197',
-  'x-ms-correlation-request-id': 'fd2335af-e280-425b-a03c-a3634ac6ffa6',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074832Z:fd2335af-e280-425b-a03c-a3634ac6ffa6',
-  date: 'Tue, 16 Aug 2016 07:48:31 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/c0644b3c-8d26-4b6b-93da-398731219982?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:48:30.2333472+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"c0644b3c-8d26-4b6b-93da-398731219982\"\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '134',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': 'f5f73d2f-5938-4328-a991-27a2bc83832a',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14820',
-  'x-ms-correlation-request-id': '60c7fcf8-6af1-4a4a-b1ab-a1961af11b37',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074903Z:60c7fcf8-6af1-4a4a-b1ab-a1961af11b37',
-  date: 'Tue, 16 Aug 2016 07:49:02 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/c0644b3c-8d26-4b6b-93da-398731219982?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:48:30.2333472+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"c0644b3c-8d26-4b6b-93da-398731219982\"\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '134',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': '042ead89-a2f2-4097-b660-9c1537d1bd1d',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14947',
-  'x-ms-correlation-request-id': '55ce53f6-871e-4f4a-82a1-865300ffe828',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T074934Z:55ce53f6-871e-4f4a-82a1-865300ffe828',
-  date: 'Tue, 16 Aug 2016 07:49:33 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/c0644b3c-8d26-4b6b-93da-398731219982?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:48:30.2333472+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"c0644b3c-8d26-4b6b-93da-398731219982\"\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '134',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': 'fcc085dc-cb6e-4fdb-9af5-4b7d63d70cf3',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14919',
-  'x-ms-correlation-request-id': 'dc9f245a-b552-4ac3-b81b-5eb0db8db0eb',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075005Z:dc9f245a-b552-4ac3-b81b-5eb0db8db0eb',
-  date: 'Tue, 16 Aug 2016 07:50:05 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/c0644b3c-8d26-4b6b-93da-398731219982?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:48:30.2333472+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"c0644b3c-8d26-4b6b-93da-398731219982\"\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '134',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': 'd2135f8d-87f4-4a6f-86a0-31328b0188f0',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14932',
-  'x-ms-correlation-request-id': 'c38e1a58-9b8b-41b8-8ce9-3dade0e8ef60',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075036Z:c38e1a58-9b8b-41b8-8ce9-3dade0e8ef60',
-  date: 'Tue, 16 Aug 2016 07:50:35 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/c0644b3c-8d26-4b6b-93da-398731219982?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:48:30.2333472+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"c0644b3c-8d26-4b6b-93da-398731219982\"\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '134',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': '6eb69d79-e96b-4c00-a0b1-2eb81871eb3a',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14887',
-  'x-ms-correlation-request-id': 'cee34455-936d-4cec-8504-0351e40479eb',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075107Z:cee34455-936d-4cec-8504-0351e40479eb',
-  date: 'Tue, 16 Aug 2016 07:51:06 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/c0644b3c-8d26-4b6b-93da-398731219982?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:48:30.2333472+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"c0644b3c-8d26-4b6b-93da-398731219982\"\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '134',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': 'aba1d99c-3339-4567-b525-e35cd2b979c8',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14886',
-  'x-ms-correlation-request-id': '50d58428-91dc-4047-b797-47d5fbdbc808',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075138Z:50d58428-91dc-4047-b797-47d5fbdbc808',
-  date: 'Tue, 16 Aug 2016 07:51:38 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/c0644b3c-8d26-4b6b-93da-398731219982?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:48:30.2333472+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"c0644b3c-8d26-4b6b-93da-398731219982\"\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '134',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': '5f6dbb7d-540a-4c29-b715-857e5707a54e',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14935',
-  'x-ms-correlation-request-id': '440f0fe0-6e13-4b68-8084-5bada59351da',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075209Z:440f0fe0-6e13-4b68-8084-5bada59351da',
-  date: 'Tue, 16 Aug 2016 07:52:08 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/c0644b3c-8d26-4b6b-93da-398731219982?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:48:30.2333472+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"c0644b3c-8d26-4b6b-93da-398731219982\"\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '134',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': '594afd39-8cc7-4d46-be8c-9202fddea703',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14849',
-  'x-ms-correlation-request-id': '7e9c0bd6-71ea-4cf0-8824-a4b062d8a4a8',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075240Z:7e9c0bd6-71ea-4cf0-8824-a4b062d8a4a8',
-  date: 'Tue, 16 Aug 2016 07:52:40 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/c0644b3c-8d26-4b6b-93da-398731219982?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:48:30.2333472+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"c0644b3c-8d26-4b6b-93da-398731219982\"\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '134',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': 'f9895a4f-f713-4343-b43d-f6ae280963c8',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14740',
-  'x-ms-correlation-request-id': '1bb5988d-18a4-4b9e-a040-f28c9a4303c9',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075311Z:1bb5988d-18a4-4b9e-a040-f28c9a4303c9',
-  date: 'Tue, 16 Aug 2016 07:53:11 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/c0644b3c-8d26-4b6b-93da-398731219982?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:48:30.2333472+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"c0644b3c-8d26-4b6b-93da-398731219982\"\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '134',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': 'a6431e27-101e-4666-aef1-09a6d4d26076',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14819',
-  'x-ms-correlation-request-id': '296c7e59-21a4-40f2-a6ce-a69246ae2165',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075342Z:296c7e59-21a4-40f2-a6ce-a69246ae2165',
-  date: 'Tue, 16 Aug 2016 07:53:42 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/c0644b3c-8d26-4b6b-93da-398731219982?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:48:30.2333472+00:00\",\r\n  \"endTime\": \"2016-08-16T07:54:03.0343729+00:00\",\r\n  \"status\": \"Succeeded\",\r\n  \"name\": \"c0644b3c-8d26-4b6b-93da-398731219982\"\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '184',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': '7ca91536-1f5a-4c23-8a11-5032674519ca',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14876',
-  'x-ms-correlation-request-id': '40f8ad5a-b0da-4a15-877f-743014cfd43c',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075413Z:40f8ad5a-b0da-4a15-877f-743014cfd43c',
-  date: 'Tue, 16 Aug 2016 07:54:13 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss1?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"sku\": {\r\n    \"name\": \"Standard_DS1\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 5\r\n  },\r\n  \"properties\": {\r\n    \"upgradePolicy\": {\r\n      \"mode\": \"Manual\"\r\n    },\r\n    \"virtualMachineProfile\": {\r\n      \"osProfile\": {\r\n        \"computerNamePrefix\": \"xplattestvmss1\",\r\n        \"adminUsername\": \"azureuser\",\r\n        \"linuxConfiguration\": {\r\n          \"disablePasswordAuthentication\": true,\r\n          \"ssh\": {\r\n            \"publicKeys\": [\r\n              {\r\n                \"path\": \"/home/azureuser/.ssh/authorized_keys\",\r\n                \"keyData\": \"MIID/zCCAuegAwIBAgIJAMUAa+XVLvAeMA0GCSqGSIb3DQEBBQUAMIGVMQswCQYD\\r\\nVQQGEwJJbjESMBAGA1UECAwJS2FybmF0YWthMRIwEAYDVQQHDAlCYW5nYWxvcmUx\\r\\nEDAOBgNVBAoMB2JyaWxsaW8xEjAQBgNVBAsMCW1pY3Jvc29mdDEQMA4GA1UEAwwH\\r\\nYnJpbGxpbzEmMCQGCSqGSIb3DQEJARYXc3JlZWthbnRoYnNAeWFob28uY28uaW4w\\r\\nHhcNMTUwMzA1MTE1MzEyWhcNMTYwMzA0MTE1MzEyWjCBlTELMAkGA1UEBhMCSW4x\\r\\nEjAQBgNVBAgMCUthcm5hdGFrYTESMBAGA1UEBwwJQmFuZ2Fsb3JlMRAwDgYDVQQK\\r\\nDAdicmlsbGlvMRIwEAYDVQQLDAltaWNyb3NvZnQxEDAOBgNVBAMMB2JyaWxsaW8x\\r\\nJjAkBgkqhkiG9w0BCQEWF3NyZWVrYW50aGJzQHlhaG9vLmNvLmluMIIBIjANBgkq\\r\\nhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyUNKaOuT0NK+S8Ck81zy9xJ6hXfZvAC6\\r\\nlhbmf/6s/WVimJ/TX5NMhQJwC9k6ZIF92KfYrojHNvHDufSZ3EtKUVwRFCDjmgMT\\r\\nDL09WkGaZt7gROYFK0iZ4KrYGovUwlwum9fHB24OJiOV4bi0ek62/rHx9fjYZpvp\\r\\naIH2PV/hN8SCZ0x7HJMberD4gVoU/Kv42nNvwjLUW6IZfVx/Gv5OeFDtWHfSvUEF\\r\\ndadHKTPn3Ab20Iu6gZIbLO9Vuf38/IpaYGfnFCouHdzmiTiLieYNe3CUPcOJNSv7\\r\\n1G8KYpx3uNJRkJPab5OsRyJw75Gvzkr9OgaPss9tVD6Gt68u3WQtVQIDAQABo1Aw\\r\\nTjAdBgNVHQ4EFgQUogvhXB+xZ2JJPfLO6cVs4ForzscwHwYDVR0jBBgwFoAUogvh\\r\\nXB+xZ2JJPfLO6cVs4ForzscwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOC\\r\\nAQEAdDj7qUNJ45xlF5cjd+4x5NHvAD1VTjOKu+Xh/uzSSjXqB2F0aOMWA9lx0qaQ\\r\\noJgHkGxj3zz/W7ik/cVGL2O+vRIOKv/y0OPogEmS3Hw+P+O6OGE7x1G6YN0zLVoL\\r\\nu4BN/BEYmjttxM9I7qqL7C5cJoE+K3s/w1/pt/68ohJcr7F9Ohi7cso62xuGY1Rm\\r\\nksAh2EUDsU9JV/P+C9AMpLSrb03JJYzVj4w1RHbrmw2AjFyGXdQYkggyXisg+Ifr\\r\\n5gbNN7HigpHf7b2i3CQBUqp9m23frh5AhnLI2qp3UXgc52U5ieLdi/t6j0TTZqqY\\r\\nHhHqofKrj938HHlBNpC5/LVh3w==\\r\\n\"\r\n              }\r\n            ]\r\n          }\r\n        },\r\n        \"secrets\": []\r\n      },\r\n      \"storageProfile\": {\r\n        \"osDisk\": {\r\n          \"vhdContainers\": [\r\n            \"https://xplattestvmss1sto0949583.blob.core.windows.net/xplat-south-949583-disk-container\",\r\n            \"https://xplattestvmss1sto1949583.blob.core.windows.net/xplat-south-949583-disk-container\",\r\n            \"https://xplattestvmss1sto2949583.blob.core.windows.net/xplat-south-949583-disk-container\",\r\n            \"https://xplattestvmss1sto3949583.blob.core.windows.net/xplat-south-949583-disk-container\",\r\n            \"https://xplattestvmss1sto4949583.blob.core.windows.net/xplat-south-949583-disk-container\"\r\n          ],\r\n          \"name\": \"xplat-south-949583-os-disk\",\r\n          \"createOption\": \"FromImage\",\r\n          \"caching\": \"ReadOnly\"\r\n        },\r\n        \"imageReference\": {\r\n          \"publisher\": \"SUSE\",\r\n          \"offer\": \"openSUSE\",\r\n          \"sku\": \"13.2\",\r\n          \"version\": \"latest\"\r\n        }\r\n      },\r\n      \"networkProfile\": {\"networkInterfaceConfigurations\":[{\"name\":\"xplat-south-949583-nic\",\"properties\":{\"primary\":true,\"ipConfigurations\":[{\"name\":\"xplat-south-949583-pip\",\"properties\":{\"subnet\":{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-949583-vnet/subnets/xplat-south-949583-snet\"},\"loadBalancerBackendAddressPools\":[{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-949583-lb/backendAddressPools/xplat-south-949583-be\"}],\"loadBalancerInboundNatPools\":[{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-949583-lb/inboundNatPools/xplat-south-949583-nat\"}]}}]}}]}\r\n    },\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"overprovision\": false,\r\n    \"uniqueId\": \"ec9a3b5a-7de4-4722-8c7a-d2e70965da02\"\r\n  },\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss1\",\r\n  \"name\": \"xplattestvmss1\",\r\n  \"type\": \"Microsoft.Compute/virtualMachineScaleSets\",\r\n  \"location\": \"southeastasia\"\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '4334',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': 'ecc58f87-c2e2-456e-9f11-f3d730e6b812',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14847',
-  'x-ms-correlation-request-id': '5e3dd94e-a38a-4566-9bfa-e68ed58967fa',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075414Z:5e3dd94e-a38a-4566-9bfa-e68ed58967fa',
-  date: 'Tue, 16 Aug 2016 07:54:14 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourcegroups/xplatTestVMSSCreate4329?api-version=2016-02-01')
-  .reply(200, "{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329\",\"name\":\"xplatTestVMSSCreate4329\",\"location\":\"southeastasia\",\"tags\":{\"arm-cli-vmss-create-tests\":\"2016-08-16T07:42:50.202Z\"},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'x-ms-ratelimit-remaining-subscription-reads': '14818',
-  'x-ms-request-id': 'c495c15a-c61e-4ea0-bc5c-4e474038f7c2',
-  'x-ms-correlation-request-id': 'c495c15a-c61e-4ea0-bc5c-4e474038f7c2',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075415Z:c495c15a-c61e-4ea0-bc5c-4e474038f7c2',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:54:14 GMT',
-  'content-length': '270' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .filteringRequestBody(function (path) { return '*';})
-.patch('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourcegroups/xplatTestVMSSCreate4329?api-version=2016-02-01', '*')
-  .reply(200, "{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329\",\"name\":\"xplatTestVMSSCreate4329\",\"location\":\"southeastasia\",\"tags\":{\"arm-cli-vmss-create-tests\":\"2016-08-16T07:54:15.515Z\"},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '270',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'x-ms-ratelimit-remaining-subscription-writes': '1197',
-  'x-ms-request-id': '408637e5-0328-4a58-8265-68a4c3cf6688',
-  'x-ms-correlation-request-id': '408637e5-0328-4a58-8265-68a4c3cf6688',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075418Z:408637e5-0328-4a58-8265-68a4c3cf6688',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:54:17 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/vmSizes?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"value\": [\r\n    {\r\n      \"name\": \"Standard_A0\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 20480,\r\n      \"memoryInMB\": 768,\r\n      \"maxDataDiskCount\": 1\r\n    },\r\n    {\r\n      \"name\": \"Standard_A1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 71680,\r\n      \"memoryInMB\": 1792,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_A2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 138240,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_A3\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 291840,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_A5\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 138240,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_A4\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 619520,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_A6\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 291840,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_A7\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 619520,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Basic_A0\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 20480,\r\n      \"memoryInMB\": 768,\r\n      \"maxDataDiskCount\": 1\r\n    },\r\n    {\r\n      \"name\": \"Basic_A1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 40960,\r\n      \"memoryInMB\": 1792,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Basic_A2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 61440,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Basic_A3\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 122880,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Basic_A4\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 245760,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D1_v2\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 51200,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_D2_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 102400,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_D3_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 204800,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_D4_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 409600,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D5_v2\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 819200,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_D11_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 102400,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_D12_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 204800,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_D13_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 409600,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D14_v2\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 819200,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_D15_v2\",\r\n      \"numberOfCores\": 20,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 286720,\r\n      \"memoryInMB\": 143360,\r\n      \"maxDataDiskCount\": 40\r\n    },\r\n    {\r\n      \"name\": \"Standard_F1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 16384,\r\n      \"memoryInMB\": 2048,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_F2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 32768,\r\n      \"memoryInMB\": 4096,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_F4\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 65536,\r\n      \"memoryInMB\": 8192,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_F8\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 131072,\r\n      \"memoryInMB\": 16384,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_F16\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 262144,\r\n      \"memoryInMB\": 32768,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_D1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 51200,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_D2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 102400,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_D3\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 204800,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_D4\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 409600,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D11\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 102400,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_D12\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 204800,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_D13\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 409600,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D14\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 819200,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 7168,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 14336,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS3\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 28672,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS4\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS11\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 28672,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS12\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS13\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 114688,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS14\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 229376,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS1_v2\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 7168,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS2_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 14336,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS3_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 28672,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS4_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS5_v2\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 114688,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS11_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 28672,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS12_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS13_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 114688,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS14_v2\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 229376,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS15_v2\",\r\n      \"numberOfCores\": 20,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 286720,\r\n      \"memoryInMB\": 143360,\r\n      \"maxDataDiskCount\": 40\r\n    },\r\n    {\r\n      \"name\": \"Standard_F1s\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 4096,\r\n      \"memoryInMB\": 2048,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_F2s\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 8192,\r\n      \"memoryInMB\": 4096,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_F4s\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 16384,\r\n      \"memoryInMB\": 8192,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_F8s\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 32768,\r\n      \"memoryInMB\": 16384,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_F16s\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 65536,\r\n      \"memoryInMB\": 32768,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_G1\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 393216,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_G2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 786432,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_G3\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 1572864,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_G4\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 3145728,\r\n      \"memoryInMB\": 229376,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_G5\",\r\n      \"numberOfCores\": 32,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 6291456,\r\n      \"memoryInMB\": 458752,\r\n      \"maxDataDiskCount\": 64\r\n    },\r\n    {\r\n      \"name\": \"Standard_GS1\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_GS2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 114688,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_GS3\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 229376,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_GS4\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 458752,\r\n      \"memoryInMB\": 229376,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_GS5\",\r\n      \"numberOfCores\": 32,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 917504,\r\n      \"memoryInMB\": 458752,\r\n      \"maxDataDiskCount\": 64\r\n    }\r\n  ]\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '14055',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': '33ce5ba5-443e-46cf-9910-3d5f176507a7',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14739',
-  'x-ms-correlation-request-id': 'e784a5a7-34b0-4294-ac49-e29eded712f1',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075419Z:e784a5a7-34b0-4294-ac49-e29eded712f1',
-  date: 'Tue, 16 Aug 2016 07:54:18 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourcegroups/xplatTestVMSSCreate4329?api-version=2016-02-01')
-  .reply(200, "{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329\",\"name\":\"xplatTestVMSSCreate4329\",\"location\":\"southeastasia\",\"tags\":{\"arm-cli-vmss-create-tests\":\"2016-08-16T07:54:15.515Z\"},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'x-ms-ratelimit-remaining-subscription-reads': '14983',
-  'x-ms-request-id': 'edd2bf1d-a71e-4b98-b067-1bb144d99b79',
-  'x-ms-correlation-request-id': 'edd2bf1d-a71e-4b98-b067-1bb144d99b79',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075419Z:edd2bf1d-a71e-4b98-b067-1bb144d99b79',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:54:19 GMT',
-  'content-length': '270' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/networkInterfaces/xplat-south-484621438-nic?api-version=2016-09-01')
-  .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/networkInterfaces/xplat-south-484621438-nic' under resource group 'xplatTestVMSSCreate4329' was not found.\"}}", { 'cache-control': 'no-cache',
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-1494473829-nic?api-version=2016-09-01')
+  .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/networkInterfaces/xplat-eastu-1494473829-nic' under resource group 'xplatTestVMSSCreate2582' was not found.\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'x-ms-failure-cause': 'gateway',
-  'x-ms-request-id': 'f6ede8af-3a7e-4c02-8013-adcf8a700558',
-  'x-ms-correlation-request-id': 'f6ede8af-3a7e-4c02-8013-adcf8a700558',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075421Z:f6ede8af-3a7e-4c02-8013-adcf8a700558',
+  'x-ms-request-id': 'f6ff41c7-99e8-4555-b89a-6617176905c2',
+  'x-ms-correlation-request-id': 'f6ff41c7-99e8-4555-b89a-6617176905c2',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081212Z:f6ff41c7-99e8-4555-b89a-6617176905c2',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:54:20 GMT',
+  date: 'Sun, 29 Jan 2017 08:12:12 GMT',
+  connection: 'close',
+  'content-length': '189' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet?api-version=2016-09-01')
+  .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet' under resource group 'xplatTestVMSSCreate2582' was not found.\"}}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-failure-cause': 'gateway',
+  'x-ms-request-id': '2e0e5f53-858e-4423-9be4-2dbd4de691d5',
+  'x-ms-correlation-request-id': '2e0e5f53-858e-4423-9be4-2dbd4de691d5',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081212Z:2e0e5f53-858e-4423-9be4-2dbd4de691d5',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:12:12 GMT',
+  connection: 'close',
   'content-length': '188' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-484621438-vnet?api-version=2016-09-01')
-  .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/virtualNetworks/xplat-south-484621438-vnet' under resource group 'xplatTestVMSSCreate4329' was not found.\"}}", { 'cache-control': 'no-cache',
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet?api-version=2016-09-01')
+  .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet' under resource group 'xplatTestVMSSCreate2582' was not found.\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'x-ms-failure-cause': 'gateway',
-  'x-ms-request-id': '21ffa890-db14-4725-b34f-fee81d5c201c',
-  'x-ms-correlation-request-id': '21ffa890-db14-4725-b34f-fee81d5c201c',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075422Z:21ffa890-db14-4725-b34f-fee81d5c201c',
+  'x-ms-request-id': '2e0e5f53-858e-4423-9be4-2dbd4de691d5',
+  'x-ms-correlation-request-id': '2e0e5f53-858e-4423-9be4-2dbd4de691d5',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081212Z:2e0e5f53-858e-4423-9be4-2dbd4de691d5',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:54:21 GMT',
-  'content-length': '187' });
+  date: 'Sun, 29 Jan 2017 08:12:12 GMT',
+  connection: 'close',
+  'content-length': '188' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet?api-version=2016-09-01', '*')
+  .reply(201, "{\r\n  \"name\": \"xplat-eastu-1494473829-vnet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet\",\r\n  \"etag\": \"W/\\\"09cb2edb-7738-45e3-b82e-cdc1e6ff5098\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"54fed9ab-2230-4444-b103-2d3f9d0a7447\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-eastu-1494473829-snet\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet/subnets/xplat-eastu-1494473829-snet\",\r\n        \"etag\": \"W/\\\"09cb2edb-7738-45e3-b82e-cdc1e6ff5098\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Updating\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ],\r\n    \"virtualNetworkPeerings\": []\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '1147',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'retry-after': '3',
+  'x-ms-request-id': '23df80ac-540c-4100-ac00-96c07a70d804',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/23df80ac-540c-4100-ac00-96c07a70d804?api-version=2016-09-01',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-writes': '1196',
+  'x-ms-correlation-request-id': '1b922d48-35ab-4edd-9d51-2bb8b282d580',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081214Z:1b922d48-35ab-4edd-9d51-2bb8b282d580',
+  date: 'Sun, 29 Jan 2017 08:12:14 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-484621438-vnet?api-version=2016-09-01', '*')
-  .reply(201, "{\r\n  \"name\": \"xplat-south-484621438-vnet\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-484621438-vnet\",\r\n  \"etag\": \"W/\\\"924802b0-04be-4af8-b291-1b4c9c343f0d\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"f8f450f8-ea4d-4dc6-bc86-738fd7a9c24a\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-south-484621438-snet\",\r\n        \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-484621438-vnet/subnets/xplat-south-484621438-snet\",\r\n        \"etag\": \"W/\\\"924802b0-04be-4af8-b291-1b4c9c343f0d\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Updating\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ],\r\n    \"virtualNetworkPeerings\": []\r\n  }\r\n}", { 'cache-control': 'no-cache',
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet?api-version=2016-09-01', '*')
+  .reply(201, "{\r\n  \"name\": \"xplat-eastu-1494473829-vnet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet\",\r\n  \"etag\": \"W/\\\"09cb2edb-7738-45e3-b82e-cdc1e6ff5098\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"54fed9ab-2230-4444-b103-2d3f9d0a7447\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-eastu-1494473829-snet\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet/subnets/xplat-eastu-1494473829-snet\",\r\n        \"etag\": \"W/\\\"09cb2edb-7738-45e3-b82e-cdc1e6ff5098\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Updating\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ],\r\n    \"virtualNetworkPeerings\": []\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '1147',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'retry-after': '3',
+  'x-ms-request-id': '23df80ac-540c-4100-ac00-96c07a70d804',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/23df80ac-540c-4100-ac00-96c07a70d804?api-version=2016-09-01',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-writes': '1196',
+  'x-ms-correlation-request-id': '1b922d48-35ab-4edd-9d51-2bb8b282d580',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081214Z:1b922d48-35ab-4edd-9d51-2bb8b282d580',
+  date: 'Sun, 29 Jan 2017 08:12:14 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/23df80ac-540c-4100-ac00-96c07a70d804?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '29',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-request-id': 'b6dcff73-6069-4f5b-b6fb-fd8de0ebe868',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14990',
+  'x-ms-correlation-request-id': '84a8aee6-2a56-4521-b5dc-b3586fcb5e8a',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081244Z:84a8aee6-2a56-4521-b5dc-b3586fcb5e8a',
+  date: 'Sun, 29 Jan 2017 08:12:44 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/23df80ac-540c-4100-ac00-96c07a70d804?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '29',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-request-id': 'b6dcff73-6069-4f5b-b6fb-fd8de0ebe868',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14990',
+  'x-ms-correlation-request-id': '84a8aee6-2a56-4521-b5dc-b3586fcb5e8a',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081244Z:84a8aee6-2a56-4521-b5dc-b3586fcb5e8a',
+  date: 'Sun, 29 Jan 2017 08:12:44 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-1494473829-vnet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet\",\r\n  \"etag\": \"W/\\\"e8ae14f6-540b-43a7-baa2-58ce271e16d8\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"54fed9ab-2230-4444-b103-2d3f9d0a7447\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-eastu-1494473829-snet\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet/subnets/xplat-eastu-1494473829-snet\",\r\n        \"etag\": \"W/\\\"e8ae14f6-540b-43a7-baa2-58ce271e16d8\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ],\r\n    \"virtualNetworkPeerings\": []\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '1149',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
-  'retry-after': '10',
-  'x-ms-request-id': '480472b7-82b2-4779-a61b-3222c4f9e949',
-  'azure-asyncoperation': 'https://management.azure.com/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Network/locations/southeastasia/operations/480472b7-82b2-4779-a61b-3222c4f9e949?api-version=2016-09-01',
+  etag: 'W/"e8ae14f6-540b-43a7-baa2-58ce271e16d8"',
+  'x-ms-request-id': 'dc11085b-85d9-47e5-a5d4-a0d6e9deb022',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-writes': '1193',
-  'x-ms-correlation-request-id': '793327a4-0d19-4508-b433-7b8af125877d',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075427Z:793327a4-0d19-4508-b433-7b8af125877d',
-  date: 'Tue, 16 Aug 2016 07:54:26 GMT' });
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14986',
+  'x-ms-correlation-request-id': '1acf9a30-b07b-45f2-a257-c3704f3ed6e4',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081245Z:1acf9a30-b07b-45f2-a257-c3704f3ed6e4',
+  date: 'Sun, 29 Jan 2017 08:12:44 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Network/locations/southeastasia/operations/480472b7-82b2-4779-a61b-3222c4f9e949?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-1494473829-vnet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet\",\r\n  \"etag\": \"W/\\\"e8ae14f6-540b-43a7-baa2-58ce271e16d8\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"54fed9ab-2230-4444-b103-2d3f9d0a7447\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-eastu-1494473829-snet\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet/subnets/xplat-eastu-1494473829-snet\",\r\n        \"etag\": \"W/\\\"e8ae14f6-540b-43a7-baa2-58ce271e16d8\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ],\r\n    \"virtualNetworkPeerings\": []\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
-  'content-length': '29',
+  'content-length': '1149',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
-  'x-ms-request-id': '0865b7e7-5d85-44b9-a11e-4980ca0136d9',
+  etag: 'W/"e8ae14f6-540b-43a7-baa2-58ce271e16d8"',
+  'x-ms-request-id': 'dc11085b-85d9-47e5-a5d4-a0d6e9deb022',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14978',
-  'x-ms-correlation-request-id': '052fc184-6916-468f-9fef-2a3b89acfbe2',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075458Z:052fc184-6916-468f-9fef-2a3b89acfbe2',
-  date: 'Tue, 16 Aug 2016 07:54:57 GMT' });
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14986',
+  'x-ms-correlation-request-id': '1acf9a30-b07b-45f2-a257-c3704f3ed6e4',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081245Z:1acf9a30-b07b-45f2-a257-c3704f3ed6e4',
+  date: 'Sun, 29 Jan 2017 08:12:44 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-484621438-vnet?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"name\": \"xplat-south-484621438-vnet\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-484621438-vnet\",\r\n  \"etag\": \"W/\\\"aa598f61-7bc5-4c87-a1e6-b058e807fa96\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"f8f450f8-ea4d-4dc6-bc86-738fd7a9c24a\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-south-484621438-snet\",\r\n        \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-484621438-vnet/subnets/xplat-south-484621438-snet\",\r\n        \"etag\": \"W/\\\"aa598f61-7bc5-4c87-a1e6-b058e807fa96\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ],\r\n    \"virtualNetworkPeerings\": []\r\n  }\r\n}", { 'cache-control': 'no-cache',
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-1494473829-vnet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet\",\r\n  \"etag\": \"W/\\\"e8ae14f6-540b-43a7-baa2-58ce271e16d8\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"54fed9ab-2230-4444-b103-2d3f9d0a7447\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-eastu-1494473829-snet\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet/subnets/xplat-eastu-1494473829-snet\",\r\n        \"etag\": \"W/\\\"e8ae14f6-540b-43a7-baa2-58ce271e16d8\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ],\r\n    \"virtualNetworkPeerings\": []\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
-  'content-length': '1151',
+  'content-length': '1149',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
-  etag: 'W/"aa598f61-7bc5-4c87-a1e6-b058e807fa96"',
-  'x-ms-request-id': '499ce38a-d046-46ea-8acc-5496aa51a2e9',
+  etag: 'W/"e8ae14f6-540b-43a7-baa2-58ce271e16d8"',
+  'x-ms-request-id': 'f84d718a-7639-439f-8c1a-846a1b07f60f',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14943',
-  'x-ms-correlation-request-id': '040c63db-90de-4dc4-8bb1-e2c358eb9340',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075459Z:040c63db-90de-4dc4-8bb1-e2c358eb9340',
-  date: 'Tue, 16 Aug 2016 07:54:58 GMT' });
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14989',
+  'x-ms-correlation-request-id': 'da82cc39-cea9-40cd-9cc0-9f3201031817',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081245Z:da82cc39-cea9-40cd-9cc0-9f3201031817',
+  date: 'Sun, 29 Jan 2017 08:12:45 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-484621438-vnet?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"name\": \"xplat-south-484621438-vnet\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-484621438-vnet\",\r\n  \"etag\": \"W/\\\"aa598f61-7bc5-4c87-a1e6-b058e807fa96\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"f8f450f8-ea4d-4dc6-bc86-738fd7a9c24a\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-south-484621438-snet\",\r\n        \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-484621438-vnet/subnets/xplat-south-484621438-snet\",\r\n        \"etag\": \"W/\\\"aa598f61-7bc5-4c87-a1e6-b058e807fa96\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ],\r\n    \"virtualNetworkPeerings\": []\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-1494473829-vnet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet\",\r\n  \"etag\": \"W/\\\"e8ae14f6-540b-43a7-baa2-58ce271e16d8\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"54fed9ab-2230-4444-b103-2d3f9d0a7447\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-eastu-1494473829-snet\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet/subnets/xplat-eastu-1494473829-snet\",\r\n        \"etag\": \"W/\\\"e8ae14f6-540b-43a7-baa2-58ce271e16d8\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ],\r\n    \"virtualNetworkPeerings\": []\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
-  'content-length': '1151',
+  'content-length': '1149',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
-  etag: 'W/"aa598f61-7bc5-4c87-a1e6-b058e807fa96"',
-  'x-ms-request-id': 'c7ea68b7-2f30-4814-9081-b31c44d7e7c4',
+  etag: 'W/"e8ae14f6-540b-43a7-baa2-58ce271e16d8"',
+  'x-ms-request-id': 'f84d718a-7639-439f-8c1a-846a1b07f60f',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14818',
-  'x-ms-correlation-request-id': '689ade56-7689-4a08-8ad3-9994326965b9',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075500Z:689ade56-7689-4a08-8ad3-9994326965b9',
-  date: 'Tue, 16 Aug 2016 07:54:59 GMT' });
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14989',
+  'x-ms-correlation-request-id': 'da82cc39-cea9-40cd-9cc0-9f3201031817',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081245Z:da82cc39-cea9-40cd-9cc0-9f3201031817',
+  date: 'Sun, 29 Jan 2017 08:12:45 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-484621438-vnet/subnets/xplat-south-484621438-snet?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"name\": \"xplat-south-484621438-snet\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-484621438-vnet/subnets/xplat-south-484621438-snet\",\r\n  \"etag\": \"W/\\\"aa598f61-7bc5-4c87-a1e6-b058e807fa96\\\"\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"addressPrefix\": \"10.0.1.0/24\"\r\n  }\r\n}", { 'cache-control': 'no-cache',
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet/subnets/xplat-eastu-1494473829-snet?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-1494473829-snet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet/subnets/xplat-eastu-1494473829-snet\",\r\n  \"etag\": \"W/\\\"e8ae14f6-540b-43a7-baa2-58ce271e16d8\\\"\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"addressPrefix\": \"10.0.1.0/24\"\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
-  'content-length': '410',
+  'content-length': '413',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
-  etag: 'W/"aa598f61-7bc5-4c87-a1e6-b058e807fa96"',
-  'x-ms-request-id': 'da99537c-77fe-46bf-a7fc-801c710f3f76',
+  etag: 'W/"e8ae14f6-540b-43a7-baa2-58ce271e16d8"',
+  'x-ms-request-id': '84c38f5e-8866-4708-b884-82e693649e22',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14817',
-  'x-ms-correlation-request-id': 'd32fac70-e6ac-4477-88df-db2a76202410',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075500Z:d32fac70-e6ac-4477-88df-db2a76202410',
-  date: 'Tue, 16 Aug 2016 07:54:59 GMT' });
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14989',
+  'x-ms-correlation-request-id': 'd80260b2-7d55-442d-88c0-fc70f3a375b5',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081245Z:d80260b2-7d55-442d-88c0-fc70f3a375b5',
+  date: 'Sun, 29 Jan 2017 08:12:45 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-484621438-pip?api-version=2016-09-01')
-  .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/publicIPAddresses/xplat-south-484621438-pip' under resource group 'xplatTestVMSSCreate4329' was not found.\"}}", { 'cache-control': 'no-cache',
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet/subnets/xplat-eastu-1494473829-snet?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-1494473829-snet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet/subnets/xplat-eastu-1494473829-snet\",\r\n  \"etag\": \"W/\\\"e8ae14f6-540b-43a7-baa2-58ce271e16d8\\\"\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"addressPrefix\": \"10.0.1.0/24\"\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '413',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"e8ae14f6-540b-43a7-baa2-58ce271e16d8"',
+  'x-ms-request-id': '84c38f5e-8866-4708-b884-82e693649e22',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14989',
+  'x-ms-correlation-request-id': 'd80260b2-7d55-442d-88c0-fc70f3a375b5',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081245Z:d80260b2-7d55-442d-88c0-fc70f3a375b5',
+  date: 'Sun, 29 Jan 2017 08:12:45 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip?api-version=2016-09-01')
+  .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip' under resource group 'xplatTestVMSSCreate2582' was not found.\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'x-ms-failure-cause': 'gateway',
-  'x-ms-request-id': 'e95022eb-fc6e-49b2-8a82-75550f03b153',
-  'x-ms-correlation-request-id': 'e95022eb-fc6e-49b2-8a82-75550f03b153',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075502Z:e95022eb-fc6e-49b2-8a82-75550f03b153',
+  'x-ms-request-id': 'd631e3ec-be91-4b74-a0cd-8511eea50a30',
+  'x-ms-correlation-request-id': 'd631e3ec-be91-4b74-a0cd-8511eea50a30',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081246Z:d631e3ec-be91-4b74-a0cd-8511eea50a30',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:55:01 GMT',
-  'content-length': '188' });
+  date: 'Sun, 29 Jan 2017 08:12:45 GMT',
+  connection: 'close',
+  'content-length': '189' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip?api-version=2016-09-01')
+  .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip' under resource group 'xplatTestVMSSCreate2582' was not found.\"}}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-failure-cause': 'gateway',
+  'x-ms-request-id': 'd631e3ec-be91-4b74-a0cd-8511eea50a30',
+  'x-ms-correlation-request-id': 'd631e3ec-be91-4b74-a0cd-8511eea50a30',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081246Z:d631e3ec-be91-4b74-a0cd-8511eea50a30',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:12:45 GMT',
+  connection: 'close',
+  'content-length': '189' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-484621438-pip?api-version=2016-09-01', '*')
-  .reply(201, "{\r\n  \"name\": \"xplat-south-484621438-pip\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-484621438-pip\",\r\n  \"etag\": \"W/\\\"c869ee4a-257e-4591-a1d5-faf74c3f9968\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"f5817851-0002-44e5-ab43-2fd1bf377eb0\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-484621438-pip\",\r\n      \"fqdn\": \"xplat-south-484621438-pip.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip?api-version=2016-09-01', '*')
+  .reply(201, "{\r\n  \"name\": \"xplat-eastu-1494473829-pip\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip\",\r\n  \"etag\": \"W/\\\"f7d4c1db-af98-444f-b9db-05e6b2e6334c\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"9b195c9e-be97-452a-836b-95628407d59c\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-eastu-1494473829-pip\",\r\n      \"fqdn\": \"xplat-eastu-1494473829-pip.eastus.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
-  'content-length': '756',
+  'content-length': '746',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
-  'retry-after': '10',
-  'x-ms-request-id': '96817890-0f48-4748-bd0f-bf544576a618',
-  'azure-asyncoperation': 'https://management.azure.com/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Network/locations/southeastasia/operations/96817890-0f48-4748-bd0f-bf544576a618?api-version=2016-09-01',
+  'retry-after': '3',
+  'x-ms-request-id': 'ab7292af-8afc-45db-b455-6b75958c2dfe',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/ab7292af-8afc-45db-b455-6b75958c2dfe?api-version=2016-09-01',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-writes': '1193',
-  'x-ms-correlation-request-id': 'd38a5014-7dd9-4b99-9e49-d8d63c41fd48',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075507Z:d38a5014-7dd9-4b99-9e49-d8d63c41fd48',
-  date: 'Tue, 16 Aug 2016 07:55:06 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Network/locations/southeastasia/operations/96817890-0f48-4748-bd0f-bf544576a618?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '29',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'x-ms-request-id': '9e8d84ff-ecd6-401c-9574-7171109e1797',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14875',
-  'x-ms-correlation-request-id': '05a38655-42b5-4629-88f0-4176e90d16fd',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075538Z:05a38655-42b5-4629-88f0-4176e90d16fd',
-  date: 'Tue, 16 Aug 2016 07:55:38 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-484621438-pip?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"name\": \"xplat-south-484621438-pip\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-484621438-pip\",\r\n  \"etag\": \"W/\\\"2c37c913-8eb0-465a-9f76-e52a32fede3d\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"f5817851-0002-44e5-ab43-2fd1bf377eb0\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-484621438-pip\",\r\n      \"fqdn\": \"xplat-south-484621438-pip.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '757',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  etag: 'W/"2c37c913-8eb0-465a-9f76-e52a32fede3d"',
-  'x-ms-request-id': '9d56ea00-d023-4d85-81f2-45f7f12b308e',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14929',
-  'x-ms-correlation-request-id': 'a9cf214d-745c-44c1-b92c-6bbdc57ad484',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075539Z:a9cf214d-745c-44c1-b92c-6bbdc57ad484',
-  date: 'Tue, 16 Aug 2016 07:55:39 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-484621438-pip?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"name\": \"xplat-south-484621438-pip\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-484621438-pip\",\r\n  \"etag\": \"W/\\\"2c37c913-8eb0-465a-9f76-e52a32fede3d\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"f5817851-0002-44e5-ab43-2fd1bf377eb0\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-484621438-pip\",\r\n      \"fqdn\": \"xplat-south-484621438-pip.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '757',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  etag: 'W/"2c37c913-8eb0-465a-9f76-e52a32fede3d"',
-  'x-ms-request-id': 'ca07fd54-606e-4024-8dc4-b8d9a189ca8b',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14737',
-  'x-ms-correlation-request-id': '891474ed-804c-4129-ab55-7e71ee50c519',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075540Z:891474ed-804c-4129-ab55-7e71ee50c519',
-  date: 'Tue, 16 Aug 2016 07:55:40 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/networkInterfaces/xplat-south-484621438-nic?api-version=2016-09-01', '*')
-  .reply(201, "{\r\n  \"name\": \"xplat-south-484621438-nic\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/networkInterfaces/xplat-south-484621438-nic\",\r\n  \"etag\": \"W/\\\"5ee95985-e41a-497d-8df8-28e155e06874\\\"\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"9548e13b-83fe-4a10-a2c6-100f053cc06a\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1471334101334\",\r\n        \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/networkInterfaces/xplat-south-484621438-nic/ipConfigurations/ipconfig1471334101334\",\r\n        \"etag\": \"W/\\\"5ee95985-e41a-497d-8df8-28e155e06874\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-484621438-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-484621438-vnet/subnets/xplat-south-484621438-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"5bipj4cn3lde1pegooh3pkocjc.ix.internal.cloudapp.net\"\r\n    },\r\n    \"enableIPForwarding\": false\r\n  },\r\n  \"type\": \"Microsoft.Network/networkInterfaces\"\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '1802',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'x-ms-request-id': 'c456e475-141d-4f0f-b74a-e5f1d4c72008',
-  'azure-asyncoperation': 'https://management.azure.com/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Network/locations/southeastasia/operations/c456e475-141d-4f0f-b74a-e5f1d4c72008?api-version=2016-09-01',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-writes': '1196',
-  'x-ms-correlation-request-id': '8dfa9217-e82d-4e44-bb34-da64709288f9',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075544Z:8dfa9217-e82d-4e44-bb34-da64709288f9',
-  date: 'Tue, 16 Aug 2016 07:55:44 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/networkInterfaces/xplat-south-484621438-nic?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"name\": \"xplat-south-484621438-nic\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/networkInterfaces/xplat-south-484621438-nic\",\r\n  \"etag\": \"W/\\\"5ee95985-e41a-497d-8df8-28e155e06874\\\"\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"9548e13b-83fe-4a10-a2c6-100f053cc06a\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1471334101334\",\r\n        \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/networkInterfaces/xplat-south-484621438-nic/ipConfigurations/ipconfig1471334101334\",\r\n        \"etag\": \"W/\\\"5ee95985-e41a-497d-8df8-28e155e06874\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-484621438-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-484621438-vnet/subnets/xplat-south-484621438-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"5bipj4cn3lde1pegooh3pkocjc.ix.internal.cloudapp.net\"\r\n    },\r\n    \"enableIPForwarding\": false\r\n  },\r\n  \"type\": \"Microsoft.Network/networkInterfaces\"\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '1802',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  etag: 'W/"5ee95985-e41a-497d-8df8-28e155e06874"',
-  'x-ms-request-id': 'efcc9e8c-c469-45a6-9c4a-9944e4b288b5',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14885',
-  'x-ms-correlation-request-id': '2920f097-901a-4175-b909-aa1eebe4f3e4',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075546Z:2920f097-901a-4175-b909-aa1eebe4f3e4',
-  date: 'Tue, 16 Aug 2016 07:55:45 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/networkInterfaces/xplat-south-484621438-nic?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"name\": \"xplat-south-484621438-nic\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/networkInterfaces/xplat-south-484621438-nic\",\r\n  \"etag\": \"W/\\\"5ee95985-e41a-497d-8df8-28e155e06874\\\"\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"9548e13b-83fe-4a10-a2c6-100f053cc06a\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1471334101334\",\r\n        \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/networkInterfaces/xplat-south-484621438-nic/ipConfigurations/ipconfig1471334101334\",\r\n        \"etag\": \"W/\\\"5ee95985-e41a-497d-8df8-28e155e06874\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-484621438-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-484621438-vnet/subnets/xplat-south-484621438-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"5bipj4cn3lde1pegooh3pkocjc.ix.internal.cloudapp.net\"\r\n    },\r\n    \"enableIPForwarding\": false\r\n  },\r\n  \"type\": \"Microsoft.Network/networkInterfaces\"\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '1802',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  etag: 'W/"5ee95985-e41a-497d-8df8-28e155e06874"',
-  'x-ms-request-id': 'd21ca807-0c3c-4e4c-846f-d030c90e514b',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14943',
-  'x-ms-correlation-request-id': '48b53247-c58b-4c8a-a7db-7a3d11e42087',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075547Z:48b53247-c58b-4c8a-a7db-7a3d11e42087',
-  date: 'Tue, 16 Aug 2016 07:55:46 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-484621438-pip2?api-version=2016-09-01', '*')
-  .reply(201, "{\r\n  \"name\": \"xplat-south-484621438-pip2\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-484621438-pip2\",\r\n  \"etag\": \"W/\\\"c4e273d0-6f75-45cc-b3fb-b43ede55fe60\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"e4a9b265-762d-4a1d-825b-2c255db0024f\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-484621438-pip2\",\r\n      \"fqdn\": \"xplat-south-484621438-pip2.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '760',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'retry-after': '10',
-  'x-ms-request-id': '9d5f89d0-ba5d-4c79-83a6-626315980e0c',
-  'azure-asyncoperation': 'https://management.azure.com/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Network/locations/southeastasia/operations/9d5f89d0-ba5d-4c79-83a6-626315980e0c?api-version=2016-09-01',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-writes': '1196',
-  'x-ms-correlation-request-id': 'e1bbf868-df41-492b-86b7-12df0cd78eda',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075551Z:e1bbf868-df41-492b-86b7-12df0cd78eda',
-  date: 'Tue, 16 Aug 2016 07:55:50 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Network/locations/southeastasia/operations/9d5f89d0-ba5d-4c79-83a6-626315980e0c?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '29',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'x-ms-request-id': 'df5501be-80d7-4c75-9e29-34efec30f384',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14817',
-  'x-ms-correlation-request-id': 'a707b6aa-2f66-42c8-b800-8761e350a1b2',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075622Z:a707b6aa-2f66-42c8-b800-8761e350a1b2',
-  date: 'Tue, 16 Aug 2016 07:56:22 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-484621438-pip2?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"name\": \"xplat-south-484621438-pip2\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-484621438-pip2\",\r\n  \"etag\": \"W/\\\"8e56a579-0186-4025-8783-f8fdd7b30a5c\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"e4a9b265-762d-4a1d-825b-2c255db0024f\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-south-484621438-pip2\",\r\n      \"fqdn\": \"xplat-south-484621438-pip2.southeastasia.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '761',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  etag: 'W/"8e56a579-0186-4025-8783-f8fdd7b30a5c"',
-  'x-ms-request-id': '11848e85-9faa-4433-af38-907f021678e5',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14927',
-  'x-ms-correlation-request-id': 'fdc943e7-ea8f-4fb5-aee1-9a0e3b54f4ed',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075623Z:fdc943e7-ea8f-4fb5-aee1-9a0e3b54f4ed',
-  date: 'Tue, 16 Aug 2016 07:56:22 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-484621438-lb?api-version=2016-09-01', '*')
-  .reply(201, "{\r\n  \"name\": \"xplat-south-484621438-lb\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-484621438-lb\",\r\n  \"etag\": \"W/\\\"a116f3e8-8674-4ab0-89ba-83fb7278a235\\\"\",\r\n  \"type\": \"Microsoft.Network/loadBalancers\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"160503de-ce57-435d-b984-ff6d06297c15\",\r\n    \"frontendIPConfigurations\": [\r\n      {\r\n        \"name\": \"loadBalancerFrontEnd\",\r\n        \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-484621438-lb/frontendIPConfigurations/loadBalancerFrontEnd\",\r\n        \"etag\": \"W/\\\"a116f3e8-8674-4ab0-89ba-83fb7278a235\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-484621438-pip2\"\r\n          },\r\n          \"inboundNatPools\": [\r\n            {\r\n              \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-484621438-lb/inboundNatPools/xplat-south-484621438-nat\"\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    ],\r\n    \"backendAddressPools\": [\r\n      {\r\n        \"name\": \"xplat-south-484621438-be\",\r\n        \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-484621438-lb/backendAddressPools/xplat-south-484621438-be\",\r\n        \"etag\": \"W/\\\"a116f3e8-8674-4ab0-89ba-83fb7278a235\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\"\r\n        }\r\n      }\r\n    ],\r\n    \"loadBalancingRules\": [],\r\n    \"probes\": [],\r\n    \"inboundNatRules\": [],\r\n    \"outboundNatRules\": [],\r\n    \"inboundNatPools\": [\r\n      {\r\n        \"name\": \"xplat-south-484621438-nat\",\r\n        \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-484621438-lb/inboundNatPools/xplat-south-484621438-nat\",\r\n        \"etag\": \"W/\\\"a116f3e8-8674-4ab0-89ba-83fb7278a235\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"frontendPortRangeStart\": 50000,\r\n          \"frontendPortRangeEnd\": 50099,\r\n          \"backendPort\": 22,\r\n          \"protocol\": \"Tcp\",\r\n          \"frontendIPConfiguration\": {\r\n            \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-484621438-lb/frontendIPConfigurations/loadBalancerFrontEnd\"\r\n          }\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '2975',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'x-ms-request-id': 'fac2cc77-a2f2-4273-8046-d35d018da706',
-  'azure-asyncoperation': 'https://management.azure.com/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Network/locations/southeastasia/operations/fac2cc77-a2f2-4273-8046-d35d018da706?api-version=2016-09-01',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-writes': '1193',
-  'x-ms-correlation-request-id': '77fea6ee-5f1d-428f-bc14-7d2dda34e595',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075627Z:77fea6ee-5f1d-428f-bc14-7d2dda34e595',
-  date: 'Tue, 16 Aug 2016 07:56:27 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-484621438-lb?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"name\": \"xplat-south-484621438-lb\",\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-484621438-lb\",\r\n  \"etag\": \"W/\\\"a116f3e8-8674-4ab0-89ba-83fb7278a235\\\"\",\r\n  \"type\": \"Microsoft.Network/loadBalancers\",\r\n  \"location\": \"southeastasia\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"160503de-ce57-435d-b984-ff6d06297c15\",\r\n    \"frontendIPConfigurations\": [\r\n      {\r\n        \"name\": \"loadBalancerFrontEnd\",\r\n        \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-484621438-lb/frontendIPConfigurations/loadBalancerFrontEnd\",\r\n        \"etag\": \"W/\\\"a116f3e8-8674-4ab0-89ba-83fb7278a235\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/publicIPAddresses/xplat-south-484621438-pip2\"\r\n          },\r\n          \"inboundNatPools\": [\r\n            {\r\n              \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-484621438-lb/inboundNatPools/xplat-south-484621438-nat\"\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    ],\r\n    \"backendAddressPools\": [\r\n      {\r\n        \"name\": \"xplat-south-484621438-be\",\r\n        \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-484621438-lb/backendAddressPools/xplat-south-484621438-be\",\r\n        \"etag\": \"W/\\\"a116f3e8-8674-4ab0-89ba-83fb7278a235\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\"\r\n        }\r\n      }\r\n    ],\r\n    \"loadBalancingRules\": [],\r\n    \"probes\": [],\r\n    \"inboundNatRules\": [],\r\n    \"outboundNatRules\": [],\r\n    \"inboundNatPools\": [\r\n      {\r\n        \"name\": \"xplat-south-484621438-nat\",\r\n        \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-484621438-lb/inboundNatPools/xplat-south-484621438-nat\",\r\n        \"etag\": \"W/\\\"a116f3e8-8674-4ab0-89ba-83fb7278a235\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"frontendPortRangeStart\": 50000,\r\n          \"frontendPortRangeEnd\": 50099,\r\n          \"backendPort\": 22,\r\n          \"protocol\": \"Tcp\",\r\n          \"frontendIPConfiguration\": {\r\n            \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-484621438-lb/frontendIPConfigurations/loadBalancerFrontEnd\"\r\n          }\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '2975',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  etag: 'W/"a116f3e8-8674-4ab0-89ba-83fb7278a235"',
-  'x-ms-request-id': 'c688b27c-c132-4fbe-a69e-f6be20bf5fec',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14982',
-  'x-ms-correlation-request-id': 'dca2345e-17df-48b8-b860-71fd52758a1e',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075628Z:dca2345e-17df-48b8-b860-71fd52758a1e',
-  date: 'Tue, 16 Aug 2016 07:56:28 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto04846214?api-version=2016-01-01', '*')
-  .reply(202, "", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '0',
-  expires: '-1',
-  location: 'https://management.azure.com/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Storage/operations/7ee0ca0b-3eb0-42fc-91d9-65bcfaba6503?monitor=true&api-version=2016-01-01',
-  'retry-after': '25',
-  'x-ms-ratelimit-remaining-subscription-writes': '1197',
-  'x-ms-request-id': '3b079deb-6964-4744-b14c-2a2740bb7f49',
-  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0',
-  'x-ms-correlation-request-id': '3b079deb-6964-4744-b14c-2a2740bb7f49',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075632Z:3b079deb-6964-4744-b14c-2a2740bb7f49',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:56:31 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Storage/operations/7ee0ca0b-3eb0-42fc-91d9-65bcfaba6503?monitor=true&api-version=2016-01-01')
-  .reply(200, "{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplattestvmsscreate4329/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto04846214\",\"kind\":\"Storage\",\"location\":\"southeastasia\",\"name\":\"xplattestvmsssto04846214\",\"properties\":{\"creationTime\":\"2016-08-16T07:56:30.9051485Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmsssto04846214.blob.core.windows.net/\"},\"primaryLocation\":\"southeastasia\",\"provisioningState\":\"Succeeded\",\"statusOfPrimary\":\"available\"},\"sku\":{\"name\":\"Premium_LRS\",\"tier\":\"Premium\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '589',
-  'content-type': 'application/json',
-  expires: '-1',
-  'x-ms-request-id': 'c3d79ab8-9184-4377-b5b8-625e5d200c08',
-  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14926',
-  'x-ms-correlation-request-id': 'c3d79ab8-9184-4377-b5b8-625e5d200c08',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075703Z:c3d79ab8-9184-4377-b5b8-625e5d200c08',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:57:03 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto14846214?api-version=2016-01-01', '*')
-  .reply(202, "", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '0',
-  expires: '-1',
-  location: 'https://management.azure.com/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Storage/operations/d8073808-0c10-4d77-b64a-b2cbc56ca8fd?monitor=true&api-version=2016-01-01',
-  'retry-after': '25',
-  'x-ms-ratelimit-remaining-subscription-writes': '1196',
-  'x-ms-request-id': 'b643f77b-39a3-4b7e-bfa2-eaa7ede9ae46',
-  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0',
-  'x-ms-correlation-request-id': 'b643f77b-39a3-4b7e-bfa2-eaa7ede9ae46',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075707Z:b643f77b-39a3-4b7e-bfa2-eaa7ede9ae46',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:57:06 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Storage/operations/d8073808-0c10-4d77-b64a-b2cbc56ca8fd?monitor=true&api-version=2016-01-01')
-  .reply(200, "{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplattestvmsscreate4329/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto14846214\",\"kind\":\"Storage\",\"location\":\"southeastasia\",\"name\":\"xplattestvmsssto14846214\",\"properties\":{\"creationTime\":\"2016-08-16T07:57:05.6893519Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmsssto14846214.blob.core.windows.net/\"},\"primaryLocation\":\"southeastasia\",\"provisioningState\":\"Succeeded\",\"statusOfPrimary\":\"available\"},\"sku\":{\"name\":\"Premium_LRS\",\"tier\":\"Premium\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '589',
-  'content-type': 'application/json',
-  expires: '-1',
-  'x-ms-request-id': '4acb9f93-762f-4b03-821c-6b5d35d100c4',
-  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14944',
-  'x-ms-correlation-request-id': '4acb9f93-762f-4b03-821c-6b5d35d100c4',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075738Z:4acb9f93-762f-4b03-821c-6b5d35d100c4',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:57:37 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto24846214?api-version=2016-01-01', '*')
-  .reply(202, "", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '0',
-  expires: '-1',
-  location: 'https://management.azure.com/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Storage/operations/36be985a-61cf-4ae5-81b3-77382f9ec087?monitor=true&api-version=2016-01-01',
-  'retry-after': '25',
-  'x-ms-ratelimit-remaining-subscription-writes': '1192',
-  'x-ms-request-id': 'e19c2d03-ba0b-4cea-9c44-6f0e97dfa6e0',
-  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0',
-  'x-ms-correlation-request-id': 'e19c2d03-ba0b-4cea-9c44-6f0e97dfa6e0',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075742Z:e19c2d03-ba0b-4cea-9c44-6f0e97dfa6e0',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:57:41 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Storage/operations/36be985a-61cf-4ae5-81b3-77382f9ec087?monitor=true&api-version=2016-01-01')
-  .reply(200, "{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplattestvmsscreate4329/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto24846214\",\"kind\":\"Storage\",\"location\":\"southeastasia\",\"name\":\"xplattestvmsssto24846214\",\"properties\":{\"creationTime\":\"2016-08-16T07:57:40.3563026Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmsssto24846214.blob.core.windows.net/\"},\"primaryLocation\":\"southeastasia\",\"provisioningState\":\"Succeeded\",\"statusOfPrimary\":\"available\"},\"sku\":{\"name\":\"Premium_LRS\",\"tier\":\"Premium\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '589',
-  'content-type': 'application/json',
-  expires: '-1',
-  'x-ms-request-id': '79d13204-82a9-4955-a67f-06bfcabf898e',
-  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14942',
-  'x-ms-correlation-request-id': '79d13204-82a9-4955-a67f-06bfcabf898e',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075812Z:79d13204-82a9-4955-a67f-06bfcabf898e',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:58:12 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto34846214?api-version=2016-01-01', '*')
-  .reply(202, "", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '0',
-  expires: '-1',
-  location: 'https://management.azure.com/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Storage/operations/d79a34e9-8dcc-4078-b920-1e3c3b44c630?monitor=true&api-version=2016-01-01',
-  'retry-after': '25',
-  'x-ms-ratelimit-remaining-subscription-writes': '1193',
-  'x-ms-request-id': '54bd3f26-fae0-4559-a0d1-4a38627dd543',
-  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0',
-  'x-ms-correlation-request-id': '54bd3f26-fae0-4559-a0d1-4a38627dd543',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075816Z:54bd3f26-fae0-4559-a0d1-4a38627dd543',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:58:15 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Storage/operations/d79a34e9-8dcc-4078-b920-1e3c3b44c630?monitor=true&api-version=2016-01-01')
-  .reply(200, "{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplattestvmsscreate4329/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto34846214\",\"kind\":\"Storage\",\"location\":\"southeastasia\",\"name\":\"xplattestvmsssto34846214\",\"properties\":{\"creationTime\":\"2016-08-16T07:58:14.3908200Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmsssto34846214.blob.core.windows.net/\"},\"primaryLocation\":\"southeastasia\",\"provisioningState\":\"Succeeded\",\"statusOfPrimary\":\"available\"},\"sku\":{\"name\":\"Premium_LRS\",\"tier\":\"Premium\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '589',
-  'content-type': 'application/json',
-  expires: '-1',
-  'x-ms-request-id': '05eec72c-3871-47f6-9586-c76a88cbc823',
-  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14814',
-  'x-ms-correlation-request-id': '05eec72c-3871-47f6-9586-c76a88cbc823',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075847Z:05eec72c-3871-47f6-9586-c76a88cbc823',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:58:46 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto44846214?api-version=2016-01-01', '*')
-  .reply(202, "", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '0',
-  expires: '-1',
-  location: 'https://management.azure.com/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Storage/operations/f36d84d7-0ac8-496f-8f8c-57b0ba74f691?monitor=true&api-version=2016-01-01',
-  'retry-after': '25',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
   'x-ms-ratelimit-remaining-subscription-writes': '1195',
-  'x-ms-request-id': '6d2c67df-d163-44bc-98fd-39047b2e551d',
-  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0',
-  'x-ms-correlation-request-id': '6d2c67df-d163-44bc-98fd-39047b2e551d',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075850Z:6d2c67df-d163-44bc-98fd-39047b2e551d',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:58:50 GMT' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Storage/operations/f36d84d7-0ac8-496f-8f8c-57b0ba74f691?monitor=true&api-version=2016-01-01')
-  .reply(200, "{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplattestvmsscreate4329/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto44846214\",\"kind\":\"Storage\",\"location\":\"southeastasia\",\"name\":\"xplattestvmsssto44846214\",\"properties\":{\"creationTime\":\"2016-08-16T07:58:49.3360776Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmsssto44846214.blob.core.windows.net/\"},\"primaryLocation\":\"southeastasia\",\"provisioningState\":\"Succeeded\",\"statusOfPrimary\":\"available\"},\"sku\":{\"name\":\"Premium_LRS\",\"tier\":\"Premium\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-length': '589',
-  'content-type': 'application/json',
-  expires: '-1',
-  'x-ms-request-id': 'd4039a08-92e9-4d8e-b75d-c45a4ae48095',
-  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14973',
-  'x-ms-correlation-request-id': 'd4039a08-92e9-4d8e-b75d-c45a4ae48095',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075921Z:d4039a08-92e9-4d8e-b75d-c45a4ae48095',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Tue, 16 Aug 2016 07:59:21 GMT' });
+  'x-ms-correlation-request-id': '1de4b0e9-af15-4d7f-b25f-dede4801aa13',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081248Z:1de4b0e9-af15-4d7f-b25f-dede4801aa13',
+  date: 'Sun, 29 Jan 2017 08:12:47 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss?api-version=2016-03-30', '*')
-  .reply(201, "{\r\n  \"sku\": {\r\n    \"name\": \"Standard_DS1\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 5\r\n  },\r\n  \"properties\": {\r\n    \"upgradePolicy\": {\r\n      \"mode\": \"Manual\"\r\n    },\r\n    \"virtualMachineProfile\": {\r\n      \"osProfile\": {\r\n        \"computerNamePrefix\": \"xplattest\",\r\n        \"adminUsername\": \"azureuser\",\r\n        \"windowsConfiguration\": {\r\n          \"provisionVMAgent\": true,\r\n          \"enableAutomaticUpdates\": true\r\n        },\r\n        \"secrets\": []\r\n      },\r\n      \"storageProfile\": {\r\n        \"osDisk\": {\r\n          \"vhdContainers\": [\r\n            \"https://xplattestvmsssto04846214.blob.core.windows.net/xplat-south-484621438-disk-container\",\r\n            \"https://xplattestvmsssto14846214.blob.core.windows.net/xplat-south-484621438-disk-container\",\r\n            \"https://xplattestvmsssto24846214.blob.core.windows.net/xplat-south-484621438-disk-container\",\r\n            \"https://xplattestvmsssto34846214.blob.core.windows.net/xplat-south-484621438-disk-container\",\r\n            \"https://xplattestvmsssto44846214.blob.core.windows.net/xplat-south-484621438-disk-container\"\r\n          ],\r\n          \"name\": \"xplat-south-484621438-os-disk\",\r\n          \"createOption\": \"FromImage\",\r\n          \"caching\": \"ReadOnly\"\r\n        },\r\n        \"imageReference\": {\r\n          \"publisher\": \"MicrosoftWindowsServer\",\r\n          \"offer\": \"WindowsServer\",\r\n          \"sku\": \"2008-R2-SP1\",\r\n          \"version\": \"latest\"\r\n        }\r\n      },\r\n      \"networkProfile\": {\"networkInterfaceConfigurations\":[{\"name\":\"xplat-south-484621438-nic\",\"properties\":{\"primary\":true,\"ipConfigurations\":[{\"name\":\"xplat-south-484621438-pip\",\"properties\":{\"subnet\":{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-484621438-vnet/subnets/xplat-south-484621438-snet\"},\"loadBalancerBackendAddressPools\":[{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-484621438-lb/backendAddressPools/xplat-south-484621438-be\"}],\"loadBalancerInboundNatPools\":[{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-484621438-lb/inboundNatPools/xplat-south-484621438-nat\"}]}}]}}]}\r\n    },\r\n    \"provisioningState\": \"Creating\",\r\n    \"overprovision\": false,\r\n    \"uniqueId\": \"cbdb8e32-07c5-4201-85cf-502389f4cb76\"\r\n  },\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss\",\r\n  \"name\": \"xplattestvmss\",\r\n  \"type\": \"Microsoft.Compute/virtualMachineScaleSets\",\r\n  \"location\": \"southeastasia\"\r\n}", { 'cache-control': 'no-cache',
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip?api-version=2016-09-01', '*')
+  .reply(201, "{\r\n  \"name\": \"xplat-eastu-1494473829-pip\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip\",\r\n  \"etag\": \"W/\\\"f7d4c1db-af98-444f-b9db-05e6b2e6334c\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"9b195c9e-be97-452a-836b-95628407d59c\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-eastu-1494473829-pip\",\r\n      \"fqdn\": \"xplat-eastu-1494473829-pip.eastus.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
-  'content-length': '2762',
+  'content-length': '746',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
-  'azure-asyncoperation': 'https://management.azure.com/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/22938c44-a6fd-4fe1-8238-c5747050ba9e?api-version=2016-03-30',
+  'retry-after': '3',
+  'x-ms-request-id': 'ab7292af-8afc-45db-b455-6b75958c2dfe',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/ab7292af-8afc-45db-b455-6b75958c2dfe?api-version=2016-09-01',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': '22938c44-a6fd-4fe1-8238-c5747050ba9e',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-writes': '1192',
-  'x-ms-correlation-request-id': '71db31f8-9e0e-47ce-9b2a-b6cdbeffb6bd',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075926Z:71db31f8-9e0e-47ce-9b2a-b6cdbeffb6bd',
-  date: 'Tue, 16 Aug 2016 07:59:25 GMT' });
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-writes': '1195',
+  'x-ms-correlation-request-id': '1de4b0e9-af15-4d7f-b25f-dede4801aa13',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081248Z:1de4b0e9-af15-4d7f-b25f-dede4801aa13',
+  date: 'Sun, 29 Jan 2017 08:12:47 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/ab7292af-8afc-45db-b455-6b75958c2dfe?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '29',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-request-id': 'd080eecf-bf51-4840-86ba-0c3acf28cfd5',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14990',
+  'x-ms-correlation-request-id': 'de35bec0-b43b-4287-a288-7d14a41d3a2e',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081318Z:de35bec0-b43b-4287-a288-7d14a41d3a2e',
+  date: 'Sun, 29 Jan 2017 08:13:17 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/22938c44-a6fd-4fe1-8238-c5747050ba9e?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:59:24.4583175+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"22938c44-a6fd-4fe1-8238-c5747050ba9e\"\r\n}", { 'cache-control': 'no-cache',
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/ab7292af-8afc-45db-b455-6b75958c2dfe?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '29',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-request-id': 'd080eecf-bf51-4840-86ba-0c3acf28cfd5',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14990',
+  'x-ms-correlation-request-id': 'de35bec0-b43b-4287-a288-7d14a41d3a2e',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081318Z:de35bec0-b43b-4287-a288-7d14a41d3a2e',
+  date: 'Sun, 29 Jan 2017 08:13:17 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-1494473829-pip\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip\",\r\n  \"etag\": \"W/\\\"efef8ce7-fc24-42f2-a42e-9a9a01edee24\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"9b195c9e-be97-452a-836b-95628407d59c\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-eastu-1494473829-pip\",\r\n      \"fqdn\": \"xplat-eastu-1494473829-pip.eastus.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '747',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"efef8ce7-fc24-42f2-a42e-9a9a01edee24"',
+  'x-ms-request-id': 'adc3d62a-a782-4af1-9420-cc056a831f9a',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14991',
+  'x-ms-correlation-request-id': 'c0f30869-5edc-419d-b079-aeb13747a176',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081319Z:c0f30869-5edc-419d-b079-aeb13747a176',
+  date: 'Sun, 29 Jan 2017 08:13:18 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-1494473829-pip\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip\",\r\n  \"etag\": \"W/\\\"efef8ce7-fc24-42f2-a42e-9a9a01edee24\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"9b195c9e-be97-452a-836b-95628407d59c\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-eastu-1494473829-pip\",\r\n      \"fqdn\": \"xplat-eastu-1494473829-pip.eastus.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '747',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"efef8ce7-fc24-42f2-a42e-9a9a01edee24"',
+  'x-ms-request-id': 'adc3d62a-a782-4af1-9420-cc056a831f9a',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14991',
+  'x-ms-correlation-request-id': 'c0f30869-5edc-419d-b079-aeb13747a176',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081319Z:c0f30869-5edc-419d-b079-aeb13747a176',
+  date: 'Sun, 29 Jan 2017 08:13:18 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-1494473829-pip\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip\",\r\n  \"etag\": \"W/\\\"efef8ce7-fc24-42f2-a42e-9a9a01edee24\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"9b195c9e-be97-452a-836b-95628407d59c\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-eastu-1494473829-pip\",\r\n      \"fqdn\": \"xplat-eastu-1494473829-pip.eastus.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '747',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"efef8ce7-fc24-42f2-a42e-9a9a01edee24"',
+  'x-ms-request-id': 'eec6e68a-a870-4351-8ded-e37e3a4761f5',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14992',
+  'x-ms-correlation-request-id': '55300a4b-d86a-48c2-874d-a0226bbe3be3',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081319Z:55300a4b-d86a-48c2-874d-a0226bbe3be3',
+  date: 'Sun, 29 Jan 2017 08:13:18 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-1494473829-pip\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip\",\r\n  \"etag\": \"W/\\\"efef8ce7-fc24-42f2-a42e-9a9a01edee24\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"9b195c9e-be97-452a-836b-95628407d59c\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-eastu-1494473829-pip\",\r\n      \"fqdn\": \"xplat-eastu-1494473829-pip.eastus.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '747',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"efef8ce7-fc24-42f2-a42e-9a9a01edee24"',
+  'x-ms-request-id': 'eec6e68a-a870-4351-8ded-e37e3a4761f5',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14992',
+  'x-ms-correlation-request-id': '55300a4b-d86a-48c2-874d-a0226bbe3be3',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081319Z:55300a4b-d86a-48c2-874d-a0226bbe3be3',
+  date: 'Sun, 29 Jan 2017 08:13:18 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-1494473829-nic?api-version=2016-09-01', '*')
+  .reply(201, "{\r\n  \"name\": \"xplat-eastu-1494473829-nic\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-1494473829-nic\",\r\n  \"etag\": \"W/\\\"3cf13391-40bb-45ce-aefa-3722d02fcbfd\\\"\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"12530bd2-c749-47a2-a4d4-4e005ba058ca\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1485677565849\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-1494473829-nic/ipConfigurations/ipconfig1485677565849\",\r\n        \"etag\": \"W/\\\"3cf13391-40bb-45ce-aefa-3722d02fcbfd\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet/subnets/xplat-eastu-1494473829-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"vpm52vbqejcejmidfu5z0ctuih.bx.internal.cloudapp.net\"\r\n    },\r\n    \"enableAcceleratedNetworking\": false,\r\n    \"enableIPForwarding\": false\r\n  },\r\n  \"type\": \"Microsoft.Network/networkInterfaces\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '1844',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-request-id': '3466f2c3-5e08-499b-a0c7-6dfca547e4d9',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/3466f2c3-5e08-499b-a0c7-6dfca547e4d9?api-version=2016-09-01',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-writes': '1199',
+  'x-ms-correlation-request-id': '5c472d7c-b6f7-4660-9146-54bf32dfe99a',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081320Z:5c472d7c-b6f7-4660-9146-54bf32dfe99a',
+  date: 'Sun, 29 Jan 2017 08:13:20 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-1494473829-nic?api-version=2016-09-01', '*')
+  .reply(201, "{\r\n  \"name\": \"xplat-eastu-1494473829-nic\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-1494473829-nic\",\r\n  \"etag\": \"W/\\\"3cf13391-40bb-45ce-aefa-3722d02fcbfd\\\"\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"12530bd2-c749-47a2-a4d4-4e005ba058ca\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1485677565849\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-1494473829-nic/ipConfigurations/ipconfig1485677565849\",\r\n        \"etag\": \"W/\\\"3cf13391-40bb-45ce-aefa-3722d02fcbfd\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet/subnets/xplat-eastu-1494473829-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"vpm52vbqejcejmidfu5z0ctuih.bx.internal.cloudapp.net\"\r\n    },\r\n    \"enableAcceleratedNetworking\": false,\r\n    \"enableIPForwarding\": false\r\n  },\r\n  \"type\": \"Microsoft.Network/networkInterfaces\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '1844',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-request-id': '3466f2c3-5e08-499b-a0c7-6dfca547e4d9',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/3466f2c3-5e08-499b-a0c7-6dfca547e4d9?api-version=2016-09-01',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-writes': '1199',
+  'x-ms-correlation-request-id': '5c472d7c-b6f7-4660-9146-54bf32dfe99a',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081320Z:5c472d7c-b6f7-4660-9146-54bf32dfe99a',
+  date: 'Sun, 29 Jan 2017 08:13:20 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-1494473829-nic?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-1494473829-nic\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-1494473829-nic\",\r\n  \"etag\": \"W/\\\"3cf13391-40bb-45ce-aefa-3722d02fcbfd\\\"\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"12530bd2-c749-47a2-a4d4-4e005ba058ca\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1485677565849\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-1494473829-nic/ipConfigurations/ipconfig1485677565849\",\r\n        \"etag\": \"W/\\\"3cf13391-40bb-45ce-aefa-3722d02fcbfd\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet/subnets/xplat-eastu-1494473829-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"vpm52vbqejcejmidfu5z0ctuih.bx.internal.cloudapp.net\"\r\n    },\r\n    \"enableAcceleratedNetworking\": false,\r\n    \"enableIPForwarding\": false\r\n  },\r\n  \"type\": \"Microsoft.Network/networkInterfaces\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '1844',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"3cf13391-40bb-45ce-aefa-3722d02fcbfd"',
+  'x-ms-request-id': 'b50326c6-366d-4899-864e-9245b3170d5b',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14991',
+  'x-ms-correlation-request-id': '77b94e06-4f95-4041-a070-77ba264bc4cb',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081321Z:77b94e06-4f95-4041-a070-77ba264bc4cb',
+  date: 'Sun, 29 Jan 2017 08:13:20 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-1494473829-nic?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-1494473829-nic\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-1494473829-nic\",\r\n  \"etag\": \"W/\\\"3cf13391-40bb-45ce-aefa-3722d02fcbfd\\\"\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"12530bd2-c749-47a2-a4d4-4e005ba058ca\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1485677565849\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-1494473829-nic/ipConfigurations/ipconfig1485677565849\",\r\n        \"etag\": \"W/\\\"3cf13391-40bb-45ce-aefa-3722d02fcbfd\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet/subnets/xplat-eastu-1494473829-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"vpm52vbqejcejmidfu5z0ctuih.bx.internal.cloudapp.net\"\r\n    },\r\n    \"enableAcceleratedNetworking\": false,\r\n    \"enableIPForwarding\": false\r\n  },\r\n  \"type\": \"Microsoft.Network/networkInterfaces\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '1844',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"3cf13391-40bb-45ce-aefa-3722d02fcbfd"',
+  'x-ms-request-id': 'b50326c6-366d-4899-864e-9245b3170d5b',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14991',
+  'x-ms-correlation-request-id': '77b94e06-4f95-4041-a070-77ba264bc4cb',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081321Z:77b94e06-4f95-4041-a070-77ba264bc4cb',
+  date: 'Sun, 29 Jan 2017 08:13:20 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-1494473829-nic?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-1494473829-nic\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-1494473829-nic\",\r\n  \"etag\": \"W/\\\"3cf13391-40bb-45ce-aefa-3722d02fcbfd\\\"\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"12530bd2-c749-47a2-a4d4-4e005ba058ca\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1485677565849\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-1494473829-nic/ipConfigurations/ipconfig1485677565849\",\r\n        \"etag\": \"W/\\\"3cf13391-40bb-45ce-aefa-3722d02fcbfd\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet/subnets/xplat-eastu-1494473829-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"vpm52vbqejcejmidfu5z0ctuih.bx.internal.cloudapp.net\"\r\n    },\r\n    \"enableAcceleratedNetworking\": false,\r\n    \"enableIPForwarding\": false\r\n  },\r\n  \"type\": \"Microsoft.Network/networkInterfaces\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '1844',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"3cf13391-40bb-45ce-aefa-3722d02fcbfd"',
+  'x-ms-request-id': '0d651e99-c35a-454e-84cb-f50a64b4b25a',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14992',
+  'x-ms-correlation-request-id': '85051d0e-6806-48d0-bdb0-b23898ac07d7',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081321Z:85051d0e-6806-48d0-bdb0-b23898ac07d7',
+  date: 'Sun, 29 Jan 2017 08:13:20 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-1494473829-nic?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-1494473829-nic\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-1494473829-nic\",\r\n  \"etag\": \"W/\\\"3cf13391-40bb-45ce-aefa-3722d02fcbfd\\\"\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"12530bd2-c749-47a2-a4d4-4e005ba058ca\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1485677565849\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-1494473829-nic/ipConfigurations/ipconfig1485677565849\",\r\n        \"etag\": \"W/\\\"3cf13391-40bb-45ce-aefa-3722d02fcbfd\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet/subnets/xplat-eastu-1494473829-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"vpm52vbqejcejmidfu5z0ctuih.bx.internal.cloudapp.net\"\r\n    },\r\n    \"enableAcceleratedNetworking\": false,\r\n    \"enableIPForwarding\": false\r\n  },\r\n  \"type\": \"Microsoft.Network/networkInterfaces\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '1844',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"3cf13391-40bb-45ce-aefa-3722d02fcbfd"',
+  'x-ms-request-id': '0d651e99-c35a-454e-84cb-f50a64b4b25a',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14992',
+  'x-ms-correlation-request-id': '85051d0e-6806-48d0-bdb0-b23898ac07d7',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081321Z:85051d0e-6806-48d0-bdb0-b23898ac07d7',
+  date: 'Sun, 29 Jan 2017 08:13:20 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip2?api-version=2016-09-01', '*')
+  .reply(201, "{\r\n  \"name\": \"xplat-eastu-1494473829-pip2\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip2\",\r\n  \"etag\": \"W/\\\"8e41b8ae-bcd1-4d65-b736-ad5191d15587\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"46ce2618-fad4-4dfb-9ebb-7e41632f9f6d\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-eastu-1494473829-pip2\",\r\n      \"fqdn\": \"xplat-eastu-1494473829-pip2.eastus.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '750',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'retry-after': '3',
+  'x-ms-request-id': 'ed618a67-db31-4cde-ae88-b1b822e87e27',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/ed618a67-db31-4cde-ae88-b1b822e87e27?api-version=2016-09-01',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-writes': '1198',
+  'x-ms-correlation-request-id': '6077f7b9-1f0d-429e-b99d-4110b63f31b7',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081322Z:6077f7b9-1f0d-429e-b99d-4110b63f31b7',
+  date: 'Sun, 29 Jan 2017 08:13:22 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip2?api-version=2016-09-01', '*')
+  .reply(201, "{\r\n  \"name\": \"xplat-eastu-1494473829-pip2\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip2\",\r\n  \"etag\": \"W/\\\"8e41b8ae-bcd1-4d65-b736-ad5191d15587\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"46ce2618-fad4-4dfb-9ebb-7e41632f9f6d\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-eastu-1494473829-pip2\",\r\n      \"fqdn\": \"xplat-eastu-1494473829-pip2.eastus.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '750',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'retry-after': '3',
+  'x-ms-request-id': 'ed618a67-db31-4cde-ae88-b1b822e87e27',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/ed618a67-db31-4cde-ae88-b1b822e87e27?api-version=2016-09-01',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-writes': '1198',
+  'x-ms-correlation-request-id': '6077f7b9-1f0d-429e-b99d-4110b63f31b7',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081322Z:6077f7b9-1f0d-429e-b99d-4110b63f31b7',
+  date: 'Sun, 29 Jan 2017 08:13:22 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/ed618a67-db31-4cde-ae88-b1b822e87e27?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '29',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-request-id': '33d82a1e-a8ee-4184-89d2-0335c2557e92',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14989',
+  'x-ms-correlation-request-id': 'ba902f59-cd99-4893-b821-b748c49e15b0',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081353Z:ba902f59-cd99-4893-b821-b748c49e15b0',
+  date: 'Sun, 29 Jan 2017 08:13:52 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/ed618a67-db31-4cde-ae88-b1b822e87e27?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '29',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-request-id': '33d82a1e-a8ee-4184-89d2-0335c2557e92',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14989',
+  'x-ms-correlation-request-id': 'ba902f59-cd99-4893-b821-b748c49e15b0',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081353Z:ba902f59-cd99-4893-b821-b748c49e15b0',
+  date: 'Sun, 29 Jan 2017 08:13:52 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip2?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-1494473829-pip2\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip2\",\r\n  \"etag\": \"W/\\\"1538107e-433e-423d-97e2-0d81b7f83b56\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"46ce2618-fad4-4dfb-9ebb-7e41632f9f6d\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-eastu-1494473829-pip2\",\r\n      \"fqdn\": \"xplat-eastu-1494473829-pip2.eastus.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '751',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"1538107e-433e-423d-97e2-0d81b7f83b56"',
+  'x-ms-request-id': 'b62d2789-c04f-470e-9e7b-f3e52a66a4d6',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14990',
+  'x-ms-correlation-request-id': '24a9f059-03ad-436f-8134-1fd5b0930a01',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081353Z:24a9f059-03ad-436f-8134-1fd5b0930a01',
+  date: 'Sun, 29 Jan 2017 08:13:53 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip2?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-1494473829-pip2\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip2\",\r\n  \"etag\": \"W/\\\"1538107e-433e-423d-97e2-0d81b7f83b56\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"46ce2618-fad4-4dfb-9ebb-7e41632f9f6d\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-eastu-1494473829-pip2\",\r\n      \"fqdn\": \"xplat-eastu-1494473829-pip2.eastus.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '751',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"1538107e-433e-423d-97e2-0d81b7f83b56"',
+  'x-ms-request-id': 'b62d2789-c04f-470e-9e7b-f3e52a66a4d6',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14990',
+  'x-ms-correlation-request-id': '24a9f059-03ad-436f-8134-1fd5b0930a01',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081353Z:24a9f059-03ad-436f-8134-1fd5b0930a01',
+  date: 'Sun, 29 Jan 2017 08:13:53 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb?api-version=2016-09-01', '*')
+  .reply(201, "{\r\n  \"name\": \"xplat-eastu-1494473829-lb\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb\",\r\n  \"etag\": \"W/\\\"0b28ceaf-39c5-4ae2-9b35-832d937028fa\\\"\",\r\n  \"type\": \"Microsoft.Network/loadBalancers\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"d4b67091-fcbd-43f2-8772-e09d6641b0c6\",\r\n    \"frontendIPConfigurations\": [\r\n      {\r\n        \"name\": \"loadBalancerFrontEnd\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/frontendIPConfigurations/loadBalancerFrontEnd\",\r\n        \"etag\": \"W/\\\"0b28ceaf-39c5-4ae2-9b35-832d937028fa\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip2\"\r\n          },\r\n          \"inboundNatPools\": [\r\n            {\r\n              \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/inboundNatPools/xplat-eastu-1494473829-nat\"\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    ],\r\n    \"backendAddressPools\": [\r\n      {\r\n        \"name\": \"xplat-eastu-1494473829-be\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/backendAddressPools/xplat-eastu-1494473829-be\",\r\n        \"etag\": \"W/\\\"0b28ceaf-39c5-4ae2-9b35-832d937028fa\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\"\r\n        }\r\n      }\r\n    ],\r\n    \"loadBalancingRules\": [],\r\n    \"probes\": [],\r\n    \"inboundNatRules\": [],\r\n    \"outboundNatRules\": [],\r\n    \"inboundNatPools\": [\r\n      {\r\n        \"name\": \"xplat-eastu-1494473829-nat\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/inboundNatPools/xplat-eastu-1494473829-nat\",\r\n        \"etag\": \"W/\\\"0b28ceaf-39c5-4ae2-9b35-832d937028fa\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"frontendPortRangeStart\": 50000,\r\n          \"frontendPortRangeEnd\": 50099,\r\n          \"backendPort\": 22,\r\n          \"protocol\": \"Tcp\",\r\n          \"frontendIPConfiguration\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/frontendIPConfigurations/loadBalancerFrontEnd\"\r\n          }\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '2981',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-request-id': '6dd2a323-03ff-47f2-9cc4-538d47c03d88',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/6dd2a323-03ff-47f2-9cc4-538d47c03d88?api-version=2016-09-01',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-writes': '1198',
+  'x-ms-correlation-request-id': 'ac454ff2-bce5-440c-b88f-eb020a1e5fcb',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081355Z:ac454ff2-bce5-440c-b88f-eb020a1e5fcb',
+  date: 'Sun, 29 Jan 2017 08:13:54 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb?api-version=2016-09-01', '*')
+  .reply(201, "{\r\n  \"name\": \"xplat-eastu-1494473829-lb\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb\",\r\n  \"etag\": \"W/\\\"0b28ceaf-39c5-4ae2-9b35-832d937028fa\\\"\",\r\n  \"type\": \"Microsoft.Network/loadBalancers\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"d4b67091-fcbd-43f2-8772-e09d6641b0c6\",\r\n    \"frontendIPConfigurations\": [\r\n      {\r\n        \"name\": \"loadBalancerFrontEnd\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/frontendIPConfigurations/loadBalancerFrontEnd\",\r\n        \"etag\": \"W/\\\"0b28ceaf-39c5-4ae2-9b35-832d937028fa\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip2\"\r\n          },\r\n          \"inboundNatPools\": [\r\n            {\r\n              \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/inboundNatPools/xplat-eastu-1494473829-nat\"\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    ],\r\n    \"backendAddressPools\": [\r\n      {\r\n        \"name\": \"xplat-eastu-1494473829-be\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/backendAddressPools/xplat-eastu-1494473829-be\",\r\n        \"etag\": \"W/\\\"0b28ceaf-39c5-4ae2-9b35-832d937028fa\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\"\r\n        }\r\n      }\r\n    ],\r\n    \"loadBalancingRules\": [],\r\n    \"probes\": [],\r\n    \"inboundNatRules\": [],\r\n    \"outboundNatRules\": [],\r\n    \"inboundNatPools\": [\r\n      {\r\n        \"name\": \"xplat-eastu-1494473829-nat\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/inboundNatPools/xplat-eastu-1494473829-nat\",\r\n        \"etag\": \"W/\\\"0b28ceaf-39c5-4ae2-9b35-832d937028fa\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"frontendPortRangeStart\": 50000,\r\n          \"frontendPortRangeEnd\": 50099,\r\n          \"backendPort\": 22,\r\n          \"protocol\": \"Tcp\",\r\n          \"frontendIPConfiguration\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/frontendIPConfigurations/loadBalancerFrontEnd\"\r\n          }\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '2981',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-request-id': '6dd2a323-03ff-47f2-9cc4-538d47c03d88',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/6dd2a323-03ff-47f2-9cc4-538d47c03d88?api-version=2016-09-01',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-writes': '1198',
+  'x-ms-correlation-request-id': 'ac454ff2-bce5-440c-b88f-eb020a1e5fcb',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081355Z:ac454ff2-bce5-440c-b88f-eb020a1e5fcb',
+  date: 'Sun, 29 Jan 2017 08:13:54 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-1494473829-lb\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb\",\r\n  \"etag\": \"W/\\\"0b28ceaf-39c5-4ae2-9b35-832d937028fa\\\"\",\r\n  \"type\": \"Microsoft.Network/loadBalancers\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"d4b67091-fcbd-43f2-8772-e09d6641b0c6\",\r\n    \"frontendIPConfigurations\": [\r\n      {\r\n        \"name\": \"loadBalancerFrontEnd\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/frontendIPConfigurations/loadBalancerFrontEnd\",\r\n        \"etag\": \"W/\\\"0b28ceaf-39c5-4ae2-9b35-832d937028fa\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip2\"\r\n          },\r\n          \"inboundNatPools\": [\r\n            {\r\n              \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/inboundNatPools/xplat-eastu-1494473829-nat\"\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    ],\r\n    \"backendAddressPools\": [\r\n      {\r\n        \"name\": \"xplat-eastu-1494473829-be\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/backendAddressPools/xplat-eastu-1494473829-be\",\r\n        \"etag\": \"W/\\\"0b28ceaf-39c5-4ae2-9b35-832d937028fa\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\"\r\n        }\r\n      }\r\n    ],\r\n    \"loadBalancingRules\": [],\r\n    \"probes\": [],\r\n    \"inboundNatRules\": [],\r\n    \"outboundNatRules\": [],\r\n    \"inboundNatPools\": [\r\n      {\r\n        \"name\": \"xplat-eastu-1494473829-nat\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/inboundNatPools/xplat-eastu-1494473829-nat\",\r\n        \"etag\": \"W/\\\"0b28ceaf-39c5-4ae2-9b35-832d937028fa\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"frontendPortRangeStart\": 50000,\r\n          \"frontendPortRangeEnd\": 50099,\r\n          \"backendPort\": 22,\r\n          \"protocol\": \"Tcp\",\r\n          \"frontendIPConfiguration\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/frontendIPConfigurations/loadBalancerFrontEnd\"\r\n          }\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '2981',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"0b28ceaf-39c5-4ae2-9b35-832d937028fa"',
+  'x-ms-request-id': '1b47928d-58c7-474d-af55-f76c7dfccc44',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14991',
+  'x-ms-correlation-request-id': 'c0f001ad-81e2-4b28-bdc5-65a1a4d1afc2',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081355Z:c0f001ad-81e2-4b28-bdc5-65a1a4d1afc2',
+  date: 'Sun, 29 Jan 2017 08:13:54 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-1494473829-lb\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb\",\r\n  \"etag\": \"W/\\\"0b28ceaf-39c5-4ae2-9b35-832d937028fa\\\"\",\r\n  \"type\": \"Microsoft.Network/loadBalancers\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"d4b67091-fcbd-43f2-8772-e09d6641b0c6\",\r\n    \"frontendIPConfigurations\": [\r\n      {\r\n        \"name\": \"loadBalancerFrontEnd\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/frontendIPConfigurations/loadBalancerFrontEnd\",\r\n        \"etag\": \"W/\\\"0b28ceaf-39c5-4ae2-9b35-832d937028fa\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-1494473829-pip2\"\r\n          },\r\n          \"inboundNatPools\": [\r\n            {\r\n              \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/inboundNatPools/xplat-eastu-1494473829-nat\"\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    ],\r\n    \"backendAddressPools\": [\r\n      {\r\n        \"name\": \"xplat-eastu-1494473829-be\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/backendAddressPools/xplat-eastu-1494473829-be\",\r\n        \"etag\": \"W/\\\"0b28ceaf-39c5-4ae2-9b35-832d937028fa\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\"\r\n        }\r\n      }\r\n    ],\r\n    \"loadBalancingRules\": [],\r\n    \"probes\": [],\r\n    \"inboundNatRules\": [],\r\n    \"outboundNatRules\": [],\r\n    \"inboundNatPools\": [\r\n      {\r\n        \"name\": \"xplat-eastu-1494473829-nat\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/inboundNatPools/xplat-eastu-1494473829-nat\",\r\n        \"etag\": \"W/\\\"0b28ceaf-39c5-4ae2-9b35-832d937028fa\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"frontendPortRangeStart\": 50000,\r\n          \"frontendPortRangeEnd\": 50099,\r\n          \"backendPort\": 22,\r\n          \"protocol\": \"Tcp\",\r\n          \"frontendIPConfiguration\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/frontendIPConfigurations/loadBalancerFrontEnd\"\r\n          }\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '2981',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"0b28ceaf-39c5-4ae2-9b35-832d937028fa"',
+  'x-ms-request-id': '1b47928d-58c7-474d-af55-f76c7dfccc44',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14991',
+  'x-ms-correlation-request-id': 'c0f001ad-81e2-4b28-bdc5-65a1a4d1afc2',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081355Z:c0f001ad-81e2-4b28-bdc5-65a1a4d1afc2',
+  date: 'Sun, 29 Jan 2017 08:13:54 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto0149447?api-version=2016-01-01', '*')
+  .reply(202, "", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '0',
+  expires: '-1',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/fb26ae48-094c-42fb-b376-1460b771714c?monitor=true&api-version=2016-01-01',
+  'retry-after': '17',
+  'x-ms-ratelimit-remaining-subscription-writes': '1197',
+  'x-ms-request-id': '3e1aac4c-d294-4cb2-b7dc-20cbda000a9c',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-correlation-request-id': '3e1aac4c-d294-4cb2-b7dc-20cbda000a9c',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081356Z:3e1aac4c-d294-4cb2-b7dc-20cbda000a9c',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:13:55 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto0149447?api-version=2016-01-01', '*')
+  .reply(202, "", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '0',
+  expires: '-1',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/fb26ae48-094c-42fb-b376-1460b771714c?monitor=true&api-version=2016-01-01',
+  'retry-after': '17',
+  'x-ms-ratelimit-remaining-subscription-writes': '1197',
+  'x-ms-request-id': '3e1aac4c-d294-4cb2-b7dc-20cbda000a9c',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-correlation-request-id': '3e1aac4c-d294-4cb2-b7dc-20cbda000a9c',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081356Z:3e1aac4c-d294-4cb2-b7dc-20cbda000a9c',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:13:55 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/fb26ae48-094c-42fb-b376-1460b771714c?monitor=true&api-version=2016-01-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplattestvmsscreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto0149447\",\"kind\":\"Storage\",\"location\":\"eastus\",\"name\":\"xplattestvmss1sto0149447\",\"properties\":{\"creationTime\":\"2017-01-29T08:13:56.1252478Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmss1sto0149447.blob.core.windows.net/\",\"file\":\"https://xplattestvmss1sto0149447.file.core.windows.net/\",\"queue\":\"https://xplattestvmss1sto0149447.queue.core.windows.net/\",\"table\":\"https://xplattestvmss1sto0149447.table.core.windows.net/\"},\"primaryLocation\":\"eastus\",\"provisioningState\":\"Succeeded\",\"secondaryLocation\":\"westus\",\"statusOfPrimary\":\"available\",\"statusOfSecondary\":\"available\"},\"sku\":{\"name\":\"Standard_GRS\",\"tier\":\"Standard\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '837',
+  'content-type': 'application/json',
+  expires: '-1',
+  'x-ms-request-id': '1de874c4-f89d-4550-959a-16f8d6e17907',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14990',
+  'x-ms-correlation-request-id': '1de874c4-f89d-4550-959a-16f8d6e17907',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081426Z:1de874c4-f89d-4550-959a-16f8d6e17907',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:14:25 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/fb26ae48-094c-42fb-b376-1460b771714c?monitor=true&api-version=2016-01-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplattestvmsscreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto0149447\",\"kind\":\"Storage\",\"location\":\"eastus\",\"name\":\"xplattestvmss1sto0149447\",\"properties\":{\"creationTime\":\"2017-01-29T08:13:56.1252478Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmss1sto0149447.blob.core.windows.net/\",\"file\":\"https://xplattestvmss1sto0149447.file.core.windows.net/\",\"queue\":\"https://xplattestvmss1sto0149447.queue.core.windows.net/\",\"table\":\"https://xplattestvmss1sto0149447.table.core.windows.net/\"},\"primaryLocation\":\"eastus\",\"provisioningState\":\"Succeeded\",\"secondaryLocation\":\"westus\",\"statusOfPrimary\":\"available\",\"statusOfSecondary\":\"available\"},\"sku\":{\"name\":\"Standard_GRS\",\"tier\":\"Standard\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '837',
+  'content-type': 'application/json',
+  expires: '-1',
+  'x-ms-request-id': '1de874c4-f89d-4550-959a-16f8d6e17907',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14990',
+  'x-ms-correlation-request-id': '1de874c4-f89d-4550-959a-16f8d6e17907',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081426Z:1de874c4-f89d-4550-959a-16f8d6e17907',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:14:25 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto1149447?api-version=2016-01-01', '*')
+  .reply(202, "", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '0',
+  expires: '-1',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/9245aa5f-d548-4d19-9089-2c5e9a067632?monitor=true&api-version=2016-01-01',
+  'retry-after': '17',
+  'x-ms-ratelimit-remaining-subscription-writes': '1198',
+  'x-ms-request-id': '3bb26fe1-5946-4aa9-ab15-a8659eba1e42',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-correlation-request-id': '3bb26fe1-5946-4aa9-ab15-a8659eba1e42',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081428Z:3bb26fe1-5946-4aa9-ab15-a8659eba1e42',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:14:27 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto1149447?api-version=2016-01-01', '*')
+  .reply(202, "", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '0',
+  expires: '-1',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/9245aa5f-d548-4d19-9089-2c5e9a067632?monitor=true&api-version=2016-01-01',
+  'retry-after': '17',
+  'x-ms-ratelimit-remaining-subscription-writes': '1198',
+  'x-ms-request-id': '3bb26fe1-5946-4aa9-ab15-a8659eba1e42',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-correlation-request-id': '3bb26fe1-5946-4aa9-ab15-a8659eba1e42',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081428Z:3bb26fe1-5946-4aa9-ab15-a8659eba1e42',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:14:27 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/9245aa5f-d548-4d19-9089-2c5e9a067632?monitor=true&api-version=2016-01-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplattestvmsscreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto1149447\",\"kind\":\"Storage\",\"location\":\"eastus\",\"name\":\"xplattestvmss1sto1149447\",\"properties\":{\"creationTime\":\"2017-01-29T08:14:27.8899641Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmss1sto1149447.blob.core.windows.net/\",\"file\":\"https://xplattestvmss1sto1149447.file.core.windows.net/\",\"queue\":\"https://xplattestvmss1sto1149447.queue.core.windows.net/\",\"table\":\"https://xplattestvmss1sto1149447.table.core.windows.net/\"},\"primaryLocation\":\"eastus\",\"provisioningState\":\"Succeeded\",\"secondaryLocation\":\"westus\",\"statusOfPrimary\":\"available\",\"statusOfSecondary\":\"available\"},\"sku\":{\"name\":\"Standard_GRS\",\"tier\":\"Standard\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '837',
+  'content-type': 'application/json',
+  expires: '-1',
+  'x-ms-request-id': '0e47d422-290c-46a4-93e5-07dc381c193a',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14990',
+  'x-ms-correlation-request-id': '0e47d422-290c-46a4-93e5-07dc381c193a',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081458Z:0e47d422-290c-46a4-93e5-07dc381c193a',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:14:58 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/9245aa5f-d548-4d19-9089-2c5e9a067632?monitor=true&api-version=2016-01-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplattestvmsscreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto1149447\",\"kind\":\"Storage\",\"location\":\"eastus\",\"name\":\"xplattestvmss1sto1149447\",\"properties\":{\"creationTime\":\"2017-01-29T08:14:27.8899641Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmss1sto1149447.blob.core.windows.net/\",\"file\":\"https://xplattestvmss1sto1149447.file.core.windows.net/\",\"queue\":\"https://xplattestvmss1sto1149447.queue.core.windows.net/\",\"table\":\"https://xplattestvmss1sto1149447.table.core.windows.net/\"},\"primaryLocation\":\"eastus\",\"provisioningState\":\"Succeeded\",\"secondaryLocation\":\"westus\",\"statusOfPrimary\":\"available\",\"statusOfSecondary\":\"available\"},\"sku\":{\"name\":\"Standard_GRS\",\"tier\":\"Standard\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '837',
+  'content-type': 'application/json',
+  expires: '-1',
+  'x-ms-request-id': '0e47d422-290c-46a4-93e5-07dc381c193a',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14990',
+  'x-ms-correlation-request-id': '0e47d422-290c-46a4-93e5-07dc381c193a',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081458Z:0e47d422-290c-46a4-93e5-07dc381c193a',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:14:58 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto2149447?api-version=2016-01-01', '*')
+  .reply(202, "", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '0',
+  expires: '-1',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/eef2dc7f-3c85-44e5-a74a-a8c7d15b4bfa?monitor=true&api-version=2016-01-01',
+  'retry-after': '17',
+  'x-ms-ratelimit-remaining-subscription-writes': '1196',
+  'x-ms-request-id': '3abaee12-bb38-4313-b38a-36323ab815e5',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-correlation-request-id': '3abaee12-bb38-4313-b38a-36323ab815e5',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081459Z:3abaee12-bb38-4313-b38a-36323ab815e5',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:14:58 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto2149447?api-version=2016-01-01', '*')
+  .reply(202, "", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '0',
+  expires: '-1',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/eef2dc7f-3c85-44e5-a74a-a8c7d15b4bfa?monitor=true&api-version=2016-01-01',
+  'retry-after': '17',
+  'x-ms-ratelimit-remaining-subscription-writes': '1196',
+  'x-ms-request-id': '3abaee12-bb38-4313-b38a-36323ab815e5',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-correlation-request-id': '3abaee12-bb38-4313-b38a-36323ab815e5',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081459Z:3abaee12-bb38-4313-b38a-36323ab815e5',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:14:58 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/eef2dc7f-3c85-44e5-a74a-a8c7d15b4bfa?monitor=true&api-version=2016-01-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplattestvmsscreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto2149447\",\"kind\":\"Storage\",\"location\":\"eastus\",\"name\":\"xplattestvmss1sto2149447\",\"properties\":{\"creationTime\":\"2017-01-29T08:14:59.2027268Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmss1sto2149447.blob.core.windows.net/\",\"file\":\"https://xplattestvmss1sto2149447.file.core.windows.net/\",\"queue\":\"https://xplattestvmss1sto2149447.queue.core.windows.net/\",\"table\":\"https://xplattestvmss1sto2149447.table.core.windows.net/\"},\"primaryLocation\":\"eastus\",\"provisioningState\":\"Succeeded\",\"secondaryLocation\":\"westus\",\"statusOfPrimary\":\"available\",\"statusOfSecondary\":\"available\"},\"sku\":{\"name\":\"Standard_GRS\",\"tier\":\"Standard\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '837',
+  'content-type': 'application/json',
+  expires: '-1',
+  'x-ms-request-id': 'aa9bf0cc-50dc-478b-bdfd-46b8c505d7ee',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14992',
+  'x-ms-correlation-request-id': 'aa9bf0cc-50dc-478b-bdfd-46b8c505d7ee',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081530Z:aa9bf0cc-50dc-478b-bdfd-46b8c505d7ee',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:15:29 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/eef2dc7f-3c85-44e5-a74a-a8c7d15b4bfa?monitor=true&api-version=2016-01-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplattestvmsscreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto2149447\",\"kind\":\"Storage\",\"location\":\"eastus\",\"name\":\"xplattestvmss1sto2149447\",\"properties\":{\"creationTime\":\"2017-01-29T08:14:59.2027268Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmss1sto2149447.blob.core.windows.net/\",\"file\":\"https://xplattestvmss1sto2149447.file.core.windows.net/\",\"queue\":\"https://xplattestvmss1sto2149447.queue.core.windows.net/\",\"table\":\"https://xplattestvmss1sto2149447.table.core.windows.net/\"},\"primaryLocation\":\"eastus\",\"provisioningState\":\"Succeeded\",\"secondaryLocation\":\"westus\",\"statusOfPrimary\":\"available\",\"statusOfSecondary\":\"available\"},\"sku\":{\"name\":\"Standard_GRS\",\"tier\":\"Standard\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '837',
+  'content-type': 'application/json',
+  expires: '-1',
+  'x-ms-request-id': 'aa9bf0cc-50dc-478b-bdfd-46b8c505d7ee',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14992',
+  'x-ms-correlation-request-id': 'aa9bf0cc-50dc-478b-bdfd-46b8c505d7ee',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081530Z:aa9bf0cc-50dc-478b-bdfd-46b8c505d7ee',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:15:29 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto3149447?api-version=2016-01-01', '*')
+  .reply(202, "", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '0',
+  expires: '-1',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/515c165a-292c-4c84-a56c-65dbc6c1ae86?monitor=true&api-version=2016-01-01',
+  'retry-after': '17',
+  'x-ms-ratelimit-remaining-subscription-writes': '1199',
+  'x-ms-request-id': '18330118-baa4-42d1-9e84-98c662387b85',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-correlation-request-id': '18330118-baa4-42d1-9e84-98c662387b85',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081531Z:18330118-baa4-42d1-9e84-98c662387b85',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:15:30 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto3149447?api-version=2016-01-01', '*')
+  .reply(202, "", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '0',
+  expires: '-1',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/515c165a-292c-4c84-a56c-65dbc6c1ae86?monitor=true&api-version=2016-01-01',
+  'retry-after': '17',
+  'x-ms-ratelimit-remaining-subscription-writes': '1199',
+  'x-ms-request-id': '18330118-baa4-42d1-9e84-98c662387b85',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-correlation-request-id': '18330118-baa4-42d1-9e84-98c662387b85',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081531Z:18330118-baa4-42d1-9e84-98c662387b85',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:15:30 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/515c165a-292c-4c84-a56c-65dbc6c1ae86?monitor=true&api-version=2016-01-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplattestvmsscreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto3149447\",\"kind\":\"Storage\",\"location\":\"eastus\",\"name\":\"xplattestvmss1sto3149447\",\"properties\":{\"creationTime\":\"2017-01-29T08:15:30.9196852Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmss1sto3149447.blob.core.windows.net/\",\"file\":\"https://xplattestvmss1sto3149447.file.core.windows.net/\",\"queue\":\"https://xplattestvmss1sto3149447.queue.core.windows.net/\",\"table\":\"https://xplattestvmss1sto3149447.table.core.windows.net/\"},\"primaryLocation\":\"eastus\",\"provisioningState\":\"Succeeded\",\"secondaryLocation\":\"westus\",\"statusOfPrimary\":\"available\",\"statusOfSecondary\":\"available\"},\"sku\":{\"name\":\"Standard_GRS\",\"tier\":\"Standard\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '837',
+  'content-type': 'application/json',
+  expires: '-1',
+  'x-ms-request-id': '2d685136-b577-4df0-8a5c-bbbcba0a262d',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14985',
+  'x-ms-correlation-request-id': '2d685136-b577-4df0-8a5c-bbbcba0a262d',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081601Z:2d685136-b577-4df0-8a5c-bbbcba0a262d',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:16:00 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/515c165a-292c-4c84-a56c-65dbc6c1ae86?monitor=true&api-version=2016-01-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplattestvmsscreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto3149447\",\"kind\":\"Storage\",\"location\":\"eastus\",\"name\":\"xplattestvmss1sto3149447\",\"properties\":{\"creationTime\":\"2017-01-29T08:15:30.9196852Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmss1sto3149447.blob.core.windows.net/\",\"file\":\"https://xplattestvmss1sto3149447.file.core.windows.net/\",\"queue\":\"https://xplattestvmss1sto3149447.queue.core.windows.net/\",\"table\":\"https://xplattestvmss1sto3149447.table.core.windows.net/\"},\"primaryLocation\":\"eastus\",\"provisioningState\":\"Succeeded\",\"secondaryLocation\":\"westus\",\"statusOfPrimary\":\"available\",\"statusOfSecondary\":\"available\"},\"sku\":{\"name\":\"Standard_GRS\",\"tier\":\"Standard\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '837',
+  'content-type': 'application/json',
+  expires: '-1',
+  'x-ms-request-id': '2d685136-b577-4df0-8a5c-bbbcba0a262d',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14985',
+  'x-ms-correlation-request-id': '2d685136-b577-4df0-8a5c-bbbcba0a262d',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081601Z:2d685136-b577-4df0-8a5c-bbbcba0a262d',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:16:00 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto4149447?api-version=2016-01-01', '*')
+  .reply(202, "", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '0',
+  expires: '-1',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/513fbb7b-217c-470c-b8ee-dd9087a2ae2e?monitor=true&api-version=2016-01-01',
+  'retry-after': '17',
+  'x-ms-ratelimit-remaining-subscription-writes': '1195',
+  'x-ms-request-id': 'a88cffc4-f3f3-43e9-9d1d-a5d508e046bb',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-correlation-request-id': 'a88cffc4-f3f3-43e9-9d1d-a5d508e046bb',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081602Z:a88cffc4-f3f3-43e9-9d1d-a5d508e046bb',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:16:02 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto4149447?api-version=2016-01-01', '*')
+  .reply(202, "", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '0',
+  expires: '-1',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/513fbb7b-217c-470c-b8ee-dd9087a2ae2e?monitor=true&api-version=2016-01-01',
+  'retry-after': '17',
+  'x-ms-ratelimit-remaining-subscription-writes': '1195',
+  'x-ms-request-id': 'a88cffc4-f3f3-43e9-9d1d-a5d508e046bb',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-correlation-request-id': 'a88cffc4-f3f3-43e9-9d1d-a5d508e046bb',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081602Z:a88cffc4-f3f3-43e9-9d1d-a5d508e046bb',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:16:02 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/513fbb7b-217c-470c-b8ee-dd9087a2ae2e?monitor=true&api-version=2016-01-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplattestvmsscreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto4149447\",\"kind\":\"Storage\",\"location\":\"eastus\",\"name\":\"xplattestvmss1sto4149447\",\"properties\":{\"creationTime\":\"2017-01-29T08:16:02.5850002Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmss1sto4149447.blob.core.windows.net/\",\"file\":\"https://xplattestvmss1sto4149447.file.core.windows.net/\",\"queue\":\"https://xplattestvmss1sto4149447.queue.core.windows.net/\",\"table\":\"https://xplattestvmss1sto4149447.table.core.windows.net/\"},\"primaryLocation\":\"eastus\",\"provisioningState\":\"Succeeded\",\"secondaryLocation\":\"westus\",\"statusOfPrimary\":\"available\",\"statusOfSecondary\":\"available\"},\"sku\":{\"name\":\"Standard_GRS\",\"tier\":\"Standard\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '837',
+  'content-type': 'application/json',
+  expires: '-1',
+  'x-ms-request-id': 'c6a2377a-d44c-47fd-8ede-b123c0b1af1c',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14987',
+  'x-ms-correlation-request-id': 'c6a2377a-d44c-47fd-8ede-b123c0b1af1c',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081633Z:c6a2377a-d44c-47fd-8ede-b123c0b1af1c',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:16:32 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/513fbb7b-217c-470c-b8ee-dd9087a2ae2e?monitor=true&api-version=2016-01-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplattestvmsscreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmss1sto4149447\",\"kind\":\"Storage\",\"location\":\"eastus\",\"name\":\"xplattestvmss1sto4149447\",\"properties\":{\"creationTime\":\"2017-01-29T08:16:02.5850002Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmss1sto4149447.blob.core.windows.net/\",\"file\":\"https://xplattestvmss1sto4149447.file.core.windows.net/\",\"queue\":\"https://xplattestvmss1sto4149447.queue.core.windows.net/\",\"table\":\"https://xplattestvmss1sto4149447.table.core.windows.net/\"},\"primaryLocation\":\"eastus\",\"provisioningState\":\"Succeeded\",\"secondaryLocation\":\"westus\",\"statusOfPrimary\":\"available\",\"statusOfSecondary\":\"available\"},\"sku\":{\"name\":\"Standard_GRS\",\"tier\":\"Standard\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '837',
+  'content-type': 'application/json',
+  expires: '-1',
+  'x-ms-request-id': 'c6a2377a-d44c-47fd-8ede-b123c0b1af1c',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14987',
+  'x-ms-correlation-request-id': 'c6a2377a-d44c-47fd-8ede-b123c0b1af1c',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081633Z:c6a2377a-d44c-47fd-8ede-b123c0b1af1c',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:16:32 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss1?api-version=2016-04-30-preview', '*')
+  .reply(201, "{\r\n  \"sku\": {\r\n    \"name\": \"Standard_DS1\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 5\r\n  },\r\n  \"properties\": {\r\n    \"singlePlacementGroup\": true,\r\n    \"upgradePolicy\": {\r\n      \"mode\": \"Manual\"\r\n    },\r\n    \"virtualMachineProfile\": {\r\n      \"osProfile\": {\r\n        \"computerNamePrefix\": \"xplattestvmss1\",\r\n        \"adminUsername\": \"azureuser\",\r\n        \"linuxConfiguration\": {\r\n          \"disablePasswordAuthentication\": true,\r\n          \"ssh\": {\r\n            \"publicKeys\": [\r\n              {\r\n                \"path\": \"/home/azureuser/.ssh/authorized_keys\",\r\n                \"keyData\": \"MIID/zCCAuegAwIBAgIJAMUAa+XVLvAeMA0GCSqGSIb3DQEBBQUAMIGVMQswCQYD\\r\\nVQQGEwJJbjESMBAGA1UECAwJS2FybmF0YWthMRIwEAYDVQQHDAlCYW5nYWxvcmUx\\r\\nEDAOBgNVBAoMB2JyaWxsaW8xEjAQBgNVBAsMCW1pY3Jvc29mdDEQMA4GA1UEAwwH\\r\\nYnJpbGxpbzEmMCQGCSqGSIb3DQEJARYXc3JlZWthbnRoYnNAeWFob28uY28uaW4w\\r\\nHhcNMTUwMzA1MTE1MzEyWhcNMTYwMzA0MTE1MzEyWjCBlTELMAkGA1UEBhMCSW4x\\r\\nEjAQBgNVBAgMCUthcm5hdGFrYTESMBAGA1UEBwwJQmFuZ2Fsb3JlMRAwDgYDVQQK\\r\\nDAdicmlsbGlvMRIwEAYDVQQLDAltaWNyb3NvZnQxEDAOBgNVBAMMB2JyaWxsaW8x\\r\\nJjAkBgkqhkiG9w0BCQEWF3NyZWVrYW50aGJzQHlhaG9vLmNvLmluMIIBIjANBgkq\\r\\nhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyUNKaOuT0NK+S8Ck81zy9xJ6hXfZvAC6\\r\\nlhbmf/6s/WVimJ/TX5NMhQJwC9k6ZIF92KfYrojHNvHDufSZ3EtKUVwRFCDjmgMT\\r\\nDL09WkGaZt7gROYFK0iZ4KrYGovUwlwum9fHB24OJiOV4bi0ek62/rHx9fjYZpvp\\r\\naIH2PV/hN8SCZ0x7HJMberD4gVoU/Kv42nNvwjLUW6IZfVx/Gv5OeFDtWHfSvUEF\\r\\ndadHKTPn3Ab20Iu6gZIbLO9Vuf38/IpaYGfnFCouHdzmiTiLieYNe3CUPcOJNSv7\\r\\n1G8KYpx3uNJRkJPab5OsRyJw75Gvzkr9OgaPss9tVD6Gt68u3WQtVQIDAQABo1Aw\\r\\nTjAdBgNVHQ4EFgQUogvhXB+xZ2JJPfLO6cVs4ForzscwHwYDVR0jBBgwFoAUogvh\\r\\nXB+xZ2JJPfLO6cVs4ForzscwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOC\\r\\nAQEAdDj7qUNJ45xlF5cjd+4x5NHvAD1VTjOKu+Xh/uzSSjXqB2F0aOMWA9lx0qaQ\\r\\noJgHkGxj3zz/W7ik/cVGL2O+vRIOKv/y0OPogEmS3Hw+P+O6OGE7x1G6YN0zLVoL\\r\\nu4BN/BEYmjttxM9I7qqL7C5cJoE+K3s/w1/pt/68ohJcr7F9Ohi7cso62xuGY1Rm\\r\\nksAh2EUDsU9JV/P+C9AMpLSrb03JJYzVj4w1RHbrmw2AjFyGXdQYkggyXisg+Ifr\\r\\n5gbNN7HigpHf7b2i3CQBUqp9m23frh5AhnLI2qp3UXgc52U5ieLdi/t6j0TTZqqY\\r\\nHhHqofKrj938HHlBNpC5/LVh3w==\\r\\n\"\r\n              }\r\n            ]\r\n          }\r\n        },\r\n        \"secrets\": []\r\n      },\r\n      \"storageProfile\": {\r\n        \"osDisk\": {\r\n          \"vhdContainers\": [\r\n            \"https://xplattestvmss1sto0149447.blob.core.windows.net/xplat-eastu-1494473829-disk-container\",\r\n            \"https://xplattestvmss1sto1149447.blob.core.windows.net/xplat-eastu-1494473829-disk-container\",\r\n            \"https://xplattestvmss1sto2149447.blob.core.windows.net/xplat-eastu-1494473829-disk-container\",\r\n            \"https://xplattestvmss1sto3149447.blob.core.windows.net/xplat-eastu-1494473829-disk-container\",\r\n            \"https://xplattestvmss1sto4149447.blob.core.windows.net/xplat-eastu-1494473829-disk-container\"\r\n          ],\r\n          \"name\": \"xplat-eastu-1494473829-os-disk\",\r\n          \"createOption\": \"FromImage\",\r\n          \"caching\": \"ReadOnly\"\r\n        },\r\n        \"imageReference\": {\r\n          \"publisher\": \"SUSE\",\r\n          \"offer\": \"openSUSE\",\r\n          \"sku\": \"13.2\",\r\n          \"version\": \"latest\"\r\n        }\r\n      },\r\n      \"networkProfile\": {\"networkInterfaceConfigurations\":[{\"name\":\"xplat-eastu-1494473829-nic\",\"properties\":{\"primary\":true,\"ipConfigurations\":[{\"name\":\"xplat-eastu-1494473829-pip\",\"properties\":{\"subnet\":{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet/subnets/xplat-eastu-1494473829-snet\"},\"loadBalancerBackendAddressPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/backendAddressPools/xplat-eastu-1494473829-be\"}],\"loadBalancerInboundNatPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/inboundNatPools/xplat-eastu-1494473829-nat\"}]}}]}}]}\r\n    },\r\n    \"provisioningState\": \"Creating\",\r\n    \"overprovision\": false,\r\n    \"uniqueId\": \"dc2bbc29-ff25-409a-a75c-58f61f79f678\"\r\n  },\r\n  \"type\": \"Microsoft.Compute/virtualMachineScaleSets\",\r\n  \"location\": \"eastus\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss1\",\r\n  \"name\": \"xplattestvmss1\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '4417',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': 'd3624151-3d3e-42c6-bde7-ebdfd5fa5677',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-writes': '1194',
+  'x-ms-correlation-request-id': 'ec2ec3a1-8453-43cb-80c8-a30b2567104c',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081635Z:ec2ec3a1-8453-43cb-80c8-a30b2567104c',
+  date: 'Sun, 29 Jan 2017 08:16:34 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss1?api-version=2016-04-30-preview', '*')
+  .reply(201, "{\r\n  \"sku\": {\r\n    \"name\": \"Standard_DS1\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 5\r\n  },\r\n  \"properties\": {\r\n    \"singlePlacementGroup\": true,\r\n    \"upgradePolicy\": {\r\n      \"mode\": \"Manual\"\r\n    },\r\n    \"virtualMachineProfile\": {\r\n      \"osProfile\": {\r\n        \"computerNamePrefix\": \"xplattestvmss1\",\r\n        \"adminUsername\": \"azureuser\",\r\n        \"linuxConfiguration\": {\r\n          \"disablePasswordAuthentication\": true,\r\n          \"ssh\": {\r\n            \"publicKeys\": [\r\n              {\r\n                \"path\": \"/home/azureuser/.ssh/authorized_keys\",\r\n                \"keyData\": \"MIID/zCCAuegAwIBAgIJAMUAa+XVLvAeMA0GCSqGSIb3DQEBBQUAMIGVMQswCQYD\\r\\nVQQGEwJJbjESMBAGA1UECAwJS2FybmF0YWthMRIwEAYDVQQHDAlCYW5nYWxvcmUx\\r\\nEDAOBgNVBAoMB2JyaWxsaW8xEjAQBgNVBAsMCW1pY3Jvc29mdDEQMA4GA1UEAwwH\\r\\nYnJpbGxpbzEmMCQGCSqGSIb3DQEJARYXc3JlZWthbnRoYnNAeWFob28uY28uaW4w\\r\\nHhcNMTUwMzA1MTE1MzEyWhcNMTYwMzA0MTE1MzEyWjCBlTELMAkGA1UEBhMCSW4x\\r\\nEjAQBgNVBAgMCUthcm5hdGFrYTESMBAGA1UEBwwJQmFuZ2Fsb3JlMRAwDgYDVQQK\\r\\nDAdicmlsbGlvMRIwEAYDVQQLDAltaWNyb3NvZnQxEDAOBgNVBAMMB2JyaWxsaW8x\\r\\nJjAkBgkqhkiG9w0BCQEWF3NyZWVrYW50aGJzQHlhaG9vLmNvLmluMIIBIjANBgkq\\r\\nhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyUNKaOuT0NK+S8Ck81zy9xJ6hXfZvAC6\\r\\nlhbmf/6s/WVimJ/TX5NMhQJwC9k6ZIF92KfYrojHNvHDufSZ3EtKUVwRFCDjmgMT\\r\\nDL09WkGaZt7gROYFK0iZ4KrYGovUwlwum9fHB24OJiOV4bi0ek62/rHx9fjYZpvp\\r\\naIH2PV/hN8SCZ0x7HJMberD4gVoU/Kv42nNvwjLUW6IZfVx/Gv5OeFDtWHfSvUEF\\r\\ndadHKTPn3Ab20Iu6gZIbLO9Vuf38/IpaYGfnFCouHdzmiTiLieYNe3CUPcOJNSv7\\r\\n1G8KYpx3uNJRkJPab5OsRyJw75Gvzkr9OgaPss9tVD6Gt68u3WQtVQIDAQABo1Aw\\r\\nTjAdBgNVHQ4EFgQUogvhXB+xZ2JJPfLO6cVs4ForzscwHwYDVR0jBBgwFoAUogvh\\r\\nXB+xZ2JJPfLO6cVs4ForzscwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOC\\r\\nAQEAdDj7qUNJ45xlF5cjd+4x5NHvAD1VTjOKu+Xh/uzSSjXqB2F0aOMWA9lx0qaQ\\r\\noJgHkGxj3zz/W7ik/cVGL2O+vRIOKv/y0OPogEmS3Hw+P+O6OGE7x1G6YN0zLVoL\\r\\nu4BN/BEYmjttxM9I7qqL7C5cJoE+K3s/w1/pt/68ohJcr7F9Ohi7cso62xuGY1Rm\\r\\nksAh2EUDsU9JV/P+C9AMpLSrb03JJYzVj4w1RHbrmw2AjFyGXdQYkggyXisg+Ifr\\r\\n5gbNN7HigpHf7b2i3CQBUqp9m23frh5AhnLI2qp3UXgc52U5ieLdi/t6j0TTZqqY\\r\\nHhHqofKrj938HHlBNpC5/LVh3w==\\r\\n\"\r\n              }\r\n            ]\r\n          }\r\n        },\r\n        \"secrets\": []\r\n      },\r\n      \"storageProfile\": {\r\n        \"osDisk\": {\r\n          \"vhdContainers\": [\r\n            \"https://xplattestvmss1sto0149447.blob.core.windows.net/xplat-eastu-1494473829-disk-container\",\r\n            \"https://xplattestvmss1sto1149447.blob.core.windows.net/xplat-eastu-1494473829-disk-container\",\r\n            \"https://xplattestvmss1sto2149447.blob.core.windows.net/xplat-eastu-1494473829-disk-container\",\r\n            \"https://xplattestvmss1sto3149447.blob.core.windows.net/xplat-eastu-1494473829-disk-container\",\r\n            \"https://xplattestvmss1sto4149447.blob.core.windows.net/xplat-eastu-1494473829-disk-container\"\r\n          ],\r\n          \"name\": \"xplat-eastu-1494473829-os-disk\",\r\n          \"createOption\": \"FromImage\",\r\n          \"caching\": \"ReadOnly\"\r\n        },\r\n        \"imageReference\": {\r\n          \"publisher\": \"SUSE\",\r\n          \"offer\": \"openSUSE\",\r\n          \"sku\": \"13.2\",\r\n          \"version\": \"latest\"\r\n        }\r\n      },\r\n      \"networkProfile\": {\"networkInterfaceConfigurations\":[{\"name\":\"xplat-eastu-1494473829-nic\",\"properties\":{\"primary\":true,\"ipConfigurations\":[{\"name\":\"xplat-eastu-1494473829-pip\",\"properties\":{\"subnet\":{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet/subnets/xplat-eastu-1494473829-snet\"},\"loadBalancerBackendAddressPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/backendAddressPools/xplat-eastu-1494473829-be\"}],\"loadBalancerInboundNatPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/inboundNatPools/xplat-eastu-1494473829-nat\"}]}}]}}]}\r\n    },\r\n    \"provisioningState\": \"Creating\",\r\n    \"overprovision\": false,\r\n    \"uniqueId\": \"dc2bbc29-ff25-409a-a75c-58f61f79f678\"\r\n  },\r\n  \"type\": \"Microsoft.Compute/virtualMachineScaleSets\",\r\n  \"location\": \"eastus\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss1\",\r\n  \"name\": \"xplattestvmss1\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '4417',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': 'd3624151-3d3e-42c6-bde7-ebdfd5fa5677',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-writes': '1194',
+  'x-ms-correlation-request-id': 'ec2ec3a1-8453-43cb-80c8-a30b2567104c',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T081635Z:ec2ec3a1-8453-43cb-80c8-a30b2567104c',
+  date: 'Sun, 29 Jan 2017 08:16:34 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:16:35.1783541+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"d3624151-3d3e-42c6-bde7-ebdfd5fa5677\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '134',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': '2cbd1b6a-02e4-48f5-988f-ddbe4242d37f',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14879',
-  'x-ms-correlation-request-id': '8a8d0177-609b-456d-b949-867f7b16296b',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T075957Z:8a8d0177-609b-456d-b949-867f7b16296b',
-  date: 'Tue, 16 Aug 2016 07:59:57 GMT' });
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': 'e88bc155-b8f3-4aed-8bf6-48583a571174',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14992',
+  'x-ms-correlation-request-id': '254145d3-05b0-4759-b115-cea8e1044e84',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081705Z:254145d3-05b0-4759-b115-cea8e1044e84',
+  date: 'Sun, 29 Jan 2017 08:17:05 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/22938c44-a6fd-4fe1-8238-c5747050ba9e?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:59:24.4583175+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"22938c44-a6fd-4fe1-8238-c5747050ba9e\"\r\n}", { 'cache-control': 'no-cache',
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:16:35.1783541+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"d3624151-3d3e-42c6-bde7-ebdfd5fa5677\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '134',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': 'e8588910-5510-4920-a4e2-2fc6877943d4',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14973',
-  'x-ms-correlation-request-id': '103c6335-fede-4aa4-a539-8996895b5641',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T080028Z:103c6335-fede-4aa4-a539-8996895b5641',
-  date: 'Tue, 16 Aug 2016 08:00:27 GMT' });
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': 'e88bc155-b8f3-4aed-8bf6-48583a571174',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14992',
+  'x-ms-correlation-request-id': '254145d3-05b0-4759-b115-cea8e1044e84',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081705Z:254145d3-05b0-4759-b115-cea8e1044e84',
+  date: 'Sun, 29 Jan 2017 08:17:05 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/22938c44-a6fd-4fe1-8238-c5747050ba9e?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:59:24.4583175+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"22938c44-a6fd-4fe1-8238-c5747050ba9e\"\r\n}", { 'cache-control': 'no-cache',
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:16:35.1783541+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"d3624151-3d3e-42c6-bde7-ebdfd5fa5677\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '134',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': '6ed4fa70-7970-4f7d-94cc-87295a20c9c5',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14921',
-  'x-ms-correlation-request-id': '81f425e2-c260-4bf9-b3e4-df222e2b943c',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T080059Z:81f425e2-c260-4bf9-b3e4-df222e2b943c',
-  date: 'Tue, 16 Aug 2016 08:00:59 GMT' });
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': 'c2eabc8c-bbaf-4abe-a723-55a387f03786',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14962',
+  'x-ms-correlation-request-id': 'e0091ec7-fbc9-436e-bfbf-a63f7394b8f9',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081736Z:e0091ec7-fbc9-436e-bfbf-a63f7394b8f9',
+  date: 'Sun, 29 Jan 2017 08:17:36 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/22938c44-a6fd-4fe1-8238-c5747050ba9e?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:59:24.4583175+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"22938c44-a6fd-4fe1-8238-c5747050ba9e\"\r\n}", { 'cache-control': 'no-cache',
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:16:35.1783541+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"d3624151-3d3e-42c6-bde7-ebdfd5fa5677\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '134',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': '23d5e7ed-f122-4a6a-96c5-c887117b651f',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14971',
-  'x-ms-correlation-request-id': 'bcb1fe56-856f-494a-8c41-ef5bec21d15e',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T080130Z:bcb1fe56-856f-494a-8c41-ef5bec21d15e',
-  date: 'Tue, 16 Aug 2016 08:01:29 GMT' });
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': 'c2eabc8c-bbaf-4abe-a723-55a387f03786',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14962',
+  'x-ms-correlation-request-id': 'e0091ec7-fbc9-436e-bfbf-a63f7394b8f9',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081736Z:e0091ec7-fbc9-436e-bfbf-a63f7394b8f9',
+  date: 'Sun, 29 Jan 2017 08:17:36 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/22938c44-a6fd-4fe1-8238-c5747050ba9e?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:59:24.4583175+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"22938c44-a6fd-4fe1-8238-c5747050ba9e\"\r\n}", { 'cache-control': 'no-cache',
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:16:35.1783541+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"d3624151-3d3e-42c6-bde7-ebdfd5fa5677\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '134',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': '0f86f7d9-f4f0-4636-a867-6bb59e9a4ca7',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14970',
-  'x-ms-correlation-request-id': '60adcc73-2669-4432-ac78-d5535bcaf082',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T080200Z:60adcc73-2669-4432-ac78-d5535bcaf082',
-  date: 'Tue, 16 Aug 2016 08:01:59 GMT' });
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '6ec9a9d9-7cdb-4ae0-b799-06c149185d80',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14990',
+  'x-ms-correlation-request-id': '0c3d0734-8f50-41f7-a6d7-b5b43f3c452d',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081806Z:0c3d0734-8f50-41f7-a6d7-b5b43f3c452d',
+  date: 'Sun, 29 Jan 2017 08:18:06 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/22938c44-a6fd-4fe1-8238-c5747050ba9e?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:59:24.4583175+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"22938c44-a6fd-4fe1-8238-c5747050ba9e\"\r\n}", { 'cache-control': 'no-cache',
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:16:35.1783541+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"d3624151-3d3e-42c6-bde7-ebdfd5fa5677\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '134',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': 'bfddee27-ab8d-4ce5-b4ab-1aa77a7abf55',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14907',
-  'x-ms-correlation-request-id': 'efe0a108-d027-4fc5-a289-7da2bdddb5f3',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T080231Z:efe0a108-d027-4fc5-a289-7da2bdddb5f3',
-  date: 'Tue, 16 Aug 2016 08:02:31 GMT' });
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '6ec9a9d9-7cdb-4ae0-b799-06c149185d80',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14990',
+  'x-ms-correlation-request-id': '0c3d0734-8f50-41f7-a6d7-b5b43f3c452d',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081806Z:0c3d0734-8f50-41f7-a6d7-b5b43f3c452d',
+  date: 'Sun, 29 Jan 2017 08:18:06 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/22938c44-a6fd-4fe1-8238-c5747050ba9e?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:59:24.4583175+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"22938c44-a6fd-4fe1-8238-c5747050ba9e\"\r\n}", { 'cache-control': 'no-cache',
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:16:35.1783541+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"d3624151-3d3e-42c6-bde7-ebdfd5fa5677\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '134',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': '9a4eaac2-b00b-4006-b842-bbca68dca1f2',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14920',
-  'x-ms-correlation-request-id': 'be9c8112-7829-465d-8d5c-96d7904142eb',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T080302Z:be9c8112-7829-465d-8d5c-96d7904142eb',
-  date: 'Tue, 16 Aug 2016 08:03:02 GMT' });
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': 'c7e048e5-d797-42d2-a0db-a388b96c2659',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14999',
+  'x-ms-correlation-request-id': '3d531988-8a2b-4dd0-b22a-9dfaeafe4e45',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081837Z:3d531988-8a2b-4dd0-b22a-9dfaeafe4e45',
+  date: 'Sun, 29 Jan 2017 08:18:36 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/22938c44-a6fd-4fe1-8238-c5747050ba9e?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:59:24.4583175+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"22938c44-a6fd-4fe1-8238-c5747050ba9e\"\r\n}", { 'cache-control': 'no-cache',
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:16:35.1783541+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"d3624151-3d3e-42c6-bde7-ebdfd5fa5677\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '134',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': 'adfc04f1-8dc0-45a8-ad17-85ba9a90378f',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14837',
-  'x-ms-correlation-request-id': '7f78882d-5e43-4772-bec4-1aacf6fee4fd',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T080334Z:7f78882d-5e43-4772-bec4-1aacf6fee4fd',
-  date: 'Tue, 16 Aug 2016 08:03:33 GMT' });
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': 'c7e048e5-d797-42d2-a0db-a388b96c2659',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14999',
+  'x-ms-correlation-request-id': '3d531988-8a2b-4dd0-b22a-9dfaeafe4e45',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081837Z:3d531988-8a2b-4dd0-b22a-9dfaeafe4e45',
+  date: 'Sun, 29 Jan 2017 08:18:36 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/22938c44-a6fd-4fe1-8238-c5747050ba9e?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:59:24.4583175+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"22938c44-a6fd-4fe1-8238-c5747050ba9e\"\r\n}", { 'cache-control': 'no-cache',
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:16:35.1783541+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"d3624151-3d3e-42c6-bde7-ebdfd5fa5677\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '134',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': '098a1c9e-1b50-4b4a-957d-0ac597758233',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14732',
-  'x-ms-correlation-request-id': 'd5e12dde-16cb-4cbe-b7df-dc18ef4d2fe8',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T080406Z:d5e12dde-16cb-4cbe-b7df-dc18ef4d2fe8',
-  date: 'Tue, 16 Aug 2016 08:04:05 GMT' });
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '847a7a76-f0bd-47a3-a17a-4d14199d66fa',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14994',
+  'x-ms-correlation-request-id': 'b1abe050-5a26-48b1-b1ec-eeae8a94b422',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081907Z:b1abe050-5a26-48b1-b1ec-eeae8a94b422',
+  date: 'Sun, 29 Jan 2017 08:19:07 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/22938c44-a6fd-4fe1-8238-c5747050ba9e?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:59:24.4583175+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"22938c44-a6fd-4fe1-8238-c5747050ba9e\"\r\n}", { 'cache-control': 'no-cache',
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:16:35.1783541+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"d3624151-3d3e-42c6-bde7-ebdfd5fa5677\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '134',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': '2ec4add5-c444-4376-bd23-33edd9a5c4b9',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14941',
-  'x-ms-correlation-request-id': '04597f81-daa4-4a0d-b597-cf4ddd4dcbbe',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T080437Z:04597f81-daa4-4a0d-b597-cf4ddd4dcbbe',
-  date: 'Tue, 16 Aug 2016 08:04:36 GMT' });
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '847a7a76-f0bd-47a3-a17a-4d14199d66fa',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14994',
+  'x-ms-correlation-request-id': 'b1abe050-5a26-48b1-b1ec-eeae8a94b422',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081907Z:b1abe050-5a26-48b1-b1ec-eeae8a94b422',
+  date: 'Sun, 29 Jan 2017 08:19:07 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/22938c44-a6fd-4fe1-8238-c5747050ba9e?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:59:24.4583175+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"22938c44-a6fd-4fe1-8238-c5747050ba9e\"\r\n}", { 'cache-control': 'no-cache',
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:16:35.1783541+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"d3624151-3d3e-42c6-bde7-ebdfd5fa5677\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '134',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': '23859716-54b5-46f0-983a-89efe77e905b',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14936',
-  'x-ms-correlation-request-id': '8692c75f-9ef3-44d0-a184-bdf02dca50a7',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T080508Z:8692c75f-9ef3-44d0-a184-bdf02dca50a7',
-  date: 'Tue, 16 Aug 2016 08:05:08 GMT' });
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '18c6cb11-c5a7-4164-85a8-b01a4fefe147',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14990',
+  'x-ms-correlation-request-id': 'c579824c-a56f-4c09-a8e8-f29919a2c567',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081938Z:c579824c-a56f-4c09-a8e8-f29919a2c567',
+  date: 'Sun, 29 Jan 2017 08:19:37 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/22938c44-a6fd-4fe1-8238-c5747050ba9e?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:59:24.4583175+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"22938c44-a6fd-4fe1-8238-c5747050ba9e\"\r\n}", { 'cache-control': 'no-cache',
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:16:35.1783541+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"d3624151-3d3e-42c6-bde7-ebdfd5fa5677\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '134',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': '7c1d2011-df04-49a3-a15c-cfe938e3e5b7',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14812',
-  'x-ms-correlation-request-id': 'aab4599a-ea42-4dab-9dcd-f18d5c02e2a0',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T080539Z:aab4599a-ea42-4dab-9dcd-f18d5c02e2a0',
-  date: 'Tue, 16 Aug 2016 08:05:39 GMT' });
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '18c6cb11-c5a7-4164-85a8-b01a4fefe147',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14990',
+  'x-ms-correlation-request-id': 'c579824c-a56f-4c09-a8e8-f29919a2c567',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T081938Z:c579824c-a56f-4c09-a8e8-f29919a2c567',
+  date: 'Sun, 29 Jan 2017 08:19:37 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/22938c44-a6fd-4fe1-8238-c5747050ba9e?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:59:24.4583175+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"22938c44-a6fd-4fe1-8238-c5747050ba9e\"\r\n}", { 'cache-control': 'no-cache',
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:16:35.1783541+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"d3624151-3d3e-42c6-bde7-ebdfd5fa5677\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '134',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': '2cf047d8-ea51-4619-967c-f558b5938318',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14972',
-  'x-ms-correlation-request-id': '2c8a4cda-6833-4371-9094-d9c51d59583c',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T080610Z:2c8a4cda-6833-4371-9094-d9c51d59583c',
-  date: 'Tue, 16 Aug 2016 08:06:10 GMT' });
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': 'ddbd4829-2998-413b-9557-2922019a4af3',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14996',
+  'x-ms-correlation-request-id': 'd778a060-abeb-4376-9961-7459ea9a94c0',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082008Z:d778a060-abeb-4376-9961-7459ea9a94c0',
+  date: 'Sun, 29 Jan 2017 08:20:08 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/22938c44-a6fd-4fe1-8238-c5747050ba9e?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:59:24.4583175+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"22938c44-a6fd-4fe1-8238-c5747050ba9e\"\r\n}", { 'cache-control': 'no-cache',
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:16:35.1783541+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"d3624151-3d3e-42c6-bde7-ebdfd5fa5677\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '134',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': '0193662a-9192-4cd7-ba29-6dde9b6e1848',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14919',
-  'x-ms-correlation-request-id': '8e4df002-d65a-4635-8158-3f5946a28e28',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T080642Z:8e4df002-d65a-4635-8158-3f5946a28e28',
-  date: 'Tue, 16 Aug 2016 08:06:41 GMT' });
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': 'ddbd4829-2998-413b-9557-2922019a4af3',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14996',
+  'x-ms-correlation-request-id': 'd778a060-abeb-4376-9961-7459ea9a94c0',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082008Z:d778a060-abeb-4376-9961-7459ea9a94c0',
+  date: 'Sun, 29 Jan 2017 08:20:08 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
-nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/22938c44-a6fd-4fe1-8238-c5747050ba9e?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:59:24.4583175+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"22938c44-a6fd-4fe1-8238-c5747050ba9e\"\r\n}", { 'cache-control': 'no-cache',
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:16:35.1783541+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"d3624151-3d3e-42c6-bde7-ebdfd5fa5677\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '134',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': '443659fa-43dc-4d9e-84e0-5b06acdedbb7',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14809',
-  'x-ms-correlation-request-id': 'da91b4ee-42c3-4010-8789-37a850f8f955',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T080712Z:da91b4ee-42c3-4010-8789-37a850f8f955',
-  date: 'Tue, 16 Aug 2016 08:07:12 GMT' });
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '738489f4-3570-40c1-a1f5-fa353b833c95',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14984',
+  'x-ms-correlation-request-id': '98e45773-15cd-41ab-a0bd-f255f83496cf',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082038Z:98e45773-15cd-41ab-a0bd-f255f83496cf',
+  date: 'Sun, 29 Jan 2017 08:20:38 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/providers/Microsoft.Compute/locations/southeastasia/operations/22938c44-a6fd-4fe1-8238-c5747050ba9e?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"startTime\": \"2016-08-16T07:59:24.4583175+00:00\",\r\n  \"endTime\": \"2016-08-16T08:07:16.5394589+00:00\",\r\n  \"status\": \"Succeeded\",\r\n  \"name\": \"22938c44-a6fd-4fe1-8238-c5747050ba9e\"\r\n}", { 'cache-control': 'no-cache',
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:16:35.1783541+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"d3624151-3d3e-42c6-bde7-ebdfd5fa5677\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '738489f4-3570-40c1-a1f5-fa353b833c95',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14984',
+  'x-ms-correlation-request-id': '98e45773-15cd-41ab-a0bd-f255f83496cf',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082038Z:98e45773-15cd-41ab-a0bd-f255f83496cf',
+  date: 'Sun, 29 Jan 2017 08:20:38 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:16:35.1783541+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"d3624151-3d3e-42c6-bde7-ebdfd5fa5677\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': 'f5fff87e-a231-48ee-8d11-133a61b43431',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14988',
+  'x-ms-correlation-request-id': '141f4d8b-ec01-443e-82d6-42ec4bc7e688',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082109Z:141f4d8b-ec01-443e-82d6-42ec4bc7e688',
+  date: 'Sun, 29 Jan 2017 08:21:08 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:16:35.1783541+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"d3624151-3d3e-42c6-bde7-ebdfd5fa5677\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': 'f5fff87e-a231-48ee-8d11-133a61b43431',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14988',
+  'x-ms-correlation-request-id': '141f4d8b-ec01-443e-82d6-42ec4bc7e688',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082109Z:141f4d8b-ec01-443e-82d6-42ec4bc7e688',
+  date: 'Sun, 29 Jan 2017 08:21:08 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:16:35.1783541+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"d3624151-3d3e-42c6-bde7-ebdfd5fa5677\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': 'fe9c687d-deb1-458a-b629-7ec8b0a66044',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14989',
+  'x-ms-correlation-request-id': '74ab44bb-d7b0-4d44-bfbd-2d3aacf18098',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082139Z:74ab44bb-d7b0-4d44-bfbd-2d3aacf18098',
+  date: 'Sun, 29 Jan 2017 08:21:39 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:16:35.1783541+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"d3624151-3d3e-42c6-bde7-ebdfd5fa5677\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': 'fe9c687d-deb1-458a-b629-7ec8b0a66044',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14989',
+  'x-ms-correlation-request-id': '74ab44bb-d7b0-4d44-bfbd-2d3aacf18098',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082139Z:74ab44bb-d7b0-4d44-bfbd-2d3aacf18098',
+  date: 'Sun, 29 Jan 2017 08:21:39 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:16:35.1783541+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"d3624151-3d3e-42c6-bde7-ebdfd5fa5677\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': 'd14ed5b1-de3b-4fd7-a4c7-3962e535addd',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14999',
+  'x-ms-correlation-request-id': '14781039-d192-414c-a0e4-ceb68c51aec0',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082210Z:14781039-d192-414c-a0e4-ceb68c51aec0',
+  date: 'Sun, 29 Jan 2017 08:22:09 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:16:35.1783541+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"d3624151-3d3e-42c6-bde7-ebdfd5fa5677\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': 'd14ed5b1-de3b-4fd7-a4c7-3962e535addd',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14999',
+  'x-ms-correlation-request-id': '14781039-d192-414c-a0e4-ceb68c51aec0',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082210Z:14781039-d192-414c-a0e4-ceb68c51aec0',
+  date: 'Sun, 29 Jan 2017 08:22:09 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:16:35.1783541+00:00\",\r\n  \"endTime\": \"2017-01-29T08:22:21.5211857+00:00\",\r\n  \"status\": \"Succeeded\",\r\n  \"name\": \"d3624151-3d3e-42c6-bde7-ebdfd5fa5677\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '184',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': 'ef1361c9-7dda-4a62-adac-4621ebb312a3',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14929',
-  'x-ms-correlation-request-id': 'e0178a11-0b26-4f4d-b393-3c1d45c976d3',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T080744Z:e0178a11-0b26-4f4d-b393-3c1d45c976d3',
-  date: 'Tue, 16 Aug 2016 08:07:43 GMT' });
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '117efa24-18f3-4536-a969-186a72babc61',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14991',
+  'x-ms-correlation-request-id': 'bc9cecaf-627e-4cbc-aab6-c8e88877bbda',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082240Z:bc9cecaf-627e-4cbc-aab6-c8e88877bbda',
+  date: 'Sun, 29 Jan 2017 08:22:40 GMT',
+  connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss?api-version=2016-03-30')
-  .reply(200, "{\r\n  \"sku\": {\r\n    \"name\": \"Standard_DS1\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 5\r\n  },\r\n  \"properties\": {\r\n    \"upgradePolicy\": {\r\n      \"mode\": \"Manual\"\r\n    },\r\n    \"virtualMachineProfile\": {\r\n      \"osProfile\": {\r\n        \"computerNamePrefix\": \"xplattest\",\r\n        \"adminUsername\": \"azureuser\",\r\n        \"windowsConfiguration\": {\r\n          \"provisionVMAgent\": true,\r\n          \"enableAutomaticUpdates\": true\r\n        },\r\n        \"secrets\": []\r\n      },\r\n      \"storageProfile\": {\r\n        \"osDisk\": {\r\n          \"vhdContainers\": [\r\n            \"https://xplattestvmsssto04846214.blob.core.windows.net/xplat-south-484621438-disk-container\",\r\n            \"https://xplattestvmsssto14846214.blob.core.windows.net/xplat-south-484621438-disk-container\",\r\n            \"https://xplattestvmsssto24846214.blob.core.windows.net/xplat-south-484621438-disk-container\",\r\n            \"https://xplattestvmsssto34846214.blob.core.windows.net/xplat-south-484621438-disk-container\",\r\n            \"https://xplattestvmsssto44846214.blob.core.windows.net/xplat-south-484621438-disk-container\"\r\n          ],\r\n          \"name\": \"xplat-south-484621438-os-disk\",\r\n          \"createOption\": \"FromImage\",\r\n          \"caching\": \"ReadOnly\"\r\n        },\r\n        \"imageReference\": {\r\n          \"publisher\": \"MicrosoftWindowsServer\",\r\n          \"offer\": \"WindowsServer\",\r\n          \"sku\": \"2008-R2-SP1\",\r\n          \"version\": \"latest\"\r\n        }\r\n      },\r\n      \"networkProfile\": {\"networkInterfaceConfigurations\":[{\"name\":\"xplat-south-484621438-nic\",\"properties\":{\"primary\":true,\"ipConfigurations\":[{\"name\":\"xplat-south-484621438-pip\",\"properties\":{\"subnet\":{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/virtualNetworks/xplat-south-484621438-vnet/subnets/xplat-south-484621438-snet\"},\"loadBalancerBackendAddressPools\":[{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-484621438-lb/backendAddressPools/xplat-south-484621438-be\"}],\"loadBalancerInboundNatPools\":[{\"id\":\"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Network/loadBalancers/xplat-south-484621438-lb/inboundNatPools/xplat-south-484621438-nat\"}]}}]}}]}\r\n    },\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"overprovision\": false,\r\n    \"uniqueId\": \"cbdb8e32-07c5-4201-85cf-502389f4cb76\"\r\n  },\r\n  \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTestVMSSCreate4329/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss\",\r\n  \"name\": \"xplattestvmss\",\r\n  \"type\": \"Microsoft.Compute/virtualMachineScaleSets\",\r\n  \"location\": \"southeastasia\"\r\n}", { 'cache-control': 'no-cache',
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/d3624151-3d3e-42c6-bde7-ebdfd5fa5677?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:16:35.1783541+00:00\",\r\n  \"endTime\": \"2017-01-29T08:22:21.5211857+00:00\",\r\n  \"status\": \"Succeeded\",\r\n  \"name\": \"d3624151-3d3e-42c6-bde7-ebdfd5fa5677\"\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
-  'content-length': '2763',
+  'content-length': '184',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  'x-ms-served-by': '9bcaa9de-92b1-485f-8528-dfb04fe7611e_131157682951232301',
-  'x-ms-request-id': 'b44ae370-4f95-4bc9-bd75-7fa4bfe32614',
-  server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14808',
-  'x-ms-correlation-request-id': '998b1257-0315-49ea-af36-b19bc1ac6d1c',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160816T080745Z:998b1257-0315-49ea-af36-b19bc1ac6d1c',
-  date: 'Tue, 16 Aug 2016 08:07:44 GMT' });
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '117efa24-18f3-4536-a969-186a72babc61',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14991',
+  'x-ms-correlation-request-id': 'bc9cecaf-627e-4cbc-aab6-c8e88877bbda',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082240Z:bc9cecaf-627e-4cbc-aab6-c8e88877bbda',
+  date: 'Sun, 29 Jan 2017 08:22:40 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss1?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"sku\": {\r\n    \"name\": \"Standard_DS1\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 5\r\n  },\r\n  \"properties\": {\r\n    \"singlePlacementGroup\": true,\r\n    \"upgradePolicy\": {\r\n      \"mode\": \"Manual\"\r\n    },\r\n    \"virtualMachineProfile\": {\r\n      \"osProfile\": {\r\n        \"computerNamePrefix\": \"xplattestvmss1\",\r\n        \"adminUsername\": \"azureuser\",\r\n        \"linuxConfiguration\": {\r\n          \"disablePasswordAuthentication\": true,\r\n          \"ssh\": {\r\n            \"publicKeys\": [\r\n              {\r\n                \"path\": \"/home/azureuser/.ssh/authorized_keys\",\r\n                \"keyData\": \"MIID/zCCAuegAwIBAgIJAMUAa+XVLvAeMA0GCSqGSIb3DQEBBQUAMIGVMQswCQYD\\r\\nVQQGEwJJbjESMBAGA1UECAwJS2FybmF0YWthMRIwEAYDVQQHDAlCYW5nYWxvcmUx\\r\\nEDAOBgNVBAoMB2JyaWxsaW8xEjAQBgNVBAsMCW1pY3Jvc29mdDEQMA4GA1UEAwwH\\r\\nYnJpbGxpbzEmMCQGCSqGSIb3DQEJARYXc3JlZWthbnRoYnNAeWFob28uY28uaW4w\\r\\nHhcNMTUwMzA1MTE1MzEyWhcNMTYwMzA0MTE1MzEyWjCBlTELMAkGA1UEBhMCSW4x\\r\\nEjAQBgNVBAgMCUthcm5hdGFrYTESMBAGA1UEBwwJQmFuZ2Fsb3JlMRAwDgYDVQQK\\r\\nDAdicmlsbGlvMRIwEAYDVQQLDAltaWNyb3NvZnQxEDAOBgNVBAMMB2JyaWxsaW8x\\r\\nJjAkBgkqhkiG9w0BCQEWF3NyZWVrYW50aGJzQHlhaG9vLmNvLmluMIIBIjANBgkq\\r\\nhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyUNKaOuT0NK+S8Ck81zy9xJ6hXfZvAC6\\r\\nlhbmf/6s/WVimJ/TX5NMhQJwC9k6ZIF92KfYrojHNvHDufSZ3EtKUVwRFCDjmgMT\\r\\nDL09WkGaZt7gROYFK0iZ4KrYGovUwlwum9fHB24OJiOV4bi0ek62/rHx9fjYZpvp\\r\\naIH2PV/hN8SCZ0x7HJMberD4gVoU/Kv42nNvwjLUW6IZfVx/Gv5OeFDtWHfSvUEF\\r\\ndadHKTPn3Ab20Iu6gZIbLO9Vuf38/IpaYGfnFCouHdzmiTiLieYNe3CUPcOJNSv7\\r\\n1G8KYpx3uNJRkJPab5OsRyJw75Gvzkr9OgaPss9tVD6Gt68u3WQtVQIDAQABo1Aw\\r\\nTjAdBgNVHQ4EFgQUogvhXB+xZ2JJPfLO6cVs4ForzscwHwYDVR0jBBgwFoAUogvh\\r\\nXB+xZ2JJPfLO6cVs4ForzscwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOC\\r\\nAQEAdDj7qUNJ45xlF5cjd+4x5NHvAD1VTjOKu+Xh/uzSSjXqB2F0aOMWA9lx0qaQ\\r\\noJgHkGxj3zz/W7ik/cVGL2O+vRIOKv/y0OPogEmS3Hw+P+O6OGE7x1G6YN0zLVoL\\r\\nu4BN/BEYmjttxM9I7qqL7C5cJoE+K3s/w1/pt/68ohJcr7F9Ohi7cso62xuGY1Rm\\r\\nksAh2EUDsU9JV/P+C9AMpLSrb03JJYzVj4w1RHbrmw2AjFyGXdQYkggyXisg+Ifr\\r\\n5gbNN7HigpHf7b2i3CQBUqp9m23frh5AhnLI2qp3UXgc52U5ieLdi/t6j0TTZqqY\\r\\nHhHqofKrj938HHlBNpC5/LVh3w==\\r\\n\"\r\n              }\r\n            ]\r\n          }\r\n        },\r\n        \"secrets\": []\r\n      },\r\n      \"storageProfile\": {\r\n        \"osDisk\": {\r\n          \"vhdContainers\": [\r\n            \"https://xplattestvmss1sto0149447.blob.core.windows.net/xplat-eastu-1494473829-disk-container\",\r\n            \"https://xplattestvmss1sto1149447.blob.core.windows.net/xplat-eastu-1494473829-disk-container\",\r\n            \"https://xplattestvmss1sto2149447.blob.core.windows.net/xplat-eastu-1494473829-disk-container\",\r\n            \"https://xplattestvmss1sto3149447.blob.core.windows.net/xplat-eastu-1494473829-disk-container\",\r\n            \"https://xplattestvmss1sto4149447.blob.core.windows.net/xplat-eastu-1494473829-disk-container\"\r\n          ],\r\n          \"name\": \"xplat-eastu-1494473829-os-disk\",\r\n          \"createOption\": \"FromImage\",\r\n          \"caching\": \"ReadOnly\"\r\n        },\r\n        \"imageReference\": {\r\n          \"publisher\": \"SUSE\",\r\n          \"offer\": \"openSUSE\",\r\n          \"sku\": \"13.2\",\r\n          \"version\": \"latest\"\r\n        }\r\n      },\r\n      \"networkProfile\": {\"networkInterfaceConfigurations\":[{\"name\":\"xplat-eastu-1494473829-nic\",\"properties\":{\"primary\":true,\"ipConfigurations\":[{\"name\":\"xplat-eastu-1494473829-pip\",\"properties\":{\"subnet\":{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet/subnets/xplat-eastu-1494473829-snet\"},\"loadBalancerBackendAddressPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/backendAddressPools/xplat-eastu-1494473829-be\"}],\"loadBalancerInboundNatPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/inboundNatPools/xplat-eastu-1494473829-nat\"}]}}]}}]}\r\n    },\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"overprovision\": false,\r\n    \"uniqueId\": \"dc2bbc29-ff25-409a-a75c-58f61f79f678\"\r\n  },\r\n  \"type\": \"Microsoft.Compute/virtualMachineScaleSets\",\r\n  \"location\": \"eastus\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss1\",\r\n  \"name\": \"xplattestvmss1\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '4418',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '66007083-866b-4595-8032-511270c9441b',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14989',
+  'x-ms-correlation-request-id': 'a9f01652-232e-43e0-9077-7946d70a910f',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082241Z:a9f01652-232e-43e0-9077-7946d70a910f',
+  date: 'Sun, 29 Jan 2017 08:22:41 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss1?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"sku\": {\r\n    \"name\": \"Standard_DS1\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 5\r\n  },\r\n  \"properties\": {\r\n    \"singlePlacementGroup\": true,\r\n    \"upgradePolicy\": {\r\n      \"mode\": \"Manual\"\r\n    },\r\n    \"virtualMachineProfile\": {\r\n      \"osProfile\": {\r\n        \"computerNamePrefix\": \"xplattestvmss1\",\r\n        \"adminUsername\": \"azureuser\",\r\n        \"linuxConfiguration\": {\r\n          \"disablePasswordAuthentication\": true,\r\n          \"ssh\": {\r\n            \"publicKeys\": [\r\n              {\r\n                \"path\": \"/home/azureuser/.ssh/authorized_keys\",\r\n                \"keyData\": \"MIID/zCCAuegAwIBAgIJAMUAa+XVLvAeMA0GCSqGSIb3DQEBBQUAMIGVMQswCQYD\\r\\nVQQGEwJJbjESMBAGA1UECAwJS2FybmF0YWthMRIwEAYDVQQHDAlCYW5nYWxvcmUx\\r\\nEDAOBgNVBAoMB2JyaWxsaW8xEjAQBgNVBAsMCW1pY3Jvc29mdDEQMA4GA1UEAwwH\\r\\nYnJpbGxpbzEmMCQGCSqGSIb3DQEJARYXc3JlZWthbnRoYnNAeWFob28uY28uaW4w\\r\\nHhcNMTUwMzA1MTE1MzEyWhcNMTYwMzA0MTE1MzEyWjCBlTELMAkGA1UEBhMCSW4x\\r\\nEjAQBgNVBAgMCUthcm5hdGFrYTESMBAGA1UEBwwJQmFuZ2Fsb3JlMRAwDgYDVQQK\\r\\nDAdicmlsbGlvMRIwEAYDVQQLDAltaWNyb3NvZnQxEDAOBgNVBAMMB2JyaWxsaW8x\\r\\nJjAkBgkqhkiG9w0BCQEWF3NyZWVrYW50aGJzQHlhaG9vLmNvLmluMIIBIjANBgkq\\r\\nhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyUNKaOuT0NK+S8Ck81zy9xJ6hXfZvAC6\\r\\nlhbmf/6s/WVimJ/TX5NMhQJwC9k6ZIF92KfYrojHNvHDufSZ3EtKUVwRFCDjmgMT\\r\\nDL09WkGaZt7gROYFK0iZ4KrYGovUwlwum9fHB24OJiOV4bi0ek62/rHx9fjYZpvp\\r\\naIH2PV/hN8SCZ0x7HJMberD4gVoU/Kv42nNvwjLUW6IZfVx/Gv5OeFDtWHfSvUEF\\r\\ndadHKTPn3Ab20Iu6gZIbLO9Vuf38/IpaYGfnFCouHdzmiTiLieYNe3CUPcOJNSv7\\r\\n1G8KYpx3uNJRkJPab5OsRyJw75Gvzkr9OgaPss9tVD6Gt68u3WQtVQIDAQABo1Aw\\r\\nTjAdBgNVHQ4EFgQUogvhXB+xZ2JJPfLO6cVs4ForzscwHwYDVR0jBBgwFoAUogvh\\r\\nXB+xZ2JJPfLO6cVs4ForzscwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOC\\r\\nAQEAdDj7qUNJ45xlF5cjd+4x5NHvAD1VTjOKu+Xh/uzSSjXqB2F0aOMWA9lx0qaQ\\r\\noJgHkGxj3zz/W7ik/cVGL2O+vRIOKv/y0OPogEmS3Hw+P+O6OGE7x1G6YN0zLVoL\\r\\nu4BN/BEYmjttxM9I7qqL7C5cJoE+K3s/w1/pt/68ohJcr7F9Ohi7cso62xuGY1Rm\\r\\nksAh2EUDsU9JV/P+C9AMpLSrb03JJYzVj4w1RHbrmw2AjFyGXdQYkggyXisg+Ifr\\r\\n5gbNN7HigpHf7b2i3CQBUqp9m23frh5AhnLI2qp3UXgc52U5ieLdi/t6j0TTZqqY\\r\\nHhHqofKrj938HHlBNpC5/LVh3w==\\r\\n\"\r\n              }\r\n            ]\r\n          }\r\n        },\r\n        \"secrets\": []\r\n      },\r\n      \"storageProfile\": {\r\n        \"osDisk\": {\r\n          \"vhdContainers\": [\r\n            \"https://xplattestvmss1sto0149447.blob.core.windows.net/xplat-eastu-1494473829-disk-container\",\r\n            \"https://xplattestvmss1sto1149447.blob.core.windows.net/xplat-eastu-1494473829-disk-container\",\r\n            \"https://xplattestvmss1sto2149447.blob.core.windows.net/xplat-eastu-1494473829-disk-container\",\r\n            \"https://xplattestvmss1sto3149447.blob.core.windows.net/xplat-eastu-1494473829-disk-container\",\r\n            \"https://xplattestvmss1sto4149447.blob.core.windows.net/xplat-eastu-1494473829-disk-container\"\r\n          ],\r\n          \"name\": \"xplat-eastu-1494473829-os-disk\",\r\n          \"createOption\": \"FromImage\",\r\n          \"caching\": \"ReadOnly\"\r\n        },\r\n        \"imageReference\": {\r\n          \"publisher\": \"SUSE\",\r\n          \"offer\": \"openSUSE\",\r\n          \"sku\": \"13.2\",\r\n          \"version\": \"latest\"\r\n        }\r\n      },\r\n      \"networkProfile\": {\"networkInterfaceConfigurations\":[{\"name\":\"xplat-eastu-1494473829-nic\",\"properties\":{\"primary\":true,\"ipConfigurations\":[{\"name\":\"xplat-eastu-1494473829-pip\",\"properties\":{\"subnet\":{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-1494473829-vnet/subnets/xplat-eastu-1494473829-snet\"},\"loadBalancerBackendAddressPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/backendAddressPools/xplat-eastu-1494473829-be\"}],\"loadBalancerInboundNatPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-1494473829-lb/inboundNatPools/xplat-eastu-1494473829-nat\"}]}}]}}]}\r\n    },\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"overprovision\": false,\r\n    \"uniqueId\": \"dc2bbc29-ff25-409a-a75c-58f61f79f678\"\r\n  },\r\n  \"type\": \"Microsoft.Compute/virtualMachineScaleSets\",\r\n  \"location\": \"eastus\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss1\",\r\n  \"name\": \"xplattestvmss1\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '4418',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '66007083-866b-4595-8032-511270c9441b',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14989',
+  'x-ms-correlation-request-id': 'a9f01652-232e-43e0-9077-7946d70a910f',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082241Z:a9f01652-232e-43e0-9077-7946d70a910f',
+  date: 'Sun, 29 Jan 2017 08:22:41 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourcegroups/xplatTestVMSSCreate2582?api-version=2016-09-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582\",\"name\":\"xplatTestVMSSCreate2582\",\"location\":\"eastus\",\"tags\":{\"arm-cli-vmss-create-tests\":\"2017-01-29T08:11:35.449Z\"},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-ratelimit-remaining-subscription-reads': '14994',
+  'x-ms-request-id': 'c4951f48-e332-4ea1-99af-ccd000f7bb30',
+  'x-ms-correlation-request-id': 'c4951f48-e332-4ea1-99af-ccd000f7bb30',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082241Z:c4951f48-e332-4ea1-99af-ccd000f7bb30',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:22:40 GMT',
+  connection: 'close',
+  'content-length': '263' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourcegroups/xplatTestVMSSCreate2582?api-version=2016-09-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582\",\"name\":\"xplatTestVMSSCreate2582\",\"location\":\"eastus\",\"tags\":{\"arm-cli-vmss-create-tests\":\"2017-01-29T08:11:35.449Z\"},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-ratelimit-remaining-subscription-reads': '14994',
+  'x-ms-request-id': 'c4951f48-e332-4ea1-99af-ccd000f7bb30',
+  'x-ms-correlation-request-id': 'c4951f48-e332-4ea1-99af-ccd000f7bb30',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082241Z:c4951f48-e332-4ea1-99af-ccd000f7bb30',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:22:40 GMT',
+  connection: 'close',
+  'content-length': '263' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.patch('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourcegroups/xplatTestVMSSCreate2582?api-version=2016-09-01', '*')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582\",\"name\":\"xplatTestVMSSCreate2582\",\"location\":\"eastus\",\"tags\":{\"arm-cli-vmss-create-tests\":\"2017-01-29T08:22:40.923Z\"},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '263',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-ratelimit-remaining-subscription-writes': '1199',
+  'x-ms-request-id': '225060f9-dbd2-4216-acc0-887a9c9e3d7d',
+  'x-ms-correlation-request-id': '225060f9-dbd2-4216-acc0-887a9c9e3d7d',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082242Z:225060f9-dbd2-4216-acc0-887a9c9e3d7d',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:22:42 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.patch('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourcegroups/xplatTestVMSSCreate2582?api-version=2016-09-01', '*')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582\",\"name\":\"xplatTestVMSSCreate2582\",\"location\":\"eastus\",\"tags\":{\"arm-cli-vmss-create-tests\":\"2017-01-29T08:22:40.923Z\"},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '263',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-ratelimit-remaining-subscription-writes': '1199',
+  'x-ms-request-id': '225060f9-dbd2-4216-acc0-887a9c9e3d7d',
+  'x-ms-correlation-request-id': '225060f9-dbd2-4216-acc0-887a9c9e3d7d',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082242Z:225060f9-dbd2-4216-acc0-887a9c9e3d7d',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:22:42 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"value\": [\r\n    {\r\n      \"name\": \"Standard_A0\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 20480,\r\n      \"memoryInMB\": 768,\r\n      \"maxDataDiskCount\": 1\r\n    },\r\n    {\r\n      \"name\": \"Standard_A1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 71680,\r\n      \"memoryInMB\": 1792,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_A2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 138240,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_A3\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 291840,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_A5\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 138240,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_A4\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 619520,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_A6\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 291840,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_A7\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 619520,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Basic_A0\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 20480,\r\n      \"memoryInMB\": 768,\r\n      \"maxDataDiskCount\": 1\r\n    },\r\n    {\r\n      \"name\": \"Basic_A1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 40960,\r\n      \"memoryInMB\": 1792,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Basic_A2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 61440,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Basic_A3\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 122880,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Basic_A4\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 245760,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D1_v2\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 51200,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_D2_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 102400,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_D3_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 204800,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_D4_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 409600,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D5_v2\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 819200,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_D11_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 102400,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_D12_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 204800,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_D13_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 409600,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D14_v2\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 819200,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_D15_v2\",\r\n      \"numberOfCores\": 20,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 286720,\r\n      \"memoryInMB\": 143360,\r\n      \"maxDataDiskCount\": 40\r\n    },\r\n    {\r\n      \"name\": \"Standard_F1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 16384,\r\n      \"memoryInMB\": 2048,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_F2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 32768,\r\n      \"memoryInMB\": 4096,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_F4\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 65536,\r\n      \"memoryInMB\": 8192,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_F8\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 131072,\r\n      \"memoryInMB\": 16384,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_F16\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 262144,\r\n      \"memoryInMB\": 32768,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_A1_v2\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 10240,\r\n      \"memoryInMB\": 2048,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_A2m_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 20480,\r\n      \"memoryInMB\": 16384,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_A2_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 20480,\r\n      \"memoryInMB\": 4096,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_A4m_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 40960,\r\n      \"memoryInMB\": 32768,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_A4_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 40960,\r\n      \"memoryInMB\": 8192,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_A8m_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 81920,\r\n      \"memoryInMB\": 65536,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_A8_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 81920,\r\n      \"memoryInMB\": 16384,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS1_v2\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 7168,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS2_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 14336,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS3_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 28672,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS4_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS5_v2\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 114688,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS11_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 28672,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS12_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS13_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 114688,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS14_v2\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 229376,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS15_v2\",\r\n      \"numberOfCores\": 20,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 286720,\r\n      \"memoryInMB\": 143360,\r\n      \"maxDataDiskCount\": 40\r\n    },\r\n    {\r\n      \"name\": \"Standard_F1s\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 4096,\r\n      \"memoryInMB\": 2048,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_F2s\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 8192,\r\n      \"memoryInMB\": 4096,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_F4s\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 16384,\r\n      \"memoryInMB\": 8192,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_F8s\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 32768,\r\n      \"memoryInMB\": 16384,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_F16s\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 65536,\r\n      \"memoryInMB\": 32768,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_H8\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 1024000,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_H16\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 2048000,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_H8m\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 1024000,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_H16m\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 2048000,\r\n      \"memoryInMB\": 229376,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_H16r\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 2048000,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_H16mr\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 2048000,\r\n      \"memoryInMB\": 229376,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_D1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 51200,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_D2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 102400,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_D3\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 204800,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_D4\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 409600,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D11\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 102400,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_D12\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 204800,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_D13\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 409600,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D14\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 819200,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_NV6\",\r\n      \"numberOfCores\": 6,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 389120,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_NV12\",\r\n      \"numberOfCores\": 12,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 696320,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_NV24\",\r\n      \"numberOfCores\": 24,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 1474560,\r\n      \"memoryInMB\": 229376,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 7168,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 14336,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS3\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 28672,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS4\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS11\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 28672,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS12\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS13\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 114688,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS14\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 229376,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_NC6\",\r\n      \"numberOfCores\": 6,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 389120,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_NC12\",\r\n      \"numberOfCores\": 12,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 696320,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_NC24\",\r\n      \"numberOfCores\": 24,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 1474560,\r\n      \"memoryInMB\": 229376,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_NC24r\",\r\n      \"numberOfCores\": 24,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 1474560,\r\n      \"memoryInMB\": 229376,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_A8\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 391168,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_A9\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 391168,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_A10\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 391168,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_A11\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 391168,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 16\r\n    }\r\n  ]\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '16947',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '3ea17045-6301-4cfa-81f9-e855c3b117fb',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14985',
+  'x-ms-correlation-request-id': '1027e778-6a51-40e5-b5f1-02cd2195a42b',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082243Z:1027e778-6a51-40e5-b5f1-02cd2195a42b',
+  date: 'Sun, 29 Jan 2017 08:22:42 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"value\": [\r\n    {\r\n      \"name\": \"Standard_A0\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 20480,\r\n      \"memoryInMB\": 768,\r\n      \"maxDataDiskCount\": 1\r\n    },\r\n    {\r\n      \"name\": \"Standard_A1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 71680,\r\n      \"memoryInMB\": 1792,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_A2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 138240,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_A3\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 291840,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_A5\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 138240,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_A4\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 619520,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_A6\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 291840,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_A7\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 619520,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Basic_A0\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 20480,\r\n      \"memoryInMB\": 768,\r\n      \"maxDataDiskCount\": 1\r\n    },\r\n    {\r\n      \"name\": \"Basic_A1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 40960,\r\n      \"memoryInMB\": 1792,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Basic_A2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 61440,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Basic_A3\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 122880,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Basic_A4\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 245760,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D1_v2\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 51200,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_D2_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 102400,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_D3_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 204800,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_D4_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 409600,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D5_v2\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 819200,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_D11_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 102400,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_D12_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 204800,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_D13_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 409600,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D14_v2\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 819200,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_D15_v2\",\r\n      \"numberOfCores\": 20,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 286720,\r\n      \"memoryInMB\": 143360,\r\n      \"maxDataDiskCount\": 40\r\n    },\r\n    {\r\n      \"name\": \"Standard_F1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 16384,\r\n      \"memoryInMB\": 2048,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_F2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 32768,\r\n      \"memoryInMB\": 4096,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_F4\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 65536,\r\n      \"memoryInMB\": 8192,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_F8\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 131072,\r\n      \"memoryInMB\": 16384,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_F16\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 262144,\r\n      \"memoryInMB\": 32768,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_A1_v2\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 10240,\r\n      \"memoryInMB\": 2048,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_A2m_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 20480,\r\n      \"memoryInMB\": 16384,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_A2_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 20480,\r\n      \"memoryInMB\": 4096,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_A4m_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 40960,\r\n      \"memoryInMB\": 32768,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_A4_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 40960,\r\n      \"memoryInMB\": 8192,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_A8m_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 81920,\r\n      \"memoryInMB\": 65536,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_A8_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 81920,\r\n      \"memoryInMB\": 16384,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS1_v2\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 7168,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS2_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 14336,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS3_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 28672,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS4_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS5_v2\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 114688,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS11_v2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 28672,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS12_v2\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS13_v2\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 114688,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS14_v2\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 229376,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS15_v2\",\r\n      \"numberOfCores\": 20,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 286720,\r\n      \"memoryInMB\": 143360,\r\n      \"maxDataDiskCount\": 40\r\n    },\r\n    {\r\n      \"name\": \"Standard_F1s\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 4096,\r\n      \"memoryInMB\": 2048,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_F2s\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 8192,\r\n      \"memoryInMB\": 4096,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_F4s\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 16384,\r\n      \"memoryInMB\": 8192,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_F8s\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 32768,\r\n      \"memoryInMB\": 16384,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_F16s\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 65536,\r\n      \"memoryInMB\": 32768,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_H8\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 1024000,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_H16\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 2048000,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_H8m\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 1024000,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_H16m\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 2048000,\r\n      \"memoryInMB\": 229376,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_H16r\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 2048000,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_H16mr\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 2048000,\r\n      \"memoryInMB\": 229376,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_D1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 51200,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_D2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 102400,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_D3\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 204800,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_D4\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 409600,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D11\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 102400,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_D12\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 204800,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_D13\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 409600,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_D14\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 819200,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_NV6\",\r\n      \"numberOfCores\": 6,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 389120,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_NV12\",\r\n      \"numberOfCores\": 12,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 696320,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_NV24\",\r\n      \"numberOfCores\": 24,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 1474560,\r\n      \"memoryInMB\": 229376,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS1\",\r\n      \"numberOfCores\": 1,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 7168,\r\n      \"memoryInMB\": 3584,\r\n      \"maxDataDiskCount\": 2\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS2\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 14336,\r\n      \"memoryInMB\": 7168,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS3\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 28672,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS4\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS11\",\r\n      \"numberOfCores\": 2,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 28672,\r\n      \"memoryInMB\": 14336,\r\n      \"maxDataDiskCount\": 4\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS12\",\r\n      \"numberOfCores\": 4,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 57344,\r\n      \"memoryInMB\": 28672,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS13\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 114688,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_DS14\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 229376,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_NC6\",\r\n      \"numberOfCores\": 6,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 389120,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 8\r\n    },\r\n    {\r\n      \"name\": \"Standard_NC12\",\r\n      \"numberOfCores\": 12,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 696320,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_NC24\",\r\n      \"numberOfCores\": 24,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 1474560,\r\n      \"memoryInMB\": 229376,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_NC24r\",\r\n      \"numberOfCores\": 24,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 1474560,\r\n      \"memoryInMB\": 229376,\r\n      \"maxDataDiskCount\": 32\r\n    },\r\n    {\r\n      \"name\": \"Standard_A8\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 391168,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_A9\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 391168,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_A10\",\r\n      \"numberOfCores\": 8,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 391168,\r\n      \"memoryInMB\": 57344,\r\n      \"maxDataDiskCount\": 16\r\n    },\r\n    {\r\n      \"name\": \"Standard_A11\",\r\n      \"numberOfCores\": 16,\r\n      \"osDiskSizeInMB\": 1047552,\r\n      \"resourceDiskSizeInMB\": 391168,\r\n      \"memoryInMB\": 114688,\r\n      \"maxDataDiskCount\": 16\r\n    }\r\n  ]\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '16947',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '3ea17045-6301-4cfa-81f9-e855c3b117fb',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14985',
+  'x-ms-correlation-request-id': '1027e778-6a51-40e5-b5f1-02cd2195a42b',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082243Z:1027e778-6a51-40e5-b5f1-02cd2195a42b',
+  date: 'Sun, 29 Jan 2017 08:22:42 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourcegroups/xplatTestVMSSCreate2582?api-version=2016-09-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582\",\"name\":\"xplatTestVMSSCreate2582\",\"location\":\"eastus\",\"tags\":{\"arm-cli-vmss-create-tests\":\"2017-01-29T08:22:40.923Z\"},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-ratelimit-remaining-subscription-reads': '14990',
+  'x-ms-request-id': '01fffed3-d045-4203-a253-3c1522c86a5a',
+  'x-ms-correlation-request-id': '01fffed3-d045-4203-a253-3c1522c86a5a',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082243Z:01fffed3-d045-4203-a253-3c1522c86a5a',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:22:42 GMT',
+  connection: 'close',
+  'content-length': '263' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourcegroups/xplatTestVMSSCreate2582?api-version=2016-09-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582\",\"name\":\"xplatTestVMSSCreate2582\",\"location\":\"eastus\",\"tags\":{\"arm-cli-vmss-create-tests\":\"2017-01-29T08:22:40.923Z\"},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-ratelimit-remaining-subscription-reads': '14990',
+  'x-ms-request-id': '01fffed3-d045-4203-a253-3c1522c86a5a',
+  'x-ms-correlation-request-id': '01fffed3-d045-4203-a253-3c1522c86a5a',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082243Z:01fffed3-d045-4203-a253-3c1522c86a5a',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:22:42 GMT',
+  connection: 'close',
+  'content-length': '263' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-3631160596-nic?api-version=2016-09-01')
+  .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/networkInterfaces/xplat-eastu-3631160596-nic' under resource group 'xplatTestVMSSCreate2582' was not found.\"}}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-failure-cause': 'gateway',
+  'x-ms-request-id': 'b750f609-dc88-4712-aea8-184a35b6cb9b',
+  'x-ms-correlation-request-id': 'b750f609-dc88-4712-aea8-184a35b6cb9b',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082243Z:b750f609-dc88-4712-aea8-184a35b6cb9b',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:22:43 GMT',
+  connection: 'close',
+  'content-length': '189' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-3631160596-nic?api-version=2016-09-01')
+  .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/networkInterfaces/xplat-eastu-3631160596-nic' under resource group 'xplatTestVMSSCreate2582' was not found.\"}}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-failure-cause': 'gateway',
+  'x-ms-request-id': 'b750f609-dc88-4712-aea8-184a35b6cb9b',
+  'x-ms-correlation-request-id': 'b750f609-dc88-4712-aea8-184a35b6cb9b',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082243Z:b750f609-dc88-4712-aea8-184a35b6cb9b',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:22:43 GMT',
+  connection: 'close',
+  'content-length': '189' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet?api-version=2016-09-01')
+  .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet' under resource group 'xplatTestVMSSCreate2582' was not found.\"}}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-failure-cause': 'gateway',
+  'x-ms-request-id': '2df64361-3841-4ab5-953d-21c8a52843ff',
+  'x-ms-correlation-request-id': '2df64361-3841-4ab5-953d-21c8a52843ff',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082244Z:2df64361-3841-4ab5-953d-21c8a52843ff',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:22:43 GMT',
+  connection: 'close',
+  'content-length': '188' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet?api-version=2016-09-01')
+  .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet' under resource group 'xplatTestVMSSCreate2582' was not found.\"}}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-failure-cause': 'gateway',
+  'x-ms-request-id': '2df64361-3841-4ab5-953d-21c8a52843ff',
+  'x-ms-correlation-request-id': '2df64361-3841-4ab5-953d-21c8a52843ff',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082244Z:2df64361-3841-4ab5-953d-21c8a52843ff',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:22:43 GMT',
+  connection: 'close',
+  'content-length': '188' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet?api-version=2016-09-01', '*')
+  .reply(201, "{\r\n  \"name\": \"xplat-eastu-3631160596-vnet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet\",\r\n  \"etag\": \"W/\\\"50335562-760a-4386-af07-f22453458409\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"b30e931d-bb38-4ee0-b285-6c7f8041639e\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-eastu-3631160596-snet\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet/subnets/xplat-eastu-3631160596-snet\",\r\n        \"etag\": \"W/\\\"50335562-760a-4386-af07-f22453458409\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Updating\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ],\r\n    \"virtualNetworkPeerings\": []\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '1147',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'retry-after': '3',
+  'x-ms-request-id': 'c4b60762-9e3c-402d-a75a-7eb702ff9c09',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/c4b60762-9e3c-402d-a75a-7eb702ff9c09?api-version=2016-09-01',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-writes': '1198',
+  'x-ms-correlation-request-id': '9e84e11f-c67a-4151-926a-5cd17269bca5',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082246Z:9e84e11f-c67a-4151-926a-5cd17269bca5',
+  date: 'Sun, 29 Jan 2017 08:22:45 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet?api-version=2016-09-01', '*')
+  .reply(201, "{\r\n  \"name\": \"xplat-eastu-3631160596-vnet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet\",\r\n  \"etag\": \"W/\\\"50335562-760a-4386-af07-f22453458409\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"b30e931d-bb38-4ee0-b285-6c7f8041639e\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-eastu-3631160596-snet\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet/subnets/xplat-eastu-3631160596-snet\",\r\n        \"etag\": \"W/\\\"50335562-760a-4386-af07-f22453458409\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Updating\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ],\r\n    \"virtualNetworkPeerings\": []\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '1147',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'retry-after': '3',
+  'x-ms-request-id': 'c4b60762-9e3c-402d-a75a-7eb702ff9c09',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/c4b60762-9e3c-402d-a75a-7eb702ff9c09?api-version=2016-09-01',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-writes': '1198',
+  'x-ms-correlation-request-id': '9e84e11f-c67a-4151-926a-5cd17269bca5',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082246Z:9e84e11f-c67a-4151-926a-5cd17269bca5',
+  date: 'Sun, 29 Jan 2017 08:22:45 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/c4b60762-9e3c-402d-a75a-7eb702ff9c09?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '29',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-request-id': '6662a02c-b456-4a78-bfe3-b2ee7eb7c7cc',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14986',
+  'x-ms-correlation-request-id': '7730ae87-719b-4d8b-b348-f7f586787a31',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082316Z:7730ae87-719b-4d8b-b348-f7f586787a31',
+  date: 'Sun, 29 Jan 2017 08:23:16 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/c4b60762-9e3c-402d-a75a-7eb702ff9c09?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '29',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-request-id': '6662a02c-b456-4a78-bfe3-b2ee7eb7c7cc',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14986',
+  'x-ms-correlation-request-id': '7730ae87-719b-4d8b-b348-f7f586787a31',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082316Z:7730ae87-719b-4d8b-b348-f7f586787a31',
+  date: 'Sun, 29 Jan 2017 08:23:16 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-3631160596-vnet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet\",\r\n  \"etag\": \"W/\\\"287ddd2e-bfe3-43f9-8479-1466fbd58b82\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"b30e931d-bb38-4ee0-b285-6c7f8041639e\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-eastu-3631160596-snet\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet/subnets/xplat-eastu-3631160596-snet\",\r\n        \"etag\": \"W/\\\"287ddd2e-bfe3-43f9-8479-1466fbd58b82\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ],\r\n    \"virtualNetworkPeerings\": []\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '1149',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"287ddd2e-bfe3-43f9-8479-1466fbd58b82"',
+  'x-ms-request-id': '893c6c35-bdd7-4880-98bd-54f72a12a601',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14991',
+  'x-ms-correlation-request-id': 'fcafe248-9c37-48da-add4-9c4aae64e2a2',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082316Z:fcafe248-9c37-48da-add4-9c4aae64e2a2',
+  date: 'Sun, 29 Jan 2017 08:23:16 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-3631160596-vnet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet\",\r\n  \"etag\": \"W/\\\"287ddd2e-bfe3-43f9-8479-1466fbd58b82\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"b30e931d-bb38-4ee0-b285-6c7f8041639e\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-eastu-3631160596-snet\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet/subnets/xplat-eastu-3631160596-snet\",\r\n        \"etag\": \"W/\\\"287ddd2e-bfe3-43f9-8479-1466fbd58b82\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ],\r\n    \"virtualNetworkPeerings\": []\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '1149',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"287ddd2e-bfe3-43f9-8479-1466fbd58b82"',
+  'x-ms-request-id': '893c6c35-bdd7-4880-98bd-54f72a12a601',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14991',
+  'x-ms-correlation-request-id': 'fcafe248-9c37-48da-add4-9c4aae64e2a2',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082316Z:fcafe248-9c37-48da-add4-9c4aae64e2a2',
+  date: 'Sun, 29 Jan 2017 08:23:16 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-3631160596-vnet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet\",\r\n  \"etag\": \"W/\\\"287ddd2e-bfe3-43f9-8479-1466fbd58b82\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"b30e931d-bb38-4ee0-b285-6c7f8041639e\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-eastu-3631160596-snet\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet/subnets/xplat-eastu-3631160596-snet\",\r\n        \"etag\": \"W/\\\"287ddd2e-bfe3-43f9-8479-1466fbd58b82\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ],\r\n    \"virtualNetworkPeerings\": []\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '1149',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"287ddd2e-bfe3-43f9-8479-1466fbd58b82"',
+  'x-ms-request-id': '65722f7c-329d-4ac0-a0ea-cc81beb99171',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14993',
+  'x-ms-correlation-request-id': '7d9f9f6d-08ba-460e-b145-e451a80cc78c',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082317Z:7d9f9f6d-08ba-460e-b145-e451a80cc78c',
+  date: 'Sun, 29 Jan 2017 08:23:17 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-3631160596-vnet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet\",\r\n  \"etag\": \"W/\\\"287ddd2e-bfe3-43f9-8479-1466fbd58b82\\\"\",\r\n  \"type\": \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"b30e931d-bb38-4ee0-b285-6c7f8041639e\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\": [\r\n        \"10.0.0.0/16\"\r\n      ]\r\n    },\r\n    \"dhcpOptions\": {\r\n      \"dnsServers\": []\r\n    },\r\n    \"subnets\": [\r\n      {\r\n        \"name\": \"xplat-eastu-3631160596-snet\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet/subnets/xplat-eastu-3631160596-snet\",\r\n        \"etag\": \"W/\\\"287ddd2e-bfe3-43f9-8479-1466fbd58b82\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"addressPrefix\": \"10.0.1.0/24\"\r\n        }\r\n      }\r\n    ],\r\n    \"virtualNetworkPeerings\": []\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '1149',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"287ddd2e-bfe3-43f9-8479-1466fbd58b82"',
+  'x-ms-request-id': '65722f7c-329d-4ac0-a0ea-cc81beb99171',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14993',
+  'x-ms-correlation-request-id': '7d9f9f6d-08ba-460e-b145-e451a80cc78c',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082317Z:7d9f9f6d-08ba-460e-b145-e451a80cc78c',
+  date: 'Sun, 29 Jan 2017 08:23:17 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet/subnets/xplat-eastu-3631160596-snet?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-3631160596-snet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet/subnets/xplat-eastu-3631160596-snet\",\r\n  \"etag\": \"W/\\\"287ddd2e-bfe3-43f9-8479-1466fbd58b82\\\"\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"addressPrefix\": \"10.0.1.0/24\"\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '413',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"287ddd2e-bfe3-43f9-8479-1466fbd58b82"',
+  'x-ms-request-id': '76ec42e0-97b5-4f0a-b1af-c7da2f5b0579',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14989',
+  'x-ms-correlation-request-id': '6d4f001d-b48f-4147-996b-ce78515c7ad8',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082317Z:6d4f001d-b48f-4147-996b-ce78515c7ad8',
+  date: 'Sun, 29 Jan 2017 08:23:16 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet/subnets/xplat-eastu-3631160596-snet?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-3631160596-snet\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet/subnets/xplat-eastu-3631160596-snet\",\r\n  \"etag\": \"W/\\\"287ddd2e-bfe3-43f9-8479-1466fbd58b82\\\"\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"addressPrefix\": \"10.0.1.0/24\"\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '413',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"287ddd2e-bfe3-43f9-8479-1466fbd58b82"',
+  'x-ms-request-id': '76ec42e0-97b5-4f0a-b1af-c7da2f5b0579',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14989',
+  'x-ms-correlation-request-id': '6d4f001d-b48f-4147-996b-ce78515c7ad8',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082317Z:6d4f001d-b48f-4147-996b-ce78515c7ad8',
+  date: 'Sun, 29 Jan 2017 08:23:16 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip?api-version=2016-09-01')
+  .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip' under resource group 'xplatTestVMSSCreate2582' was not found.\"}}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-failure-cause': 'gateway',
+  'x-ms-request-id': 'a91abda3-52bd-469f-84b7-db7ca74a83eb',
+  'x-ms-correlation-request-id': 'a91abda3-52bd-469f-84b7-db7ca74a83eb',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082317Z:a91abda3-52bd-469f-84b7-db7ca74a83eb',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:23:17 GMT',
+  connection: 'close',
+  'content-length': '189' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip?api-version=2016-09-01')
+  .reply(404, "{\"error\":{\"code\":\"ResourceNotFound\",\"message\":\"The Resource 'Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip' under resource group 'xplatTestVMSSCreate2582' was not found.\"}}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-failure-cause': 'gateway',
+  'x-ms-request-id': 'a91abda3-52bd-469f-84b7-db7ca74a83eb',
+  'x-ms-correlation-request-id': 'a91abda3-52bd-469f-84b7-db7ca74a83eb',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082317Z:a91abda3-52bd-469f-84b7-db7ca74a83eb',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:23:17 GMT',
+  connection: 'close',
+  'content-length': '189' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip?api-version=2016-09-01', '*')
+  .reply(201, "{\r\n  \"name\": \"xplat-eastu-3631160596-pip\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip\",\r\n  \"etag\": \"W/\\\"c57f99c0-addf-4142-9f31-f670a0d30412\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"78bc43e9-09a8-46b4-89e5-9ee2cf36cf3a\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-eastu-3631160596-pip\",\r\n      \"fqdn\": \"xplat-eastu-3631160596-pip.eastus.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '746',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'retry-after': '3',
+  'x-ms-request-id': '737bcffe-a374-4117-8cc9-64b2941f1018',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/737bcffe-a374-4117-8cc9-64b2941f1018?api-version=2016-09-01',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-writes': '1194',
+  'x-ms-correlation-request-id': '690b4511-ffc3-4339-9eed-3dbfef002509',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082319Z:690b4511-ffc3-4339-9eed-3dbfef002509',
+  date: 'Sun, 29 Jan 2017 08:23:18 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip?api-version=2016-09-01', '*')
+  .reply(201, "{\r\n  \"name\": \"xplat-eastu-3631160596-pip\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip\",\r\n  \"etag\": \"W/\\\"c57f99c0-addf-4142-9f31-f670a0d30412\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"78bc43e9-09a8-46b4-89e5-9ee2cf36cf3a\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-eastu-3631160596-pip\",\r\n      \"fqdn\": \"xplat-eastu-3631160596-pip.eastus.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '746',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'retry-after': '3',
+  'x-ms-request-id': '737bcffe-a374-4117-8cc9-64b2941f1018',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/737bcffe-a374-4117-8cc9-64b2941f1018?api-version=2016-09-01',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-writes': '1194',
+  'x-ms-correlation-request-id': '690b4511-ffc3-4339-9eed-3dbfef002509',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082319Z:690b4511-ffc3-4339-9eed-3dbfef002509',
+  date: 'Sun, 29 Jan 2017 08:23:18 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/737bcffe-a374-4117-8cc9-64b2941f1018?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '29',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-request-id': '1b4fa2f5-42de-4291-9fac-2fa498112135',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14991',
+  'x-ms-correlation-request-id': '5f99832f-65c7-4cb5-b5c4-b54076fb7eba',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082349Z:5f99832f-65c7-4cb5-b5c4-b54076fb7eba',
+  date: 'Sun, 29 Jan 2017 08:23:49 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/737bcffe-a374-4117-8cc9-64b2941f1018?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '29',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-request-id': '1b4fa2f5-42de-4291-9fac-2fa498112135',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14991',
+  'x-ms-correlation-request-id': '5f99832f-65c7-4cb5-b5c4-b54076fb7eba',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082349Z:5f99832f-65c7-4cb5-b5c4-b54076fb7eba',
+  date: 'Sun, 29 Jan 2017 08:23:49 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-3631160596-pip\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip\",\r\n  \"etag\": \"W/\\\"fe5bd2ad-7daa-44ff-9405-5b1e7bd048c2\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"78bc43e9-09a8-46b4-89e5-9ee2cf36cf3a\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-eastu-3631160596-pip\",\r\n      \"fqdn\": \"xplat-eastu-3631160596-pip.eastus.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '747',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"fe5bd2ad-7daa-44ff-9405-5b1e7bd048c2"',
+  'x-ms-request-id': 'dc2f0be4-ddc2-4d41-8401-a7b28c91dc75',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14992',
+  'x-ms-correlation-request-id': '2b5667c5-9ee2-48fe-83e4-954d23be6471',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082350Z:2b5667c5-9ee2-48fe-83e4-954d23be6471',
+  date: 'Sun, 29 Jan 2017 08:23:49 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-3631160596-pip\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip\",\r\n  \"etag\": \"W/\\\"fe5bd2ad-7daa-44ff-9405-5b1e7bd048c2\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"78bc43e9-09a8-46b4-89e5-9ee2cf36cf3a\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-eastu-3631160596-pip\",\r\n      \"fqdn\": \"xplat-eastu-3631160596-pip.eastus.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '747',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"fe5bd2ad-7daa-44ff-9405-5b1e7bd048c2"',
+  'x-ms-request-id': 'dc2f0be4-ddc2-4d41-8401-a7b28c91dc75',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14992',
+  'x-ms-correlation-request-id': '2b5667c5-9ee2-48fe-83e4-954d23be6471',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082350Z:2b5667c5-9ee2-48fe-83e4-954d23be6471',
+  date: 'Sun, 29 Jan 2017 08:23:49 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-3631160596-pip\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip\",\r\n  \"etag\": \"W/\\\"fe5bd2ad-7daa-44ff-9405-5b1e7bd048c2\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"78bc43e9-09a8-46b4-89e5-9ee2cf36cf3a\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-eastu-3631160596-pip\",\r\n      \"fqdn\": \"xplat-eastu-3631160596-pip.eastus.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '747',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"fe5bd2ad-7daa-44ff-9405-5b1e7bd048c2"',
+  'x-ms-request-id': '2c5cb4a1-6e23-4b04-a37f-43e1cd53204a',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14993',
+  'x-ms-correlation-request-id': '912c452c-4055-40cb-b1ae-a9ac7c3bacb9',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082350Z:912c452c-4055-40cb-b1ae-a9ac7c3bacb9',
+  date: 'Sun, 29 Jan 2017 08:23:50 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-3631160596-pip\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip\",\r\n  \"etag\": \"W/\\\"fe5bd2ad-7daa-44ff-9405-5b1e7bd048c2\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"78bc43e9-09a8-46b4-89e5-9ee2cf36cf3a\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-eastu-3631160596-pip\",\r\n      \"fqdn\": \"xplat-eastu-3631160596-pip.eastus.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '747',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"fe5bd2ad-7daa-44ff-9405-5b1e7bd048c2"',
+  'x-ms-request-id': '2c5cb4a1-6e23-4b04-a37f-43e1cd53204a',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14993',
+  'x-ms-correlation-request-id': '912c452c-4055-40cb-b1ae-a9ac7c3bacb9',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082350Z:912c452c-4055-40cb-b1ae-a9ac7c3bacb9',
+  date: 'Sun, 29 Jan 2017 08:23:50 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-3631160596-nic?api-version=2016-09-01', '*')
+  .reply(201, "{\r\n  \"name\": \"xplat-eastu-3631160596-nic\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-3631160596-nic\",\r\n  \"etag\": \"W/\\\"6c57386c-fc48-4929-ae2f-476adbe2e628\\\"\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"54bfbb7f-d2ce-4da3-a7a1-a96dda4a14c0\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1485678197400\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-3631160596-nic/ipConfigurations/ipconfig1485678197400\",\r\n        \"etag\": \"W/\\\"6c57386c-fc48-4929-ae2f-476adbe2e628\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet/subnets/xplat-eastu-3631160596-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"dwjq3mzyxpqe3mufnr5yaqldtg.bx.internal.cloudapp.net\"\r\n    },\r\n    \"enableAcceleratedNetworking\": false,\r\n    \"enableIPForwarding\": false\r\n  },\r\n  \"type\": \"Microsoft.Network/networkInterfaces\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '1844',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-request-id': '2230cbdc-1f77-487d-835b-1594ed41aa3d',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/2230cbdc-1f77-487d-835b-1594ed41aa3d?api-version=2016-09-01',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-writes': '1199',
+  'x-ms-correlation-request-id': '640a1438-238b-4245-9ffd-b3542cd0117c',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082352Z:640a1438-238b-4245-9ffd-b3542cd0117c',
+  date: 'Sun, 29 Jan 2017 08:23:52 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-3631160596-nic?api-version=2016-09-01', '*')
+  .reply(201, "{\r\n  \"name\": \"xplat-eastu-3631160596-nic\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-3631160596-nic\",\r\n  \"etag\": \"W/\\\"6c57386c-fc48-4929-ae2f-476adbe2e628\\\"\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"54bfbb7f-d2ce-4da3-a7a1-a96dda4a14c0\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1485678197400\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-3631160596-nic/ipConfigurations/ipconfig1485678197400\",\r\n        \"etag\": \"W/\\\"6c57386c-fc48-4929-ae2f-476adbe2e628\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet/subnets/xplat-eastu-3631160596-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"dwjq3mzyxpqe3mufnr5yaqldtg.bx.internal.cloudapp.net\"\r\n    },\r\n    \"enableAcceleratedNetworking\": false,\r\n    \"enableIPForwarding\": false\r\n  },\r\n  \"type\": \"Microsoft.Network/networkInterfaces\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '1844',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-request-id': '2230cbdc-1f77-487d-835b-1594ed41aa3d',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/2230cbdc-1f77-487d-835b-1594ed41aa3d?api-version=2016-09-01',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-writes': '1199',
+  'x-ms-correlation-request-id': '640a1438-238b-4245-9ffd-b3542cd0117c',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082352Z:640a1438-238b-4245-9ffd-b3542cd0117c',
+  date: 'Sun, 29 Jan 2017 08:23:52 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-3631160596-nic?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-3631160596-nic\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-3631160596-nic\",\r\n  \"etag\": \"W/\\\"6c57386c-fc48-4929-ae2f-476adbe2e628\\\"\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"54bfbb7f-d2ce-4da3-a7a1-a96dda4a14c0\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1485678197400\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-3631160596-nic/ipConfigurations/ipconfig1485678197400\",\r\n        \"etag\": \"W/\\\"6c57386c-fc48-4929-ae2f-476adbe2e628\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet/subnets/xplat-eastu-3631160596-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"dwjq3mzyxpqe3mufnr5yaqldtg.bx.internal.cloudapp.net\"\r\n    },\r\n    \"enableAcceleratedNetworking\": false,\r\n    \"enableIPForwarding\": false\r\n  },\r\n  \"type\": \"Microsoft.Network/networkInterfaces\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '1844',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"6c57386c-fc48-4929-ae2f-476adbe2e628"',
+  'x-ms-request-id': '2fe100db-2c6c-4866-b766-b54089bec652',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14994',
+  'x-ms-correlation-request-id': '2bc49be3-794d-421f-8806-48fedd23e331',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082352Z:2bc49be3-794d-421f-8806-48fedd23e331',
+  date: 'Sun, 29 Jan 2017 08:23:52 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-3631160596-nic?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-3631160596-nic\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-3631160596-nic\",\r\n  \"etag\": \"W/\\\"6c57386c-fc48-4929-ae2f-476adbe2e628\\\"\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"54bfbb7f-d2ce-4da3-a7a1-a96dda4a14c0\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1485678197400\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-3631160596-nic/ipConfigurations/ipconfig1485678197400\",\r\n        \"etag\": \"W/\\\"6c57386c-fc48-4929-ae2f-476adbe2e628\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet/subnets/xplat-eastu-3631160596-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"dwjq3mzyxpqe3mufnr5yaqldtg.bx.internal.cloudapp.net\"\r\n    },\r\n    \"enableAcceleratedNetworking\": false,\r\n    \"enableIPForwarding\": false\r\n  },\r\n  \"type\": \"Microsoft.Network/networkInterfaces\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '1844',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"6c57386c-fc48-4929-ae2f-476adbe2e628"',
+  'x-ms-request-id': '2fe100db-2c6c-4866-b766-b54089bec652',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14994',
+  'x-ms-correlation-request-id': '2bc49be3-794d-421f-8806-48fedd23e331',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082352Z:2bc49be3-794d-421f-8806-48fedd23e331',
+  date: 'Sun, 29 Jan 2017 08:23:52 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-3631160596-nic?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-3631160596-nic\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-3631160596-nic\",\r\n  \"etag\": \"W/\\\"6c57386c-fc48-4929-ae2f-476adbe2e628\\\"\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"54bfbb7f-d2ce-4da3-a7a1-a96dda4a14c0\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1485678197400\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-3631160596-nic/ipConfigurations/ipconfig1485678197400\",\r\n        \"etag\": \"W/\\\"6c57386c-fc48-4929-ae2f-476adbe2e628\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet/subnets/xplat-eastu-3631160596-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"dwjq3mzyxpqe3mufnr5yaqldtg.bx.internal.cloudapp.net\"\r\n    },\r\n    \"enableAcceleratedNetworking\": false,\r\n    \"enableIPForwarding\": false\r\n  },\r\n  \"type\": \"Microsoft.Network/networkInterfaces\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '1844',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"6c57386c-fc48-4929-ae2f-476adbe2e628"',
+  'x-ms-request-id': '1e6138b8-0b81-4c96-a7db-6870b8047486',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14995',
+  'x-ms-correlation-request-id': '43044317-44b6-451c-8f18-732f0b5cbfcc',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082352Z:43044317-44b6-451c-8f18-732f0b5cbfcc',
+  date: 'Sun, 29 Jan 2017 08:23:52 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-3631160596-nic?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-3631160596-nic\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-3631160596-nic\",\r\n  \"etag\": \"W/\\\"6c57386c-fc48-4929-ae2f-476adbe2e628\\\"\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"54bfbb7f-d2ce-4da3-a7a1-a96dda4a14c0\",\r\n    \"ipConfigurations\": [\r\n      {\r\n        \"name\": \"ipconfig1485678197400\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/networkInterfaces/xplat-eastu-3631160596-nic/ipConfigurations/ipconfig1485678197400\",\r\n        \"etag\": \"W/\\\"6c57386c-fc48-4929-ae2f-476adbe2e628\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAddress\": \"10.0.1.4\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip\"\r\n          },\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet/subnets/xplat-eastu-3631160596-snet\"\r\n          },\r\n          \"primary\": true,\r\n          \"privateIPAddressVersion\": \"IPv4\"\r\n        }\r\n      }\r\n    ],\r\n    \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\": [],\r\n      \"internalDomainNameSuffix\": \"dwjq3mzyxpqe3mufnr5yaqldtg.bx.internal.cloudapp.net\"\r\n    },\r\n    \"enableAcceleratedNetworking\": false,\r\n    \"enableIPForwarding\": false\r\n  },\r\n  \"type\": \"Microsoft.Network/networkInterfaces\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '1844',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"6c57386c-fc48-4929-ae2f-476adbe2e628"',
+  'x-ms-request-id': '1e6138b8-0b81-4c96-a7db-6870b8047486',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14995',
+  'x-ms-correlation-request-id': '43044317-44b6-451c-8f18-732f0b5cbfcc',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082352Z:43044317-44b6-451c-8f18-732f0b5cbfcc',
+  date: 'Sun, 29 Jan 2017 08:23:52 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip2?api-version=2016-09-01', '*')
+  .reply(201, "{\r\n  \"name\": \"xplat-eastu-3631160596-pip2\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip2\",\r\n  \"etag\": \"W/\\\"e5c6d049-f3e3-46f1-a005-b689904ecc80\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"2971f5cc-3ffe-4074-8f28-f9f8a119b2e3\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-eastu-3631160596-pip2\",\r\n      \"fqdn\": \"xplat-eastu-3631160596-pip2.eastus.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '750',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'retry-after': '3',
+  'x-ms-request-id': 'e37ae852-710f-4384-b284-ff2bd9918b81',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/e37ae852-710f-4384-b284-ff2bd9918b81?api-version=2016-09-01',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-writes': '1199',
+  'x-ms-correlation-request-id': '1149c2c9-0852-45f7-842e-f3c71ffb74ce',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082354Z:1149c2c9-0852-45f7-842e-f3c71ffb74ce',
+  date: 'Sun, 29 Jan 2017 08:23:53 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip2?api-version=2016-09-01', '*')
+  .reply(201, "{\r\n  \"name\": \"xplat-eastu-3631160596-pip2\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip2\",\r\n  \"etag\": \"W/\\\"e5c6d049-f3e3-46f1-a005-b689904ecc80\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Updating\",\r\n    \"resourceGuid\": \"2971f5cc-3ffe-4074-8f28-f9f8a119b2e3\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-eastu-3631160596-pip2\",\r\n      \"fqdn\": \"xplat-eastu-3631160596-pip2.eastus.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '750',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'retry-after': '3',
+  'x-ms-request-id': 'e37ae852-710f-4384-b284-ff2bd9918b81',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/e37ae852-710f-4384-b284-ff2bd9918b81?api-version=2016-09-01',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-writes': '1199',
+  'x-ms-correlation-request-id': '1149c2c9-0852-45f7-842e-f3c71ffb74ce',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082354Z:1149c2c9-0852-45f7-842e-f3c71ffb74ce',
+  date: 'Sun, 29 Jan 2017 08:23:53 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/e37ae852-710f-4384-b284-ff2bd9918b81?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '29',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-request-id': 'a3c621c2-0534-459a-a7d3-845fd6a5f24c',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14997',
+  'x-ms-correlation-request-id': 'b06187d0-9558-432b-832b-28ec7bc31735',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082424Z:b06187d0-9558-432b-832b-28ec7bc31735',
+  date: 'Sun, 29 Jan 2017 08:24:24 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/e37ae852-710f-4384-b284-ff2bd9918b81?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"status\": \"Succeeded\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '29',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-request-id': 'a3c621c2-0534-459a-a7d3-845fd6a5f24c',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14997',
+  'x-ms-correlation-request-id': 'b06187d0-9558-432b-832b-28ec7bc31735',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082424Z:b06187d0-9558-432b-832b-28ec7bc31735',
+  date: 'Sun, 29 Jan 2017 08:24:24 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip2?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-3631160596-pip2\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip2\",\r\n  \"etag\": \"W/\\\"54ba94ee-0d64-4e1b-a9f2-c5f148083769\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"2971f5cc-3ffe-4074-8f28-f9f8a119b2e3\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-eastu-3631160596-pip2\",\r\n      \"fqdn\": \"xplat-eastu-3631160596-pip2.eastus.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '751',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"54ba94ee-0d64-4e1b-a9f2-c5f148083769"',
+  'x-ms-request-id': '38d70841-5f71-4648-86d2-7978afbacd3f',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14998',
+  'x-ms-correlation-request-id': '14a7e04c-7332-4a3d-8cd6-d255201b4146',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082425Z:14a7e04c-7332-4a3d-8cd6-d255201b4146',
+  date: 'Sun, 29 Jan 2017 08:24:24 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip2?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-3631160596-pip2\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip2\",\r\n  \"etag\": \"W/\\\"54ba94ee-0d64-4e1b-a9f2-c5f148083769\\\"\",\r\n  \"type\": \"Microsoft.Network/publicIPAddresses\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"2971f5cc-3ffe-4074-8f28-f9f8a119b2e3\",\r\n    \"publicIPAddressVersion\": \"IPv4\",\r\n    \"publicIPAllocationMethod\": \"Dynamic\",\r\n    \"idleTimeoutInMinutes\": 4,\r\n    \"dnsSettings\": {\r\n      \"domainNameLabel\": \"xplat-eastu-3631160596-pip2\",\r\n      \"fqdn\": \"xplat-eastu-3631160596-pip2.eastus.cloudapp.azure.com\"\r\n    }\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '751',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"54ba94ee-0d64-4e1b-a9f2-c5f148083769"',
+  'x-ms-request-id': '38d70841-5f71-4648-86d2-7978afbacd3f',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14998',
+  'x-ms-correlation-request-id': '14a7e04c-7332-4a3d-8cd6-d255201b4146',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082425Z:14a7e04c-7332-4a3d-8cd6-d255201b4146',
+  date: 'Sun, 29 Jan 2017 08:24:24 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb?api-version=2016-09-01', '*')
+  .reply(201, "{\r\n  \"name\": \"xplat-eastu-3631160596-lb\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb\",\r\n  \"etag\": \"W/\\\"18723e4b-4589-4e2b-8210-98c84d1cd84e\\\"\",\r\n  \"type\": \"Microsoft.Network/loadBalancers\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"b4197dba-fcd7-42af-9029-745d5c0c2c51\",\r\n    \"frontendIPConfigurations\": [\r\n      {\r\n        \"name\": \"loadBalancerFrontEnd\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/frontendIPConfigurations/loadBalancerFrontEnd\",\r\n        \"etag\": \"W/\\\"18723e4b-4589-4e2b-8210-98c84d1cd84e\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip2\"\r\n          },\r\n          \"inboundNatPools\": [\r\n            {\r\n              \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/inboundNatPools/xplat-eastu-3631160596-nat\"\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    ],\r\n    \"backendAddressPools\": [\r\n      {\r\n        \"name\": \"xplat-eastu-3631160596-be\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/backendAddressPools/xplat-eastu-3631160596-be\",\r\n        \"etag\": \"W/\\\"18723e4b-4589-4e2b-8210-98c84d1cd84e\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\"\r\n        }\r\n      }\r\n    ],\r\n    \"loadBalancingRules\": [],\r\n    \"probes\": [],\r\n    \"inboundNatRules\": [],\r\n    \"outboundNatRules\": [],\r\n    \"inboundNatPools\": [\r\n      {\r\n        \"name\": \"xplat-eastu-3631160596-nat\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/inboundNatPools/xplat-eastu-3631160596-nat\",\r\n        \"etag\": \"W/\\\"18723e4b-4589-4e2b-8210-98c84d1cd84e\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"frontendPortRangeStart\": 50000,\r\n          \"frontendPortRangeEnd\": 50099,\r\n          \"backendPort\": 22,\r\n          \"protocol\": \"Tcp\",\r\n          \"frontendIPConfiguration\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/frontendIPConfigurations/loadBalancerFrontEnd\"\r\n          }\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '2981',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-request-id': '9d5f746e-aacd-4617-b7f4-d759e76d76f2',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/9d5f746e-aacd-4617-b7f4-d759e76d76f2?api-version=2016-09-01',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-writes': '1196',
+  'x-ms-correlation-request-id': '2eddb47b-5eb0-4ede-b424-2ad670719190',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082426Z:2eddb47b-5eb0-4ede-b424-2ad670719190',
+  date: 'Sun, 29 Jan 2017 08:24:26 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb?api-version=2016-09-01', '*')
+  .reply(201, "{\r\n  \"name\": \"xplat-eastu-3631160596-lb\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb\",\r\n  \"etag\": \"W/\\\"18723e4b-4589-4e2b-8210-98c84d1cd84e\\\"\",\r\n  \"type\": \"Microsoft.Network/loadBalancers\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"b4197dba-fcd7-42af-9029-745d5c0c2c51\",\r\n    \"frontendIPConfigurations\": [\r\n      {\r\n        \"name\": \"loadBalancerFrontEnd\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/frontendIPConfigurations/loadBalancerFrontEnd\",\r\n        \"etag\": \"W/\\\"18723e4b-4589-4e2b-8210-98c84d1cd84e\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip2\"\r\n          },\r\n          \"inboundNatPools\": [\r\n            {\r\n              \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/inboundNatPools/xplat-eastu-3631160596-nat\"\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    ],\r\n    \"backendAddressPools\": [\r\n      {\r\n        \"name\": \"xplat-eastu-3631160596-be\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/backendAddressPools/xplat-eastu-3631160596-be\",\r\n        \"etag\": \"W/\\\"18723e4b-4589-4e2b-8210-98c84d1cd84e\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\"\r\n        }\r\n      }\r\n    ],\r\n    \"loadBalancingRules\": [],\r\n    \"probes\": [],\r\n    \"inboundNatRules\": [],\r\n    \"outboundNatRules\": [],\r\n    \"inboundNatPools\": [\r\n      {\r\n        \"name\": \"xplat-eastu-3631160596-nat\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/inboundNatPools/xplat-eastu-3631160596-nat\",\r\n        \"etag\": \"W/\\\"18723e4b-4589-4e2b-8210-98c84d1cd84e\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"frontendPortRangeStart\": 50000,\r\n          \"frontendPortRangeEnd\": 50099,\r\n          \"backendPort\": 22,\r\n          \"protocol\": \"Tcp\",\r\n          \"frontendIPConfiguration\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/frontendIPConfigurations/loadBalancerFrontEnd\"\r\n          }\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '2981',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'x-ms-request-id': '9d5f746e-aacd-4617-b7f4-d759e76d76f2',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Network/locations/eastus/operations/9d5f746e-aacd-4617-b7f4-d759e76d76f2?api-version=2016-09-01',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-writes': '1196',
+  'x-ms-correlation-request-id': '2eddb47b-5eb0-4ede-b424-2ad670719190',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082426Z:2eddb47b-5eb0-4ede-b424-2ad670719190',
+  date: 'Sun, 29 Jan 2017 08:24:26 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-3631160596-lb\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb\",\r\n  \"etag\": \"W/\\\"18723e4b-4589-4e2b-8210-98c84d1cd84e\\\"\",\r\n  \"type\": \"Microsoft.Network/loadBalancers\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"b4197dba-fcd7-42af-9029-745d5c0c2c51\",\r\n    \"frontendIPConfigurations\": [\r\n      {\r\n        \"name\": \"loadBalancerFrontEnd\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/frontendIPConfigurations/loadBalancerFrontEnd\",\r\n        \"etag\": \"W/\\\"18723e4b-4589-4e2b-8210-98c84d1cd84e\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip2\"\r\n          },\r\n          \"inboundNatPools\": [\r\n            {\r\n              \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/inboundNatPools/xplat-eastu-3631160596-nat\"\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    ],\r\n    \"backendAddressPools\": [\r\n      {\r\n        \"name\": \"xplat-eastu-3631160596-be\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/backendAddressPools/xplat-eastu-3631160596-be\",\r\n        \"etag\": \"W/\\\"18723e4b-4589-4e2b-8210-98c84d1cd84e\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\"\r\n        }\r\n      }\r\n    ],\r\n    \"loadBalancingRules\": [],\r\n    \"probes\": [],\r\n    \"inboundNatRules\": [],\r\n    \"outboundNatRules\": [],\r\n    \"inboundNatPools\": [\r\n      {\r\n        \"name\": \"xplat-eastu-3631160596-nat\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/inboundNatPools/xplat-eastu-3631160596-nat\",\r\n        \"etag\": \"W/\\\"18723e4b-4589-4e2b-8210-98c84d1cd84e\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"frontendPortRangeStart\": 50000,\r\n          \"frontendPortRangeEnd\": 50099,\r\n          \"backendPort\": 22,\r\n          \"protocol\": \"Tcp\",\r\n          \"frontendIPConfiguration\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/frontendIPConfigurations/loadBalancerFrontEnd\"\r\n          }\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '2981',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"18723e4b-4589-4e2b-8210-98c84d1cd84e"',
+  'x-ms-request-id': 'c104add2-4c34-465c-b25a-ba31c987be4e',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14993',
+  'x-ms-correlation-request-id': 'd5dde344-a376-452b-bbee-38a0cda3d955',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082426Z:d5dde344-a376-452b-bbee-38a0cda3d955',
+  date: 'Sun, 29 Jan 2017 08:24:26 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb?api-version=2016-09-01')
+  .reply(200, "{\r\n  \"name\": \"xplat-eastu-3631160596-lb\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb\",\r\n  \"etag\": \"W/\\\"18723e4b-4589-4e2b-8210-98c84d1cd84e\\\"\",\r\n  \"type\": \"Microsoft.Network/loadBalancers\",\r\n  \"location\": \"eastus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\": \"b4197dba-fcd7-42af-9029-745d5c0c2c51\",\r\n    \"frontendIPConfigurations\": [\r\n      {\r\n        \"name\": \"loadBalancerFrontEnd\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/frontendIPConfigurations/loadBalancerFrontEnd\",\r\n        \"etag\": \"W/\\\"18723e4b-4589-4e2b-8210-98c84d1cd84e\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"privateIPAllocationMethod\": \"Dynamic\",\r\n          \"publicIPAddress\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/publicIPAddresses/xplat-eastu-3631160596-pip2\"\r\n          },\r\n          \"inboundNatPools\": [\r\n            {\r\n              \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/inboundNatPools/xplat-eastu-3631160596-nat\"\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    ],\r\n    \"backendAddressPools\": [\r\n      {\r\n        \"name\": \"xplat-eastu-3631160596-be\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/backendAddressPools/xplat-eastu-3631160596-be\",\r\n        \"etag\": \"W/\\\"18723e4b-4589-4e2b-8210-98c84d1cd84e\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\"\r\n        }\r\n      }\r\n    ],\r\n    \"loadBalancingRules\": [],\r\n    \"probes\": [],\r\n    \"inboundNatRules\": [],\r\n    \"outboundNatRules\": [],\r\n    \"inboundNatPools\": [\r\n      {\r\n        \"name\": \"xplat-eastu-3631160596-nat\",\r\n        \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/inboundNatPools/xplat-eastu-3631160596-nat\",\r\n        \"etag\": \"W/\\\"18723e4b-4589-4e2b-8210-98c84d1cd84e\\\"\",\r\n        \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n          \"frontendPortRangeStart\": 50000,\r\n          \"frontendPortRangeEnd\": 50099,\r\n          \"backendPort\": 22,\r\n          \"protocol\": \"Tcp\",\r\n          \"frontendIPConfiguration\": {\r\n            \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/frontendIPConfigurations/loadBalancerFrontEnd\"\r\n          }\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '2981',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  etag: 'W/"18723e4b-4589-4e2b-8210-98c84d1cd84e"',
+  'x-ms-request-id': 'c104add2-4c34-465c-b25a-ba31c987be4e',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14993',
+  'x-ms-correlation-request-id': 'd5dde344-a376-452b-bbee-38a0cda3d955',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082426Z:d5dde344-a376-452b-bbee-38a0cda3d955',
+  date: 'Sun, 29 Jan 2017 08:24:26 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto03631160?api-version=2016-01-01', '*')
+  .reply(202, "", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '0',
+  expires: '-1',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/e780e78e-1803-4d7d-a825-d417c7bfa213?monitor=true&api-version=2016-01-01',
+  'retry-after': '17',
+  'x-ms-ratelimit-remaining-subscription-writes': '1199',
+  'x-ms-request-id': 'f65c91a5-75d3-4080-a6da-7984b4215426',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-correlation-request-id': 'f65c91a5-75d3-4080-a6da-7984b4215426',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082427Z:f65c91a5-75d3-4080-a6da-7984b4215426',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:24:27 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto03631160?api-version=2016-01-01', '*')
+  .reply(202, "", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '0',
+  expires: '-1',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/e780e78e-1803-4d7d-a825-d417c7bfa213?monitor=true&api-version=2016-01-01',
+  'retry-after': '17',
+  'x-ms-ratelimit-remaining-subscription-writes': '1199',
+  'x-ms-request-id': 'f65c91a5-75d3-4080-a6da-7984b4215426',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-correlation-request-id': 'f65c91a5-75d3-4080-a6da-7984b4215426',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082427Z:f65c91a5-75d3-4080-a6da-7984b4215426',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:24:27 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/e780e78e-1803-4d7d-a825-d417c7bfa213?monitor=true&api-version=2016-01-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplattestvmsscreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto03631160\",\"kind\":\"Storage\",\"location\":\"eastus\",\"name\":\"xplattestvmsssto03631160\",\"properties\":{\"creationTime\":\"2017-01-29T08:24:27.6901853Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmsssto03631160.blob.core.windows.net/\"},\"primaryLocation\":\"eastus\",\"provisioningState\":\"Succeeded\",\"statusOfPrimary\":\"available\"},\"sku\":{\"name\":\"Premium_LRS\",\"tier\":\"Premium\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '575',
+  'content-type': 'application/json',
+  expires: '-1',
+  'x-ms-request-id': '790acbc9-6816-4d4b-a7c8-ef06fab84402',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14997',
+  'x-ms-correlation-request-id': '790acbc9-6816-4d4b-a7c8-ef06fab84402',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082458Z:790acbc9-6816-4d4b-a7c8-ef06fab84402',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:24:58 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/e780e78e-1803-4d7d-a825-d417c7bfa213?monitor=true&api-version=2016-01-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplattestvmsscreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto03631160\",\"kind\":\"Storage\",\"location\":\"eastus\",\"name\":\"xplattestvmsssto03631160\",\"properties\":{\"creationTime\":\"2017-01-29T08:24:27.6901853Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmsssto03631160.blob.core.windows.net/\"},\"primaryLocation\":\"eastus\",\"provisioningState\":\"Succeeded\",\"statusOfPrimary\":\"available\"},\"sku\":{\"name\":\"Premium_LRS\",\"tier\":\"Premium\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '575',
+  'content-type': 'application/json',
+  expires: '-1',
+  'x-ms-request-id': '790acbc9-6816-4d4b-a7c8-ef06fab84402',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14997',
+  'x-ms-correlation-request-id': '790acbc9-6816-4d4b-a7c8-ef06fab84402',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082458Z:790acbc9-6816-4d4b-a7c8-ef06fab84402',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:24:58 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto13631160?api-version=2016-01-01', '*')
+  .reply(202, "", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '0',
+  expires: '-1',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/f416efaf-f05a-4f66-bcb2-a8630337aa7d?monitor=true&api-version=2016-01-01',
+  'retry-after': '17',
+  'x-ms-ratelimit-remaining-subscription-writes': '1199',
+  'x-ms-request-id': '5213aaa3-8a93-40ff-ad5d-eb02f122a7b2',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-correlation-request-id': '5213aaa3-8a93-40ff-ad5d-eb02f122a7b2',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082459Z:5213aaa3-8a93-40ff-ad5d-eb02f122a7b2',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:24:58 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto13631160?api-version=2016-01-01', '*')
+  .reply(202, "", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '0',
+  expires: '-1',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/f416efaf-f05a-4f66-bcb2-a8630337aa7d?monitor=true&api-version=2016-01-01',
+  'retry-after': '17',
+  'x-ms-ratelimit-remaining-subscription-writes': '1199',
+  'x-ms-request-id': '5213aaa3-8a93-40ff-ad5d-eb02f122a7b2',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-correlation-request-id': '5213aaa3-8a93-40ff-ad5d-eb02f122a7b2',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082459Z:5213aaa3-8a93-40ff-ad5d-eb02f122a7b2',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:24:58 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/f416efaf-f05a-4f66-bcb2-a8630337aa7d?monitor=true&api-version=2016-01-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplattestvmsscreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto13631160\",\"kind\":\"Storage\",\"location\":\"eastus\",\"name\":\"xplattestvmsssto13631160\",\"properties\":{\"creationTime\":\"2017-01-29T08:24:58.9988529Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmsssto13631160.blob.core.windows.net/\"},\"primaryLocation\":\"eastus\",\"provisioningState\":\"Succeeded\",\"statusOfPrimary\":\"available\"},\"sku\":{\"name\":\"Premium_LRS\",\"tier\":\"Premium\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '575',
+  'content-type': 'application/json',
+  expires: '-1',
+  'x-ms-request-id': 'aa0bdfdb-0169-46c5-8658-69817cbd5abb',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14991',
+  'x-ms-correlation-request-id': 'aa0bdfdb-0169-46c5-8658-69817cbd5abb',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082529Z:aa0bdfdb-0169-46c5-8658-69817cbd5abb',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:25:29 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/f416efaf-f05a-4f66-bcb2-a8630337aa7d?monitor=true&api-version=2016-01-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplattestvmsscreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto13631160\",\"kind\":\"Storage\",\"location\":\"eastus\",\"name\":\"xplattestvmsssto13631160\",\"properties\":{\"creationTime\":\"2017-01-29T08:24:58.9988529Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmsssto13631160.blob.core.windows.net/\"},\"primaryLocation\":\"eastus\",\"provisioningState\":\"Succeeded\",\"statusOfPrimary\":\"available\"},\"sku\":{\"name\":\"Premium_LRS\",\"tier\":\"Premium\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '575',
+  'content-type': 'application/json',
+  expires: '-1',
+  'x-ms-request-id': 'aa0bdfdb-0169-46c5-8658-69817cbd5abb',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14991',
+  'x-ms-correlation-request-id': 'aa0bdfdb-0169-46c5-8658-69817cbd5abb',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082529Z:aa0bdfdb-0169-46c5-8658-69817cbd5abb',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:25:29 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto23631160?api-version=2016-01-01', '*')
+  .reply(202, "", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '0',
+  expires: '-1',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/1ea526b9-c6cc-4bd1-9626-192ea9fc0ef5?monitor=true&api-version=2016-01-01',
+  'retry-after': '17',
+  'x-ms-ratelimit-remaining-subscription-writes': '1197',
+  'x-ms-request-id': '65f21225-84ec-4858-8797-e64d8952ebfb',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-correlation-request-id': '65f21225-84ec-4858-8797-e64d8952ebfb',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082530Z:65f21225-84ec-4858-8797-e64d8952ebfb',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:25:30 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto23631160?api-version=2016-01-01', '*')
+  .reply(202, "", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '0',
+  expires: '-1',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/1ea526b9-c6cc-4bd1-9626-192ea9fc0ef5?monitor=true&api-version=2016-01-01',
+  'retry-after': '17',
+  'x-ms-ratelimit-remaining-subscription-writes': '1197',
+  'x-ms-request-id': '65f21225-84ec-4858-8797-e64d8952ebfb',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-correlation-request-id': '65f21225-84ec-4858-8797-e64d8952ebfb',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082530Z:65f21225-84ec-4858-8797-e64d8952ebfb',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:25:30 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/1ea526b9-c6cc-4bd1-9626-192ea9fc0ef5?monitor=true&api-version=2016-01-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplattestvmsscreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto23631160\",\"kind\":\"Storage\",\"location\":\"eastus\",\"name\":\"xplattestvmsssto23631160\",\"properties\":{\"creationTime\":\"2017-01-29T08:25:30.5188179Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmsssto23631160.blob.core.windows.net/\"},\"primaryLocation\":\"eastus\",\"provisioningState\":\"Succeeded\",\"statusOfPrimary\":\"available\"},\"sku\":{\"name\":\"Premium_LRS\",\"tier\":\"Premium\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '575',
+  'content-type': 'application/json',
+  expires: '-1',
+  'x-ms-request-id': 'c24ac977-5898-4a32-93fa-73f8df8e0a85',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14994',
+  'x-ms-correlation-request-id': 'c24ac977-5898-4a32-93fa-73f8df8e0a85',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082601Z:c24ac977-5898-4a32-93fa-73f8df8e0a85',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:26:01 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/1ea526b9-c6cc-4bd1-9626-192ea9fc0ef5?monitor=true&api-version=2016-01-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplattestvmsscreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto23631160\",\"kind\":\"Storage\",\"location\":\"eastus\",\"name\":\"xplattestvmsssto23631160\",\"properties\":{\"creationTime\":\"2017-01-29T08:25:30.5188179Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmsssto23631160.blob.core.windows.net/\"},\"primaryLocation\":\"eastus\",\"provisioningState\":\"Succeeded\",\"statusOfPrimary\":\"available\"},\"sku\":{\"name\":\"Premium_LRS\",\"tier\":\"Premium\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '575',
+  'content-type': 'application/json',
+  expires: '-1',
+  'x-ms-request-id': 'c24ac977-5898-4a32-93fa-73f8df8e0a85',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14994',
+  'x-ms-correlation-request-id': 'c24ac977-5898-4a32-93fa-73f8df8e0a85',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082601Z:c24ac977-5898-4a32-93fa-73f8df8e0a85',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:26:01 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto33631160?api-version=2016-01-01', '*')
+  .reply(202, "", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '0',
+  expires: '-1',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/a464e198-e6c4-4999-90bf-dfb3b9346163?monitor=true&api-version=2016-01-01',
+  'retry-after': '17',
+  'x-ms-ratelimit-remaining-subscription-writes': '1198',
+  'x-ms-request-id': 'a7b36ef7-e8db-40f2-8f54-3aa864513a76',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-correlation-request-id': 'a7b36ef7-e8db-40f2-8f54-3aa864513a76',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082602Z:a7b36ef7-e8db-40f2-8f54-3aa864513a76',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:26:02 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto33631160?api-version=2016-01-01', '*')
+  .reply(202, "", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '0',
+  expires: '-1',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/a464e198-e6c4-4999-90bf-dfb3b9346163?monitor=true&api-version=2016-01-01',
+  'retry-after': '17',
+  'x-ms-ratelimit-remaining-subscription-writes': '1198',
+  'x-ms-request-id': 'a7b36ef7-e8db-40f2-8f54-3aa864513a76',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-correlation-request-id': 'a7b36ef7-e8db-40f2-8f54-3aa864513a76',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082602Z:a7b36ef7-e8db-40f2-8f54-3aa864513a76',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:26:02 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/a464e198-e6c4-4999-90bf-dfb3b9346163?monitor=true&api-version=2016-01-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplattestvmsscreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto33631160\",\"kind\":\"Storage\",\"location\":\"eastus\",\"name\":\"xplattestvmsssto33631160\",\"properties\":{\"creationTime\":\"2017-01-29T08:26:02.1834213Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmsssto33631160.blob.core.windows.net/\"},\"primaryLocation\":\"eastus\",\"provisioningState\":\"Succeeded\",\"statusOfPrimary\":\"available\"},\"sku\":{\"name\":\"Premium_LRS\",\"tier\":\"Premium\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '575',
+  'content-type': 'application/json',
+  expires: '-1',
+  'x-ms-request-id': '6cae317c-7158-4ae3-a453-02ab2e7a80e7',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14987',
+  'x-ms-correlation-request-id': '6cae317c-7158-4ae3-a453-02ab2e7a80e7',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082632Z:6cae317c-7158-4ae3-a453-02ab2e7a80e7',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:26:32 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/a464e198-e6c4-4999-90bf-dfb3b9346163?monitor=true&api-version=2016-01-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplattestvmsscreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto33631160\",\"kind\":\"Storage\",\"location\":\"eastus\",\"name\":\"xplattestvmsssto33631160\",\"properties\":{\"creationTime\":\"2017-01-29T08:26:02.1834213Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmsssto33631160.blob.core.windows.net/\"},\"primaryLocation\":\"eastus\",\"provisioningState\":\"Succeeded\",\"statusOfPrimary\":\"available\"},\"sku\":{\"name\":\"Premium_LRS\",\"tier\":\"Premium\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '575',
+  'content-type': 'application/json',
+  expires: '-1',
+  'x-ms-request-id': '6cae317c-7158-4ae3-a453-02ab2e7a80e7',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14987',
+  'x-ms-correlation-request-id': '6cae317c-7158-4ae3-a453-02ab2e7a80e7',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082632Z:6cae317c-7158-4ae3-a453-02ab2e7a80e7',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:26:32 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto43631160?api-version=2016-01-01', '*')
+  .reply(202, "", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '0',
+  expires: '-1',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/4a63168b-5edc-48d0-8207-8930bb099e01?monitor=true&api-version=2016-01-01',
+  'retry-after': '17',
+  'x-ms-ratelimit-remaining-subscription-writes': '1195',
+  'x-ms-request-id': '604007a9-30c3-4456-ae9a-a4eb87e32ab2',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-correlation-request-id': '604007a9-30c3-4456-ae9a-a4eb87e32ab2',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082634Z:604007a9-30c3-4456-ae9a-a4eb87e32ab2',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:26:33 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto43631160?api-version=2016-01-01', '*')
+  .reply(202, "", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '0',
+  expires: '-1',
+  location: 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/4a63168b-5edc-48d0-8207-8930bb099e01?monitor=true&api-version=2016-01-01',
+  'retry-after': '17',
+  'x-ms-ratelimit-remaining-subscription-writes': '1195',
+  'x-ms-request-id': '604007a9-30c3-4456-ae9a-a4eb87e32ab2',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-correlation-request-id': '604007a9-30c3-4456-ae9a-a4eb87e32ab2',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082634Z:604007a9-30c3-4456-ae9a-a4eb87e32ab2',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:26:33 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/4a63168b-5edc-48d0-8207-8930bb099e01?monitor=true&api-version=2016-01-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplattestvmsscreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto43631160\",\"kind\":\"Storage\",\"location\":\"eastus\",\"name\":\"xplattestvmsssto43631160\",\"properties\":{\"creationTime\":\"2017-01-29T08:26:33.8095691Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmsssto43631160.blob.core.windows.net/\"},\"primaryLocation\":\"eastus\",\"provisioningState\":\"Succeeded\",\"statusOfPrimary\":\"available\"},\"sku\":{\"name\":\"Premium_LRS\",\"tier\":\"Premium\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '575',
+  'content-type': 'application/json',
+  expires: '-1',
+  'x-ms-request-id': 'a9573bd2-b022-44c9-8847-59d155a9256c',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14992',
+  'x-ms-correlation-request-id': 'a9573bd2-b022-44c9-8847-59d155a9256c',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082704Z:a9573bd2-b022-44c9-8847-59d155a9256c',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:27:04 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Storage/operations/4a63168b-5edc-48d0-8207-8930bb099e01?monitor=true&api-version=2016-01-01')
+  .reply(200, "{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplattestvmsscreate2582/providers/Microsoft.Storage/storageAccounts/xplattestvmsssto43631160\",\"kind\":\"Storage\",\"location\":\"eastus\",\"name\":\"xplattestvmsssto43631160\",\"properties\":{\"creationTime\":\"2017-01-29T08:26:33.8095691Z\",\"primaryEndpoints\":{\"blob\":\"https://xplattestvmsssto43631160.blob.core.windows.net/\"},\"primaryLocation\":\"eastus\",\"provisioningState\":\"Succeeded\",\"statusOfPrimary\":\"available\"},\"sku\":{\"name\":\"Premium_LRS\",\"tier\":\"Premium\"},\"tags\":{},\"type\":\"Microsoft.Storage/storageAccounts\"}\n", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '575',
+  'content-type': 'application/json',
+  expires: '-1',
+  'x-ms-request-id': 'a9573bd2-b022-44c9-8847-59d155a9256c',
+  server: 'Microsoft-Azure-Storage-Resource-Provider/1.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14992',
+  'x-ms-correlation-request-id': 'a9573bd2-b022-44c9-8847-59d155a9256c',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082704Z:a9573bd2-b022-44c9-8847-59d155a9256c',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  date: 'Sun, 29 Jan 2017 08:27:04 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss?api-version=2016-04-30-preview', '*')
+  .reply(201, "{\r\n  \"sku\": {\r\n    \"name\": \"Standard_DS1\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 5\r\n  },\r\n  \"properties\": {\r\n    \"singlePlacementGroup\": true,\r\n    \"upgradePolicy\": {\r\n      \"mode\": \"Manual\"\r\n    },\r\n    \"virtualMachineProfile\": {\r\n      \"osProfile\": {\r\n        \"computerNamePrefix\": \"xplattest\",\r\n        \"adminUsername\": \"azureuser\",\r\n        \"windowsConfiguration\": {\r\n          \"provisionVMAgent\": true,\r\n          \"enableAutomaticUpdates\": true\r\n        },\r\n        \"secrets\": []\r\n      },\r\n      \"storageProfile\": {\r\n        \"osDisk\": {\r\n          \"vhdContainers\": [\r\n            \"https://xplattestvmsssto03631160.blob.core.windows.net/xplat-eastu-3631160596-disk-container\",\r\n            \"https://xplattestvmsssto13631160.blob.core.windows.net/xplat-eastu-3631160596-disk-container\",\r\n            \"https://xplattestvmsssto23631160.blob.core.windows.net/xplat-eastu-3631160596-disk-container\",\r\n            \"https://xplattestvmsssto33631160.blob.core.windows.net/xplat-eastu-3631160596-disk-container\",\r\n            \"https://xplattestvmsssto43631160.blob.core.windows.net/xplat-eastu-3631160596-disk-container\"\r\n          ],\r\n          \"name\": \"xplat-eastu-3631160596-os-disk\",\r\n          \"createOption\": \"FromImage\",\r\n          \"caching\": \"ReadOnly\"\r\n        },\r\n        \"imageReference\": {\r\n          \"publisher\": \"MicrosoftWindowsServer\",\r\n          \"offer\": \"WindowsServer\",\r\n          \"sku\": \"2008-R2-SP1\",\r\n          \"version\": \"latest\"\r\n        }\r\n      },\r\n      \"networkProfile\": {\"networkInterfaceConfigurations\":[{\"name\":\"xplat-eastu-3631160596-nic\",\"properties\":{\"primary\":true,\"ipConfigurations\":[{\"name\":\"xplat-eastu-3631160596-pip\",\"properties\":{\"subnet\":{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet/subnets/xplat-eastu-3631160596-snet\"},\"loadBalancerBackendAddressPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/backendAddressPools/xplat-eastu-3631160596-be\"}],\"loadBalancerInboundNatPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/inboundNatPools/xplat-eastu-3631160596-nat\"}]}}]}}]}\r\n    },\r\n    \"provisioningState\": \"Creating\",\r\n    \"overprovision\": false,\r\n    \"uniqueId\": \"19e8c476-1511-4b9d-a68d-5d7b3641d590\"\r\n  },\r\n  \"type\": \"Microsoft.Compute/virtualMachineScaleSets\",\r\n  \"location\": \"eastus\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss\",\r\n  \"name\": \"xplattestvmss\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '2804',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '6fa0e81a-b71c-4e9e-969a-ee652d956e41',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-writes': '1199',
+  'x-ms-correlation-request-id': '2602c19a-6fc6-4974-8b5c-15b143bce2b9',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082706Z:2602c19a-6fc6-4974-8b5c-15b143bce2b9',
+  date: 'Sun, 29 Jan 2017 08:27:05 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .filteringRequestBody(function (path) { return '*';})
+.put('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss?api-version=2016-04-30-preview', '*')
+  .reply(201, "{\r\n  \"sku\": {\r\n    \"name\": \"Standard_DS1\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 5\r\n  },\r\n  \"properties\": {\r\n    \"singlePlacementGroup\": true,\r\n    \"upgradePolicy\": {\r\n      \"mode\": \"Manual\"\r\n    },\r\n    \"virtualMachineProfile\": {\r\n      \"osProfile\": {\r\n        \"computerNamePrefix\": \"xplattest\",\r\n        \"adminUsername\": \"azureuser\",\r\n        \"windowsConfiguration\": {\r\n          \"provisionVMAgent\": true,\r\n          \"enableAutomaticUpdates\": true\r\n        },\r\n        \"secrets\": []\r\n      },\r\n      \"storageProfile\": {\r\n        \"osDisk\": {\r\n          \"vhdContainers\": [\r\n            \"https://xplattestvmsssto03631160.blob.core.windows.net/xplat-eastu-3631160596-disk-container\",\r\n            \"https://xplattestvmsssto13631160.blob.core.windows.net/xplat-eastu-3631160596-disk-container\",\r\n            \"https://xplattestvmsssto23631160.blob.core.windows.net/xplat-eastu-3631160596-disk-container\",\r\n            \"https://xplattestvmsssto33631160.blob.core.windows.net/xplat-eastu-3631160596-disk-container\",\r\n            \"https://xplattestvmsssto43631160.blob.core.windows.net/xplat-eastu-3631160596-disk-container\"\r\n          ],\r\n          \"name\": \"xplat-eastu-3631160596-os-disk\",\r\n          \"createOption\": \"FromImage\",\r\n          \"caching\": \"ReadOnly\"\r\n        },\r\n        \"imageReference\": {\r\n          \"publisher\": \"MicrosoftWindowsServer\",\r\n          \"offer\": \"WindowsServer\",\r\n          \"sku\": \"2008-R2-SP1\",\r\n          \"version\": \"latest\"\r\n        }\r\n      },\r\n      \"networkProfile\": {\"networkInterfaceConfigurations\":[{\"name\":\"xplat-eastu-3631160596-nic\",\"properties\":{\"primary\":true,\"ipConfigurations\":[{\"name\":\"xplat-eastu-3631160596-pip\",\"properties\":{\"subnet\":{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet/subnets/xplat-eastu-3631160596-snet\"},\"loadBalancerBackendAddressPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/backendAddressPools/xplat-eastu-3631160596-be\"}],\"loadBalancerInboundNatPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/inboundNatPools/xplat-eastu-3631160596-nat\"}]}}]}}]}\r\n    },\r\n    \"provisioningState\": \"Creating\",\r\n    \"overprovision\": false,\r\n    \"uniqueId\": \"19e8c476-1511-4b9d-a68d-5d7b3641d590\"\r\n  },\r\n  \"type\": \"Microsoft.Compute/virtualMachineScaleSets\",\r\n  \"location\": \"eastus\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss\",\r\n  \"name\": \"xplattestvmss\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '2804',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '6fa0e81a-b71c-4e9e-969a-ee652d956e41',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-writes': '1199',
+  'x-ms-correlation-request-id': '2602c19a-6fc6-4974-8b5c-15b143bce2b9',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082706Z:2602c19a-6fc6-4974-8b5c-15b143bce2b9',
+  date: 'Sun, 29 Jan 2017 08:27:05 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '387e0426-3744-4105-bf19-2a16ab8c6cde',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14991',
+  'x-ms-correlation-request-id': 'bcbda988-a48e-4357-9ef7-3a84423deb2a',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082736Z:bcbda988-a48e-4357-9ef7-3a84423deb2a',
+  date: 'Sun, 29 Jan 2017 08:27:36 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '387e0426-3744-4105-bf19-2a16ab8c6cde',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14991',
+  'x-ms-correlation-request-id': 'bcbda988-a48e-4357-9ef7-3a84423deb2a',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082736Z:bcbda988-a48e-4357-9ef7-3a84423deb2a',
+  date: 'Sun, 29 Jan 2017 08:27:36 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '5a8b65d3-4b89-4992-8426-b9e7992d5d60',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14996',
+  'x-ms-correlation-request-id': 'e306eb2f-5812-4e2e-b151-cb2a3b640f0a',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082807Z:e306eb2f-5812-4e2e-b151-cb2a3b640f0a',
+  date: 'Sun, 29 Jan 2017 08:28:06 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '5a8b65d3-4b89-4992-8426-b9e7992d5d60',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14996',
+  'x-ms-correlation-request-id': 'e306eb2f-5812-4e2e-b151-cb2a3b640f0a',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082807Z:e306eb2f-5812-4e2e-b151-cb2a3b640f0a',
+  date: 'Sun, 29 Jan 2017 08:28:06 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': 'a0cdf8d2-a7f6-43e4-ae20-e0bbaea346e5',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14962',
+  'x-ms-correlation-request-id': '65ce5b24-1a66-4064-b408-bc0f11105ed8',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082837Z:65ce5b24-1a66-4064-b408-bc0f11105ed8',
+  date: 'Sun, 29 Jan 2017 08:28:36 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': 'a0cdf8d2-a7f6-43e4-ae20-e0bbaea346e5',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14962',
+  'x-ms-correlation-request-id': '65ce5b24-1a66-4064-b408-bc0f11105ed8',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T082837Z:65ce5b24-1a66-4064-b408-bc0f11105ed8',
+  date: 'Sun, 29 Jan 2017 08:28:36 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': 'fbc5fa3e-4c1e-4229-9598-0e479721c3eb',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14988',
+  'x-ms-correlation-request-id': 'bf952b50-602d-4780-b69c-7564bc814a95',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082907Z:bf952b50-602d-4780-b69c-7564bc814a95',
+  date: 'Sun, 29 Jan 2017 08:29:06 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': 'fbc5fa3e-4c1e-4229-9598-0e479721c3eb',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14988',
+  'x-ms-correlation-request-id': 'bf952b50-602d-4780-b69c-7564bc814a95',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082907Z:bf952b50-602d-4780-b69c-7564bc814a95',
+  date: 'Sun, 29 Jan 2017 08:29:06 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': 'aa80886c-22de-4d22-af75-07f107c37fd8',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14988',
+  'x-ms-correlation-request-id': 'b01d0d63-5278-4ff6-8f8b-a96f91a52e5f',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082938Z:b01d0d63-5278-4ff6-8f8b-a96f91a52e5f',
+  date: 'Sun, 29 Jan 2017 08:29:37 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': 'aa80886c-22de-4d22-af75-07f107c37fd8',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14988',
+  'x-ms-correlation-request-id': 'b01d0d63-5278-4ff6-8f8b-a96f91a52e5f',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T082938Z:b01d0d63-5278-4ff6-8f8b-a96f91a52e5f',
+  date: 'Sun, 29 Jan 2017 08:29:37 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '37b06e49-b3a7-4b52-a1fb-4ad8fedd7372',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14994',
+  'x-ms-correlation-request-id': '532829e3-47c2-4415-8c2b-327777b9c8f6',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T083008Z:532829e3-47c2-4415-8c2b-327777b9c8f6',
+  date: 'Sun, 29 Jan 2017 08:30:07 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '37b06e49-b3a7-4b52-a1fb-4ad8fedd7372',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14994',
+  'x-ms-correlation-request-id': '532829e3-47c2-4415-8c2b-327777b9c8f6',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T083008Z:532829e3-47c2-4415-8c2b-327777b9c8f6',
+  date: 'Sun, 29 Jan 2017 08:30:07 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '40dd889d-1dd0-4ef4-a843-4f16682c024f',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14987',
+  'x-ms-correlation-request-id': '28347431-abb9-430c-98cf-39c477e00244',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T083039Z:28347431-abb9-430c-98cf-39c477e00244',
+  date: 'Sun, 29 Jan 2017 08:30:38 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '40dd889d-1dd0-4ef4-a843-4f16682c024f',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14987',
+  'x-ms-correlation-request-id': '28347431-abb9-430c-98cf-39c477e00244',
+  'x-ms-routing-request-id': 'WESTUS2:20170129T083039Z:28347431-abb9-430c-98cf-39c477e00244',
+  date: 'Sun, 29 Jan 2017 08:30:38 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '52667d1b-ffbe-4e2e-bdd7-512b82260f33',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14993',
+  'x-ms-correlation-request-id': '9204fc6f-87e9-41de-83f9-1dced313dec8',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T083109Z:9204fc6f-87e9-41de-83f9-1dced313dec8',
+  date: 'Sun, 29 Jan 2017 08:31:08 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '52667d1b-ffbe-4e2e-bdd7-512b82260f33',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14993',
+  'x-ms-correlation-request-id': '9204fc6f-87e9-41de-83f9-1dced313dec8',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T083109Z:9204fc6f-87e9-41de-83f9-1dced313dec8',
+  date: 'Sun, 29 Jan 2017 08:31:08 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '06232c80-dcc5-4e3a-a7ff-4331e217d6be',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14994',
+  'x-ms-correlation-request-id': 'e2b080bf-92e6-466c-8378-b675fe943383',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T083140Z:e2b080bf-92e6-466c-8378-b675fe943383',
+  date: 'Sun, 29 Jan 2017 08:31:40 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '06232c80-dcc5-4e3a-a7ff-4331e217d6be',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14994',
+  'x-ms-correlation-request-id': 'e2b080bf-92e6-466c-8378-b675fe943383',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T083140Z:e2b080bf-92e6-466c-8378-b675fe943383',
+  date: 'Sun, 29 Jan 2017 08:31:40 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '77da6733-63b6-4e59-9c1e-bfdc79d1ae60',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14993',
+  'x-ms-correlation-request-id': '64e64594-889f-44dc-856a-d107188c8c44',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T083210Z:64e64594-889f-44dc-856a-d107188c8c44',
+  date: 'Sun, 29 Jan 2017 08:32:09 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '77da6733-63b6-4e59-9c1e-bfdc79d1ae60',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14993',
+  'x-ms-correlation-request-id': '64e64594-889f-44dc-856a-d107188c8c44',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T083210Z:64e64594-889f-44dc-856a-d107188c8c44',
+  date: 'Sun, 29 Jan 2017 08:32:09 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '9e625edd-bc3e-44f3-8653-7000da2b5788',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14985',
+  'x-ms-correlation-request-id': '2f970cdf-800e-43b2-9c33-8785232dbaa8',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T083241Z:2f970cdf-800e-43b2-9c33-8785232dbaa8',
+  date: 'Sun, 29 Jan 2017 08:32:40 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '9e625edd-bc3e-44f3-8653-7000da2b5788',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14985',
+  'x-ms-correlation-request-id': '2f970cdf-800e-43b2-9c33-8785232dbaa8',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T083241Z:2f970cdf-800e-43b2-9c33-8785232dbaa8',
+  date: 'Sun, 29 Jan 2017 08:32:40 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': 'a8d893e2-898e-4202-ab7b-6ed371b6764d',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14993',
+  'x-ms-correlation-request-id': 'f679112a-465d-432e-960d-f2cf395fa470',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T083311Z:f679112a-465d-432e-960d-f2cf395fa470',
+  date: 'Sun, 29 Jan 2017 08:33:11 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"status\": \"InProgress\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '134',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': 'a8d893e2-898e-4202-ab7b-6ed371b6764d',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14993',
+  'x-ms-correlation-request-id': 'f679112a-465d-432e-960d-f2cf395fa470',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T083311Z:f679112a-465d-432e-960d-f2cf395fa470',
+  date: 'Sun, 29 Jan 2017 08:33:11 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"endTime\": \"2017-01-29T08:33:20.9910337+00:00\",\r\n  \"status\": \"Succeeded\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '184',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '39b434d3-af85-473d-80f5-e3bdfedef84b',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14999',
+  'x-ms-correlation-request-id': 'fd2112a8-64f1-4ec4-9c34-4557a5ad6335',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T083342Z:fd2112a8-64f1-4ec4-9c34-4557a5ad6335',
+  date: 'Sun, 29 Jan 2017 08:33:41 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/providers/Microsoft.Compute/locations/eastus/operations/6fa0e81a-b71c-4e9e-969a-ee652d956e41?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"startTime\": \"2017-01-29T08:27:05.9863604+00:00\",\r\n  \"endTime\": \"2017-01-29T08:33:20.9910337+00:00\",\r\n  \"status\": \"Succeeded\",\r\n  \"name\": \"6fa0e81a-b71c-4e9e-969a-ee652d956e41\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '184',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '39b434d3-af85-473d-80f5-e3bdfedef84b',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14999',
+  'x-ms-correlation-request-id': 'fd2112a8-64f1-4ec4-9c34-4557a5ad6335',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T083342Z:fd2112a8-64f1-4ec4-9c34-4557a5ad6335',
+  date: 'Sun, 29 Jan 2017 08:33:41 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('http://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"sku\": {\r\n    \"name\": \"Standard_DS1\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 5\r\n  },\r\n  \"properties\": {\r\n    \"singlePlacementGroup\": true,\r\n    \"upgradePolicy\": {\r\n      \"mode\": \"Manual\"\r\n    },\r\n    \"virtualMachineProfile\": {\r\n      \"osProfile\": {\r\n        \"computerNamePrefix\": \"xplattest\",\r\n        \"adminUsername\": \"azureuser\",\r\n        \"windowsConfiguration\": {\r\n          \"provisionVMAgent\": true,\r\n          \"enableAutomaticUpdates\": true\r\n        },\r\n        \"secrets\": []\r\n      },\r\n      \"storageProfile\": {\r\n        \"osDisk\": {\r\n          \"vhdContainers\": [\r\n            \"https://xplattestvmsssto03631160.blob.core.windows.net/xplat-eastu-3631160596-disk-container\",\r\n            \"https://xplattestvmsssto13631160.blob.core.windows.net/xplat-eastu-3631160596-disk-container\",\r\n            \"https://xplattestvmsssto23631160.blob.core.windows.net/xplat-eastu-3631160596-disk-container\",\r\n            \"https://xplattestvmsssto33631160.blob.core.windows.net/xplat-eastu-3631160596-disk-container\",\r\n            \"https://xplattestvmsssto43631160.blob.core.windows.net/xplat-eastu-3631160596-disk-container\"\r\n          ],\r\n          \"name\": \"xplat-eastu-3631160596-os-disk\",\r\n          \"createOption\": \"FromImage\",\r\n          \"caching\": \"ReadOnly\"\r\n        },\r\n        \"imageReference\": {\r\n          \"publisher\": \"MicrosoftWindowsServer\",\r\n          \"offer\": \"WindowsServer\",\r\n          \"sku\": \"2008-R2-SP1\",\r\n          \"version\": \"latest\"\r\n        }\r\n      },\r\n      \"networkProfile\": {\"networkInterfaceConfigurations\":[{\"name\":\"xplat-eastu-3631160596-nic\",\"properties\":{\"primary\":true,\"ipConfigurations\":[{\"name\":\"xplat-eastu-3631160596-pip\",\"properties\":{\"subnet\":{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet/subnets/xplat-eastu-3631160596-snet\"},\"loadBalancerBackendAddressPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/backendAddressPools/xplat-eastu-3631160596-be\"}],\"loadBalancerInboundNatPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/inboundNatPools/xplat-eastu-3631160596-nat\"}]}}]}}]}\r\n    },\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"overprovision\": false,\r\n    \"uniqueId\": \"19e8c476-1511-4b9d-a68d-5d7b3641d590\"\r\n  },\r\n  \"type\": \"Microsoft.Compute/virtualMachineScaleSets\",\r\n  \"location\": \"eastus\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss\",\r\n  \"name\": \"xplattestvmss\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '2805',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '9f8960dc-a066-4dfc-a058-1eeceafd01ca',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14992',
+  'x-ms-correlation-request-id': 'c5f4bc12-88e5-4b7b-93c3-033c7b114d73',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T083342Z:c5f4bc12-88e5-4b7b-93c3-033c7b114d73',
+  date: 'Sun, 29 Jan 2017 08:33:41 GMT',
+  connection: 'close' });
+ return result; },
+function (nock) { 
+var result = 
+nock('https://management.azure.com:443')
+  .get('/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss?api-version=2016-04-30-preview')
+  .reply(200, "{\r\n  \"sku\": {\r\n    \"name\": \"Standard_DS1\",\r\n    \"tier\": \"Standard\",\r\n    \"capacity\": 5\r\n  },\r\n  \"properties\": {\r\n    \"singlePlacementGroup\": true,\r\n    \"upgradePolicy\": {\r\n      \"mode\": \"Manual\"\r\n    },\r\n    \"virtualMachineProfile\": {\r\n      \"osProfile\": {\r\n        \"computerNamePrefix\": \"xplattest\",\r\n        \"adminUsername\": \"azureuser\",\r\n        \"windowsConfiguration\": {\r\n          \"provisionVMAgent\": true,\r\n          \"enableAutomaticUpdates\": true\r\n        },\r\n        \"secrets\": []\r\n      },\r\n      \"storageProfile\": {\r\n        \"osDisk\": {\r\n          \"vhdContainers\": [\r\n            \"https://xplattestvmsssto03631160.blob.core.windows.net/xplat-eastu-3631160596-disk-container\",\r\n            \"https://xplattestvmsssto13631160.blob.core.windows.net/xplat-eastu-3631160596-disk-container\",\r\n            \"https://xplattestvmsssto23631160.blob.core.windows.net/xplat-eastu-3631160596-disk-container\",\r\n            \"https://xplattestvmsssto33631160.blob.core.windows.net/xplat-eastu-3631160596-disk-container\",\r\n            \"https://xplattestvmsssto43631160.blob.core.windows.net/xplat-eastu-3631160596-disk-container\"\r\n          ],\r\n          \"name\": \"xplat-eastu-3631160596-os-disk\",\r\n          \"createOption\": \"FromImage\",\r\n          \"caching\": \"ReadOnly\"\r\n        },\r\n        \"imageReference\": {\r\n          \"publisher\": \"MicrosoftWindowsServer\",\r\n          \"offer\": \"WindowsServer\",\r\n          \"sku\": \"2008-R2-SP1\",\r\n          \"version\": \"latest\"\r\n        }\r\n      },\r\n      \"networkProfile\": {\"networkInterfaceConfigurations\":[{\"name\":\"xplat-eastu-3631160596-nic\",\"properties\":{\"primary\":true,\"ipConfigurations\":[{\"name\":\"xplat-eastu-3631160596-pip\",\"properties\":{\"subnet\":{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/virtualNetworks/xplat-eastu-3631160596-vnet/subnets/xplat-eastu-3631160596-snet\"},\"loadBalancerBackendAddressPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/backendAddressPools/xplat-eastu-3631160596-be\"}],\"loadBalancerInboundNatPools\":[{\"id\":\"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Network/loadBalancers/xplat-eastu-3631160596-lb/inboundNatPools/xplat-eastu-3631160596-nat\"}]}}]}}]}\r\n    },\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"overprovision\": false,\r\n    \"uniqueId\": \"19e8c476-1511-4b9d-a68d-5d7b3641d590\"\r\n  },\r\n  \"type\": \"Microsoft.Compute/virtualMachineScaleSets\",\r\n  \"location\": \"eastus\",\r\n  \"id\": \"/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTestVMSSCreate2582/providers/Microsoft.Compute/virtualMachineScaleSets/xplattestvmss\",\r\n  \"name\": \"xplattestvmss\"\r\n}", { 'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'content-length': '2805',
+  'content-type': 'application/json; charset=utf-8',
+  expires: '-1',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-served-by': 'db2c81f2-c6fa-41a7-b70e-bc4bed3c3b56_131281305639660111',
+  'x-ms-request-id': '9f8960dc-a066-4dfc-a058-1eeceafd01ca',
+  server: 'Microsoft-HTTPAPI/2.0, Microsoft-HTTPAPI/2.0',
+  'x-ms-ratelimit-remaining-subscription-reads': '14992',
+  'x-ms-correlation-request-id': 'c5f4bc12-88e5-4b7b-93c3-033c7b114d73',
+  'x-ms-routing-request-id': 'CENTRALUS:20170129T083342Z:c5f4bc12-88e5-4b7b-93c3-033c7b114d73',
+  date: 'Sun, 29 Jan 2017 08:33:41 GMT',
+  connection: 'close' });
  return result; }]];

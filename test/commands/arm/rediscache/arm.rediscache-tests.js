@@ -31,14 +31,14 @@ var cachePrefix = 'xplatTestCache';
 var knownNames = [];
 
 var requiredEnvironment = [{
-  requiresToken: true
-}, {
-  name: 'AZURE_ARM_TEST_LOCATION',
-  defaultValue: 'West US'
-}, {
-  name: 'AZURE_ARM_TEST_RESOURCE_GROUP',
-  defaultValue: 'xplatTestCacheRG'
-}
+    requiresToken: true
+  }, {
+    name: 'AZURE_ARM_TEST_LOCATION',
+    defaultValue: 'West US'
+  }, {
+    name: 'AZURE_ARM_TEST_RESOURCE_GROUP',
+    defaultValue: 'xplatTestCacheRG'
+  }
 ];
 
 var suite;
@@ -53,12 +53,16 @@ var testSku;
 var testMaxMemoryPolicy;
 var testEnableNonSSLPort;
 var testNewMaxMemoryPolicy;
+var exportPrefix;
+var exportContainer;
+var importFiles;
+var rebootType;
 
 var galleryTemplateName;
 var galleryTemplateUrl;
 
 describe('arm', function () {
-
+  
   before(function (done) {
     suite = new CLITest(this, testPrefix, requiredEnvironment);
     suite.setupSuite(function () {
@@ -68,38 +72,42 @@ describe('arm', function () {
       testSize = 'C2';
       testSku = 'Basic';
       testNewMaxMemoryPolicy = 'VolatileLRU';
+      exportPrefix = 'cliexportprefix';
+      exportContainer = 'cliexportcontainer';
+      importFiles = 'importfilesSAS';
+      rebootType = 'AllNodes'
       cacheName = suite.generateId(cachePrefix, knownNames);
       storageName = cacheName;
       newCacheName = suite.generateId(cachePrefix, knownNames);
-
+      
       suite.execute('group create %s --location %s --json', testResourceGroup, testLocation, function () {
         done();
       });
     });
   });
-
-
+  
+  
   after(function (done) {
     suite.execute('group delete %s --quiet --json', testResourceGroup, function () {
       suite.teardownSuite(done);
     });
   });
-
+  
   beforeEach(function (done) {
     suite.setupTest(done);
   });
-
+  
   afterEach(function (done) {
     suite.teardownTest(done);
   });
-
+  
   describe('Redis Cache', function () {
     it('create commands should work', function (done) {
       suite.execute('rediscache create --name %s --resource-group %s --location %s --json', cacheName, testResourceGroup, testLocation, function (result) {
         result.exitStatus.should.be.equal(0);
         var cacheJson = JSON.parse(result.text);
         cacheJson.name.should.be.equal(cacheName);
-
+        
         suite.execute('rediscache create --name %s --resource-group %s --location %s --size %s --sku %s --enable-non-ssl-port --json', newCacheName, testResourceGroup, testLocation, testSize, testSku, function (result) {
           result.exitStatus.should.be.equal(0);
           var newCacheJson = JSON.parse(result.text);
@@ -108,7 +116,7 @@ describe('arm', function () {
         });
       });
     });
-
+    
     it('create cache with same name should fail', function (done) {
       suite.execute('rediscache create --name %s --resource-group %s --location %s --json', cacheName, testResourceGroup, testLocation, function (result) {
         result.exitStatus.should.be.equal(1);
@@ -116,7 +124,7 @@ describe('arm', function () {
         done();
       });
     });
-
+    
     it('show command should work', function (done) {
       suite.execute('rediscache show --name %s --resource-group %s --json', cacheName, testResourceGroup, function (result) {
         result.exitStatus.should.be.equal(0);
@@ -125,18 +133,18 @@ describe('arm', function () {
         done();
       });
     });
-
+    
     it('list commands should work', function (done) {
       suite.execute('rediscache list --json', function (result) {
         result.exitStatus.should.be.equal(0);
-
+        
         suite.execute('rediscache list --resource-group %s --json', testResourceGroup, function (result) {
           result.exitStatus.should.be.equal(0);
           done();
         });
       });
     });
-
+    
     it('list-keys command should work', function (done) {
       suite.execute('rediscache list-keys --name %s --resource-group %s --json', cacheName, testResourceGroup, function (result) {
         result.exitStatus.should.be.equal(0);
@@ -146,7 +154,7 @@ describe('arm', function () {
         done();
       });
     });
-
+    
     it.skip('Set Cache command should work', function (done) {
       listPoll(suite, 40, cacheName, testResourceGroup, function (result) {
         suite.execute('rediscache set --name %s --resource-group %s --max-memory-policy %s --json', cacheName, testResourceGroup, testNewMaxMemoryPolicy, function (result) {
@@ -155,35 +163,56 @@ describe('arm', function () {
         });
       });
     });
-
+    
     it.skip('Renew Key command should work', function (done) {
       suite.execute('rediscache renew-key --name %s --resource-group %s --json', cacheName, testResourceGroup, function (result) {
         result.exitStatus.should.be.equal(0);
         done();
       });
     });
-
+    
     it.skip('Set Diagnostics command should work', function (done) {
       suite.execute('rediscache set-diagnostics --name %s --resource-group %s --storage-account-name %s --storage-account-resource-group %s --json', cacheName, testResourceGroup, storageName, testResourceGroup, function (result) {
         result.exitStatus.should.be.equal(0);
         done();
       });
     });
-
+    
     it.skip('Delete Diagnostics command should work', function (done) {
       suite.execute('rediscache delete-diagnostics --name %s --resource-group %s --json', cacheName, testResourceGroup, function (result) {
         result.exitStatus.should.be.equal(0);
         done();
       });
     });
-
+    
+    it.skip('Export command should work', function (done) {
+      suite.execute('rediscache export --name %s --resource-group %s --prefix %s --container %s --json', cacheName, testResourceGroup, exportPrefix, exportContainer, function (result) {
+        result.exitStatus.should.be.equal(0);
+        done();
+      });
+    });
+    
+    it.skip('Import command should work', function (done) {
+      suite.execute('rediscache import --name %s --resource-group %s --files %s --json', cacheName, testResourceGroup, importFiles, function (result) {
+        result.exitStatus.should.be.equal(0);
+        done();
+      });
+    });
+    
+    it.skip('Reset command should work', function (done) {
+      suite.execute('rediscache reset --name %s --resource-group %s --reboot-type %s --json', cacheName, testResourceGroup, rebootType, function (result) {
+        result.exitStatus.should.be.equal(0);
+        done();
+      });
+    });
+    
     it.skip('Delete command should work', function (done) {
       suite.execute('rediscache delete --name %s --resource-group %s --json', cacheName, testResourceGroup, function (result) {
         result.exitStatus.should.be.equal(0);
         done();
       });
     });
-
+    
     it.skip('Show command must fail for deleted cache', function (done) {
       suite.execute('rediscache show --name %s --resource-group %s --json', cacheName, testResourceGroup, function (result) {
         result.exitStatus.should.be.equal(1);
@@ -198,7 +227,7 @@ function listPoll(suite, attemptsLeft, cacheName, cacheRG, callback) {
   if (attemptsLeft === 0) {
     throw new Error('azure rediscache show --name ' + cacheName + ' --resource-group ' + cacheRG + ' : Timeout expired for cache creation');
   }
-
+  
   var objectFound = false;
   suite.execute('rediscache show --name %s --resource-group %s --json', cacheName, cacheRG, function (showResult) {
     var cacheJson = JSON.parse(showResult.text);

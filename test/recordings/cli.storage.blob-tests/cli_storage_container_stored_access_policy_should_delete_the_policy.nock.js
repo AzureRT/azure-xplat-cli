@@ -32,13 +32,13 @@ nock('http://xplat.blob.core.windows.net:443')
   .get('/storageclitest?restype=container&comp=acl')
   .reply(200, "﻿<?xml version=\"1.0\" encoding=\"utf-8\"?><SignedIdentifiers><SignedIdentifier><Id>containerpolicy01</Id><AccessPolicy><Start>2015-12-01T00:00:00.0000000Z</Start><Expiry>2100-12-31T00:00:00.0000000Z</Expiry><Permission>rwdl</Permission></AccessPolicy></SignedIdentifier><SignedIdentifier><Id>containerpolicy02</Id><AccessPolicy><Start>2014-12-01T00:00:00.0000000Z</Start><Expiry>2099-12-31T00:00:00.0000000Z</Expiry><Permission>rl</Permission></AccessPolicy></SignedIdentifier></SignedIdentifiers>", { 'transfer-encoding': 'chunked',
   'content-type': 'application/xml',
-  'last-modified': 'Fri, 12 Aug 2016 06:45:28 GMT',
-  etag: '"0x8D3C27C3F6510CB"',
+  'last-modified': 'Wed, 16 Nov 2016 01:39:12 GMT',
+  etag: '"0x8D40DC15E3C8983"',
   vary: 'Origin',
   server: 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0',
-  'x-ms-request-id': 'fd14c207-0001-0032-0665-f4ced7000000',
-  'x-ms-version': '2015-04-05',
-  date: 'Fri, 12 Aug 2016 06:45:29 GMT',
+  'x-ms-request-id': '896b241c-0001-0019-6aaa-3fba6f000000',
+  'x-ms-version': '2015-12-11',
+  date: 'Wed, 16 Nov 2016 01:39:12 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
@@ -47,13 +47,13 @@ nock('https://xplat.blob.core.windows.net:443')
   .get('/storageclitest?restype=container&comp=acl')
   .reply(200, "﻿<?xml version=\"1.0\" encoding=\"utf-8\"?><SignedIdentifiers><SignedIdentifier><Id>containerpolicy01</Id><AccessPolicy><Start>2015-12-01T00:00:00.0000000Z</Start><Expiry>2100-12-31T00:00:00.0000000Z</Expiry><Permission>rwdl</Permission></AccessPolicy></SignedIdentifier><SignedIdentifier><Id>containerpolicy02</Id><AccessPolicy><Start>2014-12-01T00:00:00.0000000Z</Start><Expiry>2099-12-31T00:00:00.0000000Z</Expiry><Permission>rl</Permission></AccessPolicy></SignedIdentifier></SignedIdentifiers>", { 'transfer-encoding': 'chunked',
   'content-type': 'application/xml',
-  'last-modified': 'Fri, 12 Aug 2016 06:45:28 GMT',
-  etag: '"0x8D3C27C3F6510CB"',
+  'last-modified': 'Wed, 16 Nov 2016 01:39:12 GMT',
+  etag: '"0x8D40DC15E3C8983"',
   vary: 'Origin',
   server: 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0',
-  'x-ms-request-id': 'fd14c207-0001-0032-0665-f4ced7000000',
-  'x-ms-version': '2015-04-05',
-  date: 'Fri, 12 Aug 2016 06:45:29 GMT',
+  'x-ms-request-id': '896b241c-0001-0019-6aaa-3fba6f000000',
+  'x-ms-version': '2015-12-11',
+  date: 'Wed, 16 Nov 2016 01:39:12 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
@@ -62,12 +62,12 @@ nock('http://xplat.blob.core.windows.net:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/storageclitest?restype=container&comp=acl', '*')
   .reply(200, "", { 'transfer-encoding': 'chunked',
-  'last-modified': 'Fri, 12 Aug 2016 06:45:29 GMT',
-  etag: '"0x8D3C27C4006A94E"',
+  'last-modified': 'Wed, 16 Nov 2016 01:39:13 GMT',
+  etag: '"0x8D40DC15EDA053C"',
   server: 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0',
-  'x-ms-request-id': 'cbf1a5c7-0001-000a-0e65-f48f8e000000',
-  'x-ms-version': '2015-04-05',
-  date: 'Fri, 12 Aug 2016 06:45:29 GMT',
+  'x-ms-request-id': 'e2db8c54-0001-0022-42aa-3ff831000000',
+  'x-ms-version': '2015-12-11',
+  date: 'Wed, 16 Nov 2016 01:39:13 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
@@ -76,11 +76,11 @@ nock('https://xplat.blob.core.windows.net:443')
   .filteringRequestBody(function (path) { return '*';})
 .put('/storageclitest?restype=container&comp=acl', '*')
   .reply(200, "", { 'transfer-encoding': 'chunked',
-  'last-modified': 'Fri, 12 Aug 2016 06:45:29 GMT',
-  etag: '"0x8D3C27C4006A94E"',
+  'last-modified': 'Wed, 16 Nov 2016 01:39:13 GMT',
+  etag: '"0x8D40DC15EDA053C"',
   server: 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0',
-  'x-ms-request-id': 'cbf1a5c7-0001-000a-0e65-f48f8e000000',
-  'x-ms-version': '2015-04-05',
-  date: 'Fri, 12 Aug 2016 06:45:29 GMT',
+  'x-ms-request-id': 'e2db8c54-0001-0022-42aa-3ff831000000',
+  'x-ms-version': '2015-12-11',
+  date: 'Wed, 16 Nov 2016 01:39:13 GMT',
   connection: 'close' });
  return result; }]];

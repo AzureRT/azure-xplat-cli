@@ -83,6 +83,18 @@ describe('arm', function () {
           });
         });
       });
+      it('show should display details of route table', function (done) {
+        var cmd = 'network route-table show -g {group} -n {name} --json'.formatArgs(tableProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.equal(0);
+          var routeTable = JSON.parse(result.text);
+          routeTable.name.should.equal(tableProp.name);
+          routeTable.name.should.equal(tableProp.name);
+          networkUtil.shouldHaveTags(routeTable);
+          networkUtil.shouldBeSucceeded(routeTable);
+          done();
+        });
+      });
       it('set should modify route table', function (done) {
         var cmd = 'network route-table set -g {group} -n {name} -t {newTags} --json'.formatArgs(tableProp);
         testUtils.executeCommand(suite, retry, cmd, function (result) {
@@ -91,15 +103,6 @@ describe('arm', function () {
           routeTable.name.should.equal(tableProp.name);
           networkUtil.shouldBeSucceeded(routeTable);
           networkUtil.shouldAppendTags(routeTable);
-          done();
-        });
-      });
-      it('show should display details of route table', function (done) {
-        var cmd = 'network route-table show -g {group} -n {name} --json'.formatArgs(tableProp);
-        testUtils.executeCommand(suite, retry, cmd, function (result) {
-          result.exitStatus.should.equal(0);
-          var routeTable = JSON.parse(result.text);
-          routeTable.name.should.equal(tableProp.name);
           done();
         });
       });

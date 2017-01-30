@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
 
-  <?define ProductVersion="0.10.7" ?>
+  <?define ProductVersion="0.10.8" ?>
 
   <?define ProductName = "Microsoft Azure Command Line Tools" ?>
   <?define ProductDescription = "Node.js" ?>
@@ -15,11 +15,11 @@
            Manufacturer="$(var.ProductAuthor)"
            UpgradeCode="6dd1d1f3-4908-450d-8127-d9ce638646d9">
 
-		<Package InstallerVersion="200"
+    <Package InstallerVersion="200"
              Compressed="yes"
              InstallScope="perMachine" />
 
-		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
 
     <Media Id="1" Cabinet="WindowsAzureCLI.cab" EmbedCab="yes" CompressionLevel="high" />
 
@@ -31,27 +31,27 @@
     <Property Id="ARPURLUPDATEINFO" Value="http://www.microsoft.com/windowsazure/sdk" />
     <Property Id="ApplicationFolderName" Value="Microsoft SDKs\Azure" />
     <Property Id="WixAppFolder" Value="WixPerMachineFolder" />
-    
+
     <Feature Id="ProductFeature"
              Title="Microsoft Azure Command Line Tools"
              Level="1"
              AllowAdvertise="no">
-			<ComponentGroupRef Id="ProductComponents" />
-		</Feature>
+      <ComponentGroupRef Id="ProductComponents" />
+    </Feature>
 
     <!--Custom action to propagate path env variable change-->
     <Binary Id="PropagateEnvChangeExe" SourceFile=".\propagate_env_change\propagate_env_change.exe" />
     <Property Id="WixQuietExecCmdLine" Value="propagate_env_change.exe"/>
     <!--Ignoring the return value if case there is app-hang we can't control -->
-    <CustomAction Id="PropagateEnvChange" 
-                  BinaryKey="PropagateEnvChangeExe" 
-                  ExeCommand="propagate_env_change.exe" 
-                  Execute="commit" 
+    <CustomAction Id="PropagateEnvChange"
+                  BinaryKey="PropagateEnvChangeExe"
+                  ExeCommand="propagate_env_change.exe"
+                  Execute="commit"
                   Return="ignore"/>
     <InstallExecuteSequence>
       <Custom Action="PropagateEnvChange" Before="InstallFinalize" />
     </InstallExecuteSequence>
-    
+
     <!-- User Interface -->
     <WixVariable Id="WixUILicenseRtf" Value="$(var.ProductResources)License.rtf"/>
     <WixVariable Id="WixUIDialogBmp" Value="$(var.ProductResources)Dialog.bmp" />
@@ -61,19 +61,20 @@
 
   </Product>
 
-	<Fragment>
-		<Directory Id="TARGETDIR" Name="SourceDir">
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="ProgramFilesFolder">
         <Directory Id="APPLICATIONFOLDER">
           <Directory Id="AZURECLIFOLDER" Name="CLI">
             <Directory Id="DynamicCliDir"/>
+            <Directory Id="BIN" Name="Bin" />
           </Directory>
         </Directory>
       </Directory>
-		</Directory>
-	</Fragment>
+    </Directory>
+  </Fragment>
 
-	<Fragment>
+  <Fragment>
     <ComponentGroup Id="AzureCliSettingsGroup">
       <Component Id="RemoveCLIFolder"
                  Directory="DynamicCliDir"
@@ -119,10 +120,22 @@
       </Component>
     </ComponentGroup>
 
+    <ComponentGroup Id="NodeComponentGroup">
+      <Component Id="node_x86" Directory="BIN" Guid="{1560ef26-74b9-410d-b6f0-1a56a241eb8a}">
+        <Condition>NOT VersionNT64</Condition>
+        <File Id="node86.exe" Name="node.exe" Source="$(var.NodeExeSource)\x86\node.exe" KeyPath="yes" Checksum="yes" />
+      </Component>
+      <Component Id="node_x64" Directory="BIN" Guid="{0ddc44fe-156c-464c-882c-5bc841fea74d}">
+        <Condition>VersionNT64</Condition>
+        <File Id="node64.exe" Name="node.exe" Source="$(var.NodeExeSource)\x64\node.exe" KeyPath="yes" Checksum="yes" />
+      </Component>
+    </ComponentGroup>
+
     <ComponentGroup Id="ProductComponents">
       <ComponentGroupRef Id="AzureCliComponentGroup"/>
       <ComponentGroupRef Id="AzureCliSettingsGroup"/>
+      <ComponentGroupRef Id="NodeComponentGroup"/>
     </ComponentGroup>
 
-	</Fragment>
+  </Fragment>
 </Wix>

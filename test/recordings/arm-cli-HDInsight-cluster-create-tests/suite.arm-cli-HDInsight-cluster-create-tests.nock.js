@@ -29,4 +29,4 @@ exports.setEnvironment = function() {
 
 exports.scopes = [];
 
- exports.randomTestIdsGenerated = function() { return ['xplatTestRgHDInsightClusterCreate5990','xplatTestHDInsightClusterCreate5806','xplatTestHDInsightClusterCreate8208','xplatTestHDInsightClusterCreate2772','xplatTestHDInsightClusterCreate4415','xplatSampleApp378','xplatTestHDInsightClusterCreate4189','xplatTestHDInsightClusterCreate3418','xplatTestHDInsightClusterCreate885','xplatTestHDInsightClusterCreate7666','xplatSampleApp9509'];};
+exports.randomTestIdsGenerated = function () { return ['xplatTestRgHDInsightClusterCreate5990', 'xplatTestHDInsightClusterCreate5806', 'xplatTestHDInsightClusterCreate8208', 'xplatTestHDInsightClusterCreate2772', 'xplatTestHDInsightClusterCreate4415', 'xplatSampleApp378', 'xplatTestHDInsightClusterCreate4189', 'xplatTestHDInsightClusterCreate3418', 'xplatTestHDInsightClusterCreate885', 'xplatTestHDInsightClusterCreate7666', 'xplatSampleApp9509']; };

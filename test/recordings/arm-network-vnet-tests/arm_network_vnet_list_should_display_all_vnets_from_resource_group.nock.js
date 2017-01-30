@@ -14,7 +14,7 @@ exports.getMockedProfile = function () {
     },
     tenantId: '72f988bf-86f1-41af-91ab-2d7cd011db47',
     state: 'Enabled',
-    registeredProviders: [],
+    registeredProviders: ['mobileservice'],
     isDefault: true
   }, newProfile.environments['AzureCloud']));
 
@@ -29,16 +29,16 @@ exports.scopes = [[function (nock) {
 var result = 
 nock('https://management.azure.com:443')
   .get('/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplat-test-vnet/providers/Microsoft.Network/virtualNetworks?api-version=2016-09-01')
-  .reply(200, "{\r\n  \"value\": [\r\n    {\r\n      \"name\": \"test-vnet\",\r\n      \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplat-test-vnet/providers/Microsoft.Network/virtualNetworks/test-vnet\",\r\n      \"etag\": \"W/\\\"a8bf3986-fc77-41d8-9e87-a41f754131f5\\\"\",\r\n      \"type\": \"Microsoft.Network/virtualNetworks\",\r\n      \"location\": \"westus\",\r\n      \"tags\": {\r\n        \"tag1\": \"aaa\",\r\n        \"tag2\": \"bbb\",\r\n        \"tag3\": \"ccc\"\r\n      },\r\n      \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n        \"resourceGuid\": \"2b159b89-abd7-4d8e-90a0-f92783acdb0b\",\r\n        \"addressSpace\": {\r\n          \"addressPrefixes\": [\r\n            \"10.0.0.0/24\",\r\n            \"10.0.1.0/24\"\r\n          ]\r\n        },\r\n        \"dhcpOptions\": {\r\n          \"dnsServers\": [\r\n            \"192.168.1.1\",\r\n            \"192.168.1.2\"\r\n          ]\r\n        },\r\n        \"subnets\": [],\r\n        \"virtualNetworkPeerings\": []\r\n      }\r\n    }\r\n  ]\r\n}", { 'cache-control': 'no-cache',
+  .reply(200, "{\r\n  \"value\": [\r\n    {\r\n      \"name\": \"test-vnet\",\r\n      \"id\": \"/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplat-test-vnet/providers/Microsoft.Network/virtualNetworks/test-vnet\",\r\n      \"etag\": \"W/\\\"9e8fd218-e20a-4e3b-9318-0d7013e7c5df\\\"\",\r\n      \"type\": \"Microsoft.Network/virtualNetworks\",\r\n      \"location\": \"westus\",\r\n      \"tags\": {\r\n        \"tag1\": \"aaa\",\r\n        \"tag2\": \"bbb\",\r\n        \"tag3\": \"ccc\"\r\n      },\r\n      \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n        \"resourceGuid\": \"82d12a4b-64b8-401e-beda-98423e031ba4\",\r\n        \"addressSpace\": {\r\n          \"addressPrefixes\": [\r\n            \"10.0.0.0/24\",\r\n            \"10.0.1.0/24\"\r\n          ]\r\n        },\r\n        \"dhcpOptions\": {\r\n          \"dnsServers\": [\r\n            \"192.168.1.1\",\r\n            \"192.168.1.2\"\r\n          ]\r\n        },\r\n        \"subnets\": [],\r\n        \"virtualNetworkPeerings\": []\r\n      }\r\n    }\r\n  ]\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '932',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
-  'x-ms-request-id': 'e20619e5-21a9-43ea-99b0-1f8a99698d66',
+  'x-ms-request-id': '074055e3-4ccc-435c-bde0-8b21ec98eadf',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14977',
-  'x-ms-correlation-request-id': 'db5339a7-e854-4d76-b595-6de101a54776',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160815T155143Z:db5339a7-e854-4d76-b595-6de101a54776',
-  date: 'Mon, 15 Aug 2016 15:51:43 GMT' });
+  'x-ms-ratelimit-remaining-subscription-reads': '14992',
+  'x-ms-correlation-request-id': '5369d93a-f0ce-4c1c-ba64-e11a16d35e14',
+  'x-ms-routing-request-id': 'WESTEUROPE:20161207T131815Z:5369d93a-f0ce-4c1c-ba64-e11a16d35e14',
+  date: 'Wed, 07 Dec 2016 13:18:15 GMT' });
  return result; }]];

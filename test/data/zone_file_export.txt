@@ -1,12 +1,12 @@
 ; Exported zone file from Azure DNS
 ; Resource Group Name: xplat-test-dns-zone
-; Zone name: example1.com
-; Date and time (UTC): Mon Aug 29 2016 12:40:51 GMT+0000
+; Zone name: exampledns.com
+; Date and time (UTC): Mon Jan 09 2017 08:02:16 GMT+0000
 
-$TTL 3600
-$ORIGIN example1.com.
+$TTL 172800
+$ORIGIN exampledns.com.
 
-@ 3600 IN SOA ns1-07.azure-dns.com. hostmaster.example1.com. (
+@ 3600 IN SOA ns1-08.azure-dns.com. hostmaster.exampledns.com. (
 				2003080800
 				43200
 				900
@@ -14,36 +14,12 @@ $ORIGIN example1.com.
 				10800
 				)
 
-@ 3600 IN A 1.2.3.4
-
-@ 172800 IN NS ns1-07.azure-dns.com.
-  172800 IN NS ns2-07.azure-dns.net.
-  172800 IN NS ns3-07.azure-dns.org.
-  172800 IN NS ns4-07.azure-dns.info.
+@ 172800 IN NS ns1-08.azure-dns.com.
+  172800 IN NS ns2-08.azure-dns.net.
+  172800 IN NS ns3-08.azure-dns.org.
+  172800 IN NS ns4-08.azure-dns.info.
 
 default 3600 IN A 0.1.2.3
 
-record 3600 IN CNAME bar.foo.com.
-
-subzone 3600 IN A 3.4.5.6
-
-test-cname.subzone 3600 IN CNAME r1.subzone.example1.com.
-
-www.subzone 3600 IN A 4.5.6.7
-
-tc 3600 IN CNAME test.example1.com.
-
-test 3600 IN A 7.8.9.0
-
-test-cname 3600 IN CNAME r1.example1.com.
-
-test-cname2 3600 IN CNAME r1.
-
-test-multi-a 3600 IN A 192.168.1.145
-
-test-srv 3600 IN SRV 1 2 3 srv1.example1.com.
-
-test-srv2 3600 IN SRV 1 2 3 srv1.
-
-www 3600 IN A 2.3.4.5
+tc 3600 IN CNAME test.exampledns.com.
 

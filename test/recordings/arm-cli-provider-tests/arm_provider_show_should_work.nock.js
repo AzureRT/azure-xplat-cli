@@ -28,7 +28,7 @@ exports.setEnvironment = function() {
 exports.scopes = [[function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .get('/subscriptions/fb3a3d6b-44c8-44f5-88c9-b20917c9b96b/providers/Microsoft.BingMaps?$expand=resourceTypes%2Faliases&api-version=2016-02-01')
+  .get('/subscriptions/fb3a3d6b-44c8-44f5-88c9-b20917c9b96b/providers/Microsoft.BingMaps?$expand=resourceTypes%2Faliases&api-version=2016-09-01')
   .reply(200, "{\"id\":\"/subscriptions/fb3a3d6b-44c8-44f5-88c9-b20917c9b96b/providers/Microsoft.BingMaps\",\"namespace\":\"Microsoft.BingMaps\",\"resourceTypes\":[{\"resourceType\":\"mapApis\",\"locations\":[\"West US\"],\"apiVersions\":[\"2015-07-02\"],\"aliases\":[],\"capabilities\":\"CrossResourceGroupResourceMove, CrossSubscriptionResourceMove\"},{\"resourceType\":\"operations\",\"locations\":[],\"apiVersions\":[\"2015-07-02\"],\"aliases\":[]},{\"resourceType\":\"listCommunicationPreference\",\"locations\":[],\"apiVersions\":[\"2015-07-02\"],\"aliases\":[]},{\"resourceType\":\"updateCommunicationPreference\",\"locations\":[],\"apiVersions\":[\"2015-07-02\"],\"aliases\":[]}],\"registrationState\":\"Unregistered\"}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -45,7 +45,7 @@ nock('http://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/fb3a3d6b-44c8-44f5-88c9-b20917c9b96b/providers/Microsoft.BingMaps?$expand=resourceTypes%2Faliases&api-version=2016-02-01')
+  .get('/subscriptions/fb3a3d6b-44c8-44f5-88c9-b20917c9b96b/providers/Microsoft.BingMaps?$expand=resourceTypes%2Faliases&api-version=2016-09-01')
   .reply(200, "{\"id\":\"/subscriptions/fb3a3d6b-44c8-44f5-88c9-b20917c9b96b/providers/Microsoft.BingMaps\",\"namespace\":\"Microsoft.BingMaps\",\"resourceTypes\":[{\"resourceType\":\"mapApis\",\"locations\":[\"West US\"],\"apiVersions\":[\"2015-07-02\"],\"aliases\":[],\"capabilities\":\"CrossResourceGroupResourceMove, CrossSubscriptionResourceMove\"},{\"resourceType\":\"operations\",\"locations\":[],\"apiVersions\":[\"2015-07-02\"],\"aliases\":[]},{\"resourceType\":\"listCommunicationPreference\",\"locations\":[],\"apiVersions\":[\"2015-07-02\"],\"aliases\":[]},{\"resourceType\":\"updateCommunicationPreference\",\"locations\":[],\"apiVersions\":[\"2015-07-02\"],\"aliases\":[]}],\"registrationState\":\"Unregistered\"}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',

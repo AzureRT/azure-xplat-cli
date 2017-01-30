@@ -4,6 +4,12 @@
     "tier": "",
     "capacity": null
   },
+  "plan": {
+    "name": "",
+    "publisher": "",
+    "product": "",
+    "promotionCode": ""
+  },
   "upgradePolicy": {
     "mode": null
   },
@@ -64,7 +70,8 @@
         "publisher": "",
         "offer": "",
         "sku": "",
-        "version": ""
+        "version": "",
+        "id": ""
       },
       "osDisk": {
         "name": "",
@@ -76,8 +83,23 @@
         },
         "vhdContainers": [
           ""
-        ]
-      }
+        ],
+        "managedDisk": {
+          "storageAccountType": null
+        }
+      },
+      "dataDisks": [
+        {
+          "name": "",
+          "lun": "",
+          "caching": null,
+          "createOption": "",
+          "diskSizeGB": null,
+          "managedDisk": {
+            "storageAccountType": null
+          }
+        }
+      ]
     },
     "networkProfile": {
       "networkInterfaceConfigurations": [
@@ -123,13 +145,14 @@
           "settings": {},
           "protectedSettings": {},
           "provisioningState": "",
-          "id": ""
+          "id": null
         }
       ]
     }
   },
   "provisioningState": "",
-  "overProvision": null,
+  "overprovision": null,
+  "singlePlacementGroup": null,
   "id": null,
   "name": null,
   "type": null,

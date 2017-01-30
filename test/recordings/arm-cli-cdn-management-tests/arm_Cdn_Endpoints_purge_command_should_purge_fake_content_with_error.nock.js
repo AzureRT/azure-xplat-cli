@@ -34,52 +34,52 @@ exports.setEnvironment = function() {
   process.env['AZURE_ARM_TEST_CDN_ORIGIN_2'] = 'cliTestOrigin02';
   process.env['AZURE_ARM_TEST_ENDPOINT_TEST_LOCATION_1'] = 'eastus';
   process.env['AZURE_ARM_TEST_CUSTOM_DOMAIN_NAME_1'] = 'cliTestCustomDomain01';
-  process.env['AZURE_ARM_TEST_CUSTOM_DOMAIN_HOST_NAME_1'] = 'cli-0a51dd4a-33ca-4c25-91d7-42ae35c12cdd.azureedge-test.net';
+  process.env['AZURE_ARM_TEST_CUSTOM_DOMAIN_HOST_NAME_1'] = 'cli-0dbedc55-0d09-4eb8-974a-ed9cfe6f9558.azureedge-test.net';
 };
 
 exports.scopes = [[function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
-.post('/subscriptions/8fbd19e9-e8e0-4224-89f6-b1d5d86fb4c4/resourceGroups/xplattestadlsrgr01/providers/Microsoft.Cdn/profiles/cliTestProfile01/endpoints/cliTestEndpoint01/purge?api-version=2016-04-02', '*')
+.post('/subscriptions/8fbd19e9-e8e0-4224-89f6-b1d5d86fb4c4/resourceGroups/xplattestadlsrgr01/providers/Microsoft.Cdn/profiles/cliTestProfile01/endpoints/cliTestEndpoint01/purge?api-version=2016-10-02', '*')
   .reply(400, "{\r\n  \"error\": {\r\n    \"code\": \"BadRequest\",\r\n    \"message\": \"Invalid ContentPath \\\"fakePath!\\\". ContentPath for purge action must be a relative path: either for a single resource \\\"/path/pic.jpg\\\" or a wild card \\\"/path/*\\\".\"\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '232',
   'content-type': 'application/json; charset=utf-8',
   'content-language': 'en-US',
   expires: '-1',
-  'x-ms-request-id': '710af135-8c83-411a-8597-5eda76715c30',
-  'x-ms-client-request-id': 'a4172e91-7f5b-4155-a8ff-74c25a2cbdf8',
+  'x-ms-request-id': 'e6a11e90-899e-4afa-8a42-20321d879fe0',
+  'x-ms-client-request-id': 'b0cf7f17-81ba-4480-93d5-63da3be1b646',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-IIS/8.5',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-ratelimit-remaining-subscription-writes': '1199',
-  'x-ms-correlation-request-id': 'b297af6f-516a-4939-b59d-4aa8bd254aad',
-  'x-ms-routing-request-id': 'WESTUS:20160518T214533Z:b297af6f-516a-4939-b59d-4aa8bd254aad',
-  date: 'Wed, 18 May 2016 21:45:33 GMT',
+  'x-ms-ratelimit-remaining-subscription-writes': '1197',
+  'x-ms-correlation-request-id': '833fb589-f009-4b45-b55c-f4323dca4732',
+  'x-ms-routing-request-id': 'WESTUS2:20161104T004027Z:833fb589-f009-4b45-b55c-f4323dca4732',
+  date: 'Fri, 04 Nov 2016 00:40:26 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
-.post('/subscriptions/8fbd19e9-e8e0-4224-89f6-b1d5d86fb4c4/resourceGroups/xplattestadlsrgr01/providers/Microsoft.Cdn/profiles/cliTestProfile01/endpoints/cliTestEndpoint01/purge?api-version=2016-04-02', '*')
+.post('/subscriptions/8fbd19e9-e8e0-4224-89f6-b1d5d86fb4c4/resourceGroups/xplattestadlsrgr01/providers/Microsoft.Cdn/profiles/cliTestProfile01/endpoints/cliTestEndpoint01/purge?api-version=2016-10-02', '*')
   .reply(400, "{\r\n  \"error\": {\r\n    \"code\": \"BadRequest\",\r\n    \"message\": \"Invalid ContentPath \\\"fakePath!\\\". ContentPath for purge action must be a relative path: either for a single resource \\\"/path/pic.jpg\\\" or a wild card \\\"/path/*\\\".\"\r\n  }\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '232',
   'content-type': 'application/json; charset=utf-8',
   'content-language': 'en-US',
   expires: '-1',
-  'x-ms-request-id': '710af135-8c83-411a-8597-5eda76715c30',
-  'x-ms-client-request-id': 'a4172e91-7f5b-4155-a8ff-74c25a2cbdf8',
+  'x-ms-request-id': 'e6a11e90-899e-4afa-8a42-20321d879fe0',
+  'x-ms-client-request-id': 'b0cf7f17-81ba-4480-93d5-63da3be1b646',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-IIS/8.5',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-ratelimit-remaining-subscription-writes': '1199',
-  'x-ms-correlation-request-id': 'b297af6f-516a-4939-b59d-4aa8bd254aad',
-  'x-ms-routing-request-id': 'WESTUS:20160518T214533Z:b297af6f-516a-4939-b59d-4aa8bd254aad',
-  date: 'Wed, 18 May 2016 21:45:33 GMT',
+  'x-ms-ratelimit-remaining-subscription-writes': '1197',
+  'x-ms-correlation-request-id': '833fb589-f009-4b45-b55c-f4323dca4732',
+  'x-ms-routing-request-id': 'WESTUS2:20161104T004027Z:833fb589-f009-4b45-b55c-f4323dca4732',
+  date: 'Fri, 04 Nov 2016 00:40:26 GMT',
   connection: 'close' });
  return result; }]];

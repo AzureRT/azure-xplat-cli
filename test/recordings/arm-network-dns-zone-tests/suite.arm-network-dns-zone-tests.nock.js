@@ -27,5 +27,3 @@ exports.setEnvironment = function() {
 };
 
 exports.scopes = [];
-
- exports.randomTestIdsGenerated = function() { return ['xplat-test-dns-zone-record-set9100'];};

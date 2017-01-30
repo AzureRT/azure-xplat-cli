@@ -49,7 +49,32 @@ var ruleProp = {
   priority: 100,
   newPriority: 300,
   direction: 'Inbound',
-  newDirection: 'Outbound'
+  newDirection: 'Outbound',
+  // Negative tests values
+  tooLongDescription: 'qwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnm',
+  protocolOutOfRange: 'Http',
+  sourcePortOutOfRange: '66600',
+  destinationPortOutOfRange: '66600',
+  invalidSourceAddressPrefix: '10.0.0.0/42',
+  invalidDestinationAddressPrefix: '10.0.0.0/42',
+  accessOutOfRange: 'Access',
+  rulePriorityUnderRange: '99',
+  rulePriorityOverRange: '4097',
+  directionOutOfRange: 'Direction'
+};
+
+var securityRulesDefault = {
+  protocol: '*',
+  sourcePortRange: '*',
+  destinationPortRange: '80',
+  sourceAddressPrefix: '*',
+  destinationAddressPrefix: '*',
+  access: 'Allow',
+  priority: '100',
+  direction: 'Inbound',
+  name: 'securityRulesDefaultName',
+  group: groupName,
+  nsgName: nsgName
 };
 
 var requiredEnvironment = [{
@@ -116,6 +141,25 @@ describe('arm', function () {
           });
         });
       });
+      it('show should display details about nsg rule ', function (done) {
+        var cmd = 'network nsg rule show -g {group} -a {nsgName} -n {name} --json'.formatArgs(ruleProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.equal(0);
+          var rule = JSON.parse(result.text);
+          rule.name.should.equal(ruleProp.name);
+          rule.description.should.equal(ruleProp.description);
+          rule.protocol.should.equal(ruleProp.protocol);
+          rule.sourceAddressPrefix.should.equal(ruleProp.sourceAddressPrefix);
+          rule.sourcePortRange.should.equal(ruleProp.sourcePortRange);
+          rule.destinationAddressPrefix.should.equal(ruleProp.destinationAddressPrefix);
+          rule.destinationPortRange.should.equal(ruleProp.destinationPortRange);
+          rule.access.should.equal(ruleProp.access);
+          rule.priority.should.equal(ruleProp.priority);
+          rule.direction.should.equal(ruleProp.direction);
+          networkUtil.shouldBeSucceeded(rule);
+          done();
+        });
+      });
       it('set should modify nsg rule', function (done) {
         var cmd = util.format('network nsg rule set -g {group} -a {nsgName} -n {name} -d {newDescription} -p {newProtocol} ' +
           '-f {newSourceAddressPrefix} -o {newSourcePortRange} -e {newDestinationAddressPrefix} -u {newDestinationPortRange} ' +
@@ -135,15 +179,6 @@ describe('arm', function () {
           rule.priority.should.equal(ruleProp.newPriority);
           rule.direction.should.equal(ruleProp.newDirection);
           networkUtil.shouldBeSucceeded(rule);
-          done();
-        });
-      });
-      it('show should display details about nsg rule ', function (done) {
-        var cmd = 'network nsg rule show -g {group} -a {nsgName} -n {name} --json'.formatArgs(ruleProp);
-        testUtils.executeCommand(suite, retry, cmd, function (result) {
-          result.exitStatus.should.equal(0);
-          var rule = JSON.parse(result.text);
-          rule.name.should.equal(ruleProp.name);
           done();
         });
       });
@@ -184,6 +219,98 @@ describe('arm', function () {
             rule.should.be.empty;
             done();
           });
+        });
+      });
+      it('create with defaults should create security rules with default values', function (done) {
+        var cmd = 'network nsg rule create -g {group} -n {name} --nsg-name {nsgName} --priority {priority} --json'.formatArgs(securityRulesDefault);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.equal(0);
+          var output = JSON.parse(result.text);
+          output.name.should.equal(securityRulesDefault.name);
+          output.protocol.toLowerCase().should.equal(securityRulesDefault.protocol.toLowerCase());;
+          output.sourcePortRange.toLowerCase().should.equal(securityRulesDefault.sourcePortRange.toLowerCase());;
+          output.destinationPortRange.toLowerCase().should.equal(securityRulesDefault.destinationPortRange.toLowerCase());;
+          output.sourceAddressPrefix.toLowerCase().should.equal(securityRulesDefault.sourceAddressPrefix.toLowerCase());;
+          output.destinationAddressPrefix.toLowerCase().should.equal(securityRulesDefault.destinationAddressPrefix.toLowerCase());;
+          output.access.toLowerCase().should.equal(securityRulesDefault.access.toLowerCase());;
+          output.priority.should.equal(parseInt(securityRulesDefault.priority, 10));;
+          output.direction.toLowerCase().should.equal(securityRulesDefault.direction.toLowerCase());
+          var cmd = 'network nsg rule delete -g {group} -n {name} --quiet --nsg-name {nsgName} --json'.formatArgs(securityRulesDefault);
+          testUtils.executeCommand(suite, retry, cmd, function (result) {
+            result.exitStatus.should.equal(0);
+            done();
+          });
+        });
+      });
+
+      it('create should fail for too long description', function (done) {
+        var cmd = 'network nsg rule create -g {group} -n {name} --description {tooLongDescription} --nsg-name {nsgName} --priority {priority} --json'.formatArgs(ruleProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.not.equal(0);
+          done();
+        });
+      });
+      it('create should fail for protocol out of range', function (done) {
+        var cmd = 'network nsg rule create -g {group} -n {name} --protocol {protocolOutOfRange} --nsg-name {nsgName} --priority {priority} --json'.formatArgs(ruleProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.not.equal(0);
+          done();
+        });
+      });
+      it('create should fail for source port out of range', function (done) {
+        var cmd = 'network nsg rule create -g {group} -n {name} --source-port-range {sourcePortOutOfRange} --nsg-name {nsgName} --priority {priority} --json'.formatArgs(ruleProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.not.equal(0);
+          done();
+        });
+      });
+      it('create should fail for destination port out of range', function (done) {
+        var cmd = 'network nsg rule create -g {group} -n {name} --destination-port-range {destinationPortOutOfRange} --nsg-name {nsgName} --priority {priority} --json'.formatArgs(ruleProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.not.equal(0);
+          done();
+        });
+      });
+      it('create should fail for invalid source address prefix', function (done) {
+        var cmd = 'network nsg rule create -g {group} -n {name} --source-address-prefix {invalidSourceAddressPrefix} --nsg-name {nsgName} --priority {priority} --json'.formatArgs(ruleProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.not.equal(0);
+          done();
+        });
+      });
+      it('create should fail for invalid destination address prefix', function (done) {
+        var cmd = 'network nsg rule create -g {group} -n {name} --destination-address-prefix {invalidDestinationAddressPrefix} --nsg-name {nsgName} --priority {priority} --json'.formatArgs(ruleProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.not.equal(0);
+          done();
+        });
+      });
+      it('create should fail for access out of range', function (done) {
+        var cmd = 'network nsg rule create -g {group} -n {name} --access {accessOutOfRange} --nsg-name {nsgName} --priority {priority} --json'.formatArgs(ruleProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.not.equal(0);
+          done();
+        });
+      });
+      it('create should fail for rule priority under range', function (done) {
+        var cmd = 'network nsg rule create -g {group} -n {name} --priority {rulePriorityUnderRange} --nsg-name {nsgName}  --json'.formatArgs(ruleProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.not.equal(0);
+          done();
+        });
+      });
+      it('create should fail for rule priority over range', function (done) {
+        var cmd = 'network nsg rule create -g {group} -n {name} --priority {rulePriorityOverRange} --nsg-name {nsgName}  --json'.formatArgs(ruleProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.not.equal(0);
+          done();
+        });
+      });
+      it('create should fail for direction out of range', function (done) {
+        var cmd = 'network nsg rule create -g {group} -n {name} --direction {directionOutOfRange} --nsg-name {nsgName} --priority {priority} --json'.formatArgs(ruleProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.not.equal(0);
+          done();
         });
       });
     });

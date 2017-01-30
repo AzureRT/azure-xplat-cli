@@ -27,9 +27,7 @@ var TelemetryClient = require('../lib/util/telemetry');
 utilsCore.isTelemetryEnabled(function (err, isEnabled) {
   // err will always be null
   TelemetryClient.init(isEnabled);
-  if (isEnabled) {
-    TelemetryClient.start(process.argv);
-  }
+  TelemetryClient.start(process.argv);
 
   if (process.argv[2] !== '--gen') {
     cli = new AzureCli();

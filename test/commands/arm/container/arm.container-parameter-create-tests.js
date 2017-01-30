@@ -90,7 +90,7 @@ describe('arm', function() {
             var cmd = makeCommandStr('container-service', 'set', paramFileName, util.format('--name %s --location %s', containerPrefix, location)).split(' ');
             testUtils.executeCommand(suite, retry, cmd, function(result) {
               result.exitStatus.should.equal(0);
-              var cmd = makeCommandStr('container-service', 'delete', paramFileName, util.format('--diagnostics-profile --windows-profile')).split(' ');
+              var cmd = makeCommandStr('container-service', 'delete', paramFileName, util.format('--diagnostics-profile --windows-profile --custom-profile --service-principal-profile')).split(' ');
               testUtils.executeCommand(suite, retry, cmd, function(result) {
                 result.exitStatus.should.equal(0);
                 var cmd = makeCommandStr('master-profile', 'set', paramFileName, util.format('--dns-prefix %s', containerPrefix + 'master')).split(' ');
@@ -102,18 +102,22 @@ describe('arm', function() {
                     var cmd = makeCommandStr('agent-pool-profiles', 'set', paramFileName, util.format('--index 0 --name %s --vm-size Standard_A1 --dns-prefix %s', containerPrefix + 'a1', containerPrefix + 'a2')).split(' ');
                     testUtils.executeCommand(suite, retry, cmd, function(result) {
                       result.exitStatus.should.equal(0);
-                      var cmd = makeCommandStr('orchestrator-profile', 'set', paramFileName, util.format('--orchestrator-type %s', 'DCOS', location)).split(' ');
+                      var cmd = makeCommandStr('agent-pool-profiles', 'set', paramFileName, util.format('--index 0 --count 1 --parse')).split(' ');
                       testUtils.executeCommand(suite, retry, cmd, function(result) {
                         result.exitStatus.should.equal(0);
-                        var cmd = makeCommandStr('linux-profile', 'set', paramFileName, util.format('--admin-username %s', username)).split(' ');
+                        var cmd = makeCommandStr('orchestrator-profile', 'set', paramFileName, util.format('--orchestrator-type %s', 'DCOS', location)).split(' ');
                         testUtils.executeCommand(suite, retry, cmd, function(result) {
                           result.exitStatus.should.equal(0);
-                          suite.execute('acs config %s %s --parameter-file %s --index 0 --key-data %s --json', 'public-keys', 'set', paramFileName, keydata, function(result) {
+                          var cmd = makeCommandStr('linux-profile', 'set', paramFileName, util.format('--admin-username %s', username)).split(' ');
+                          testUtils.executeCommand(suite, retry, cmd, function(result) {
                             result.exitStatus.should.equal(0);
-                            var cmd = util.format('acs create -g %s -n %s --parameter-file %s --json', groupName, containerPrefix, paramFileName).split(' ');
-                            testUtils.executeCommand(suite, retry, cmd, function(result) {
+                            suite.execute('acs config %s %s --parameter-file %s --index 0 --key-data %s --json', 'public-keys', 'set', paramFileName, keydata, function(result) {
                               result.exitStatus.should.equal(0);
-                              done();
+                              var cmd = util.format('acs create -g %s -n %s --parameter-file %s --json', groupName, containerPrefix, paramFileName).split(' ');
+                              testUtils.executeCommand(suite, retry, cmd, function(result) {
+                                result.exitStatus.should.equal(0);
+                                done();
+                              });
                             });
                           });
                         });
@@ -151,7 +155,7 @@ describe('arm', function() {
             var cmd = makeCommandStr('container-service', 'set', paramFileName2, util.format('--name %s --location %s', containerPrefix2, location)).split(' ');
             testUtils.executeCommand(suite, retry, cmd, function(result) {
               result.exitStatus.should.equal(0);
-              var cmd = makeCommandStr('container-service', 'delete', paramFileName2, util.format('--diagnostics-profile --windows-profile')).split(' ');
+              var cmd = makeCommandStr('container-service', 'delete', paramFileName2, util.format('--diagnostics-profile --windows-profile --custom-profile --service-principal-profile')).split(' ');
               testUtils.executeCommand(suite, retry, cmd, function(result) {
                 result.exitStatus.should.equal(0);
                 var cmd = makeCommandStr('master-profile', 'set', paramFileName2, util.format('--dns-prefix %s', containerPrefix2 + 'master')).split(' ');
@@ -163,18 +167,22 @@ describe('arm', function() {
                     var cmd = makeCommandStr('agent-pool-profiles', 'set', paramFileName2, util.format('--index 0 --name %s --vm-size Standard_A1 --dns-prefix %s', containerPrefix2 + 'a1', containerPrefix2 + 'a2')).split(' ');
                     testUtils.executeCommand(suite, retry, cmd, function(result) {
                       result.exitStatus.should.equal(0);
-                      var cmd = makeCommandStr('orchestrator-profile', 'set', paramFileName2, util.format('--orchestrator-type %s', 'Swarm', location)).split(' ');
+                      var cmd = makeCommandStr('agent-pool-profiles', 'set', paramFileName2, util.format('--index 0 --count 1 --parse')).split(' ');
                       testUtils.executeCommand(suite, retry, cmd, function(result) {
                         result.exitStatus.should.equal(0);
-                        var cmd = makeCommandStr('linux-profile', 'set', paramFileName2, util.format('--admin-username %s', username)).split(' ');
+                        var cmd = makeCommandStr('orchestrator-profile', 'set', paramFileName2, util.format('--orchestrator-type %s', 'Swarm', location)).split(' ');
                         testUtils.executeCommand(suite, retry, cmd, function(result) {
                           result.exitStatus.should.equal(0);
-                          suite.execute('acs config %s %s --parameter-file %s --index 0 --key-data %s --json', 'public-keys', 'set', paramFileName2, keydata, function(result) {
+                          var cmd = makeCommandStr('linux-profile', 'set', paramFileName2, util.format('--admin-username %s', username)).split(' ');
+                          testUtils.executeCommand(suite, retry, cmd, function(result) {
                             result.exitStatus.should.equal(0);
-                            var cmd = util.format('acs create -g %s -n %s --parameter-file %s --json', groupName, containerPrefix2, paramFileName2).split(' ');
-                            testUtils.executeCommand(suite, retry, cmd, function(result) {
+                            suite.execute('acs config %s %s --parameter-file %s --index 0 --key-data %s --json', 'public-keys', 'set', paramFileName2, keydata, function(result) {
                               result.exitStatus.should.equal(0);
-                              done();
+                              var cmd = util.format('acs create -g %s -n %s --parameter-file %s --json', groupName, containerPrefix2, paramFileName2).split(' ');
+                              testUtils.executeCommand(suite, retry, cmd, function(result) {
+                                result.exitStatus.should.equal(0);
+                                done();
+                              });
                             });
                           });
                         });
@@ -190,7 +198,7 @@ describe('arm', function() {
 
       it('container non-empty list should pass', function(done) {
         this.timeout(vmTest.timeoutLarge * 10);
-        var cmd = util.format('acs list -g %s --json', groupName).split(' ');
+        var cmd = util.format('acs list-by-resource-group -g %s --json', groupName).split(' ');
         testUtils.executeCommand(suite, retry, cmd, function(result) {
           result.exitStatus.should.equal(0);
           result.text.should.containEql(containerPrefix);
@@ -253,9 +261,9 @@ describe('arm', function() {
         });
       });
       
-      it('container empty list should pass', function(done) {
+      it('container empty list-by-resource-group should pass', function(done) {
         this.timeout(vmTest.timeoutLarge * 10);
-        var cmd = util.format('acs list -g %s --json', groupName).split(' ');
+        var cmd = util.format('acs list-by-resource-group -g %s --json', groupName).split(' ');
         testUtils.executeCommand(suite, retry, cmd, function(result) {
           result.exitStatus.should.equal(0);
           result.text.should.containEql('[]');
@@ -263,6 +271,16 @@ describe('arm', function() {
         });
       });
 
+      it('container empty list should pass', function(done) {
+        this.timeout(vmTest.timeoutLarge * 10);
+        var cmd = util.format('acs list --json', groupName).split(' ');
+        testUtils.executeCommand(suite, retry, cmd, function(result) {
+          result.exitStatus.should.equal(0);
+          result.text.should.containEql('[');
+          result.text.should.containEql(']');
+          done();
+        });
+      });
     });
   });
 });

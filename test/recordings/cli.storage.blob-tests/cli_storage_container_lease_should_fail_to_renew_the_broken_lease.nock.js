@@ -30,23 +30,23 @@ exports.scopes = [[function (nock) {
 var result = 
 nock('http://xplat.blob.core.windows.net:443')
   .put('/storageclitest?restype=container&comp=lease')
-  .reply(409, "﻿<?xml version=\"1.0\" encoding=\"utf-8\"?><Error><Code>LeaseIsBrokenAndCannotBeRenewed</Code><Message>The lease ID matched, but the lease has been broken explicitly and cannot be renewed.\nRequestId:f23ddb0f-0001-002c-3665-f4143a000000\nTime:2016-08-12T06:45:40.4106827Z</Message></Error>", { 'content-length': '285',
+  .reply(409, "﻿<?xml version=\"1.0\" encoding=\"utf-8\"?><Error><Code>LeaseIsBrokenAndCannotBeRenewed</Code><Message>The lease ID matched, but the lease has been broken explicitly and cannot be renewed.\nRequestId:fb7eb4ae-0001-004a-77aa-3fa660000000\nTime:2016-11-16T01:39:24.1171723Z</Message></Error>", { 'content-length': '285',
   'content-type': 'application/xml',
   server: 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0',
-  'x-ms-request-id': 'f23ddb0f-0001-002c-3665-f4143a000000',
-  'x-ms-version': '2015-04-05',
-  date: 'Fri, 12 Aug 2016 06:45:40 GMT',
+  'x-ms-request-id': 'fb7eb4ae-0001-004a-77aa-3fa660000000',
+  'x-ms-version': '2015-12-11',
+  date: 'Wed, 16 Nov 2016 01:39:23 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://xplat.blob.core.windows.net:443')
   .put('/storageclitest?restype=container&comp=lease')
-  .reply(409, "﻿<?xml version=\"1.0\" encoding=\"utf-8\"?><Error><Code>LeaseIsBrokenAndCannotBeRenewed</Code><Message>The lease ID matched, but the lease has been broken explicitly and cannot be renewed.\nRequestId:f23ddb0f-0001-002c-3665-f4143a000000\nTime:2016-08-12T06:45:40.4106827Z</Message></Error>", { 'content-length': '285',
+  .reply(409, "﻿<?xml version=\"1.0\" encoding=\"utf-8\"?><Error><Code>LeaseIsBrokenAndCannotBeRenewed</Code><Message>The lease ID matched, but the lease has been broken explicitly and cannot be renewed.\nRequestId:fb7eb4ae-0001-004a-77aa-3fa660000000\nTime:2016-11-16T01:39:24.1171723Z</Message></Error>", { 'content-length': '285',
   'content-type': 'application/xml',
   server: 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0',
-  'x-ms-request-id': 'f23ddb0f-0001-002c-3665-f4143a000000',
-  'x-ms-version': '2015-04-05',
-  date: 'Fri, 12 Aug 2016 06:45:40 GMT',
+  'x-ms-request-id': 'fb7eb4ae-0001-004a-77aa-3fa660000000',
+  'x-ms-version': '2015-12-11',
+  date: 'Wed, 16 Nov 2016 01:39:23 GMT',
   connection: 'close' });
  return result; }]];

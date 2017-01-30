@@ -92,6 +92,21 @@ describe('arm', function () {
           });
         });
       });
+      it('show should display details of vnet', function (done) {
+        var cmd = 'network vnet show -g {group} -n {name} --json'.formatArgs(vnetProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.equal(0);
+          var vnet = JSON.parse(result.text);
+          vnet.name.should.equal(vnetProp.name);
+          vnet.addressSpace.addressPrefixes.length.should.equal(1);
+          vnet.addressSpace.addressPrefixes.should.containEql(vnetProp.addressPrefix);
+          vnet.dhcpOptions.dnsServers.length.should.equal(1);
+          vnet.dhcpOptions.dnsServers.should.containEql(vnetProp.dnsServer);
+          networkUtil.shouldHaveTags(vnet);
+          networkUtil.shouldBeSucceeded(vnet);
+          done();
+        });
+      });
       it('set should modify vnet', function (done) {
         var cmd = 'network vnet set -g {group} -n {name} -a {newAddressPrefix} -d {newDnsServer} -t {newTags} --json'
           .formatArgs(vnetProp);
@@ -108,15 +123,6 @@ describe('arm', function () {
           vnet.dhcpOptions.dnsServers.should.containEql(vnetProp.newDnsServer);
           networkUtil.shouldAppendTags(vnet);
           networkUtil.shouldBeSucceeded(vnet);
-          done();
-        });
-      });
-      it('show should display details of vnet', function (done) {
-        var cmd = 'network vnet show -g {group} -n {name} --json'.formatArgs(vnetProp);
-        testUtils.executeCommand(suite, retry, cmd, function (result) {
-          result.exitStatus.should.equal(0);
-          var vnet = JSON.parse(result.text);
-          vnet.name.should.equal(vnetProp.name);
           done();
         });
       });

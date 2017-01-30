@@ -24,6 +24,8 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
     <Content Include="CONTRIBUTORS.txt" />
+    <Content Include="lib\commands\arm\datalakeanalytics\datalakeanalytics._js" />
+    <Content Include="lib\commands\arm\datalakestore\datalakestore._js" />
     <Content Include="lib\commands\arm\insights\insights.alerts.actions.js" />
     <Content Include="lib\commands\arm\insights\insights.alerts.rule.log._js" />
     <Content Include="lib\commands\arm\insights\insights.alerts.rule.metric._js" />
@@ -76,12 +78,15 @@
     <Content Include="lib\cli.js" />
     <Content Include="lib\cmdLoader.js" />
     <Content Include="lib\commands\arm\insights\insights.autoscale.notifications.js" />
+    <Compile Include="lib\commands\arm\datalakeanalytics\datalakeanalytics.utils.js" />
+    <Compile Include="lib\commands\arm\datalakestore\datalakestore.utils.js" />
     <Compile Include="lib\util\authentication\adalAuthForUser.js" />
     <Compile Include="lib\util\authentication\adalAuthForServicePrincipal.js" />
     <Compile Include="lib\util\interaction.js" />
     <Compile Include="lib\util\profile\account.js" />
     <Compile Include="lib\util\storage.util.js" />
     <Compile Include="lib\util\telemetry.js" />
+    <Compile Include="lib\util\userAgentCore.js" />
     <Compile Include="lib\util\vmConstants.js" />
     <Compile Include="lib\util\vnet.util.js" />
     <Compile Include="scripts\extract-labels.js" />
@@ -182,6 +187,8 @@
     <Compile Include="test\commands\arm\cdnMangement\arm.cdnMangement-tests.js">
       <TestFramework>Mocha</TestFramework>
     </Compile>
+    <Compile Include="test\commands\arm\datalakeanalytics\arm.datalake-analytics-tests.js" />
+    <Compile Include="test\commands\arm\datalakestore\arm.datalake-store-tests.js" />
     <Compile Include="test\commands\arm\insights\arm.insights.diagnostic.get-tests.js" />
     <Compile Include="test\commands\arm\insights\arm.insights.diagnostic.set-tests.js" />
     <Compile Include="test\commands\arm\vm\arm.vm-disk-encryption-tests.js">
@@ -249,6 +256,7 @@
     <Compile Include="test\commands\cli.storage.queue-tests.js" />
     <Compile Include="test\commands\cli.storage.service-tests.js" />
     <Compile Include="test\commands\cli.storage.table-tests.js" />
+    <Compile Include="test\commands\cli.telemetry-test.js" />
     <Compile Include="test\commands\cli.vm.acl-tests.js" />
     <Compile Include="test\commands\cli.vm.capture-tests.js" />
     <Compile Include="test\commands\cli.vm.create_affin_vnet_vm-tests.js" />
@@ -479,6 +487,8 @@
     <Folder Include="lib\commands\arm\armsdk" />
     <Folder Include="lib\commands\arm\availabilityset" />
     <Folder Include="lib\commands\arm\cdnmanagement\" />
+    <Folder Include="lib\commands\arm\datalakeanalytics\" />
+    <Folder Include="lib\commands\arm\datalakestore\" />
     <Folder Include="lib\commands\arm\feature" />
     <Folder Include="lib\commands\arm\group" />
     <Folder Include="lib\commands\arm\hdinsight" />
@@ -529,6 +539,8 @@
     <Folder Include="test\commands\arm\apiapp\lib\testpackages\validPackageNoSwagger" />
     <Folder Include="test\commands\arm\apiapp\lib\testpackages\validPackageStaticSwagger" />
     <Folder Include="test\commands\arm\apiapp\lib\testpackages\validPackageStaticSwagger\metadata" />
+    <Folder Include="test\commands\arm\datalakeanalytics\" />
+    <Folder Include="test\commands\arm\datalakestore\" />
     <Folder Include="test\commands\arm\feature" />
     <Folder Include="test\commands\arm\group" />
     <Folder Include="test\commands\arm\insights" />

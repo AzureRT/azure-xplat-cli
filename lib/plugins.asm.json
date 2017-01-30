@@ -9843,6 +9843,15 @@
                       "short": "-p",
                       "long": "--application-type-build-path",
                       "description": "the path of the application type build"
+                    },
+                    {
+                      "flags": "-t --timeout <timeout>",
+                      "required": -14,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-t",
+                      "long": "--timeout",
+                      "description": "the timeout, seconds"
                     }
                   ]
                 },
@@ -38173,6 +38182,14 @@
               "description": "Create a deployment script for python website"
             },
             {
+              "flags": "--functionApp",
+              "required": 0,
+              "optional": 0,
+              "bool": true,
+              "long": "--functionApp",
+              "description": "Create a deployment script for function App"
+            },
+            {
               "flags": "--basic",
               "required": 0,
               "optional": 0,
@@ -43665,11 +43682,10 @@
                   "description": "Bootstrap options in JSON format. Ex: -j '{\"chef_node_name\":\"test_node\"}'"
                 },
                 {
-                  "flags": "-v, --bootstrap-version <number>",
-                  "required": -25,
+                  "flags": "--bootstrap-version <number>",
+                  "required": -21,
                   "optional": 0,
                   "bool": true,
-                  "short": "-v",
                   "long": "--bootstrap-version",
                   "description": "chef-client version to be installed"
                 },
@@ -43710,12 +43726,44 @@
                   "description": "the subscription id"
                 },
                 {
+                  "flags": "--chef-service-interval <chef-service-interval>",
+                  "required": -25,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--chef-service-interval",
+                  "description": "It specifies the frequency (in minutes) at which the chef-service runs. Pass 0 if you don't want the chef-service to be installed on the target machine."
+                },
+                {
                   "flags": "--json-attributes <json-attributes>",
                   "required": -19,
                   "optional": 0,
                   "bool": true,
                   "long": "--json-attributes",
                   "description": "A JSON string to be added to the first run of chef-client. Ex: --json-attributes '{\"foo\" : \"bar\"}'"
+                },
+                {
+                  "flags": "--daemon <daemon>",
+                  "required": -10,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--daemon",
+                  "description": "Configures the chef-client service for unattended execution. The node platform to be Windows. Options: 'none' or 'service'. \n 'none' - Currently prevents the chef-client service from being configured as a service. \n 'service' - Configures the chef-client to run automatically in the background as a service."
+                },
+                {
+                  "flags": "--secret <secret-key>",
+                  "required": -10,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--secret",
+                  "description": "The secret key to use to encrypt data bag item values."
+                },
+                {
+                  "flags": "--secret-file <secret-file>",
+                  "required": -15,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--secret-file",
+                  "description": "A file containing the secret key to use to encrypt data bag item values."
                 }
               ]
             },

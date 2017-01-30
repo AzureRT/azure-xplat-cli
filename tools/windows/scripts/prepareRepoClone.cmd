@@ -9,7 +9,7 @@
 :: to avoid https://github.com/npm/npm/issues/6438
 chcp 850 
 
-set NODE_VERSION=4.2.4
+set NODE_VERSION=4.7.0
 set NPM_VERSION=1.3.17
 
 :: Add Git to the path as this should be run through a .NET command prompt
@@ -18,7 +18,8 @@ set PATH=%PATH%;"C:\Program Files (x86)\Git\bin;"
 
 pushd %~dp0..\
 
-set NODE_DOWNLOAD_URL=http://nodejs.org/dist/v%NODE_VERSION%/win-x86/node.exe
+set NODE_X86_DOWNLOAD_URL=http://nodejs.org/dist/v%NODE_VERSION%/win-x86/node.exe
+set NODE_X64_DOWNLOAD_URL=http://nodejs.org/dist/v%NODE_VERSION%/win-x64/node.exe
 set NPM_DOWNLOAD_URL=http://nodejs.org/dist/npm/npm-%NPM_VERSION%.zip
 
 echo Cleaning previous build artifacts...
@@ -28,7 +29,12 @@ if exist %OUTPUT_FOLDER% rmdir /s /q %OUTPUT_FOLDER%
 mkdir %OUTPUT_FOLDER%
 
 set TEMP_REPO_FOLDER=zcli
+set TEMP_AUX_REPO_FOLDER=zNode
+set X86=x86
+set X64=x64
 set TEMP_REPO=%HOMEDRIVE%%HOMEPATH%\%TEMP_REPO_FOLDER%
+set TEMP_AUX_REPO=%HOMEDRIVE%%HOMEPATH%\%TEMP_AUX_REPO_FOLDER%
+
 if not exist %TEMP_REPO% goto CLONE_REPO
 
 echo Temporary clone of the repo already exists. Removing it...
@@ -53,15 +59,54 @@ if %errorlevel% geq 8 (
 )
 popd
 
-echo Downloading node and npm...
-pushd %TEMP_REPO%\bin
-curl -o node.exe %NODE_DOWNLOAD_URL%
+if not exist %TEMP_AUX_REPO% goto DOWNLOAD_TASK
+
+echo Temporary clone of auxilary repo exists. Removing it...
+pushd %TEMP_AUX_REPO%\..\
+if exist %TEMP_AUX_REPO_FOLDER% rmdir /s /q %TEMP_AUX_REPO_FOLDER%
+if exist %TEMP_AUX_REPO_FOLDER% (
+    echo Failed to delete %TEMP_AUX_REPO_FOLDER%.
+    goto ERROR
+)
+popd
+
+:DOWNLOAD_TASK
+mkdir %TEMP_AUX_REPO%
+echo Downloading node x86 and x64...
+pushd %TEMP_AUX_REPO%
+mkdir %X86%
+pushd %X86%
+curl -o node.exe %NODE_X86_DOWNLOAD_URL%
 if %errorlevel% neq 0 goto ERROR
+popd
+mkdir %X64%
+pushd %X64%
+curl -o node.exe %NODE_X64_DOWNLOAD_URL%
+if %errorlevel% neq 0 goto ERROR
+popd
+popd
+
+echo.
+echo Downloading npm...
+pushd %TEMP_REPO%\bin
 curl -o npm.zip %NPM_DOWNLOAD_URL%
 if %errorlevel% neq 0 goto ERROR
 unzip -q npm.zip
 if %errorlevel% neq 0 goto ERROR
 del npm.zip
+popd
+
+echo.
+echo Copying node into bin directory...
+:: We copy node.exe to bin directory to compile streamline files and other tasks.
+:: During clean up phase, we delete it from bin directory. The reason for doing this is because the
+:: entire source repo is harvested during set up authoring. We want to author node by hand after determining architecture type (32 or 64 bit).
+pushd %TEMP_AUX_REPO%\%X86%
+robocopy . %TEMP_REPO%\bin /NFL /NDL /NJH /NJS
+if %errorlevel% geq 8 (
+    echo Robocopy failed to copy node.exe to the %TEMP_REPO%\bin.
+    goto ERROR
+)
 popd
 
 echo Running npm install...
@@ -122,6 +167,7 @@ for %%i in (
     .gitignore
     ChangeLog.txt
     bin\npm.cmd
+    bin\node.exe
     LICENSE.txt
 ) do (
     if exist %%i (

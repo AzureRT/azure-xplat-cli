@@ -18,16 +18,17 @@
         "publisher": "MicrosoftWindowsServer",
         "offer": "WindowsServer",
         "sku": "2012-R2-Datacenter",
-        "version": "latest"
+        "version": "latest",
+        "id": ""
       },
       "osDisk": {
         "name": "test",
         "caching": "None",
         "createOption": "fromImage",
         "vhdContainers": [
-          "https://xplatteststorage16018.blob.core.windows.net/xplatteststoragecnt12103",
-          "https://xplatteststorage26659.blob.core.windows.net/xplatteststoragecnt24121",
-          "https://xplatteststorage37766.blob.core.windows.net/xplatteststoragecnt39401"
+          "https://xplatteststorage19579.blob.core.windows.net/xplatteststoragecnt15465",
+          "https://xplatteststorage22251.blob.core.windows.net/xplatteststoragecnt23167",
+          "https://xplatteststorage37742.blob.core.windows.net/xplatteststoragecnt34573"
         ]
       }
     },
@@ -40,7 +41,7 @@
             {
               "name": "test",
               "subnet": {
-                "id": "/subscriptions/2c224e7e-3ef5-431d-a57b-e71f4662e3a6/resourceGroups/xplatTstVmssGCreate1093/providers/Microsoft.Network/VirtualNetworks/xplattestvnet5583/subnets/xplattestsubnet7518"
+                "id": "/subscriptions/e33f361b-53c2-4cc7-b829-78906708387b/resourceGroups/xplatTstVmssGCreate9920/providers/Microsoft.Network/VirtualNetworks/xplattestvnet4131/subnets/xplattestsubnet6155"
               },
               "id": ""
             }
@@ -60,7 +61,7 @@
           "settings": {},
           "protectedSettings": {},
           "provisioningState": "",
-          "id": ""
+          "id": null
         },
         {
           "name": "test1",
@@ -72,8 +73,9 @@
       ]
     }
   },
-  "overProvision": false,
+  "overprovision": false,
+  "singlePlacementGroup": null,
   "id": null,
   "name": "xplattestvmss5",
-  "location": "southeastasia"
+  "location": "eastus"
 }

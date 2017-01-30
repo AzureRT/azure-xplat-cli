@@ -29,7 +29,7 @@ var testPrefix = 'arm-network-dns-zone-tests',
   location;
 
 var zoneProp = {
-  name: 'example1.com',
+  name: 'exampledns.com',
   importPath: 'test/data/zone_file_import.txt',
   exportPath: 'test/data/zone_file_export.txt',
   tags: networkUtil.tags,

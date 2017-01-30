@@ -23,6 +23,7 @@ var path = require('path');
 var CLITest = require('../../../framework/arm-cli-test');
 var testUtil = require('../../../util/util');
 var jsonminify = require('jsonminify');
+var jsonlint = require('jsonlint');
 var requiredEnvironment = [
   { requiresToken: true },
   { name: 'AZURE_ARM_TEST_LOCATION', defaultValue: 'West US' }
@@ -276,6 +277,35 @@ describe('arm', function () {
             
             suite.execute('group deployment stop -g %s -n %s -q --json', groupName, deploymentName, function (listResult) {
               listResult.exitStatus.should.equal(0);
+              cleanup(done);
+            });
+          });
+        });
+      });
+
+      it.skip('should work with DCOS template file', function (done) {
+        var groupName = suite.generateId('xDeploymentTestGroup', createdGroups, suite.isMocked);
+        var deploymentName = suite.generateId('Deploy1', createdDeployments, suite.isMocked);
+        var templateFile = path.join(__dirname, '../../../data/DCOSTemplate.json');
+        var parameterFile = path.join(__dirname, '../../../data/DCOSParameters.json');
+        var commandToCreateDeployment = util.format('group deployment create -f %s -e %s -g %s -n %s --json -v',
+            templateFile, parameterFile, groupName, deploymentName);
+        
+          suite.execute('group create %s --location %s --json', groupName, testLocation, function (result) {
+          result.exitStatus.should.equal(0);
+          suite.execute(commandToCreateDeployment, function (result) {
+              console.log(result)
+            result.exitStatus.should.equal(0);
+            var deployment = JSON.parse(result.text);
+            deployment.name.should.equal(deploymentName);
+            deployment.id.should.containEql('/resourceGroups/' + groupName);
+            
+            suite.execute('group deployment list -g %s --state %s --json', groupName, 'Succeeded', function (listResult) {
+                            console.log(listResult);
+              listResult.exitStatus.should.equal(0);
+              if (JSON.parse(listResult.text).length !== 0) {
+                listResult.text.indexOf(deploymentName).should.be.above(-1);
+              }
               cleanup(done);
             });
           });
@@ -617,7 +647,7 @@ describe('arm', function () {
         });
       });
 
-      it('should show error message with line number when jsonlint parse fails', function (done) {
+      it('should show error message with line number when json fails', function (done) {
         var groupName = suite.generateId('xDeploymentTestGroup', createdGroups, suite.isMocked);
         var deploymentName = suite.generateId('Deploy1', createdDeployments, suite.isMocked);
         var templateUri = 'https://raw.githubusercontent.com/vivsriaus/armtemplates/master/invalidJsonTemplate.json';
@@ -628,12 +658,12 @@ describe('arm', function () {
           result.exitStatus.should.equal(0);
           suite.execute(commandToCreateDeployment, function (result) {
             result.exitStatus.should.equal(1);
-            result.errorText.should.match(/.*Parse error on line 29*/i);
+            result.errorText.should.match(/ *Parse error on line 29*/i);
             cleanup(done);
           });
         });
       });
-
+            
       it('should show nested error messages when deployments with nested templates fail', function (done) {
         var parameterFile = path.join(__dirname, '../../../data/nestedTemplate-parameters.json');
         setUniqParameterNames(suite, parameterFile);

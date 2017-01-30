@@ -18,7 +18,7 @@
 var fs = require('fs');
 var os = require('os');
 var path = require('path');
-var uuid = require('node-uuid');
+var uuid = require('uuid');
 
 var should = require('should');
 

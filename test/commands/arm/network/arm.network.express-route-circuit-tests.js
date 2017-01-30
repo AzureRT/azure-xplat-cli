@@ -85,6 +85,23 @@ describe('arm', function () {
           });
         });
       });
+      it('show should display details of express route circuit', function (done) {
+        var cmd = 'network express-route circuit show -g {group} -n {name} --json'.formatArgs(circuitProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.equal(0);
+          var circuit = JSON.parse(result.text);
+          circuit.name.should.equal(circuitProp.name);
+          var provider = circuit.serviceProviderProperties;
+          provider.serviceProviderName.should.equal(circuitProp.serviceProviderName);
+          provider.peeringLocation.should.equal(circuitProp.peeringLocation);
+          provider.bandwidthInMbps.should.equal(circuitProp.bandwidthInMbps);
+          var sku = circuit.sku;
+          sku.tier.should.equal(circuitProp.skuTier);
+          sku.family.should.equal(circuitProp.skuFamily);
+          networkUtil.shouldHaveTags(circuit);
+          done();
+        });
+      });
       it('provider list should list available providers', function (done) {
         var cmd = 'network express-route provider list --json';
         testUtils.executeCommand(suite, retry, cmd, function (result) {
@@ -105,15 +122,6 @@ describe('arm', function () {
           circuit.sku.family.should.equal(circuitProp.newSkuFamily);
           networkUtil.shouldBeSucceeded(circuit);
           networkUtil.shouldAppendTags(circuit);
-          done();
-        });
-      });
-      it('show should display details of express route circuit', function (done) {
-        var cmd = 'network express-route circuit show -g {group} -n {name} --json'.formatArgs(circuitProp);
-        testUtils.executeCommand(suite, retry, cmd, function (result) {
-          result.exitStatus.should.equal(0);
-          var circuit = JSON.parse(result.text);
-          circuit.name.should.equal(circuitProp.name);
           done();
         });
       });

@@ -99,6 +99,16 @@ describe('arm', function () {
           });
         });
       });
+      it('show should display details of express route authorization', function (done) {
+        var cmd = 'network express-route authorization show -g {group} -c {circuitName} -n {name} --json'.formatArgs(authProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.equal(0);
+          var auth = JSON.parse(result.text);
+          auth.name.should.equal(auth.name);
+          networkUtil.shouldBeSucceeded(auth);
+          done();
+        });
+      });
       it('set should modify express route authorization', function (done) {
         var cmd = 'network express-route authorization set -g {group} -c {circuitName} -n {name} -k {newKey} --json'.formatArgs(authProp);
         testUtils.executeCommand(suite, retry, cmd, function (result) {

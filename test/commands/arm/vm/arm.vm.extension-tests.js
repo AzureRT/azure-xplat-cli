@@ -29,6 +29,7 @@ var requiredEnvironment = [{
 }];
 var groupName,
   vmPrefix = 'xplatvmExt',
+  updateTag = 'extUpdateTag',
   nicName = 'xplatnicExt',
   location,
   username = 'azureuser',
@@ -50,6 +51,7 @@ var groupName,
   bgInfoExtensionVersion = '2.1',
   clientConfig = 'test/data/set-chef-extension-client-config.rb',
   validationPem = 'test/data/set-chef-extension-validation.pem',
+  sercretfilepath ='test/data/set-chef-extension-encrypted-databag-secret.txt',
   datafile = 'test/data/testdata.json';
   
 
@@ -64,6 +66,7 @@ describe('arm', function() {
         location = process.env.AZURE_VM_TEST_LOCATION;
         groupName = suite.generateId(groupPrefix, null);
         vmPrefix = suite.isMocked ? vmPrefix : suite.generateId(vmPrefix, null);
+        updateTag = suite.isMocked ? updateTag : suite.generateId(updateTag, null);
         nicName = suite.isMocked ? nicName : suite.generateId(nicName, null);
         storageAccount = suite.generateId(storageAccount, null);
         storageCont = suite.generateId(storageCont, null);
@@ -163,7 +166,7 @@ describe('arm', function() {
       //Set extensions
       it('Set extensions for the created vm', function(done) {
         this.timeout(vmTest.timeoutLarge);
-        var cmd = util.format('vm extension set %s %s %s %s %s --json', groupName, vmPrefix, extension, publisherExt, version).split(' ');
+        var cmd = util.format('vm extension set %s %s %s %s %s --force-update-tag %s --json', groupName, vmPrefix, extension, publisherExt, version, updateTag).split(' ');
         testUtils.executeCommand(suite, retry, cmd, function(result) {
           result.exitStatus.should.equal(0);
           done();
@@ -179,7 +182,8 @@ describe('arm', function() {
           allResources[1].publisher.should.equal(publisherExt);
           allResources[1].name.should.equal(extension);
           allResources[1].typeHandlerVersion.should.equal(version);
-	   allResources[1].autoUpgradeMinorVersion.should.be.false;
+          allResources[1].autoUpgradeMinorVersion.should.be.false;
+          allResources[1].forceUpdateTag.should.equal(updateTag);
           done();
         });
       });
@@ -219,6 +223,51 @@ describe('arm', function() {
       it('Set Chef extensions with custom json attributes', function(done) {
         this.timeout(vmTest.timeoutLarge);
         var cmd = util.format('vm extension set-chef %s %s --client-config %s --validation-pem %s --json-attributes %s --json', groupName, vmPrefix, clientConfig, validationPem, '{"chef_node_name":"mynode"}').split(' ');
+        testUtils.executeCommand(suite, retry, cmd, function(result) {
+          result.exitStatus.should.equal(0);
+          done();
+        });
+      });
+
+      it('Set Chef extension with bootstrap version', function(done){
+        this.timeout(vmTest.timeoutLarge);
+        var cmd = util.format('vm extension set-chef %s %s --client-config %s --validation-pem %s --bootstrap-version %s --json', groupName, vmPrefix, clientConfig, validationPem, '12.14.89').split(' ');
+        testUtils.executeCommand(suite, retry, cmd, function(result) {
+          result.exitStatus.should.equal(0);
+          done();
+        });
+      });
+
+      it('Set Chef extension with chef-service-interval', function(done){
+        this.timeout(vmTest.timeoutLarge);
+        var cmd = util.format('vm extension set-chef %s %s --client-config %s --validation-pem %s --chef-service-interval %s --json', groupName, vmPrefix, clientConfig, validationPem, 30).split(' ');
+        testUtils.executeCommand(suite, retry, cmd, function(result) {
+          result.exitStatus.should.equal(0);
+          done();
+        });
+      });
+
+      it('Set Chef extension with daemon', function(done){
+        this.timeout(vmTest.timeoutLarge);
+        var cmd = util.format('vm extension set-chef %s %s --client-config %s --validation-pem %s --daemon %s --json', groupName, vmPrefix, clientConfig, validationPem, 'service').split(' ');
+        testUtils.executeCommand(suite, retry, cmd, function(result) {
+          result.exitStatus.should.equal(0);
+          done();
+        });
+      });
+
+      it('Set Chef extension with secret key', function(done){
+        this.timeout(vmTest.timeoutLarge);
+        var cmd = util.format('vm extension set-chef %s %s --client-config %s --validation-pem %s --secret %s --json', groupName, vmPrefix, clientConfig, validationPem, 'YvlECGSCnWv0omVoCMQfSRKwSnqmktBc8i9yx+2TTXQJsNHoMwNJ1c9+stYfLcROXSBuz1736KKVOI9KFWn6OBIqs+TW+VT2DsKHkn7tYAz250NH2f6CVaWLAXQpH8HSZc9L2JeNuhaIa3zWHrhEAM0cbO8b39lz9yzH98nCRYn1tWF/cOTlk4X+lbJfXkWEvIpiB1+bOhCIWLBVMvhpJOqfE710F0KzcFlBOyJFJUqAnNXDn779/4SGfAGkfuVezn/1Pj2gM4dg2sQ7/iDt3LyGzeRcqvRJp+SrzSPbf1WXMAoYiBYkA7qzUE+VIWdBeCk7SHmA21f13lZVeA7OXwb/n4saSo06XQ5yiIY2g4QUDuDV34i50BSsMSGGEOIk0T5cIi24T0JyK+cfyQ904jSVGNge//ircCuR7Ek6lFmp6XATa6upngKl/OCSq8EWc0ucmunRoF58UjOjjXl21ABJYYFq/sD38TI68MX6nDvRJY/lJ5gYGasbedZNht7JwGGU=').split(' ');
+        testUtils.executeCommand(suite, retry, cmd, function(result) {
+          result.exitStatus.should.equal(0);
+          done();
+        });
+      });
+
+      it('Set Chef extension with secret file', function(done){
+        this.timeout(vmTest.timeoutLarge);
+        var cmd = util.format('vm extension set-chef %s %s --client-config %s --validation-pem %s --secret-file %s --json', groupName, vmPrefix, clientConfig, validationPem, sercretfilepath).split(' ');
         testUtils.executeCommand(suite, retry, cmd, function(result) {
           result.exitStatus.should.equal(0);
           done();

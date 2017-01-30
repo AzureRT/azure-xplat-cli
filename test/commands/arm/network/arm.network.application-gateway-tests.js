@@ -47,7 +47,7 @@ var location, groupName = 'xplatTestGroupCreateAppGw3',
     tags: networkUtil.tags,
     newCapacity: 5,
     newTags: networkUtil.newTags,
-    configName: 'ipConfig01',
+    configName: constants.appGateway.gatewayIp.name,
     frontendIpName: 'testFrontendIp',
     publicIpName: 'xplatTestPublicIp',
     portName: 'xplatTestPoolName',
@@ -65,7 +65,7 @@ var location, groupName = 'xplatTestGroupCreateAppGw3',
     httpProtocol: 'Http',
     httpsProtocol: 'Https',
     httpListenerName: 'xplatTestListener',
-    defHttpListenerName: 'listener01',
+    defHttpListenerName: constants.appGateway.httpListener.name,
     ruleName: 'xplatTestRule',
     probeName: 'xplatTestProbe',
     probePublicIpName: 'probePublicIp',
@@ -88,7 +88,7 @@ var location, groupName = 'xplatTestGroupCreateAppGw3',
     httpSettingsName1: 'httpSettingsName1',
     defPoolName: constants.appGateway.pool.name,
     mapPath: '/test',
-    newUrlMapRuleName: 'rule01',
+    newUrlMapRuleName: constants.appGateway.routingRule.name,
     newMapPath: '/test01',
     newMapPath1: '/test02',
     sslCertName: 'cert02',
@@ -103,7 +103,8 @@ var location, groupName = 'xplatTestGroupCreateAppGw3',
     firewallMode: "Prevention",
     firewallEnabled: true,
     wafSkuName: constants.appGateway.sku.name[3],
-    wafSkuTier: constants.appGateway.sku.tier[1]
+    wafSkuTier: constants.appGateway.sku.tier[1],
+    createConfigName: 'config02'
   };
 
 var requiredEnvironment = [{
@@ -165,6 +166,7 @@ describe('arm', function () {
                 '-j {portValue} -b {httpListenerProtocol} -w {ruleType} -a {skuName} -u {skuTier} -z {capacity} -t {tags} --json').formatArgs(gatewayProp);
               testUtils.executeCommand(suite, retry, cmd, function (result) {
                 result.exitStatus.should.equal(0);
+
                 var appGateway = JSON.parse(result.text);
                 appGateway.name.should.equal(gatewayProp.name);
                 appGateway.location.should.equal(gatewayProp.location);
@@ -172,16 +174,38 @@ describe('arm', function () {
                 appGateway.sku.tier.should.equal(gatewayProp.skuTier);
                 appGateway.sku.capacity.should.equal(gatewayProp.capacity);
 
-                var frontendPort = appGateway.frontendPorts[0];
-                frontendPort.port.should.equal(gatewayProp.portValue);
+                var ipConfigs = appGateway.gatewayIPConfigurations;
+                _.some(ipConfigs, function (ipConfig) {
+                  return ipConfig.name === gatewayProp.configName;
+                }).should.be.true;
 
-                var backendHttpSettings = appGateway.backendHttpSettingsCollection[0];
-                backendHttpSettings.port.should.equal(gatewayProp.httpSettingsPortAddress);
-                backendHttpSettings.protocol.toLowerCase().should.equal(gatewayProp.httpSettingsProtocol.toLowerCase());
-                backendHttpSettings.cookieBasedAffinity.should.equal(gatewayProp.cookieBasedAffinity);
+                var sslCertificates = appGateway.sslCertificates;
+                _.some(sslCertificates, function(sslCert) {
+                  return sslCert.name === gatewayProp.defSslCertName;
+                }).should.be.true;
+
+                var frontendIPs = appGateway.frontendIPConfigurations;
+                _.some(frontendIPs, function(frontendIP) {
+                  return frontendIP.name === constants.appGateway.frontendIp.name;
+                }).should.be.true;
+
+                var frontendPorts = appGateway.frontendPorts;
+                _.some(frontendPorts, function(frontendPort) {
+                  return frontendPort.port === gatewayProp.portValue;
+                }).should.be.true;
+
+                var addressPools = appGateway.backendAddressPools;
+                _.some(addressPools, function(addressPool) {
+                  return addressPool.name === constants.appGateway.pool.name;
+                }).should.be.true;
+
+                var backendHttpSetting = appGateway.backendHttpSettingsCollection[0];
+                backendHttpSetting.port.should.be.equal(gatewayProp.httpSettingsPortAddress);
+                backendHttpSetting.protocol.toLowerCase().should.be.equal(gatewayProp.httpSettingsProtocol.toLowerCase());
+                backendHttpSetting.cookieBasedAffinity.should.be.equal(gatewayProp.cookieBasedAffinity);
 
                 var httpListener = appGateway.httpListeners[0];
-                httpListener.protocol.toLowerCase().should.equal(gatewayProp.httpListenerProtocol.toLowerCase());
+                httpListener.protocol.toLowerCase().should.be.equal(gatewayProp.httpListenerProtocol.toLowerCase());
 
                 networkUtil.shouldHaveTags(appGateway);
                 networkUtil.shouldBeSucceeded(appGateway);
@@ -209,8 +233,47 @@ describe('arm', function () {
         var cmd = 'network application-gateway show {group} {name} --json'.formatArgs(gatewayProp);
         testUtils.executeCommand(suite, retry, cmd, function (result) {
           result.exitStatus.should.equal(0);
+
           var appGateway = JSON.parse(result.text);
           appGateway.name.should.equal(gatewayProp.name);
+          appGateway.location.should.equal(gatewayProp.location);
+          appGateway.sku.name.should.equal(gatewayProp.skuName);
+          appGateway.sku.tier.should.equal(gatewayProp.skuTier);
+          appGateway.sku.capacity.should.equal(gatewayProp.capacity);
+
+          var ipConfigs = appGateway.gatewayIPConfigurations;
+          _.some(ipConfigs, function (ipConfig) {
+            return ipConfig.name === gatewayProp.configName;
+          }).should.be.true;
+
+          var sslCertificates = appGateway.sslCertificates;
+          _.some(sslCertificates, function(sslCert) {
+            return sslCert.name === gatewayProp.defSslCertName;
+          }).should.be.true;
+
+          var frontendIPs = appGateway.frontendIPConfigurations;
+          _.some(frontendIPs, function(frontendIP) {
+            return frontendIP.name === constants.appGateway.frontendIp.name;
+          }).should.be.true;
+
+          var frontendPorts = appGateway.frontendPorts;
+          _.some(frontendPorts, function(frontendPort) {
+            return frontendPort.port === gatewayProp.portValue;
+          }).should.be.true;
+
+          var addressPools = appGateway.backendAddressPools;
+          _.some(addressPools, function(addressPool) {
+            return addressPool.name === constants.appGateway.pool.name;
+          }).should.be.true;
+
+          var backendHttpSetting = appGateway.backendHttpSettingsCollection[0];
+          backendHttpSetting.port.should.be.equal(gatewayProp.httpSettingsPortAddress);
+          backendHttpSetting.protocol.toLowerCase().should.be.equal(gatewayProp.httpSettingsProtocol.toLowerCase());
+          backendHttpSetting.cookieBasedAffinity.should.be.equal(gatewayProp.cookieBasedAffinity);
+
+          var httpListener = appGateway.httpListeners[0];
+          httpListener.protocol.toLowerCase().should.be.equal(gatewayProp.httpListenerProtocol.toLowerCase());
+
           networkUtil.shouldBeSucceeded(appGateway);
           done();
         });
@@ -578,6 +641,7 @@ describe('arm', function () {
           done();
         });
       });
+
       it('http-listener show command should show default http listener in application gateway', function (done) {
         var cmd = util.format('network application-gateway http-listener show {group} {name} {defHttpListenerName} --json')
           .formatArgs(gatewayProp);
@@ -1144,8 +1208,10 @@ describe('arm', function () {
 
       it('create again should pass', function (done) {
         var cmd = util.format('network application-gateway create {group} {name} -l {location} -e {vnetName} -m {subnetName} ' +
-          '-r {servers} -y {defaultSslCertPath} -x {sslPassword} -i {httpSettingsProtocol} -o {httpSettingsPortAddress} -f {cookieBasedAffinity} ' +
-          '-j {portValue} -b {httpListenerProtocol} -w {ruleType} -a {skuName} -u {skuTier} -z {capacity} -t {tags} --json').formatArgs(gatewayProp);
+          '-r {servers} -y {defaultSslCertPath} -x {sslPassword} -i {httpSettingsProtocol} -o {httpSettingsPortAddress} ' +
+          '-f {cookieBasedAffinity} -j {portValue} -b {httpListenerProtocol} -w {ruleType} -a {skuName} -u {skuTier} ' +
+          '-z {capacity} -t {tags} -O {httpSettingsName} -L {httpListenerName} -J {portName} -F {frontendIpName} ' +
+          '-A {poolName} -G {createConfigName} -R {ruleName} --json').formatArgs(gatewayProp);
         testUtils.executeCommand(suite, retry, cmd, function (result) {
           result.exitStatus.should.equal(0);
           var appGateway = JSON.parse(result.text);
@@ -1155,15 +1221,26 @@ describe('arm', function () {
           appGateway.sku.tier.should.equal(gatewayProp.skuTier);
           appGateway.sku.capacity.should.equal(gatewayProp.capacity);
 
+          var addressPool = appGateway.backendAddressPools[0];
+          addressPool.name.should.equal(gatewayProp.poolName);
+
+          var frontendIp = appGateway.frontendIPConfigurations[0];
+          frontendIp.name.should.equal(gatewayProp.frontendIpName);
+
           var frontendPort = appGateway.frontendPorts[0];
-          frontendPort.port.should.equal(gatewayProp.portValue);
+          frontendPort.name.should.equal(gatewayProp.portName);
+
+          var gatewayIp = appGateway.gatewayIPConfigurations[0];
+          gatewayIp.name.should.equal(gatewayProp.createConfigName);
 
           var backendHttpSettings = appGateway.backendHttpSettingsCollection[0];
+          backendHttpSettings.name.should.equal(gatewayProp.httpSettingsName);
           backendHttpSettings.port.should.equal(gatewayProp.httpSettingsPortAddress);
           backendHttpSettings.protocol.toLowerCase().should.equal(gatewayProp.httpSettingsProtocol.toLowerCase());
           backendHttpSettings.cookieBasedAffinity.should.equal(gatewayProp.cookieBasedAffinity);
 
           var httpListener = appGateway.httpListeners[0];
+          httpListener.name.toLowerCase().should.equal(gatewayProp.httpListenerName.toLowerCase());
           httpListener.protocol.toLowerCase().should.equal(gatewayProp.httpListenerProtocol.toLowerCase());
 
           networkUtil.shouldHaveTags(appGateway);

@@ -44,7 +44,7 @@ nock('https://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/9167af2d-c13e-4d34-9a57-8f37dba6ff31/resourcegroups/testGroup?api-version=2016-02-01')
+  .get('/subscriptions/9167af2d-c13e-4d34-9a57-8f37dba6ff31/resourcegroups/testGroup?api-version=2016-09-01')
   .reply(200, "{\"id\":\"/subscriptions/9167af2d-c13e-4d34-9a57-8f37dba6ff31/resourceGroups/testGroup\",\"name\":\"testGroup\",\"location\":\"westus\",\"tags\":{},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -61,7 +61,7 @@ function (nock) {
 var result = 
 nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
-.patch('/subscriptions/9167af2d-c13e-4d34-9a57-8f37dba6ff31/resourcegroups/testGroup?api-version=2016-02-01', '*')
+.patch('/subscriptions/9167af2d-c13e-4d34-9a57-8f37dba6ff31/resourcegroups/testGroup?api-version=2016-09-01', '*')
   .reply(200, "{\"id\":\"/subscriptions/9167af2d-c13e-4d34-9a57-8f37dba6ff31/resourceGroups/testGroup\",\"name\":\"testGroup\",\"location\":\"westus\",\"tags\":{},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '181',

@@ -257,11 +257,12 @@ _.extend(NetworkTestUtil.prototype, {
   createVpnGateway: function (gatewayProp, suite, callback) {
     var self = this;
 
-    self.createVnet(gatewayProp.group, gatewayProp.vnetName, gatewayProp.location, gatewayProp.vnetAddressPrefix, suite, function (vnet) {
+    self.createVnet(gatewayProp.group, gatewayProp.vnetName, gatewayProp.location, gatewayProp.vnetAddressPrefix, suite, function () {
       self.createSubnet(gatewayProp.group, gatewayProp.vnetName, gatewayProp.subnetName, gatewayProp.subnetAddressPrefix, suite, function (subnet) {
         self.createPublicIpLegacy(gatewayProp.group, gatewayProp.publicIpName, gatewayProp.location, suite, function (publicIp) {
           var cmd = util.format('network vpn-gateway create -g {group} -n {name} -l {location} -w {gatewayType} -y {vpnType} -k {sku} ' +
-            '-b {enableBgp} -t {tags} -u {1} -f {2} --json').formatArgs(gatewayProp, publicIp.id, subnet.id);
+            '-b {enableBgp} -a {bgpSettingsAsn} -o {bgpPeeringAddress} -j {bgpPeerWeight} -t {tags} -u {1} -f {2} --json')
+            .formatArgs(gatewayProp, publicIp.id, subnet.id);
 
           testUtils.executeCommand(suite, retry, cmd, function (result) {
             result.exitStatus.should.equal(0);
@@ -271,6 +272,9 @@ _.extend(NetworkTestUtil.prototype, {
             vpnGateway.vpnType.should.equal(gatewayProp.vpnType);
             vpnGateway.sku.name.should.equal(gatewayProp.sku);
             vpnGateway.enableBgp.should.equal(gatewayProp.enableBgp);
+            vpnGateway.bgpSettings.asn.should.equal(gatewayProp.bgpSettingsAsn);
+            vpnGateway.bgpSettings.bgpPeeringAddress.should.equal(gatewayProp.bgpPeeringAddress);
+            vpnGateway.bgpSettings.peerWeight.should.equal(gatewayProp.bgpPeerWeight);
             vpnGateway.ipConfigurations.length.should.equal(1);
             var ipConfig = vpnGateway.ipConfigurations[0];
             ipConfig.subnet.id.should.equal(subnet.id);
@@ -357,8 +361,9 @@ _.extend(NetworkTestUtil.prototype, {
     });
   },
   deleteDnsRecord: function (rsetProp, suite, callback) {
-    var cmd = 'network dns record-set delete-record -g {group} -z {zoneName} -n {name} -y {type} {params} --quiet --json'
-      .formatArgs(rsetProp);
+    var keepEmptyRecordSet = rsetProp.keepEmptyRecordSet ? '--keep-empty-record-set' : '';
+    var cmd = util.format('network dns record-set delete-record -g {group} -z {zoneName} -n {name} -y {type} {params} ' +
+      '--keep-empty-record-set --quiet %s --json', keepEmptyRecordSet).formatArgs(rsetProp);
     testUtils.executeCommand(suite, retry, cmd, function (result) {
       result.exitStatus.should.equal(0);
       callback();

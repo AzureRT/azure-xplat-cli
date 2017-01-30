@@ -34,52 +34,52 @@ exports.setEnvironment = function() {
   process.env['AZURE_ARM_TEST_CDN_ORIGIN_2'] = 'cliTestOrigin02';
   process.env['AZURE_ARM_TEST_ENDPOINT_TEST_LOCATION_1'] = 'eastus';
   process.env['AZURE_ARM_TEST_CUSTOM_DOMAIN_NAME_1'] = 'cliTestCustomDomain01';
-  process.env['AZURE_ARM_TEST_CUSTOM_DOMAIN_HOST_NAME_1'] = 'cli-0a51dd4a-33ca-4c25-91d7-42ae35c12cdd.azureedge-test.net';
+  process.env['AZURE_ARM_TEST_CUSTOM_DOMAIN_HOST_NAME_1'] = 'cli-0dbedc55-0d09-4eb8-974a-ed9cfe6f9558.azureedge-test.net';
 };
 
 exports.scopes = [[function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
-.post('/subscriptions/8fbd19e9-e8e0-4224-89f6-b1d5d86fb4c4/resourceGroups/xplattestadlsrgr01/providers/Microsoft.Cdn/profiles/cliTestProfile01/endpoints/cliTestEndpoint02/validateCustomDomain?api-version=2016-04-02', '*')
+.post('/subscriptions/8fbd19e9-e8e0-4224-89f6-b1d5d86fb4c4/resourceGroups/xplattestadlsrgr01/providers/Microsoft.Cdn/profiles/cliTestProfile01/endpoints/cliTestEndpoint01/validateCustomDomain?api-version=2016-10-02', '*')
   .reply(200, "{\r\n  \"customDomainValidated\":true,\"message\":null,\"reason\":null\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '65',
   'content-type': 'application/json; odata.metadata=minimal',
   expires: '-1',
-  'x-ms-request-id': 'cb2015dd-ed52-411e-bc57-a90515cc854b',
-  'x-ms-client-request-id': '6b09dfbc-86b7-44ee-b8ca-5c3b41fae45e',
+  'x-ms-request-id': 'e957933d-98e7-4cc1-ac4c-d0e71f4dcef9',
+  'x-ms-client-request-id': '5156775a-5fb4-4eb4-9582-9b6c409082d5',
   'odata-version': '4.0',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-IIS/8.5',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-ratelimit-remaining-subscription-writes': '1199',
-  'x-ms-correlation-request-id': '509e5930-7fc2-4bc5-87a4-7886fcff3ed2',
-  'x-ms-routing-request-id': 'WESTUS:20160518T214854Z:509e5930-7fc2-4bc5-87a4-7886fcff3ed2',
-  date: 'Wed, 18 May 2016 21:48:53 GMT',
+  'x-ms-ratelimit-remaining-subscription-writes': '1196',
+  'x-ms-correlation-request-id': '0e745a44-95f3-435c-b963-2f6e11bca244',
+  'x-ms-routing-request-id': 'WESTUS2:20161104T004458Z:0e745a44-95f3-435c-b963-2f6e11bca244',
+  date: 'Fri, 04 Nov 2016 00:44:57 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
-.post('/subscriptions/8fbd19e9-e8e0-4224-89f6-b1d5d86fb4c4/resourceGroups/xplattestadlsrgr01/providers/Microsoft.Cdn/profiles/cliTestProfile01/endpoints/cliTestEndpoint02/validateCustomDomain?api-version=2016-04-02', '*')
+.post('/subscriptions/8fbd19e9-e8e0-4224-89f6-b1d5d86fb4c4/resourceGroups/xplattestadlsrgr01/providers/Microsoft.Cdn/profiles/cliTestProfile01/endpoints/cliTestEndpoint01/validateCustomDomain?api-version=2016-10-02', '*')
   .reply(200, "{\r\n  \"customDomainValidated\":true,\"message\":null,\"reason\":null\r\n}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '65',
   'content-type': 'application/json; odata.metadata=minimal',
   expires: '-1',
-  'x-ms-request-id': 'cb2015dd-ed52-411e-bc57-a90515cc854b',
-  'x-ms-client-request-id': '6b09dfbc-86b7-44ee-b8ca-5c3b41fae45e',
+  'x-ms-request-id': 'e957933d-98e7-4cc1-ac4c-d0e71f4dcef9',
+  'x-ms-client-request-id': '5156775a-5fb4-4eb4-9582-9b6c409082d5',
   'odata-version': '4.0',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-IIS/8.5',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
-  'x-ms-ratelimit-remaining-subscription-writes': '1199',
-  'x-ms-correlation-request-id': '509e5930-7fc2-4bc5-87a4-7886fcff3ed2',
-  'x-ms-routing-request-id': 'WESTUS:20160518T214854Z:509e5930-7fc2-4bc5-87a4-7886fcff3ed2',
-  date: 'Wed, 18 May 2016 21:48:53 GMT',
+  'x-ms-ratelimit-remaining-subscription-writes': '1196',
+  'x-ms-correlation-request-id': '0e745a44-95f3-435c-b963-2f6e11bca244',
+  'x-ms-routing-request-id': 'WESTUS2:20161104T004458Z:0e745a44-95f3-435c-b963-2f6e11bca244',
+  date: 'Fri, 04 Nov 2016 00:44:57 GMT',
   connection: 'close' });
  return result; }]];

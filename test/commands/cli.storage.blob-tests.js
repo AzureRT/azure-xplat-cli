@@ -143,7 +143,7 @@ describe('cli', function () {
             var containers = JSON.parse(result.text);
             containers.length.should.greaterThan(0);
             containers.forEach(function(container) {
-              container.name.should.equal(containerName);
+              container.name.should.startWith(containerName);
             });
             done();
           });
@@ -167,6 +167,39 @@ describe('cli', function () {
             container.name.should.equal(containerName);
             container.publicAccessLevel.should.equal('Container');
             done();
+          });
+        });
+        
+        liveOnly('should NOT erase existing container policy', function(done) {
+          var containerName = 'storageclitest2';
+          var policyName1 = 'containerpolicy01';
+          var start = new Date('2014-12-01').toISOString();
+          var expiry = new Date('2099-12-31').toISOString();
+          var permissions = 'rl';
+
+          suite.execute('storage container create %s --json', containerName, function(result) {
+            var container = JSON.parse(result.text);
+            container.name.should.equal(containerName);
+            container.publicAccessLevel.should.equal('Off');
+
+            suite.execute('storage container policy create %s %s --permissions %s --start %s --expiry %s --json', containerName, policyName1, permissions, start, expiry, function (result) {
+              suite.execute('storage container set %s -p container --json', containerName, function(result) {
+                var container = JSON.parse(result.text);
+                container.name.should.equal(containerName);
+                container.publicAccessLevel.should.equal('Container');
+
+                setTimeout(function() {
+                  suite.execute('storage container policy list %s --json', containerName, function (result) {
+                    var policies = JSON.parse(result.text);
+                    Object.keys(policies).length.should.equal(1);
+
+                    suite.execute('storage container delete %s -q --json', containerName, function(result) {
+                      done();
+                    });
+                  });
+                }, aclTimeout);
+              });
+            });
           });
         });
       });

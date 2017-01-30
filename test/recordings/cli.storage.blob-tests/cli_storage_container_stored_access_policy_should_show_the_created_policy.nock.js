@@ -32,13 +32,13 @@ nock('http://xplat.blob.core.windows.net:443')
   .get('/storageclitest?restype=container&comp=acl')
   .reply(200, "﻿<?xml version=\"1.0\" encoding=\"utf-8\"?><SignedIdentifiers><SignedIdentifier><Id>containerpolicy01</Id><AccessPolicy><Start>2014-12-01T00:00:00.0000000Z</Start><Expiry>2099-12-31T00:00:00.0000000Z</Expiry><Permission>rl</Permission></AccessPolicy></SignedIdentifier></SignedIdentifiers>", { 'transfer-encoding': 'chunked',
   'content-type': 'application/xml',
-  'last-modified': 'Fri, 12 Aug 2016 06:44:25 GMT',
-  etag: '"0x8D3C27C19A164C2"',
+  'last-modified': 'Wed, 16 Nov 2016 01:38:09 GMT',
+  etag: '"0x8D40DC138661F15"',
   vary: 'Origin',
   server: 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0',
-  'x-ms-request-id': '3bc019a3-0001-0022-8065-f4f831000000',
-  'x-ms-version': '2015-04-05',
-  date: 'Fri, 12 Aug 2016 06:44:53 GMT',
+  'x-ms-request-id': '609cf2dc-0001-002b-2faa-3fe2bf000000',
+  'x-ms-version': '2015-12-11',
+  date: 'Wed, 16 Nov 2016 01:38:39 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
@@ -47,12 +47,12 @@ nock('https://xplat.blob.core.windows.net:443')
   .get('/storageclitest?restype=container&comp=acl')
   .reply(200, "﻿<?xml version=\"1.0\" encoding=\"utf-8\"?><SignedIdentifiers><SignedIdentifier><Id>containerpolicy01</Id><AccessPolicy><Start>2014-12-01T00:00:00.0000000Z</Start><Expiry>2099-12-31T00:00:00.0000000Z</Expiry><Permission>rl</Permission></AccessPolicy></SignedIdentifier></SignedIdentifiers>", { 'transfer-encoding': 'chunked',
   'content-type': 'application/xml',
-  'last-modified': 'Fri, 12 Aug 2016 06:44:25 GMT',
-  etag: '"0x8D3C27C19A164C2"',
+  'last-modified': 'Wed, 16 Nov 2016 01:38:09 GMT',
+  etag: '"0x8D40DC138661F15"',
   vary: 'Origin',
   server: 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0',
-  'x-ms-request-id': '3bc019a3-0001-0022-8065-f4f831000000',
-  'x-ms-version': '2015-04-05',
-  date: 'Fri, 12 Aug 2016 06:44:53 GMT',
+  'x-ms-request-id': '609cf2dc-0001-002b-2faa-3fe2bf000000',
+  'x-ms-version': '2015-12-11',
+  date: 'Wed, 16 Nov 2016 01:38:39 GMT',
   connection: 'close' });
  return result; }]];

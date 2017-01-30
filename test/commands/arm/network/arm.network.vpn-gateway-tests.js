@@ -36,6 +36,11 @@ var gatewayProp = {
   subnetAddressPrefix: '10.1.0.0/28',
   publicIpName: 'test-ip',
   gatewayType: 'Vpn',
+  bgpSettingsAsn: 65010,
+  bgpPeeringAddress: '10.12.255.30',
+  bgpPeerWeight: 0,
+  newBgpSettingsAsn: 64999,
+  newBgpPeerWeight: 2,
   vpnType: 'RouteBased',
   sku: 'Standard',
   enableBgp: false,
@@ -111,8 +116,11 @@ describe('arm', function () {
     });
 
     describe('vpn-gateway', function () {
-      // Note: VPN operations are long running and takes about 20-30 minutes to complete,
-      // so we need to increase mocha timeout a lot
+
+      /*
+        Note: VPN operations are long running and takes about 20-30 minutes to complete,
+        so we need to increase mocha timeout a lot.
+      */
       this.timeout(hour);
 
       it('create should create vpn gateway', function (done) {
@@ -124,13 +132,16 @@ describe('arm', function () {
       });
       it('set should modify vpn gateway', function (done) {
         var cmd = util.format('network vpn-gateway set -g {group} -n {name} -f {addressPrefix} ' +
-          '-t {newTags} --json').formatArgs(gatewayProp);
+          '-a {newBgpSettingsAsn} -j {newBgpPeerWeight} -t {newTags} --json').formatArgs(gatewayProp);
 
         testUtils.executeCommand(suite, retry, cmd, function (result) {
           result.exitStatus.should.equal(0);
           var vpnGateway = JSON.parse(result.text);
           vpnGateway.name.should.equal(gatewayProp.name);
           vpnGateway.ipConfigurations.length.should.equal(1);
+          vpnGateway.bgpSettings.asn.should.equal(gatewayProp.newBgpSettingsAsn);
+          vpnGateway.bgpSettings.bgpPeeringAddress.should.equal(gatewayProp.bgpPeeringAddress);
+          vpnGateway.bgpSettings.peerWeight.should.equal(gatewayProp.newBgpPeerWeight);
           var ipConfig = vpnGateway.ipConfigurations[0];
           var vpnConfig = vpnGateway.vpnClientConfiguration;
           vpnConfig.vpnClientAddressPool.addressPrefixes[0].should.equal(gatewayProp.addressPrefix);

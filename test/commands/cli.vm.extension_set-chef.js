@@ -40,6 +40,7 @@ describe('cli', function() {
       clientconfig = 'test/data/set-chef-extension-client-config.rb',
       validationpem = 'test/data/set-chef-extension-validation.pem',
       clientpem = 'test/data/set-chef-extension-client.pem',
+      sercretfilepath ='test/data/set-chef-extension-encrypted-databag-secret.txt',
       chefversion = '1210.*',
       timeout;
     testUtils.TIMEOUT_INTERVAL = 15000;
@@ -116,6 +117,49 @@ describe('cli', function() {
 
       it('Set Chef extensions with client-pem option', function(done) {
         var cmd = util.format('vm extension set-chef %s -V %s -c %s -C %s --json', vmName, chefversion, clientconfig, clientpem).split(' ');
+        testUtils.executeCommand(suite, retry, cmd, function(result) {
+          result.exitStatus.should.equal(0);
+          done();
+        });
+      });
+
+      it('Set Chef extensions with daemon option', function(done) {
+        var cmd = util.format('vm extension set-chef %s -V %s -c %s -O %s --daemon %s --json', vmName, chefversion, clientconfig, validationpem, 'service').split(' ');
+        testUtils.executeCommand(suite, retry, cmd, function(result) {
+          result.exitStatus.should.equal(0);
+          done();
+        });
+      });
+
+      it('Set Chef extensions with chef-service-interval option', function(done) {
+        var cmd = util.format('vm extension set-chef %s -V %s -c %s -O %s --chef-service-interval %s --json', vmName, chefversion, clientconfig, validationpem, 30).split(' ');
+        testUtils.executeCommand(suite, retry, cmd, function(result) {
+          result.exitStatus.should.equal(0);
+          done();
+        });
+      });
+
+      it('Set Chef extensions with secret option', function(done) {
+        var cmd = util.format('vm extension set-chef %s -V %s -c %s -O %s --secret %s --json',
+          vmName, chefversion, clientconfig, validationpem, 'YvlECGSCnWv0omVoCMQfSRKwSnqmktBc8i9yx+2TTXQJsNHoMwNJ1c9+stYfLcROXSBuz1736KKVOI9KFWn6OBIqs+TW+VT2DsKHkn7tYAz250NH2f6CVaWLAXQpH8HSZc9L2JeNuhaIa3zWHrhEAM0cbO8b39lz9yzH98nCRYn1tWF/cOTlk4X+lbJfXkWEvIpiB1+bOhCIWLBVMvhpJOqfE710F0KzcFlBOyJFJUqAnNXDn779/4SGfAGkfuVezn/1Pj2gM4dg2sQ7/iDt3LyGzeRcqvRJp+SrzSPbf1WXMAoYiBYkA7qzUE+VIWdBeCk7SHmA21f13lZVeA7OXwb/n4saSo06XQ5yiIY2g4QUDuDV34i50BSsMSGGEOIk0T5cIi24T0JyK+cfyQ904jSVGNge//ircCuR7Ek6lFmp6XATa6upngKl/OCSq8EWc0ucmunRoF58UjOjjXl21ABJYYFq/sD38TI68MX6nDvRJY/lJ5gYGasbedZNht7JwGGU=').split(' ');
+        testUtils.executeCommand(suite, retry, cmd, function(result) {
+          result.exitStatus.should.equal(0);
+          done();
+        });
+      });
+
+      it('Set Chef extensions with secret-file option', function(done) {
+        var cmd = util.format('vm extension set-chef %s -V %s -c %s -O %s --secret-file %s --json',
+          vmName, chefversion, clientconfig, validationpem, sercretfilepath).split(' ');
+        testUtils.executeCommand(suite, retry, cmd, function(result) {
+          result.exitStatus.should.equal(0);
+          done();
+        });
+      });
+
+      it('Set Chef extensions with bootstrap-version option', function(done) {
+        var cmd = util.format('vm extension set-chef %s -V %s -c %s -O %s --bootstrap-version %s --json',
+          vmName, chefversion, clientconfig, validationpem, '12.14.89').split(' ');
         testUtils.executeCommand(suite, retry, cmd, function(result) {
           result.exitStatus.should.equal(0);
           done();

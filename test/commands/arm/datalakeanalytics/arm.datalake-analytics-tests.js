@@ -158,7 +158,7 @@ describe('arm', function () {
     it('create account with same name should fail', function (done) {
       suite.execute('datalake analytics account create --accountName %s --resource-group %s --location %s --defaultDataLakeStore %s --json', accountName, secondResourceGroup, testLocation, storeAccountName, function (result) {
         result.exitStatus.should.be.equal(1);
-        result.errorText.should.include('belong to another owner'); // note: this error message needs to be updated. once it is, this test will need to be updated as well.
+        result.errorText.should.include('belongs to another resource'); // note: this error message needs to be updated. once it is, this test will need to be updated as well.
         done();
       });
     });
@@ -212,13 +212,13 @@ describe('arm', function () {
         suite.execute('datalake analytics account show --accountName %s --json', accountName, function (result) {
           result.exitStatus.should.be.equal(0);
           var accountJson = JSON.parse(result.text);
-          accountJson.properties.dataLakeStoreAccounts.length.should.be.equal(2);
+          accountJson.dataLakeStoreAccounts.length.should.be.equal(2);
           suite.execute('datalake analytics account datasource delete --accountName %s --dataLakeStore %s --json', accountName, additionalStoreAccountName, function (result) {
             result.exitStatus.should.be.equal(0);
             suite.execute('datalake analytics account show --accountName %s --json', accountName, function (result) {
               result.exitStatus.should.be.equal(0);
               var accountJson = JSON.parse(result.text);
-              accountJson.properties.dataLakeStoreAccounts.length.should.be.equal(1);
+              accountJson.dataLakeStoreAccounts.length.should.be.equal(1);
               done();
             });
           });
@@ -235,13 +235,13 @@ describe('arm', function () {
           suite.execute('datalake analytics account show --accountName %s --json', accountName, function (result) {
             result.exitStatus.should.be.equal(0);
             var accountJson = JSON.parse(result.text);
-            accountJson.properties.storageAccounts.length.should.be.equal(1);
+            accountJson.storageAccounts.length.should.be.equal(1);
             suite.execute('datalake analytics account datasource delete --accountName %s --azureBlob %s --json', accountName, azureBlobAccountName, function (result) {
               result.exitStatus.should.be.equal(0);
               suite.execute('datalake analytics account show --accountName %s --json', accountName, function (result) {
                 result.exitStatus.should.be.equal(0);
                 var accountJson = JSON.parse(result.text);
-                accountJson.properties.storageAccounts.length.should.be.equal(0);
+                accountJson.storageAccounts.length.should.be.equal(0);
                 done();
               });
             });

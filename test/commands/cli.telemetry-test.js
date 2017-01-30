@@ -25,6 +25,8 @@ describe('cli', function() {
   describe('telemetry', function() {
     var sandbox = sinon.sandbox.create();
     var telemetry = require('../../lib/util/telemetry');
+    var userAgentCore = require('../../lib/util/userAgentCore');
+
     var testInstrumentationKey = "1234";
 
     beforeEach(function (done) {
@@ -78,6 +80,107 @@ describe('cli', function() {
       telemetry.onFinish(function() {});
 
       (track.called).should.be.false;
+      done();
+    });
+
+    it('should construct user agent info object with some data', function (done) {
+
+      sandbox.stub(userAgentCore, 'getUserAgentData', function () {
+        return {
+          osType: 'WindowsNT',
+          osVersion: '2.0',
+          mode: 'baz'
+        };
+      });
+
+      telemetry.init(true)
+      telemetry.start(['foo', 'bar', 'azure', 'group', 'list']);
+      telemetry.currentCommand({
+        fullName: function () {
+          return 'azure group list';
+        }
+      });
+
+      telemetry.onFinish(function () { });
+
+      var userAgentInfo = userAgentCore.getUserAgentData();
+      should(userAgentInfo).have.property('osType', 'WindowsNT');
+      should(userAgentInfo).have.property('osVersion', '2.0');
+      should(userAgentInfo).have.property('mode', 'baz');
+
+      sandbox.restore();
+      done();
+    });
+
+    it('should construct user agent info object with some properties', function (done) {
+
+      var command = 'azure group list';
+      telemetry.init(true)
+      telemetry.start(['foo', 'bar', 'azure', 'group', 'list']);
+      telemetry.setMode('arm');
+
+      telemetry.currentCommand({
+        fullName: function () {
+          return command;
+        }
+      });
+
+      telemetry.onFinish(function () { });
+
+      var userAgentInfo = userAgentCore.getUserAgentData();
+
+      // assert properties
+      should(userAgentInfo).have.property('osType').with.type('string');
+      should(userAgentInfo).have.property('osVersion').with.type('string');
+      should(userAgentInfo).have.property('nodeVersion').with.type('string');
+      should(userAgentInfo).have.property('installationType').with.type('string');
+      should(userAgentInfo).have.property('userId').with.type('string');
+      should(userAgentInfo).have.property('subscriptionId').with.type('string');
+      should(userAgentInfo).have.property('userType').with.type('string');
+
+      // assert properties, with values.
+      should(userAgentInfo).have.property('mode').with.type('string').be.equal('arm');
+
+      done();
+    });
+
+    it('should construct user agent info object when telemetry is not enabled', function (done) {
+      var track = sandbox.spy(applicationInsights.client, 'track');
+
+      var givenCommand = 'azure group list';
+
+      // disable telemetry
+      telemetry.init(false)
+      telemetry.start(['foo', 'bar', 'azure', 'group', 'list']);
+      telemetry.setMode('arm');
+
+      telemetry.currentCommand({
+        fullName: function () {
+          return givenCommand;
+        }
+      });
+
+      telemetry.onFinish(function () { });
+
+      // assert telemetry is not enabled.
+      (track.called).should.be.false;
+
+      // verify userAgent is properly constructed
+      var userAgentInfo = userAgentCore.getUserAgentData();
+
+      (userAgentInfo).should.be.ok;
+      (userAgentInfo.osType).should.be.ok;
+      (userAgentInfo.osVersion).should.be.ok;
+      (userAgentInfo.nodeVersion).should.be.ok;
+      (userAgentInfo.installationType).should.be.ok;
+      (userAgentInfo.userId).should.be.ok;
+      (userAgentInfo.subscriptionId).should.be.ok;
+      (userAgentInfo.userType).should.be.ok;
+      (userAgentInfo.mode).should.be.ok;
+
+      // verify values
+      (userAgentInfo.mode).should.be.equal('arm');
+
       done();
     });
 
@@ -144,6 +247,56 @@ describe('cli', function() {
       (eventData.baseData.properties.isSuccess).should.be.false;
       eventData.baseData.properties.stacktrace.should.equal(filteredError);
       (eventData.baseData.properties.command === 'azure login -u *** -p ***').should.be.true;
+      done();
+    });
+
+    it('should classify cli internal errors as CLI_Error', function(done) {
+      var eventData;
+      sandbox.stub(applicationInsights.client, 'trackEvent', function (key, event) {
+        eventData = event;
+      });
+
+      telemetry.setAppInsights(applicationInsights);
+      telemetry.init(true)
+      telemetry.start(['foo', 'bar', 'azure', 'login', '-u', 'foo', '-p', 'bar']);
+      telemetry.currentCommand({
+        fullName: function() {
+          return 'azure login';
+        }
+      });
+      var err = new Error('cli internal error');
+      telemetry.onError(err, function () { });
+
+      eventData.should.have.property('errorCategory').with.type('string');
+      eventData.errorCategory.should.equal('CLI_Error');
+      done();
+    });
+
+    it('should classify service errors by status code', function (done) {
+      var eventData;
+      sandbox.stub(applicationInsights.client, 'trackEvent', function (key, event) {
+        eventData = event;
+      });
+
+      telemetry.setAppInsights(applicationInsights);
+      telemetry.init(true)
+      telemetry.start(['foo', 'bar', 'azure', 'login', '-u', 'foo', '-p', 'bar']);
+      telemetry.currentCommand({
+        fullName: function () {
+          return 'azure login';
+        }
+      });
+      var err = {
+        statusCode: '404',
+        message: 'could not find resource',
+        request: 'abc',
+        response: 'xyz',
+        stack: 'at some location...'
+      };
+      telemetry.onError(err, function () { });
+
+      eventData.should.have.property('errorCategory').with.type('string');
+      eventData.errorCategory.should.equal('HTTP_Error_404');
       done();
     });
   })

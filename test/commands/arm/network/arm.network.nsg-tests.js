@@ -83,6 +83,17 @@ describe('arm', function () {
           });
         });
       });
+      it('show should display details about nsg', function (done) {
+        var cmd = 'network nsg show -g {group} -n {name} --json'.formatArgs(nsgProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.equal(0);
+          var nsg = JSON.parse(result.text);
+          nsg.name.should.equal(nsg.name);
+          networkUtil.shouldHaveTags(nsg);
+          networkUtil.shouldBeSucceeded(nsg);
+          done();
+        });
+      });
       it('set should modify nsg', function (done) {
         var cmd = 'network nsg set -g {group} -n {name} -t {newTags} --json'.formatArgs(nsgProp);
         testUtils.executeCommand(suite, retry, cmd, function (result) {
@@ -91,15 +102,6 @@ describe('arm', function () {
           nsg.name.should.equal(nsg.name);
           networkUtil.shouldAppendTags(nsg);
           networkUtil.shouldBeSucceeded(nsg);
-          done();
-        });
-      });
-      it('show should display details about nsg', function (done) {
-        var cmd = 'network nsg show -g {group} -n {name} --json'.formatArgs(nsgProp);
-        testUtils.executeCommand(suite, retry, cmd, function (result) {
-          result.exitStatus.should.equal(0);
-          var nsg = JSON.parse(result.text);
-          nsg.name.should.equal(nsg.name);
           done();
         });
       });

@@ -55,6 +55,12 @@ var location = "West Europe",
     defaultStorageAccount = 'xplatteststorage1',
     defaultStorageAccountKey = 'dnsfnsdfmsdlsk09809kjsdff====',
     defaultStorageContainer = 'xplatteststoragecnt1',
+    defaultAdlStorageAccount = 'xplattestdummyadlstorage', 
+    defaultStorageRootPath = '/clusters/clustername/',
+    objectId = '3e185977-0364-488a-ae72-64bf148a17ba', 
+    aadTenant = 'https://login.windows.net/00000000-0000-0000-0000-000000000001', 
+    certificatePath = 'test/data/fakecert.pfx', 
+    certificatePassword = 'dummypassword',
     workerNodeCount = 3,
     headNodeSize = "Standard_D3",
     workerNodeSize = "Standard_D3",
@@ -214,6 +220,94 @@ describe('arm', function () {
           headNodeSize, workerNodeCount, workerNodeSize, zookeeperNodeSize,
           username, password, sshUserName, sshPassword,
           'Hadoop', 'default',
+          tags).split(' ');
+        suite.execute(cmd, function (result) {
+          result.text.should.containEql('');
+          result.exitStatus.should.equal(0);
+          if (!suite.isPlayback()) {
+            setTimeout(function () {
+              done();
+            }, HdinsightTestUtil.timeoutLarge);
+          } else {
+            done();
+          }
+        });
+      });  
+
+      // To record this test assign appropriate values to the following variables in the declaration section
+      // defaultAdlStorageAccount, defaultStorageRootPath, objectId, aadTenant, certificatePath, certificatePassword
+      it('create linux cluster with ADLS as default storage should pass', function (done) {
+        this.timeout(hdinsightTest.timeoutLarge);
+        var cmd = util.format('hdinsight cluster create ' +
+          '--resource-group %s ' +
+          '--clusterName %s ' +
+          '--location %s ' +
+          '--osType %s ' +
+          '--defaultStorageAccountName %s.azuredatalakestore.net ' +
+          '--defaultStorageRootPath %s ' +
+          '--servicePrincipalObjectId %s ' +
+          '--servicePrincipalTenant %s ' +
+          '--servicePrincipalCertFilePath %s ' +
+          '--servicePrincipalCertPassword %s ' +
+          '--headNodeSize %s ' +
+          '--workerNodeCount %s ' +
+          '--workerNodeSize %s ' +
+          '--zookeeperNodeSize %s ' +
+          '--userName %s --password %s ' +
+          '--sshUserName %s --sshPassword %s ' +
+          '--clusterType %s ' +
+          '--version %s ' +
+          '--json ',
+          groupName, 'xplatTestHDInsightClusterCreate7274', location, 'Linux',
+          defaultAdlStorageAccount, defaultStorageRootPath, objectId, aadTenant, certificatePath, certificatePassword,
+          headNodeSize, workerNodeCount, workerNodeSize, zookeeperNodeSize,
+          username, password, sshUserName, sshPassword,
+          'Hadoop', '3.5',
+          tags).split(' ');
+        suite.execute(cmd, function (result) {
+          result.text.should.containEql('');
+          result.exitStatus.should.equal(0);
+          if (!suite.isPlayback()) {
+            setTimeout(function () {
+              done();
+            }, HdinsightTestUtil.timeoutLarge);
+          } else {
+            done();
+          }
+        });
+      });
+
+      // To record this test assign appropriate values to the following variables in the declaration section
+      // objectId, aadTenant, certificatePath, certificatePassword
+      it('create linux cluster with ADLS as additional storage should pass', function (done) {
+        this.timeout(hdinsightTest.timeoutLarge);
+        var cmd = util.format('hdinsight cluster create ' +
+          '--resource-group %s ' +
+          '--clusterName %s ' +
+          '--location %s ' +
+          '--osType %s ' +
+          '--defaultStorageAccountName %s.blob.core.windows.net ' +
+          '--defaultStorageAccountKey %s ' +
+          '--defaultStorageContainer %s ' +
+          '--servicePrincipalObjectId %s ' +
+          '--servicePrincipalTenant %s ' +
+          '--servicePrincipalCertFilePath %s ' +
+          '--servicePrincipalCertPassword %s ' +
+          '--headNodeSize %s ' +
+          '--workerNodeCount %s ' +
+          '--workerNodeSize %s ' +
+          '--zookeeperNodeSize %s ' +
+          '--userName %s --password %s ' +
+          '--sshUserName %s --sshPassword %s ' +
+          '--clusterType %s ' +
+          '--version %s ' +
+          '--json ',
+          groupName, 'xplatTestHDInsightClusterCreate1942', location, 'Linux',
+          defaultStorageAccount, defaultStorageAccountKey, defaultStorageContainer,
+          objectId, aadTenant, certificatePath, certificatePassword,
+          headNodeSize, workerNodeCount, workerNodeSize, zookeeperNodeSize,
+          username, password, sshUserName, sshPassword,
+          'Hadoop', '3.5',
           tags).split(' ');
         suite.execute(cmd, function (result) {
           result.text.should.containEql('');

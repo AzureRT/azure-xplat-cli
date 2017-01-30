@@ -14,8 +14,7 @@ exports.getMockedProfile = function () {
     },
     tenantId: '72f988bf-86f1-41af-91ab-2d7cd011db47',
     state: 'Enabled',
-    registeredProviders: [],
-    _eventsCount: '1',
+    registeredProviders: ['mobileservice'],
     isDefault: true
   }, newProfile.environments['AzureCloud']));
 
@@ -28,26 +27,6 @@ exports.setEnvironment = function() {
 
 exports.scopes = [[function (nock) { 
 var result = 
-nock('http://management.azure.com:443')
-  .filteringRequestBody(function (path) { return '*';})
-.post('/providers/Microsoft.Network/checkTrafficManagerNameAvailability?api-version=2015-11-01', '*')
-  .reply(200, "{\"name\":\"test-profile-dns\",\"type\":\"Microsoft.Network\\/trafficManagerProfiles\",\"nameAvailable\":false,\"reason\":\"AlreadyExists\",\"message\":\"Domain name test-profile-dns.trafficmanager.net already exists. Please choose a different DNS prefix.\"}", { 'cache-control': 'private',
-  'content-length': '239',
-  'content-type': 'application/json; charset=utf-8',
-  'x-content-type-options': 'nosniff',
-  'x-ms-request-id': '7f85a993-d211-4f30-ad26-e10a840a0e54',
-  server: 'Microsoft-IIS/8.5',
-  'x-aspnet-version': '4.0.30319',
-  'x-powered-by': 'ASP.NET',
-  'x-ms-ratelimit-remaining-tenant-writes': '1199',
-  'x-ms-correlation-request-id': 'ffc8a8f9-f286-4d47-bb5b-05ec96861207',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160218T093334Z:ffc8a8f9-f286-4d47-bb5b-05ec96861207',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Thu, 18 Feb 2016 09:33:33 GMT',
-  connection: 'close' });
- return result; },
-function (nock) { 
-var result = 
 nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
 .post('/providers/Microsoft.Network/checkTrafficManagerNameAvailability?api-version=2015-11-01', '*')
@@ -55,14 +34,13 @@ nock('https://management.azure.com:443')
   'content-length': '239',
   'content-type': 'application/json; charset=utf-8',
   'x-content-type-options': 'nosniff',
-  'x-ms-request-id': '7f85a993-d211-4f30-ad26-e10a840a0e54',
+  'strict-transport-security': 'max-age=31536000; includeSubDomains',
+  'x-ms-request-id': '72356d37-8d31-4342-8064-9e38a974c108',
   server: 'Microsoft-IIS/8.5',
   'x-aspnet-version': '4.0.30319',
   'x-powered-by': 'ASP.NET',
   'x-ms-ratelimit-remaining-tenant-writes': '1199',
-  'x-ms-correlation-request-id': 'ffc8a8f9-f286-4d47-bb5b-05ec96861207',
-  'x-ms-routing-request-id': 'WESTEUROPE:20160218T093334Z:ffc8a8f9-f286-4d47-bb5b-05ec96861207',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Thu, 18 Feb 2016 09:33:33 GMT',
-  connection: 'close' });
+  'x-ms-correlation-request-id': '438beea8-2c9d-45e9-8b95-6b728df6782c',
+  'x-ms-routing-request-id': 'WESTEUROPE:20161207T143537Z:438beea8-2c9d-45e9-8b95-6b728df6782c',
+  date: 'Wed, 07 Dec 2016 14:35:37 GMT' });
  return result; }]];

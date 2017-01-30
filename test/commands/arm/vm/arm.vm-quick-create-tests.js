@@ -33,8 +33,8 @@ var requiredEnvironment = [{
 
 var customDataFile = './test/data/customdata.txt';
 var groupName,
-  vm1Prefix = 'xplatvm101',
-  vm2Prefix = 'xplatvm102',
+  vm1Prefix = 'vm1',
+  vm2Prefix = 'vm2',
   location,
   username = 'azureuser',
   password = 'Brillio@2016',
@@ -51,8 +51,8 @@ describe('arm', function() {
         location = process.env.AZURE_VM_TEST_LOCATION;
         sshcert = process.env.SSHCERT;
         groupName = suite.generateId(groupPrefix, null);
-        vm1Prefix = suite.isMocked ? vm1Prefix : suite.generateId(vm1Prefix, null);
-        vm2Prefix = suite.isMocked ? vm2Prefix : suite.generateId(vm2Prefix, null);
+        vm1Prefix = suite.generateId(vm1Prefix, null);
+        vm2Prefix = suite.generateId(vm2Prefix, null);
         done();
       });
     });
@@ -109,6 +109,25 @@ describe('arm', function() {
         });
       });
 
+      it('vm secret random add should fail', function(done) {
+        this.timeout(vmTest.timeoutLarge * 10);
+        var cmd = util.format('vm secret add %s %s %s -c c -t t', groupName, vm1Prefix, vm1Prefix).split(' ');
+        testUtils.executeCommand(suite, retry, cmd, function(result) {
+          result.exitStatus.should.not.equal(0);
+          should(result.errorText.indexOf('Property id \'' + vm1Prefix + '\' at path \'properties.osProfile.secrets') > -1).ok;
+          done();
+        });
+      });
+      
+      it('vm secret random delete should pass', function(done) {
+        this.timeout(vmTest.timeoutLarge * 10);
+        var cmd = util.format('vm secret delete %s %s %s -c %s', groupName, vm1Prefix, vm1Prefix, groupName).split(' ');
+        testUtils.executeCommand(suite, retry, cmd, function(result) {
+          result.exitStatus.should.equal(0);
+          done();
+        });
+      });
+      
       it('redeploy vm should pass', function(done) {
         this.timeout(vmTest.timeoutLarge * 10);
         var cmd = util.format('vm redeploy %s %s', groupName, vm1Prefix).split(' ');

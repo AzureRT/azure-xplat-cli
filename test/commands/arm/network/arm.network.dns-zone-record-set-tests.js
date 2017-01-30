@@ -24,12 +24,12 @@ var CLITest = require('../../../framework/arm-cli-test');
 var NetworkTestUtil = require('../../../util/networkTestUtil');
 var networkUtil = new NetworkTestUtil();
 
-var testPrefix = 'arm-network-dns-zone-tests',
+var testPrefix = 'arm-network-dns-zone-tests1',
   groupName = 'xplat-test-dns-zone-record-set',
   location;
 
 var zoneProp = {
-  name: 'example1.com',
+  name: 'exampledns.com',
   tags: networkUtil.tags
 };
 
@@ -151,12 +151,20 @@ describe('arm', function () {
           });
         });
       });
-
       /**
        * A
        */
       it('create should create a record-set of type A', function (done) {
         networkUtil.createDnsRecordSet(aProp, suite, done);
+      });
+      it('show should display details of record-set', function (done) {
+        networkUtil.showDnsRecordSet(aProp, suite, function (aSet) {
+          aSet.name.should.equal(aProp.name);
+          aSet.tTL.should.equal(aProp.ttl);
+          aSet.type.substring(aSet.type.lastIndexOf('/') + 1).should.equal(aProp.type);
+          networkUtil.shouldHaveTags(aSet, 'metadata');
+          done();
+        });
       });
       it('set should modify a record-set', function (done) {
         var cmd = 'network dns record-set set -g {group} -z {zoneName} -n {name} -y {type} -l {newTtl} -m {newMetadata} --json'.formatArgs(aProp);
@@ -166,12 +174,6 @@ describe('arm', function () {
           aSet.name.should.equal(aProp.name);
           aSet.tTL.should.equal(aProp.newTtl);
           networkUtil.shouldAppendTags(aSet, 'metadata');
-          done();
-        });
-      });
-      it('show should display details of record-set', function (done) {
-        networkUtil.showDnsRecordSet(aProp, suite, function (aSet) {
-          aSet.name.should.equal(aProp.name);
           done();
         });
       });
@@ -314,6 +316,6 @@ describe('arm', function () {
       it('delete should delete record-set of type TXT', function (done) {
         networkUtil.deleteDnsRecordSet(txtProp, suite, done);
       });
-    });
+     });
   });
 });

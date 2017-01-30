@@ -33,7 +33,7 @@ exports.setEnvironment = function() {
 exports.scopes = [[function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .get('/subscriptions/46241355-bb95-46a9-ba6c-42b554d71925/resourcegroups/armclibatchgroup7446?api-version=2016-02-01')
+  .get('/subscriptions/46241355-bb95-46a9-ba6c-42b554d71925/resourcegroups/armclibatchgroup7446?api-version=2016-09-01')
   .reply(404, "{\"error\":{\"code\":\"ResourceGroupNotFound\",\"message\":\"Resource group 'armclibatchgroup7446' could not be found.\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -51,7 +51,7 @@ nock('http://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/46241355-bb95-46a9-ba6c-42b554d71925/resourcegroups/armclibatchgroup7446?api-version=2016-02-01')
+  .get('/subscriptions/46241355-bb95-46a9-ba6c-42b554d71925/resourcegroups/armclibatchgroup7446?api-version=2016-09-01')
   .reply(404, "{\"error\":{\"code\":\"ResourceGroupNotFound\",\"message\":\"Resource group 'armclibatchgroup7446' could not be found.\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -70,7 +70,7 @@ function (nock) {
 var result = 
 nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/46241355-bb95-46a9-ba6c-42b554d71925/resourcegroups/armclibatchgroup7446?api-version=2016-02-01', '*')
+.put('/subscriptions/46241355-bb95-46a9-ba6c-42b554d71925/resourcegroups/armclibatchgroup7446?api-version=2016-09-01', '*')
   .reply(201, "{\"id\":\"/subscriptions/46241355-bb95-46a9-ba6c-42b554d71925/resourceGroups/armclibatchgroup7446\",\"name\":\"armclibatchgroup7446\",\"location\":\"westus\",\"tags\":{},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '203',
@@ -88,7 +88,7 @@ function (nock) {
 var result = 
 nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/46241355-bb95-46a9-ba6c-42b554d71925/resourcegroups/armclibatchgroup7446?api-version=2016-02-01', '*')
+.put('/subscriptions/46241355-bb95-46a9-ba6c-42b554d71925/resourcegroups/armclibatchgroup7446?api-version=2016-09-01', '*')
   .reply(201, "{\"id\":\"/subscriptions/46241355-bb95-46a9-ba6c-42b554d71925/resourceGroups/armclibatchgroup7446\",\"name\":\"armclibatchgroup7446\",\"location\":\"westus\",\"tags\":{},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '203',

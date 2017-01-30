@@ -22,6 +22,7 @@ var CLITest = require('../../../framework/arm-cli-test');
 var testprefix = 'arm-cli-ad-tests';
 var util = require('util');
 var calledOnce = false;
+var liveOnly = process.env.NOCK_OFF ? it : it.skip;
 
 var requiredEnvironment = [
   { name: 'AZURE_AD_TEST_PASSWORD' },
@@ -155,7 +156,7 @@ describe('arm', function () {
 
     describe('Users', function () {
 
-      it('should parse the error properly for a non existant user', function (done) {
+      liveOnly('should parse the error properly for a non existant user', function (done) {
         suite.execute('ad user show --upn %s --json', 'nonexisitinguser@mywebforum.com', function (result) {
           result.errorText.should.include('No matching user was found');
           done();
@@ -183,7 +184,7 @@ describe('arm', function () {
     });
     
     describe('Groups', function () {
-      it('should work to list and show groups', function (done) {
+      liveOnly('should work to list and show groups', function (done) {
         var group1 = process.env.AZURE_AD_TEST_GROUP_NAME;
         var group1ObjectId = testGroups[0].objectId;
         var group2 = process.env.AZURE_AD_TEST_SUBGROUP_NAME;
@@ -214,7 +215,7 @@ describe('arm', function () {
     });
     
     describe('ServicePrincipals', function () {
-      it('should work to list and show service principals', function (done) {
+      liveOnly('should work to list and show service principals', function (done) {
         var displayName = process.env.AZURE_AD_TEST_SP_DISPLAY_NAME;
         var spn = testSPs[0].servicePrincipalNames[0];
         var spObjectId = testSPs[0].objectId;

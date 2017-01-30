@@ -59,6 +59,12 @@ var importFile = firstFolder + '/importfile.txt';
 var concatFile = firstFolder + '/concatfile.txt';
 var moveFolder = 'adlsclifolder02';
 var moveFile = firstFolder + '/movefile.txt';
+var expirefile = 'adlsclifolder03/expirefile.txt';
+
+
+// account sub resource variables
+var firewallRuleName;
+var trustedProviderName;
 
 describe('arm', function () {
   before(function (done) {
@@ -70,6 +76,8 @@ describe('arm', function () {
       secondResourceGroup = suite.generateId(accountPrefix, knownNames);
       accountName = suite.generateId(accountPrefix, knownNames);
       filesystemAccountName = suite.generateId(accountPrefix, knownNames);
+      firewallRuleName = suite.generateId(accountPrefix, knownNames);
+      trustedProviderName = suite.generateId(accountPrefix, knownNames);
       fs.writeFileSync(contentDir, content);
       if(!suite.isPlayback()) {
         suite.execute('group create %s --location %s --json', testResourceGroup, testLocation, function () {
@@ -109,6 +117,121 @@ describe('arm', function () {
     suite.teardownTest(done);
   });
 
+  describe('Data Lake Store Account Trusted Identity Providers', function () {
+    // these are two fake hardcoded GUIDs.
+    var providerId = 'https://sts.windows.net/003bd890-a597-433c-8b7b-841b55a89faf';
+    var updatedProviderId = 'https://sts.windows.net/dec9b17f-c00d-402e-bfe0-da32beada960';
+    
+    it('create command should work', function (done) {
+      suite.execute('datalake store provider create --accountName %s --resource-group %s --name %s --providerEndpoint %s --json', filesystemAccountName, testResourceGroup, trustedProviderName, providerId, function (result) {
+        result.exitStatus.should.be.equal(0);
+        var ruleJson = JSON.parse(result.text);
+        ruleJson.name.should.be.equal(trustedProviderName);
+        ruleJson.idProvider.should.be.equal(providerId);
+        done();
+      });
+    });
+
+    it('set command should work', function (done) {
+      suite.execute('datalake store provider set --accountName %s --resource-group %s --name %s --providerEndpoint %s --json', filesystemAccountName, testResourceGroup, trustedProviderName, updatedProviderId, function (result) {
+        result.exitStatus.should.be.equal(0);
+        var ruleJson = JSON.parse(result.text);
+        ruleJson.name.should.be.equal(trustedProviderName);
+        ruleJson.idProvider.should.be.equal(updatedProviderId);
+        done();
+      });
+    });
+
+    it('show command should work', function (done) {
+      suite.execute('datalake store provider show --accountName %s --resource-group %s --name %s --json', filesystemAccountName, testResourceGroup, trustedProviderName, function (result) {
+        result.exitStatus.should.be.equal(0);
+        var ruleJson = JSON.parse(result.text);
+        ruleJson.name.should.be.equal(trustedProviderName);
+        ruleJson.idProvider.should.be.equal(updatedProviderId);
+        done();
+      });
+    });
+
+    it('list command should work', function (done) {
+      suite.execute('datalake store provider list --accountName %s --resource-group %s --json', filesystemAccountName, testResourceGroup, function (result) {
+        result.exitStatus.should.be.equal(0);
+        var ruleJson = JSON.parse(result.text);
+        ruleJson.length.should.be.above(0);
+        done();
+      });
+    });
+
+    it('delete command should work', function (done) {
+      suite.execute('datalake store firewall delete --accountName %s --resource-group %s --name %s --quiet --json', filesystemAccountName, testResourceGroup, firewallRuleName, function (result) {
+        result.exitStatus.should.be.equal(0);
+        suite.execute('datalake store firewall show --accountName %s --name %s --json', filesystemAccountName, firewallRuleName, function (result) {
+          // confirm that the account no longer exists
+          result.exitStatus.should.be.equal(1);
+          done();
+        });
+      });
+    });
+  });
+
+  describe('Data Lake Store Account Firewall Rules', function () {
+    var startIp = '0.0.0.0';
+    var endIp = '0.0.0.1';
+    var updatedStartIp = '127.0.0.1';
+    var updatedEndIp = '127.0.0.2';
+    it('create command should work', function (done) {
+      suite.execute('datalake store firewall create --accountName %s --resource-group %s --name %s --startIpAddress %s --endIpAddress %s --json', filesystemAccountName, testResourceGroup, firewallRuleName, startIp, endIp, function (result) {
+        result.exitStatus.should.be.equal(0);
+        var ruleJson = JSON.parse(result.text);
+        ruleJson.name.should.be.equal(firewallRuleName);
+        ruleJson.startIpAddress.should.be.equal(startIp);
+        ruleJson.endIpAddress.should.be.equal(endIp);
+        done();
+      });
+    });
+
+    it('set command should work', function (done) {
+      suite.execute('datalake store firewall set --accountName %s --resource-group %s --name %s --startIpAddress %s --endIpAddress %s --json', filesystemAccountName, testResourceGroup, firewallRuleName, updatedStartIp, updatedEndIp, function (result) {
+        result.exitStatus.should.be.equal(0);
+        var ruleJson = JSON.parse(result.text);
+        ruleJson.name.should.be.equal(firewallRuleName);
+        ruleJson.startIpAddress.should.be.equal(updatedStartIp);
+        ruleJson.endIpAddress.should.be.equal(updatedEndIp);
+        done();
+      });
+    });
+
+    it('show command should work', function (done) {
+      suite.execute('datalake store firewall show --accountName %s --resource-group %s --name %s --json', filesystemAccountName, testResourceGroup, firewallRuleName, function (result) {
+        result.exitStatus.should.be.equal(0);
+        var ruleJson = JSON.parse(result.text);
+        ruleJson.name.should.be.equal(firewallRuleName);
+        ruleJson.startIpAddress.should.be.equal(updatedStartIp);
+        ruleJson.endIpAddress.should.be.equal(updatedEndIp);
+        done();
+      });
+    });
+
+    it('list command should work', function (done) {
+      suite.execute('datalake store firewall list --accountName %s --resource-group %s --json', filesystemAccountName, testResourceGroup, function (result) {
+        result.exitStatus.should.be.equal(0);
+        var ruleJson = JSON.parse(result.text);
+        ruleJson.length.should.be.above(0);
+        done();
+      });
+    });
+
+    it('delete command should work', function (done) {
+      suite.execute('datalake store firewall delete --accountName %s --resource-group %s --name %s --quiet --json', filesystemAccountName, testResourceGroup, firewallRuleName, function (result) {
+        result.exitStatus.should.be.equal(0);
+        suite.execute('datalake store firewall show --accountName %s --name %s --json', filesystemAccountName, firewallRuleName, function (result) {
+          // confirm that the account no longer exists
+          result.exitStatus.should.be.equal(1);
+          done();
+        });
+      });
+    });
+  });
+
   describe('Data Lake Store Account', function () {
     it('create command should work', function (done) {
       var tags = 'testtag1=testvalue1;testtag2=testvalue2';
@@ -124,7 +247,7 @@ describe('arm', function () {
     it('create account with same name should fail', function (done) {
       suite.execute('datalake store account create --accountName %s --resource-group %s --location %s --json', accountName, secondResourceGroup, testLocation, function (result) {
         result.exitStatus.should.be.equal(1);
-        result.errorText.should.include('belong to another owner'); // note: this error message needs to be updated. once it is, this test will need to be updated as well.
+        result.errorText.should.include('belongs to another resource'); // note: this error message needs to be updated. once it is, this test will need to be updated as well.
         done();
       });
     });
@@ -179,6 +302,41 @@ describe('arm', function () {
           // confirm that the account no longer exists
           result.exitStatus.should.be.equal(1);
           done();
+        });
+      });
+    });
+  });
+  describe('Data Lake Store FileSystem Expiry', function () {
+    it('set command should work', function (done) {
+      var expireValue = 4636834628007; // 100 years from now...ish
+      // create a file
+      suite.execute('datalake store filesystem create --accountName %s --path %s --json', filesystemAccountName, expirefile, function (result) {
+        result.exitStatus.should.be.equal(0);
+        // now get the file and validate no expiration.
+        suite.execute('datalake store filesystem show --accountName %s --path %s --json', filesystemAccountName, expirefile, function (result) {
+          result.exitStatus.should.be.equal(0);
+          var fileJson = JSON.parse(result.text);
+          fileJson.type.should.be.equal('FILE');
+          fileJson.length.should.be.equal(0);
+          fileJson.expirationTime.should.be.equal(0);
+          // now set expiration to a value slightly less than "never"
+          suite.execute('datalake store filesystem expiry set --accountName %s --path %s --expiration %s --json', filesystemAccountName, expirefile, expireValue, function (result) {
+            result.exitStatus.should.be.equal(0);
+            var fileJson = JSON.parse(result.text);
+            fileJson.type.should.be.equal('FILE');
+            fileJson.length.should.be.equal(0);
+            // should be +- 500 ticks from the value set.
+            fileJson.expirationTime.should.be.within(expireValue - 500, expireValue + 500);
+            // now remove the expiration
+            suite.execute('datalake store filesystem expiry set --accountName %s --path %s --json', filesystemAccountName, expirefile, function (result) {
+              result.exitStatus.should.be.equal(0);
+              var fileJson = JSON.parse(result.text);
+              fileJson.type.should.be.equal('FILE');
+              fileJson.length.should.be.equal(0);
+              fileJson.expirationTime.should.be.equal(0);
+              done();
+            });
+          });
         });
       });
     });
@@ -416,7 +574,8 @@ describe('arm', function () {
                   suite.execute('datalake store permissions show --accountName %s --path %s --json', filesystemAccountName, permissionFolder, function (result) {
                     result.exitStatus.should.be.equal(0);
                     var permissionJson = JSON.parse(result.text);
-                    permissionJson.entries.length.should.be.equal(initialEntryNum);
+                    // even after removing the user account, the mask entry remains, so we will have one more entry than we started with.
+                    permissionJson.entries.length.should.be.equal(initialEntryNum + 1);
                     done();
                   });
                 });

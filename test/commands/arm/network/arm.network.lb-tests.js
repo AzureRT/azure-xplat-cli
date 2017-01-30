@@ -82,6 +82,17 @@ describe('arm', function () {
           });
         });
       });
+      it('show should display details of load balancer', function (done) {
+        var cmd = 'network lb show -g {group} -n {name} --json'.formatArgs(lbProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.equal(0);
+          var lb = JSON.parse(result.text);
+          lb.name.should.equal(lbProp.name);
+          networkUtil.shouldHaveTags(lb);
+          networkUtil.shouldBeSucceeded(lb);
+          done();
+        });
+      });
       it('set should modify load balancer', function (done) {
         networkUtil.createGroup(groupName, location, suite, function () {
           var cmd = 'network lb set -g {group} -n {name} -t {newTags} --json'.formatArgs(lbProp);
@@ -93,15 +104,6 @@ describe('arm', function () {
             networkUtil.shouldBeSucceeded(lb);
             done();
           });
-        });
-      });
-      it('show should display details of load balancer', function (done) {
-        var cmd = 'network lb show -g {group} -n {name} --json'.formatArgs(lbProp);
-        testUtils.executeCommand(suite, retry, cmd, function (result) {
-          result.exitStatus.should.equal(0);
-          var lb = JSON.parse(result.text);
-          lb.name.should.equal(lbProp.name);
-          done();
         });
       });
       it('list should display all load balancers in resource group', function (done) {

@@ -7,6 +7,7 @@
     <WixTargetsPath>$(WixToolPath)Wix.targets</WixTargetsPath>
     <WixTasksPath>wixtasks.dll</WixTasksPath>
     <AzureCliSource>$(HOMEDRIVE)$(HOMEPATH)\zcli</AzureCliSource>
+    <NodeExeSource>$(HOMEDRIVE)$(HOMEPATH)\zNode</NodeExeSource>
   </PropertyGroup>
   <!-- Project -->
   <PropertyGroup>
@@ -23,12 +24,12 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <OutputPath>out\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>out\obj\$(Configuration)\</IntermediateOutputPath>
-    <DefineConstants>Debug;AzureCliSource=$(AzureCliSource)</DefineConstants>
+    <DefineConstants>Debug;AzureCliSource=$(AzureCliSource);NodeExeSource=$(NodeExeSource)</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <OutputPath>out\</OutputPath>
     <IntermediateOutputPath>out\obj\$(Configuration)\</IntermediateOutputPath>
-    <DefineConstants>AzureCliSource=$(AzureCliSource)</DefineConstants>
+    <DefineConstants>AzureCliSource=$(AzureCliSource);NodeExeSource=$(NodeExeSource)</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="out\azure-cli.wxs">

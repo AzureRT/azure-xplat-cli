@@ -38,6 +38,7 @@ var testPrefix = 'arm-network-nic-tests',
   poolName = 'test-pool',
   inboundRuleName = 'test-inbound-rule',
   subnetId,
+  publicIpId,
   protocol = 'tcp',
   frontendPort = '90',
   backendPort = '90';
@@ -159,7 +160,7 @@ describe('arm', function () {
               networkUtil.createPublicIp(publicIpProp, suite, function (publicIp) {
                 var cmd = 'network nic create -g {group} -n {name} -l {location} -a {privateIPAddress} -r {internalDnsNameLabel} -f {enableIpForwarding} -t {tags} -u {1} -i {2} --json'
                   .formatArgs(nicProp, subnetId, publicIp.id);
-
+                publicIpId = publicIp.id;
                 testUtils.executeCommand(suite, retry, cmd, function (result) {
                   result.exitStatus.should.equal(0);
                   var nic = JSON.parse(result.text);
@@ -182,6 +183,28 @@ describe('arm', function () {
               });
             });
           });
+        });
+      });
+      it('show should display nic details', function (done) {
+        var cmd = 'network nic show -g {group} -n {name} --json'.formatArgs(nicProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.equal(0);
+          var nic = JSON.parse(result.text);
+          nic.name.should.equal(nicProp.name);
+          nic.enableIPForwarding.should.equal(nicProp.enableIpForwarding);
+          var dnsSettings = nic.dnsSettings;
+          dnsSettings.internalDnsNameLabel.should.equal(nicProp.internalDnsNameLabel);
+          // dnsSettings.internalDomainNameSuffix.should.not.be.empty;
+          nic.ipConfigurations.length.should.equal(1);
+          var defaultIpConfig = nic.ipConfigurations[0];
+          defaultIpConfig.subnet.id.should.equal(subnetId);
+          defaultIpConfig.publicIPAddress.id.should.equal(publicIpId);
+          defaultIpConfig.privateIPAddress.should.equal(nicProp.privateIPAddress);
+          // defaultIpConfig.privateIPAddressVersion.should.equal(nicProp.privateIPAddressVersion);
+          networkUtil.shouldBeSucceeded(defaultIpConfig);
+          networkUtil.shouldHaveTags(nic);
+          networkUtil.shouldBeSucceeded(nic);
+          done();
         });
       });
       it('set should modify nic', function (done) {
@@ -221,15 +244,6 @@ describe('arm', function () {
           var nic = JSON.parse(result.text);
           nic.should.not.have.property('networkSecurityGroup');
           networkUtil.shouldBeSucceeded(nic);
-          done();
-        });
-      });
-      it('show should display nic details', function (done) {
-        var cmd = 'network nic show -g {group} -n {name} --json'.formatArgs(nicProp);
-        testUtils.executeCommand(suite, retry, cmd, function (result) {
-          result.exitStatus.should.equal(0);
-          var nic = JSON.parse(result.text);
-          nic.name.should.equal(nicProp.name);
           done();
         });
       });
@@ -309,6 +323,7 @@ describe('arm', function () {
           var anotherIpConfig = JSON.parse(result.text);
           anotherIpConfig.name.should.equal(nicProp.ipConfigName);
           anotherIpConfig.privateIPAddressVersion.should.equal(nicProp.newPrivateIPAddressVersion);
+          networkUtil.shouldBeSucceeded(anotherIpConfig);
           done();
         });
       });

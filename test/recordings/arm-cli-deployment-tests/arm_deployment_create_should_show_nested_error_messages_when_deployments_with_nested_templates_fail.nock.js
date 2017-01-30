@@ -29,7 +29,7 @@ exports.setEnvironment = function() {
 exports.scopes = [[function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470?api-version=2016-09-01')
   .reply(404, "{\"error\":{\"code\":\"ResourceGroupNotFound\",\"message\":\"Resource group 'xDeploymentTestGroup1470' could not be found.\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -47,7 +47,7 @@ nock('http://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470?api-version=2016-09-01')
   .reply(404, "{\"error\":{\"code\":\"ResourceGroupNotFound\",\"message\":\"Resource group 'xDeploymentTestGroup1470' could not be found.\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -66,7 +66,7 @@ function (nock) {
 var result = 
 nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470?api-version=2016-02-01', '*')
+.put('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470?api-version=2016-09-01', '*')
   .reply(201, "{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470\",\"name\":\"xDeploymentTestGroup1470\",\"location\":\"southcentralus\",\"tags\":{},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '219',
@@ -84,7 +84,7 @@ function (nock) {
 var result = 
 nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470?api-version=2016-02-01', '*')
+.put('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470?api-version=2016-09-01', '*')
   .reply(201, "{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470\",\"name\":\"xDeploymentTestGroup1470\",\"location\":\"southcentralus\",\"tags\":{},\"properties\":{\"provisioningState\":\"Succeeded\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '219',
@@ -158,7 +158,7 @@ function (nock) {
 var result = 
 nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
-.post('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105/validate?api-version=2016-02-01', '*')
+.post('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105/validate?api-version=2016-09-01', '*')
   .reply(200, "{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105\",\"name\":\"Deploy1105\",\"properties\":{\"templateLink\":{\"uri\":\"https://raw.githubusercontent.com/vivsriaus/armtemplates/master/testNestedTemplateFail.json\",\"contentVersion\":\"1.0.0.0\"},\"parameters\":{\"storageAccountName\":{\"type\":\"String\",\"value\":\"sdkdeploymenttest9748\"}},\"mode\":\"Incremental\",\"provisioningState\":\"Accepted\",\"timestamp\":\"2016-10-07T00:01:35.6148259Z\",\"duration\":\"PT0S\",\"correlationId\":\"03977720-0480-4ea4-becc-88798b76ddd1\",\"providers\":[{\"namespace\":\"Microsoft.Resources\",\"resourceTypes\":[{\"resourceType\":\"deployments\",\"locations\":[null]}]}],\"dependencies\":[],\"validatedResources\":[{\"apiVersion\":\"2014-12-01-preview\",\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Storage/storageAccounts/sdkdeploymenttest9748\",\"name\":\"sdkdeploymenttest9748\",\"type\":\"Microsoft.Storage/storageAccounts\",\"location\":\"West US\",\"properties\":{\"accountType\":\"Standard_LRS\"}}]}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -176,7 +176,7 @@ function (nock) {
 var result = 
 nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
-.post('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105/validate?api-version=2016-02-01', '*')
+.post('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105/validate?api-version=2016-09-01', '*')
   .reply(200, "{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105\",\"name\":\"Deploy1105\",\"properties\":{\"templateLink\":{\"uri\":\"https://raw.githubusercontent.com/vivsriaus/armtemplates/master/testNestedTemplateFail.json\",\"contentVersion\":\"1.0.0.0\"},\"parameters\":{\"storageAccountName\":{\"type\":\"String\",\"value\":\"sdkdeploymenttest9748\"}},\"mode\":\"Incremental\",\"provisioningState\":\"Accepted\",\"timestamp\":\"2016-10-07T00:01:35.6148259Z\",\"duration\":\"PT0S\",\"correlationId\":\"03977720-0480-4ea4-becc-88798b76ddd1\",\"providers\":[{\"namespace\":\"Microsoft.Resources\",\"resourceTypes\":[{\"resourceType\":\"deployments\",\"locations\":[null]}]}],\"dependencies\":[],\"validatedResources\":[{\"apiVersion\":\"2014-12-01-preview\",\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Storage/storageAccounts/sdkdeploymenttest9748\",\"name\":\"sdkdeploymenttest9748\",\"type\":\"Microsoft.Storage/storageAccounts\",\"location\":\"West US\",\"properties\":{\"accountType\":\"Standard_LRS\"}}]}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -194,12 +194,12 @@ function (nock) {
 var result = 
 nock('http://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105?api-version=2016-02-01', '*')
+.put('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105?api-version=2016-09-01', '*')
   .reply(201, "{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105\",\"name\":\"Deploy1105\",\"properties\":{\"templateLink\":{\"uri\":\"https://raw.githubusercontent.com/vivsriaus/armtemplates/master/testNestedTemplateFail.json\",\"contentVersion\":\"1.0.0.0\"},\"parameters\":{\"storageAccountName\":{\"type\":\"String\",\"value\":\"sdkdeploymenttest9748\"}},\"mode\":\"Incremental\",\"provisioningState\":\"Accepted\",\"timestamp\":\"2016-10-07T00:01:37.3772418Z\",\"duration\":\"PT0.4607906S\",\"correlationId\":\"f5b8451e-ba6a-4ba6-a807-300ba8f2ea65\",\"providers\":[{\"namespace\":\"Microsoft.Resources\",\"resourceTypes\":[{\"resourceType\":\"deployments\",\"locations\":[null]}]}],\"dependencies\":[]}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
-  'azure-asyncoperation': 'https://management.azure.com/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105/operationStatuses/08587258083885611738?api-version=2016-02-01',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105/operationStatuses/08587258083885611738?api-version=2016-09-01',
   'x-ms-ratelimit-remaining-subscription-writes': '1197',
   'x-ms-request-id': 'f5b8451e-ba6a-4ba6-a807-300ba8f2ea65',
   'x-ms-correlation-request-id': 'f5b8451e-ba6a-4ba6-a807-300ba8f2ea65',
@@ -213,12 +213,12 @@ function (nock) {
 var result = 
 nock('https://management.azure.com:443')
   .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105?api-version=2016-02-01', '*')
+.put('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105?api-version=2016-09-01', '*')
   .reply(201, "{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105\",\"name\":\"Deploy1105\",\"properties\":{\"templateLink\":{\"uri\":\"https://raw.githubusercontent.com/vivsriaus/armtemplates/master/testNestedTemplateFail.json\",\"contentVersion\":\"1.0.0.0\"},\"parameters\":{\"storageAccountName\":{\"type\":\"String\",\"value\":\"sdkdeploymenttest9748\"}},\"mode\":\"Incremental\",\"provisioningState\":\"Accepted\",\"timestamp\":\"2016-10-07T00:01:37.3772418Z\",\"duration\":\"PT0.4607906S\",\"correlationId\":\"f5b8451e-ba6a-4ba6-a807-300ba8f2ea65\",\"providers\":[{\"namespace\":\"Microsoft.Resources\",\"resourceTypes\":[{\"resourceType\":\"deployments\",\"locations\":[null]}]}],\"dependencies\":[]}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
-  'azure-asyncoperation': 'https://management.azure.com/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105/operationStatuses/08587258083885611738?api-version=2016-02-01',
+  'azure-asyncoperation': 'https://management.azure.com/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105/operationStatuses/08587258083885611738?api-version=2016-09-01',
   'x-ms-ratelimit-remaining-subscription-writes': '1197',
   'x-ms-request-id': 'f5b8451e-ba6a-4ba6-a807-300ba8f2ea65',
   'x-ms-correlation-request-id': 'f5b8451e-ba6a-4ba6-a807-300ba8f2ea65',
@@ -231,7 +231,7 @@ nock('https://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105?api-version=2016-09-01')
   .reply(200, "{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105\",\"name\":\"Deploy1105\",\"properties\":{\"templateLink\":{\"uri\":\"https://raw.githubusercontent.com/vivsriaus/armtemplates/master/testNestedTemplateFail.json\",\"contentVersion\":\"1.0.0.0\"},\"parameters\":{\"storageAccountName\":{\"type\":\"String\",\"value\":\"sdkdeploymenttest9748\"}},\"mode\":\"Incremental\",\"provisioningState\":\"Accepted\",\"timestamp\":\"2016-10-07T00:01:37.3772418Z\",\"duration\":\"PT0.4607906S\",\"correlationId\":\"f5b8451e-ba6a-4ba6-a807-300ba8f2ea65\",\"providers\":[{\"namespace\":\"Microsoft.Resources\",\"resourceTypes\":[{\"resourceType\":\"deployments\",\"locations\":[null]}]}],\"dependencies\":[]}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -248,7 +248,7 @@ nock('http://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105?api-version=2016-09-01')
   .reply(200, "{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105\",\"name\":\"Deploy1105\",\"properties\":{\"templateLink\":{\"uri\":\"https://raw.githubusercontent.com/vivsriaus/armtemplates/master/testNestedTemplateFail.json\",\"contentVersion\":\"1.0.0.0\"},\"parameters\":{\"storageAccountName\":{\"type\":\"String\",\"value\":\"sdkdeploymenttest9748\"}},\"mode\":\"Incremental\",\"provisioningState\":\"Accepted\",\"timestamp\":\"2016-10-07T00:01:37.3772418Z\",\"duration\":\"PT0.4607906S\",\"correlationId\":\"f5b8451e-ba6a-4ba6-a807-300ba8f2ea65\",\"providers\":[{\"namespace\":\"Microsoft.Resources\",\"resourceTypes\":[{\"resourceType\":\"deployments\",\"locations\":[null]}]}],\"dependencies\":[]}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -265,7 +265,7 @@ nock('https://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/Deploy1105/operations?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/Deploy1105/operations?api-version=2016-09-01')
   .reply(200, "{\"value\":[]}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -282,7 +282,7 @@ nock('http://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/Deploy1105/operations?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/Deploy1105/operations?api-version=2016-09-01')
   .reply(200, "{\"value\":[]}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -299,7 +299,7 @@ nock('https://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105?api-version=2016-09-01')
   .reply(200, "{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105\",\"name\":\"Deploy1105\",\"properties\":{\"templateLink\":{\"uri\":\"https://raw.githubusercontent.com/vivsriaus/armtemplates/master/testNestedTemplateFail.json\",\"contentVersion\":\"1.0.0.0\"},\"parameters\":{\"storageAccountName\":{\"type\":\"String\",\"value\":\"sdkdeploymenttest9748\"}},\"mode\":\"Incremental\",\"provisioningState\":\"Running\",\"timestamp\":\"2016-10-07T00:01:38.0849427Z\",\"duration\":\"PT1.1684915S\",\"correlationId\":\"f5b8451e-ba6a-4ba6-a807-300ba8f2ea65\",\"providers\":[{\"namespace\":\"Microsoft.Resources\",\"resourceTypes\":[{\"resourceType\":\"deployments\",\"locations\":[null]}]}],\"dependencies\":[]}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -316,7 +316,7 @@ nock('http://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105?api-version=2016-09-01')
   .reply(200, "{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105\",\"name\":\"Deploy1105\",\"properties\":{\"templateLink\":{\"uri\":\"https://raw.githubusercontent.com/vivsriaus/armtemplates/master/testNestedTemplateFail.json\",\"contentVersion\":\"1.0.0.0\"},\"parameters\":{\"storageAccountName\":{\"type\":\"String\",\"value\":\"sdkdeploymenttest9748\"}},\"mode\":\"Incremental\",\"provisioningState\":\"Running\",\"timestamp\":\"2016-10-07T00:01:38.0849427Z\",\"duration\":\"PT1.1684915S\",\"correlationId\":\"f5b8451e-ba6a-4ba6-a807-300ba8f2ea65\",\"providers\":[{\"namespace\":\"Microsoft.Resources\",\"resourceTypes\":[{\"resourceType\":\"deployments\",\"locations\":[null]}]}],\"dependencies\":[]}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -333,7 +333,7 @@ nock('https://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/Deploy1105/operations?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/Deploy1105/operations?api-version=2016-09-01')
   .reply(200, "{\"value\":[{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105/operations/ECD048556DF4F428\",\"operationId\":\"ECD048556DF4F428\",\"properties\":{\"provisioningOperation\":\"Create\",\"provisioningState\":\"Running\",\"timestamp\":\"2016-10-07T00:01:41.8449166Z\",\"duration\":\"PT3.6670761S\",\"trackingId\":\"60b20e5d-c63f-4e57-86be-58d0f7c08ca3\",\"serviceRequestId\":\"79fcac17-6022-4ae0-aef1-b4cc16546dd8\",\"statusCode\":\"Created\",\"targetResource\":{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate\",\"resourceType\":\"Microsoft.Resources/deployments\",\"resourceName\":\"nestedTemplate\"}}}]}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -350,7 +350,7 @@ nock('http://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/Deploy1105/operations?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/Deploy1105/operations?api-version=2016-09-01')
   .reply(200, "{\"value\":[{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105/operations/ECD048556DF4F428\",\"operationId\":\"ECD048556DF4F428\",\"properties\":{\"provisioningOperation\":\"Create\",\"provisioningState\":\"Running\",\"timestamp\":\"2016-10-07T00:01:41.8449166Z\",\"duration\":\"PT3.6670761S\",\"trackingId\":\"60b20e5d-c63f-4e57-86be-58d0f7c08ca3\",\"serviceRequestId\":\"79fcac17-6022-4ae0-aef1-b4cc16546dd8\",\"statusCode\":\"Created\",\"targetResource\":{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate\",\"resourceType\":\"Microsoft.Resources/deployments\",\"resourceName\":\"nestedTemplate\"}}}]}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -367,7 +367,7 @@ nock('https://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .head('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate?api-version=2016-02-01')
+  .head('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate?api-version=2016-09-01')
   .reply(204, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
@@ -383,7 +383,7 @@ nock('http://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .head('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate?api-version=2016-02-01')
+  .head('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate?api-version=2016-09-01')
   .reply(204, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
@@ -399,7 +399,7 @@ nock('https://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/nestedTemplate/operations?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/nestedTemplate/operations?api-version=2016-09-01')
   .reply(200, "{\"value\":[{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate/operations/872623642E4EB6CE\",\"operationId\":\"872623642E4EB6CE\",\"properties\":{\"provisioningOperation\":\"Create\",\"provisioningState\":\"Failed\",\"timestamp\":\"2016-10-07T00:01:43.0023771Z\",\"duration\":\"PT0.4441746S\",\"trackingId\":\"ee6b5ea8-148e-4c88-b678-a716061ad42e\",\"serviceRequestId\":\"73c188e5-219f-446a-94f7-79d975539989\",\"statusCode\":\"BadRequest\",\"statusMessage\":{\"error\":{\"code\":\"NoRegisteredProviderFound\",\"message\":\"No registered resource provider found for location 'West US' and API version '2014-12-01-preview' for type 'storageAccounts'. The supported api-versions are '2016-01-01, 2015-06-15, 2015-05-01-preview'. The supported locations are 'eastus, eastus2, eastus2stage, westus, westeurope, eastasia, southeastasia, japaneast, japanwest, northcentralus, southcentralus, centralus, northeurope, brazilsouth, australiaeast, australiasoutheast, southindia, centralindia, westindia, canadaeast, canadacentral, westus2, westcentralus, uksouth, ukwest'.\"}},\"targetResource\":{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Storage/storageAccounts/sdkdeploymenttest9748\",\"resourceType\":\"Microsoft.Storage/storageAccounts\",\"resourceName\":\"sdkdeploymenttest9748\"}}}]}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -416,7 +416,7 @@ nock('http://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/nestedTemplate/operations?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/nestedTemplate/operations?api-version=2016-09-01')
   .reply(200, "{\"value\":[{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate/operations/872623642E4EB6CE\",\"operationId\":\"872623642E4EB6CE\",\"properties\":{\"provisioningOperation\":\"Create\",\"provisioningState\":\"Failed\",\"timestamp\":\"2016-10-07T00:01:43.0023771Z\",\"duration\":\"PT0.4441746S\",\"trackingId\":\"ee6b5ea8-148e-4c88-b678-a716061ad42e\",\"serviceRequestId\":\"73c188e5-219f-446a-94f7-79d975539989\",\"statusCode\":\"BadRequest\",\"statusMessage\":{\"error\":{\"code\":\"NoRegisteredProviderFound\",\"message\":\"No registered resource provider found for location 'West US' and API version '2014-12-01-preview' for type 'storageAccounts'. The supported api-versions are '2016-01-01, 2015-06-15, 2015-05-01-preview'. The supported locations are 'eastus, eastus2, eastus2stage, westus, westeurope, eastasia, southeastasia, japaneast, japanwest, northcentralus, southcentralus, centralus, northeurope, brazilsouth, australiaeast, australiasoutheast, southindia, centralindia, westindia, canadaeast, canadacentral, westus2, westcentralus, uksouth, ukwest'.\"}},\"targetResource\":{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Storage/storageAccounts/sdkdeploymenttest9748\",\"resourceType\":\"Microsoft.Storage/storageAccounts\",\"resourceName\":\"sdkdeploymenttest9748\"}}}]}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -433,7 +433,7 @@ nock('https://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105?api-version=2016-09-01')
   .reply(200, "{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105\",\"name\":\"Deploy1105\",\"properties\":{\"templateLink\":{\"uri\":\"https://raw.githubusercontent.com/vivsriaus/armtemplates/master/testNestedTemplateFail.json\",\"contentVersion\":\"1.0.0.0\"},\"parameters\":{\"storageAccountName\":{\"type\":\"String\",\"value\":\"sdkdeploymenttest9748\"}},\"mode\":\"Incremental\",\"provisioningState\":\"Running\",\"timestamp\":\"2016-10-07T00:01:38.0849427Z\",\"duration\":\"PT1.1684915S\",\"correlationId\":\"f5b8451e-ba6a-4ba6-a807-300ba8f2ea65\",\"providers\":[{\"namespace\":\"Microsoft.Resources\",\"resourceTypes\":[{\"resourceType\":\"deployments\",\"locations\":[null]}]}],\"dependencies\":[]}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -450,7 +450,7 @@ nock('http://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105?api-version=2016-09-01')
   .reply(200, "{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105\",\"name\":\"Deploy1105\",\"properties\":{\"templateLink\":{\"uri\":\"https://raw.githubusercontent.com/vivsriaus/armtemplates/master/testNestedTemplateFail.json\",\"contentVersion\":\"1.0.0.0\"},\"parameters\":{\"storageAccountName\":{\"type\":\"String\",\"value\":\"sdkdeploymenttest9748\"}},\"mode\":\"Incremental\",\"provisioningState\":\"Running\",\"timestamp\":\"2016-10-07T00:01:38.0849427Z\",\"duration\":\"PT1.1684915S\",\"correlationId\":\"f5b8451e-ba6a-4ba6-a807-300ba8f2ea65\",\"providers\":[{\"namespace\":\"Microsoft.Resources\",\"resourceTypes\":[{\"resourceType\":\"deployments\",\"locations\":[null]}]}],\"dependencies\":[]}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -467,7 +467,7 @@ nock('https://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/Deploy1105/operations?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/Deploy1105/operations?api-version=2016-09-01')
   .reply(200, "{\"value\":[{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105/operations/ECD048556DF4F428\",\"operationId\":\"ECD048556DF4F428\",\"properties\":{\"provisioningOperation\":\"Create\",\"provisioningState\":\"Failed\",\"timestamp\":\"2016-10-07T00:01:49.6237395Z\",\"duration\":\"PT11.445899S\",\"trackingId\":\"e3fa3316-86fa-44bf-be16-077035346628\",\"serviceRequestId\":\"79fcac17-6022-4ae0-aef1-b4cc16546dd8\",\"statusCode\":\"Conflict\",\"statusMessage\":{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"DeploymentFailed\",\"message\":\"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.\",\"details\":[{\"code\":\"BadRequest\",\"message\":\"{\\r\\n  \\\"error\\\": {\\r\\n    \\\"code\\\": \\\"NoRegisteredProviderFound\\\",\\r\\n    \\\"message\\\": \\\"No registered resource provider found for location 'West US' and API version '2014-12-01-preview' for type 'storageAccounts'. The supported api-versions are '2016-01-01, 2015-06-15, 2015-05-01-preview'. The supported locations are 'eastus, eastus2, eastus2stage, westus, westeurope, eastasia, southeastasia, japaneast, japanwest, northcentralus, southcentralus, centralus, northeurope, brazilsouth, australiaeast, australiasoutheast, southindia, centralindia, westindia, canadaeast, canadacentral, westus2, westcentralus, uksouth, ukwest'.\\\"\\r\\n  }\\r\\n}\"}]}]}},\"targetResource\":{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate\",\"resourceType\":\"Microsoft.Resources/deployments\",\"resourceName\":\"nestedTemplate\"}}}]}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -484,7 +484,7 @@ nock('http://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/Deploy1105/operations?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/Deploy1105/operations?api-version=2016-09-01')
   .reply(200, "{\"value\":[{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105/operations/ECD048556DF4F428\",\"operationId\":\"ECD048556DF4F428\",\"properties\":{\"provisioningOperation\":\"Create\",\"provisioningState\":\"Failed\",\"timestamp\":\"2016-10-07T00:01:49.6237395Z\",\"duration\":\"PT11.445899S\",\"trackingId\":\"e3fa3316-86fa-44bf-be16-077035346628\",\"serviceRequestId\":\"79fcac17-6022-4ae0-aef1-b4cc16546dd8\",\"statusCode\":\"Conflict\",\"statusMessage\":{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"DeploymentFailed\",\"message\":\"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.\",\"details\":[{\"code\":\"BadRequest\",\"message\":\"{\\r\\n  \\\"error\\\": {\\r\\n    \\\"code\\\": \\\"NoRegisteredProviderFound\\\",\\r\\n    \\\"message\\\": \\\"No registered resource provider found for location 'West US' and API version '2014-12-01-preview' for type 'storageAccounts'. The supported api-versions are '2016-01-01, 2015-06-15, 2015-05-01-preview'. The supported locations are 'eastus, eastus2, eastus2stage, westus, westeurope, eastasia, southeastasia, japaneast, japanwest, northcentralus, southcentralus, centralus, northeurope, brazilsouth, australiaeast, australiasoutheast, southindia, centralindia, westindia, canadaeast, canadacentral, westus2, westcentralus, uksouth, ukwest'.\\\"\\r\\n  }\\r\\n}\"}]}]}},\"targetResource\":{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate\",\"resourceType\":\"Microsoft.Resources/deployments\",\"resourceName\":\"nestedTemplate\"}}}]}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -501,7 +501,7 @@ nock('https://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .head('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate?api-version=2016-02-01')
+  .head('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate?api-version=2016-09-01')
   .reply(204, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
@@ -517,7 +517,7 @@ nock('http://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .head('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate?api-version=2016-02-01')
+  .head('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate?api-version=2016-09-01')
   .reply(204, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
@@ -533,7 +533,7 @@ nock('https://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/nestedTemplate/operations?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/nestedTemplate/operations?api-version=2016-09-01')
   .reply(200, "{\"value\":[{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate/operations/872623642E4EB6CE\",\"operationId\":\"872623642E4EB6CE\",\"properties\":{\"provisioningOperation\":\"Create\",\"provisioningState\":\"Failed\",\"timestamp\":\"2016-10-07T00:01:43.0023771Z\",\"duration\":\"PT0.4441746S\",\"trackingId\":\"ee6b5ea8-148e-4c88-b678-a716061ad42e\",\"serviceRequestId\":\"73c188e5-219f-446a-94f7-79d975539989\",\"statusCode\":\"BadRequest\",\"statusMessage\":{\"error\":{\"code\":\"NoRegisteredProviderFound\",\"message\":\"No registered resource provider found for location 'West US' and API version '2014-12-01-preview' for type 'storageAccounts'. The supported api-versions are '2016-01-01, 2015-06-15, 2015-05-01-preview'. The supported locations are 'eastus, eastus2, eastus2stage, westus, westeurope, eastasia, southeastasia, japaneast, japanwest, northcentralus, southcentralus, centralus, northeurope, brazilsouth, australiaeast, australiasoutheast, southindia, centralindia, westindia, canadaeast, canadacentral, westus2, westcentralus, uksouth, ukwest'.\"}},\"targetResource\":{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Storage/storageAccounts/sdkdeploymenttest9748\",\"resourceType\":\"Microsoft.Storage/storageAccounts\",\"resourceName\":\"sdkdeploymenttest9748\"}}}]}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -550,7 +550,7 @@ nock('http://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/nestedTemplate/operations?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/nestedTemplate/operations?api-version=2016-09-01')
   .reply(200, "{\"value\":[{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate/operations/872623642E4EB6CE\",\"operationId\":\"872623642E4EB6CE\",\"properties\":{\"provisioningOperation\":\"Create\",\"provisioningState\":\"Failed\",\"timestamp\":\"2016-10-07T00:01:43.0023771Z\",\"duration\":\"PT0.4441746S\",\"trackingId\":\"ee6b5ea8-148e-4c88-b678-a716061ad42e\",\"serviceRequestId\":\"73c188e5-219f-446a-94f7-79d975539989\",\"statusCode\":\"BadRequest\",\"statusMessage\":{\"error\":{\"code\":\"NoRegisteredProviderFound\",\"message\":\"No registered resource provider found for location 'West US' and API version '2014-12-01-preview' for type 'storageAccounts'. The supported api-versions are '2016-01-01, 2015-06-15, 2015-05-01-preview'. The supported locations are 'eastus, eastus2, eastus2stage, westus, westeurope, eastasia, southeastasia, japaneast, japanwest, northcentralus, southcentralus, centralus, northeurope, brazilsouth, australiaeast, australiasoutheast, southindia, centralindia, westindia, canadaeast, canadacentral, westus2, westcentralus, uksouth, ukwest'.\"}},\"targetResource\":{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Storage/storageAccounts/sdkdeploymenttest9748\",\"resourceType\":\"Microsoft.Storage/storageAccounts\",\"resourceName\":\"sdkdeploymenttest9748\"}}}]}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -567,7 +567,7 @@ nock('https://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105?api-version=2016-09-01')
   .reply(200, "{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105\",\"name\":\"Deploy1105\",\"properties\":{\"templateLink\":{\"uri\":\"https://raw.githubusercontent.com/vivsriaus/armtemplates/master/testNestedTemplateFail.json\",\"contentVersion\":\"1.0.0.0\"},\"parameters\":{\"storageAccountName\":{\"type\":\"String\",\"value\":\"sdkdeploymenttest9748\"}},\"mode\":\"Incremental\",\"provisioningState\":\"Failed\",\"timestamp\":\"2016-10-07T00:01:52.1986856Z\",\"duration\":\"PT15.2822344S\",\"correlationId\":\"f5b8451e-ba6a-4ba6-a807-300ba8f2ea65\",\"providers\":[{\"namespace\":\"Microsoft.Resources\",\"resourceTypes\":[{\"resourceType\":\"deployments\",\"locations\":[null]}]}],\"dependencies\":[],\"error\":{\"code\":\"DeploymentFailed\",\"message\":\"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.\",\"details\":[{\"code\":\"Conflict\",\"message\":\"{\\r\\n  \\\"status\\\": \\\"Failed\\\",\\r\\n  \\\"error\\\": {\\r\\n    \\\"code\\\": \\\"ResourceDeploymentFailure\\\",\\r\\n    \\\"message\\\": \\\"The resource operation completed with terminal provisioning state 'Failed'.\\\",\\r\\n    \\\"details\\\": [\\r\\n      {\\r\\n        \\\"code\\\": \\\"DeploymentFailed\\\",\\r\\n        \\\"message\\\": \\\"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.\\\",\\r\\n        \\\"details\\\": [\\r\\n          {\\r\\n            \\\"code\\\": \\\"BadRequest\\\",\\r\\n            \\\"message\\\": \\\"{\\\\r\\\\n  \\\\\\\"error\\\\\\\": {\\\\r\\\\n    \\\\\\\"code\\\\\\\": \\\\\\\"NoRegisteredProviderFound\\\\\\\",\\\\r\\\\n    \\\\\\\"message\\\\\\\": \\\\\\\"No registered resource provider found for location 'West US' and API version '2014-12-01-preview' for type 'storageAccounts'. The supported api-versions are '2016-01-01, 2015-06-15, 2015-05-01-preview'. The supported locations are 'eastus, eastus2, eastus2stage, westus, westeurope, eastasia, southeastasia, japaneast, japanwest, northcentralus, southcentralus, centralus, northeurope, brazilsouth, australiaeast, australiasoutheast, southindia, centralindia, westindia, canadaeast, canadacentral, westus2, westcentralus, uksouth, ukwest'.\\\\\\\"\\\\r\\\\n  }\\\\r\\\\n}\\\"\\r\\n          }\\r\\n        ]\\r\\n      }\\r\\n    ]\\r\\n  }\\r\\n}\"}]}}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -584,7 +584,7 @@ nock('http://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105?api-version=2016-09-01')
   .reply(200, "{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105\",\"name\":\"Deploy1105\",\"properties\":{\"templateLink\":{\"uri\":\"https://raw.githubusercontent.com/vivsriaus/armtemplates/master/testNestedTemplateFail.json\",\"contentVersion\":\"1.0.0.0\"},\"parameters\":{\"storageAccountName\":{\"type\":\"String\",\"value\":\"sdkdeploymenttest9748\"}},\"mode\":\"Incremental\",\"provisioningState\":\"Failed\",\"timestamp\":\"2016-10-07T00:01:52.1986856Z\",\"duration\":\"PT15.2822344S\",\"correlationId\":\"f5b8451e-ba6a-4ba6-a807-300ba8f2ea65\",\"providers\":[{\"namespace\":\"Microsoft.Resources\",\"resourceTypes\":[{\"resourceType\":\"deployments\",\"locations\":[null]}]}],\"dependencies\":[],\"error\":{\"code\":\"DeploymentFailed\",\"message\":\"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.\",\"details\":[{\"code\":\"Conflict\",\"message\":\"{\\r\\n  \\\"status\\\": \\\"Failed\\\",\\r\\n  \\\"error\\\": {\\r\\n    \\\"code\\\": \\\"ResourceDeploymentFailure\\\",\\r\\n    \\\"message\\\": \\\"The resource operation completed with terminal provisioning state 'Failed'.\\\",\\r\\n    \\\"details\\\": [\\r\\n      {\\r\\n        \\\"code\\\": \\\"DeploymentFailed\\\",\\r\\n        \\\"message\\\": \\\"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.\\\",\\r\\n        \\\"details\\\": [\\r\\n          {\\r\\n            \\\"code\\\": \\\"BadRequest\\\",\\r\\n            \\\"message\\\": \\\"{\\\\r\\\\n  \\\\\\\"error\\\\\\\": {\\\\r\\\\n    \\\\\\\"code\\\\\\\": \\\\\\\"NoRegisteredProviderFound\\\\\\\",\\\\r\\\\n    \\\\\\\"message\\\\\\\": \\\\\\\"No registered resource provider found for location 'West US' and API version '2014-12-01-preview' for type 'storageAccounts'. The supported api-versions are '2016-01-01, 2015-06-15, 2015-05-01-preview'. The supported locations are 'eastus, eastus2, eastus2stage, westus, westeurope, eastasia, southeastasia, japaneast, japanwest, northcentralus, southcentralus, centralus, northeurope, brazilsouth, australiaeast, australiasoutheast, southindia, centralindia, westindia, canadaeast, canadacentral, westus2, westcentralus, uksouth, ukwest'.\\\\\\\"\\\\r\\\\n  }\\\\r\\\\n}\\\"\\r\\n          }\\r\\n        ]\\r\\n      }\\r\\n    ]\\r\\n  }\\r\\n}\"}]}}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -601,7 +601,7 @@ nock('https://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/Deploy1105/operations?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/Deploy1105/operations?api-version=2016-09-01')
   .reply(200, "{\"value\":[{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105/operations/ECD048556DF4F428\",\"operationId\":\"ECD048556DF4F428\",\"properties\":{\"provisioningOperation\":\"Create\",\"provisioningState\":\"Failed\",\"timestamp\":\"2016-10-07T00:01:49.6237395Z\",\"duration\":\"PT11.445899S\",\"trackingId\":\"e3fa3316-86fa-44bf-be16-077035346628\",\"serviceRequestId\":\"79fcac17-6022-4ae0-aef1-b4cc16546dd8\",\"statusCode\":\"Conflict\",\"statusMessage\":{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"DeploymentFailed\",\"message\":\"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.\",\"details\":[{\"code\":\"BadRequest\",\"message\":\"{\\r\\n  \\\"error\\\": {\\r\\n    \\\"code\\\": \\\"NoRegisteredProviderFound\\\",\\r\\n    \\\"message\\\": \\\"No registered resource provider found for location 'West US' and API version '2014-12-01-preview' for type 'storageAccounts'. The supported api-versions are '2016-01-01, 2015-06-15, 2015-05-01-preview'. The supported locations are 'eastus, eastus2, eastus2stage, westus, westeurope, eastasia, southeastasia, japaneast, japanwest, northcentralus, southcentralus, centralus, northeurope, brazilsouth, australiaeast, australiasoutheast, southindia, centralindia, westindia, canadaeast, canadacentral, westus2, westcentralus, uksouth, ukwest'.\\\"\\r\\n  }\\r\\n}\"}]}]}},\"targetResource\":{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate\",\"resourceType\":\"Microsoft.Resources/deployments\",\"resourceName\":\"nestedTemplate\"}}},{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105/operations/08587258083885611738\",\"operationId\":\"08587258083885611738\",\"properties\":{\"provisioningOperation\":\"EvaluateDeploymentOutput\",\"provisioningState\":\"Failed\",\"timestamp\":\"2016-10-07T00:01:51.9615845Z\",\"duration\":\"PT2.0088192S\",\"trackingId\":\"203e57a0-90e3-42bc-b3a7-45b8aeaac3d6\",\"statusCode\":\"Conflict\",\"statusMessage\":\"Template output evaluation skipped: at least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.\"}}]}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -618,7 +618,7 @@ nock('http://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/Deploy1105/operations?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/Deploy1105/operations?api-version=2016-09-01')
   .reply(200, "{\"value\":[{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105/operations/ECD048556DF4F428\",\"operationId\":\"ECD048556DF4F428\",\"properties\":{\"provisioningOperation\":\"Create\",\"provisioningState\":\"Failed\",\"timestamp\":\"2016-10-07T00:01:49.6237395Z\",\"duration\":\"PT11.445899S\",\"trackingId\":\"e3fa3316-86fa-44bf-be16-077035346628\",\"serviceRequestId\":\"79fcac17-6022-4ae0-aef1-b4cc16546dd8\",\"statusCode\":\"Conflict\",\"statusMessage\":{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"DeploymentFailed\",\"message\":\"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.\",\"details\":[{\"code\":\"BadRequest\",\"message\":\"{\\r\\n  \\\"error\\\": {\\r\\n    \\\"code\\\": \\\"NoRegisteredProviderFound\\\",\\r\\n    \\\"message\\\": \\\"No registered resource provider found for location 'West US' and API version '2014-12-01-preview' for type 'storageAccounts'. The supported api-versions are '2016-01-01, 2015-06-15, 2015-05-01-preview'. The supported locations are 'eastus, eastus2, eastus2stage, westus, westeurope, eastasia, southeastasia, japaneast, japanwest, northcentralus, southcentralus, centralus, northeurope, brazilsouth, australiaeast, australiasoutheast, southindia, centralindia, westindia, canadaeast, canadacentral, westus2, westcentralus, uksouth, ukwest'.\\\"\\r\\n  }\\r\\n}\"}]}]}},\"targetResource\":{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate\",\"resourceType\":\"Microsoft.Resources/deployments\",\"resourceName\":\"nestedTemplate\"}}},{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105/operations/08587258083885611738\",\"operationId\":\"08587258083885611738\",\"properties\":{\"provisioningOperation\":\"EvaluateDeploymentOutput\",\"provisioningState\":\"Failed\",\"timestamp\":\"2016-10-07T00:01:51.9615845Z\",\"duration\":\"PT2.0088192S\",\"trackingId\":\"203e57a0-90e3-42bc-b3a7-45b8aeaac3d6\",\"statusCode\":\"Conflict\",\"statusMessage\":\"Template output evaluation skipped: at least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.\"}}]}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -635,7 +635,7 @@ nock('https://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .head('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate?api-version=2016-02-01')
+  .head('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate?api-version=2016-09-01')
   .reply(204, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
@@ -651,7 +651,7 @@ nock('http://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .head('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate?api-version=2016-02-01')
+  .head('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate?api-version=2016-09-01')
   .reply(204, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '0',
@@ -667,7 +667,7 @@ nock('https://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/nestedTemplate/operations?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/nestedTemplate/operations?api-version=2016-09-01')
   .reply(200, "{\"value\":[{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate/operations/872623642E4EB6CE\",\"operationId\":\"872623642E4EB6CE\",\"properties\":{\"provisioningOperation\":\"Create\",\"provisioningState\":\"Failed\",\"timestamp\":\"2016-10-07T00:01:43.0023771Z\",\"duration\":\"PT0.4441746S\",\"trackingId\":\"ee6b5ea8-148e-4c88-b678-a716061ad42e\",\"serviceRequestId\":\"73c188e5-219f-446a-94f7-79d975539989\",\"statusCode\":\"BadRequest\",\"statusMessage\":{\"error\":{\"code\":\"NoRegisteredProviderFound\",\"message\":\"No registered resource provider found for location 'West US' and API version '2014-12-01-preview' for type 'storageAccounts'. The supported api-versions are '2016-01-01, 2015-06-15, 2015-05-01-preview'. The supported locations are 'eastus, eastus2, eastus2stage, westus, westeurope, eastasia, southeastasia, japaneast, japanwest, northcentralus, southcentralus, centralus, northeurope, brazilsouth, australiaeast, australiasoutheast, southindia, centralindia, westindia, canadaeast, canadacentral, westus2, westcentralus, uksouth, ukwest'.\"}},\"targetResource\":{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Storage/storageAccounts/sdkdeploymenttest9748\",\"resourceType\":\"Microsoft.Storage/storageAccounts\",\"resourceName\":\"sdkdeploymenttest9748\"}}}]}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -684,7 +684,7 @@ nock('http://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/nestedTemplate/operations?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/nestedTemplate/operations?api-version=2016-09-01')
   .reply(200, "{\"value\":[{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate/operations/872623642E4EB6CE\",\"operationId\":\"872623642E4EB6CE\",\"properties\":{\"provisioningOperation\":\"Create\",\"provisioningState\":\"Failed\",\"timestamp\":\"2016-10-07T00:01:43.0023771Z\",\"duration\":\"PT0.4441746S\",\"trackingId\":\"ee6b5ea8-148e-4c88-b678-a716061ad42e\",\"serviceRequestId\":\"73c188e5-219f-446a-94f7-79d975539989\",\"statusCode\":\"BadRequest\",\"statusMessage\":{\"error\":{\"code\":\"NoRegisteredProviderFound\",\"message\":\"No registered resource provider found for location 'West US' and API version '2014-12-01-preview' for type 'storageAccounts'. The supported api-versions are '2016-01-01, 2015-06-15, 2015-05-01-preview'. The supported locations are 'eastus, eastus2, eastus2stage, westus, westeurope, eastasia, southeastasia, japaneast, japanwest, northcentralus, southcentralus, centralus, northeurope, brazilsouth, australiaeast, australiasoutheast, southindia, centralindia, westindia, canadaeast, canadacentral, westus2, westcentralus, uksouth, ukwest'.\"}},\"targetResource\":{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Storage/storageAccounts/sdkdeploymenttest9748\",\"resourceType\":\"Microsoft.Storage/storageAccounts\",\"resourceName\":\"sdkdeploymenttest9748\"}}}]}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -701,7 +701,7 @@ nock('https://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/Deploy1105/operations?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/Deploy1105/operations?api-version=2016-09-01')
   .reply(200, "{\"value\":[{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105/operations/ECD048556DF4F428\",\"operationId\":\"ECD048556DF4F428\",\"properties\":{\"provisioningOperation\":\"Create\",\"provisioningState\":\"Failed\",\"timestamp\":\"2016-10-07T00:01:49.6237395Z\",\"duration\":\"PT11.445899S\",\"trackingId\":\"e3fa3316-86fa-44bf-be16-077035346628\",\"serviceRequestId\":\"79fcac17-6022-4ae0-aef1-b4cc16546dd8\",\"statusCode\":\"Conflict\",\"statusMessage\":{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"DeploymentFailed\",\"message\":\"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.\",\"details\":[{\"code\":\"BadRequest\",\"message\":\"{\\r\\n  \\\"error\\\": {\\r\\n    \\\"code\\\": \\\"NoRegisteredProviderFound\\\",\\r\\n    \\\"message\\\": \\\"No registered resource provider found for location 'West US' and API version '2014-12-01-preview' for type 'storageAccounts'. The supported api-versions are '2016-01-01, 2015-06-15, 2015-05-01-preview'. The supported locations are 'eastus, eastus2, eastus2stage, westus, westeurope, eastasia, southeastasia, japaneast, japanwest, northcentralus, southcentralus, centralus, northeurope, brazilsouth, australiaeast, australiasoutheast, southindia, centralindia, westindia, canadaeast, canadacentral, westus2, westcentralus, uksouth, ukwest'.\\\"\\r\\n  }\\r\\n}\"}]}]}},\"targetResource\":{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate\",\"resourceType\":\"Microsoft.Resources/deployments\",\"resourceName\":\"nestedTemplate\"}}},{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105/operations/08587258083885611738\",\"operationId\":\"08587258083885611738\",\"properties\":{\"provisioningOperation\":\"EvaluateDeploymentOutput\",\"provisioningState\":\"Failed\",\"timestamp\":\"2016-10-07T00:01:51.9615845Z\",\"duration\":\"PT2.0088192S\",\"trackingId\":\"203e57a0-90e3-42bc-b3a7-45b8aeaac3d6\",\"statusCode\":\"Conflict\",\"statusMessage\":\"Template output evaluation skipped: at least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.\"}}]}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -718,7 +718,7 @@ nock('http://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/Deploy1105/operations?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/Deploy1105/operations?api-version=2016-09-01')
   .reply(200, "{\"value\":[{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105/operations/ECD048556DF4F428\",\"operationId\":\"ECD048556DF4F428\",\"properties\":{\"provisioningOperation\":\"Create\",\"provisioningState\":\"Failed\",\"timestamp\":\"2016-10-07T00:01:49.6237395Z\",\"duration\":\"PT11.445899S\",\"trackingId\":\"e3fa3316-86fa-44bf-be16-077035346628\",\"serviceRequestId\":\"79fcac17-6022-4ae0-aef1-b4cc16546dd8\",\"statusCode\":\"Conflict\",\"statusMessage\":{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"DeploymentFailed\",\"message\":\"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.\",\"details\":[{\"code\":\"BadRequest\",\"message\":\"{\\r\\n  \\\"error\\\": {\\r\\n    \\\"code\\\": \\\"NoRegisteredProviderFound\\\",\\r\\n    \\\"message\\\": \\\"No registered resource provider found for location 'West US' and API version '2014-12-01-preview' for type 'storageAccounts'. The supported api-versions are '2016-01-01, 2015-06-15, 2015-05-01-preview'. The supported locations are 'eastus, eastus2, eastus2stage, westus, westeurope, eastasia, southeastasia, japaneast, japanwest, northcentralus, southcentralus, centralus, northeurope, brazilsouth, australiaeast, australiasoutheast, southindia, centralindia, westindia, canadaeast, canadacentral, westus2, westcentralus, uksouth, ukwest'.\\\"\\r\\n  }\\r\\n}\"}]}]}},\"targetResource\":{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate\",\"resourceType\":\"Microsoft.Resources/deployments\",\"resourceName\":\"nestedTemplate\"}}},{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/Deploy1105/operations/08587258083885611738\",\"operationId\":\"08587258083885611738\",\"properties\":{\"provisioningOperation\":\"EvaluateDeploymentOutput\",\"provisioningState\":\"Failed\",\"timestamp\":\"2016-10-07T00:01:51.9615845Z\",\"duration\":\"PT2.0088192S\",\"trackingId\":\"203e57a0-90e3-42bc-b3a7-45b8aeaac3d6\",\"statusCode\":\"Conflict\",\"statusMessage\":\"Template output evaluation skipped: at least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.\"}}]}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -735,7 +735,7 @@ nock('https://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/nestedTemplate/operations?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/nestedTemplate/operations?api-version=2016-09-01')
   .reply(200, "{\"value\":[{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate/operations/872623642E4EB6CE\",\"operationId\":\"872623642E4EB6CE\",\"properties\":{\"provisioningOperation\":\"Create\",\"provisioningState\":\"Failed\",\"timestamp\":\"2016-10-07T00:01:43.0023771Z\",\"duration\":\"PT0.4441746S\",\"trackingId\":\"ee6b5ea8-148e-4c88-b678-a716061ad42e\",\"serviceRequestId\":\"73c188e5-219f-446a-94f7-79d975539989\",\"statusCode\":\"BadRequest\",\"statusMessage\":{\"error\":{\"code\":\"NoRegisteredProviderFound\",\"message\":\"No registered resource provider found for location 'West US' and API version '2014-12-01-preview' for type 'storageAccounts'. The supported api-versions are '2016-01-01, 2015-06-15, 2015-05-01-preview'. The supported locations are 'eastus, eastus2, eastus2stage, westus, westeurope, eastasia, southeastasia, japaneast, japanwest, northcentralus, southcentralus, centralus, northeurope, brazilsouth, australiaeast, australiasoutheast, southindia, centralindia, westindia, canadaeast, canadacentral, westus2, westcentralus, uksouth, ukwest'.\"}},\"targetResource\":{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Storage/storageAccounts/sdkdeploymenttest9748\",\"resourceType\":\"Microsoft.Storage/storageAccounts\",\"resourceName\":\"sdkdeploymenttest9748\"}}}]}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -752,7 +752,7 @@ nock('http://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/nestedTemplate/operations?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470/deployments/nestedTemplate/operations?api-version=2016-09-01')
   .reply(200, "{\"value\":[{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Resources/deployments/nestedTemplate/operations/872623642E4EB6CE\",\"operationId\":\"872623642E4EB6CE\",\"properties\":{\"provisioningOperation\":\"Create\",\"provisioningState\":\"Failed\",\"timestamp\":\"2016-10-07T00:01:43.0023771Z\",\"duration\":\"PT0.4441746S\",\"trackingId\":\"ee6b5ea8-148e-4c88-b678-a716061ad42e\",\"serviceRequestId\":\"73c188e5-219f-446a-94f7-79d975539989\",\"statusCode\":\"BadRequest\",\"statusMessage\":{\"error\":{\"code\":\"NoRegisteredProviderFound\",\"message\":\"No registered resource provider found for location 'West US' and API version '2014-12-01-preview' for type 'storageAccounts'. The supported api-versions are '2016-01-01, 2015-06-15, 2015-05-01-preview'. The supported locations are 'eastus, eastus2, eastus2stage, westus, westeurope, eastasia, southeastasia, japaneast, japanwest, northcentralus, southcentralus, centralus, northeurope, brazilsouth, australiaeast, australiasoutheast, southindia, centralindia, westindia, canadaeast, canadacentral, westus2, westcentralus, uksouth, ukwest'.\"}},\"targetResource\":{\"id\":\"/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourceGroups/xDeploymentTestGroup1470/providers/Microsoft.Storage/storageAccounts/sdkdeploymenttest9748\",\"resourceType\":\"Microsoft.Storage/storageAccounts\",\"resourceName\":\"sdkdeploymenttest9748\"}}}]}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
@@ -769,11 +769,11 @@ nock('https://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .delete('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470?api-version=2016-02-01')
+  .delete('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470?api-version=2016-09-01')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   expires: '-1',
-  location: 'https://management.azure.com/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/operationresults/eyJqb2JJZCI6IlJFU09VUkNFR1JPVVBERUxFVElPTkpPQi1YREVQTE9ZTUVOVFRFU1RHUk9VUDE0NzAtU09VVEhDRU5UUkFMVVMiLCJqb2JMb2NhdGlvbiI6InNvdXRoY2VudHJhbHVzIn0?api-version=2016-02-01',
+  location: 'https://management.azure.com/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/operationresults/eyJqb2JJZCI6IlJFU09VUkNFR1JPVVBERUxFVElPTkpPQi1YREVQTE9ZTUVOVFRFU1RHUk9VUDE0NzAtU09VVEhDRU5UUkFMVVMiLCJqb2JMb2NhdGlvbiI6InNvdXRoY2VudHJhbHVzIn0?api-version=2016-09-01',
   'retry-after': '15',
   'x-ms-ratelimit-remaining-subscription-writes': '1199',
   'x-ms-request-id': 'e7b85f4c-32ba-4b71-817a-31e4f171461e',
@@ -787,11 +787,11 @@ nock('http://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .delete('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470?api-version=2016-02-01')
+  .delete('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/resourcegroups/xDeploymentTestGroup1470?api-version=2016-09-01')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   expires: '-1',
-  location: 'https://management.azure.com/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/operationresults/eyJqb2JJZCI6IlJFU09VUkNFR1JPVVBERUxFVElPTkpPQi1YREVQTE9ZTUVOVFRFU1RHUk9VUDE0NzAtU09VVEhDRU5UUkFMVVMiLCJqb2JMb2NhdGlvbiI6InNvdXRoY2VudHJhbHVzIn0?api-version=2016-02-01',
+  location: 'https://management.azure.com/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/operationresults/eyJqb2JJZCI6IlJFU09VUkNFR1JPVVBERUxFVElPTkpPQi1YREVQTE9ZTUVOVFRFU1RHUk9VUDE0NzAtU09VVEhDRU5UUkFMVVMiLCJqb2JMb2NhdGlvbiI6InNvdXRoY2VudHJhbHVzIn0?api-version=2016-09-01',
   'retry-after': '15',
   'x-ms-ratelimit-remaining-subscription-writes': '1199',
   'x-ms-request-id': 'e7b85f4c-32ba-4b71-817a-31e4f171461e',
@@ -805,11 +805,11 @@ nock('https://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/operationresults/eyJqb2JJZCI6IlJFU09VUkNFR1JPVVBERUxFVElPTkpPQi1YREVQTE9ZTUVOVFRFU1RHUk9VUDE0NzAtU09VVEhDRU5UUkFMVVMiLCJqb2JMb2NhdGlvbiI6InNvdXRoY2VudHJhbHVzIn0?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/operationresults/eyJqb2JJZCI6IlJFU09VUkNFR1JPVVBERUxFVElPTkpPQi1YREVQTE9ZTUVOVFRFU1RHUk9VUDE0NzAtU09VVEhDRU5UUkFMVVMiLCJqb2JMb2NhdGlvbiI6InNvdXRoY2VudHJhbHVzIn0?api-version=2016-09-01')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   expires: '-1',
-  location: 'https://management.azure.com/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/operationresults/eyJqb2JJZCI6IlJFU09VUkNFR1JPVVBERUxFVElPTkpPQi1YREVQTE9ZTUVOVFRFU1RHUk9VUDE0NzAtU09VVEhDRU5UUkFMVVMiLCJqb2JMb2NhdGlvbiI6InNvdXRoY2VudHJhbHVzIn0?api-version=2016-02-01',
+  location: 'https://management.azure.com/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/operationresults/eyJqb2JJZCI6IlJFU09VUkNFR1JPVVBERUxFVElPTkpPQi1YREVQTE9ZTUVOVFRFU1RHUk9VUDE0NzAtU09VVEhDRU5UUkFMVVMiLCJqb2JMb2NhdGlvbiI6InNvdXRoY2VudHJhbHVzIn0?api-version=2016-09-01',
   'retry-after': '15',
   'x-ms-ratelimit-remaining-subscription-reads': '14973',
   'x-ms-request-id': '4a635a35-b52b-48c6-aa48-15acd16d69f3',
@@ -823,11 +823,11 @@ nock('http://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/operationresults/eyJqb2JJZCI6IlJFU09VUkNFR1JPVVBERUxFVElPTkpPQi1YREVQTE9ZTUVOVFRFU1RHUk9VUDE0NzAtU09VVEhDRU5UUkFMVVMiLCJqb2JMb2NhdGlvbiI6InNvdXRoY2VudHJhbHVzIn0?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/operationresults/eyJqb2JJZCI6IlJFU09VUkNFR1JPVVBERUxFVElPTkpPQi1YREVQTE9ZTUVOVFRFU1RHUk9VUDE0NzAtU09VVEhDRU5UUkFMVVMiLCJqb2JMb2NhdGlvbiI6InNvdXRoY2VudHJhbHVzIn0?api-version=2016-09-01')
   .reply(202, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   expires: '-1',
-  location: 'https://management.azure.com/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/operationresults/eyJqb2JJZCI6IlJFU09VUkNFR1JPVVBERUxFVElPTkpPQi1YREVQTE9ZTUVOVFRFU1RHUk9VUDE0NzAtU09VVEhDRU5UUkFMVVMiLCJqb2JMb2NhdGlvbiI6InNvdXRoY2VudHJhbHVzIn0?api-version=2016-02-01',
+  location: 'https://management.azure.com/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/operationresults/eyJqb2JJZCI6IlJFU09VUkNFR1JPVVBERUxFVElPTkpPQi1YREVQTE9ZTUVOVFRFU1RHUk9VUDE0NzAtU09VVEhDRU5UUkFMVVMiLCJqb2JMb2NhdGlvbiI6InNvdXRoY2VudHJhbHVzIn0?api-version=2016-09-01',
   'retry-after': '15',
   'x-ms-ratelimit-remaining-subscription-reads': '14973',
   'x-ms-request-id': '4a635a35-b52b-48c6-aa48-15acd16d69f3',
@@ -841,7 +841,7 @@ nock('https://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/operationresults/eyJqb2JJZCI6IlJFU09VUkNFR1JPVVBERUxFVElPTkpPQi1YREVQTE9ZTUVOVFRFU1RHUk9VUDE0NzAtU09VVEhDRU5UUkFMVVMiLCJqb2JMb2NhdGlvbiI6InNvdXRoY2VudHJhbHVzIn0?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/operationresults/eyJqb2JJZCI6IlJFU09VUkNFR1JPVVBERUxFVElPTkpPQi1YREVQTE9ZTUVOVFRFU1RHUk9VUDE0NzAtU09VVEhDRU5UUkFMVVMiLCJqb2JMb2NhdGlvbiI6InNvdXRoY2VudHJhbHVzIn0?api-version=2016-09-01')
   .reply(200, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   expires: '-1',
@@ -857,7 +857,7 @@ nock('http://management.azure.com:443')
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/operationresults/eyJqb2JJZCI6IlJFU09VUkNFR1JPVVBERUxFVElPTkpPQi1YREVQTE9ZTUVOVFRFU1RHUk9VUDE0NzAtU09VVEhDRU5UUkFMVVMiLCJqb2JMb2NhdGlvbiI6InNvdXRoY2VudHJhbHVzIn0?api-version=2016-02-01')
+  .get('/subscriptions/d05f4e58-b80d-4ebd-a6d7-c9cac216cd39/operationresults/eyJqb2JJZCI6IlJFU09VUkNFR1JPVVBERUxFVElPTkpPQi1YREVQTE9ZTUVOVFRFU1RHUk9VUDE0NzAtU09VVEhDRU5UUkFMVVMiLCJqb2JMb2NhdGlvbiI6InNvdXRoY2VudHJhbHVzIn0?api-version=2016-09-01')
   .reply(200, "", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   expires: '-1',

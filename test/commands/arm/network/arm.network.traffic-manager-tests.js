@@ -91,6 +91,23 @@ describe('arm', function () {
           });
         });
       });
+      it('show should display details of traffic manager profile', function (done) {
+        var cmd = 'network traffic-manager profile show -g {group} -n {name} --json'.formatArgs(profileProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.equal(0);
+          var profile = JSON.parse(result.text);
+          profile.name.should.equal(profileProp.name);
+          profile.properties.profileStatus.should.equal(profileProp.profileStatus);
+          profile.properties.trafficRoutingMethod.should.equal(profileProp.trafficRoutingMethod);
+          profile.properties.dnsConfig.relativeName.should.equal(profileProp.relativeDnsName);
+          profile.properties.dnsConfig.ttl.should.equal(profileProp.ttl);
+          profile.properties.monitorConfig.protocol.should.equal(profileProp.monitorProtocol);
+          profile.properties.monitorConfig.port.should.equal(profileProp.monitorPort);
+          profile.properties.monitorConfig.path.should.equal(profileProp.monitorPath);
+          networkUtil.shouldHaveTags(profile);
+          done();
+        });
+      });
       it('set should modify traffic-manager profile', function (done) {
         var cmd = util.format('network traffic-manager profile set -g {group} -n {name} -u {newProfileStatus} -m {newTrafficRoutingMethod} ' +
           '-l {newTtl} -p {newMonitorProtocol} -o {newMonitorPort} -a {newMonitorPath} -t {newTags} --json').formatArgs(profileProp);
@@ -117,15 +134,6 @@ describe('arm', function () {
           profiles.some(function (profile) {
             return profile.name === profileProp.name;
           }).should.be.true;
-          done();
-        });
-      });
-      it('show should display details of traffic manager profile', function (done) {
-        var cmd = 'network traffic-manager profile show -g {group} -n {name} --json'.formatArgs(profileProp);
-        testUtils.executeCommand(suite, retry, cmd, function (result) {
-          result.exitStatus.should.equal(0);
-          var profile = JSON.parse(result.text);
-          profile.name.should.equal(profileProp.name);
           done();
         });
       });

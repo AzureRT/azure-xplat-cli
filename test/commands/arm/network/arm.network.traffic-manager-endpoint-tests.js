@@ -113,6 +113,20 @@ describe('arm', function () {
           });
         });
       });
+      it('show should display details of endpoint in traffic manager profile', function (done) {
+        var cmd = 'network traffic-manager endpoint show -g {group} -f {profileName} -n {name} -y {type} --json'
+          .formatArgs(endpointProp);
+        testUtils.executeCommand(suite, retry, cmd, function (result) {
+          result.exitStatus.should.equal(0);
+          var endpoint = JSON.parse(result.text);
+          endpoint.name.should.equal(endpointProp.name);
+          endpoint.properties.target.should.equal(endpointProp.target);
+          endpoint.properties.endpointStatus.should.equal(endpointProp.status);
+          endpoint.properties.weight.should.equal(endpointProp.weight);
+          endpoint.properties.priority.should.equal(endpointProp.priority);
+          done();
+        });
+      });
       it('set should modify endpoint in traffic manager profile', function (done) {
         var cmd = util.format('network traffic-manager endpoint set -g {group} -f {profileName} -n {name} -y {type} -t {newTarget} ' +
           '-u {newStatus} -w {newWeight} -p {newPriority} --json').formatArgs(endpointProp);
@@ -125,16 +139,6 @@ describe('arm', function () {
           endpoint.properties.endpointStatus.should.equal(endpointProp.newStatus);
           endpoint.properties.weight.should.equal(endpointProp.newWeight);
           endpoint.properties.priority.should.equal(endpointProp.newPriority);
-          done();
-        });
-      });
-      it('show should display details of endpoint in traffic manager profile', function (done) {
-        var cmd = 'network traffic-manager endpoint show -g {group} -f {profileName} -n {name} -y {type} --json'
-          .formatArgs(endpointProp);
-        testUtils.executeCommand(suite, retry, cmd, function (result) {
-          result.exitStatus.should.equal(0);
-          var endpoint = JSON.parse(result.text);
-          endpoint.name.should.equal(endpointProp.name);
           done();
         });
       });
