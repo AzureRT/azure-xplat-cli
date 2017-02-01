@@ -1,4 +1,15 @@
-## Environment Variables Setup
+##Supported environment variables for using the CLI
+
+| Variables | Description | Default |
+| :--- | :--- | :--- |
+| AZURE_CONFIG_DIR | Sets base directory for azure-cli configs | `~/.azure` |
+| AZURE_HTTP_USER_AGENT | Adds custom HTTP user agent for azure-cli | `''` |
+| AZURE_NON_INTERACTIVE_MODE | Enables non-interactive mode. Azure-cli will exit with error if required arguments omitted when non-interactive mode is enabled | Disabled |
+| AZURE_USE_SECURE_TOKEN_STORAGE | Enables secure token storage for ADAL auth. It uses the "Keychain" in OSX, the "Credential Manager" in Windows and the user's home profile in Linux flavored operating systems. | Disabled |
+| AZURE_ADAL_LOGGING_ENABLED | Enables logging for ADAL auth | Disabled |
+
+
+## Environment Variables Setup for running tests
 
 From an admin cmd console/terminal, at the root directory of your cloned repo, run the following for environment setup:
 * **Windows**
@@ -16,6 +27,10 @@ set AZURE_SITE_TEST_LOCATION=West US
 set AZURE_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;AccountName=storage_account;AccountKey=access_key
 set AZURE_SCM_SITE_SUFFIX=.scm.azurewebsites.net
 set AZURE_AD_TEST_PASSWORD=your_password
+set AZURE_BATCH_ACCOUNT=The name of the Batch account
+set AZURE_BATCH_ACCESS_KEY=The key for the Batch account
+set AZURE_BATCH_ENDPOINT=The url of the Batch account
+
 ```
 
 * **OS X**, **Linux**
@@ -33,6 +48,10 @@ export AZURE_SITE_TEST_LOCATION="West US"
 export AZURE_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;AccountName=storage_account;AccountKey=access_key
 export AZURE_SCM_SITE_SUFFIX=.scm.azurewebsites.net
 export AZURE_AD_TEST_PASSWORD=your_password
+export AZURE_BATCH_ACCOUNT=The name of the Batch account
+export AZURE_BATCH_ACCESS_KEY=The key for the Batch account
+export AZURE_BATCH_ENDPOINT=The url of the Batch account
+
 ```
 
 ### Running VM Tests

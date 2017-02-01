@@ -31,12 +31,14 @@ var requiredEnvironment = [{
   defaultValue: 'test/myCert.pem'
 }];
 
+var customDataFile = './test/data/customdata.txt';
 var groupName,
-  vm1Prefix = 'xplatvm101',
-  vm2Prefix = 'xplatvm102',
+  vm1Prefix = 'vm1',
+  vm2Prefix = 'vm2',
   location,
   username = 'azureuser',
   password = 'Brillio@2016',
+  vmSize,
   sshcert;
 
 describe('arm', function() {
@@ -49,8 +51,8 @@ describe('arm', function() {
         location = process.env.AZURE_VM_TEST_LOCATION;
         sshcert = process.env.SSHCERT;
         groupName = suite.generateId(groupPrefix, null);
-        vm1Prefix = suite.isMocked ? vm1Prefix : suite.generateId(vm1Prefix, null);
-        vm2Prefix = suite.isMocked ? vm2Prefix : suite.generateId(vm2Prefix, null);
+        vm1Prefix = suite.generateId(vm1Prefix, null);
+        vm2Prefix = suite.generateId(vm2Prefix, null);
         done();
       });
     });
@@ -74,29 +76,66 @@ describe('arm', function() {
 
       it('quick create with non-existing group should pass', function(done) {
         this.timeout(vmTest.timeoutLarge * 10);
-        vmTest.checkImagefile(function() {
-          if (VMTestUtil.linuxImageUrn === '' || VMTestUtil.linuxImageUrn === undefined) {
-            vmTest.GetLinuxSkusList(location, suite, function(result) {
-              vmTest.GetLinuxImageList(location, suite, function(result) {
-                var latestLinuxImageUrn = VMTestUtil.linuxImageUrn.substring(0, VMTestUtil.linuxImageUrn.lastIndexOf(':')) + ':latest';
-                var cmd = util.format('vm quick-create %s %s %s Linux %s %s %s -M %s -z Standard_D1 --json',
-                  groupName, vm1Prefix, location, latestLinuxImageUrn, username, password, sshcert).split(' ');
-                testUtils.executeCommand(suite, retry, cmd, function(result) {
-                  result.exitStatus.should.equal(0);
-                  done();
+        vmTest.getVMSize(location, suite, function() {
+          vmSize = VMTestUtil.vmSize;
+          vmTest.checkImagefile(function() {
+            if (VMTestUtil.linuxImageUrn === '' || VMTestUtil.linuxImageUrn === undefined) {
+              vmTest.GetLinuxSkusList(location, suite, function(result) {
+                vmTest.GetLinuxImageList(location, suite, function(result) {
+                  var latestLinuxImageUrn = 'UbuntuLTS';
+                  var cmd = util.format('vm quick-create %s %s %s Linux %s %s %s -M %s -z %s -w %s -C %s',
+                    groupName, vm1Prefix, location, latestLinuxImageUrn, username, password, sshcert, vmSize, vm1Prefix + '-pip', customDataFile).split(' ');
+                  testUtils.executeCommand(suite, retry, cmd, function(result) {
+                    result.exitStatus.should.equal(0);
+                    result.text.should.containEql(vm1Prefix + '-pip.' + location.toLowerCase() + '.cloudapp.azure.com');
+                    result.text.should.containEql('Custom Data (Base64 Encoded)');
+                    done();
+                  });
                 });
               });
-            });
+            }
+            else {
+              var latestLinuxImageUrn = 'UbuntuLTS';
+              var cmd = util.format('vm quick-create %s %s %s Linux %s %s %s -M %s -z %s -w %s -C %s',
+                groupName, vm1Prefix, location, latestLinuxImageUrn, username, password, sshcert, vmSize, vm1Prefix + '-pip', customDataFile).split(' ');
+              testUtils.executeCommand(suite, retry, cmd, function(result) {
+                result.exitStatus.should.equal(0);
+                result.text.should.containEql(vm1Prefix + '-pip.' + location.toLowerCase() + '.cloudapp.azure.com');
+                result.text.should.containEql('Custom Data (Base64 Encoded)');
+                done();
+              });
+            }
+          });
+        });
+      });
+
+      it('vm secret random add should fail', function(done) {
+        this.timeout(vmTest.timeoutLarge * 10);
+        var cmd = util.format('vm secret add %s %s %s -c c -t t', groupName, vm1Prefix, vm1Prefix).split(' ');
+        testUtils.executeCommand(suite, retry, cmd, function(result) {
+          result.exitStatus.should.not.equal(0);
+          should(result.errorText.indexOf('Property id \'' + vm1Prefix + '\' at path \'properties.osProfile.secrets') > -1).ok;
+          done();
+        });
+      });
+      
+      it('vm secret random delete should pass', function(done) {
+        this.timeout(vmTest.timeoutLarge * 10);
+        var cmd = util.format('vm secret delete %s %s %s -c %s', groupName, vm1Prefix, vm1Prefix, groupName).split(' ');
+        testUtils.executeCommand(suite, retry, cmd, function(result) {
+          result.exitStatus.should.equal(0);
+          done();
+        });
+      });
+      
+      it('redeploy vm should pass', function(done) {
+        this.timeout(vmTest.timeoutLarge * 10);
+        var cmd = util.format('vm redeploy %s %s', groupName, vm1Prefix).split(' ');
+        testUtils.executeCommand(suite, retry, cmd, function(result) {
+          if (result.exitStatus !== 0) {
+            result.text.should.containEql('redeployment failed due to an internal error. Please retry later.');
           }
-          else {
-            var latestLinuxImageUrn = VMTestUtil.linuxImageUrn.substring(0, VMTestUtil.linuxImageUrn.lastIndexOf(':')) + ':latest';
-            var cmd = util.format('vm quick-create %s %s %s Linux %s %s %s -M %s -z Standard_D1 --json',
-              groupName, vm1Prefix, location, latestLinuxImageUrn, username, password, sshcert).split(' ');
-            testUtils.executeCommand(suite, retry, cmd, function(result) {
-              result.exitStatus.should.equal(0);
-              done();
-            });
-          }
+          done();
         });
       });
 
@@ -109,10 +148,12 @@ describe('arm', function() {
               vmTest.GetWindowsImageList(location, suite, function(result) {
                 vmTest.setGroup(groupName, suite, function(result) {
                   var latestWindowsImageUrn = VMTestUtil.winImageUrn.substring(0, VMTestUtil.winImageUrn.lastIndexOf(':')) + ':latest';
-                  var cmd = util.format('vm quick-create %s %s %s Windows %s %s %s --json',
+                  var cmd = util.format('vm quick-create %s %s %s Windows %s %s %s',
                   groupName, vm2Prefix, location, latestWindowsImageUrn, username, password).split(' ');
                   testUtils.executeCommand(suite, retry, cmd, function(result) {
                     result.exitStatus.should.equal(0);
+                    result.text.should.containEql('-pip.' + location.toLowerCase() + '.cloudapp.azure.com');
+                    result.text.should.not.containEql('Custom Data (Base64 Encoded)');
                     done();
                   });
                 });
@@ -122,10 +163,12 @@ describe('arm', function() {
           else {
             vmTest.setGroup(groupName, suite, function(result) {
               var latestWindowsImageUrn = VMTestUtil.winImageUrn.substring(0, VMTestUtil.winImageUrn.lastIndexOf(':')) + ':latest';
-              var cmd = util.format('vm quick-create %s %s %s Windows %s %s %s --json',
+              var cmd = util.format('vm quick-create %s %s %s Windows %s %s %s',
                 groupName, vm2Prefix, location, latestWindowsImageUrn, username, password).split(' ');
               testUtils.executeCommand(suite, retry, cmd, function(result) {
                 result.exitStatus.should.equal(0);
+                result.text.should.containEql('-pip.' + location.toLowerCase() + '.cloudapp.azure.com');
+                result.text.should.not.containEql('Custom Data (Base64 Encoded)');
                 done();
               });
             });

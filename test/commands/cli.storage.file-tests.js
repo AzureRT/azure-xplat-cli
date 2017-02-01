@@ -28,16 +28,12 @@ var aclTimeout;
 var testPrefix = 'cli.storage.file-tests';
 var crypto = require('crypto');
 
-function stripAccessKey(connectionString) {
-  return connectionString.replace(/AccountKey=[^;]+/, 'AccountKey=null');
-}
-
 function fetchAccountName(connectionString) {
   return connectionString.match(/AccountName=[^;]+/)[0].split('=')[1];
 }
 
 var requiredEnvironment = [
-  { name: 'AZURE_STORAGE_CONNECTION_STRING', secure: stripAccessKey }
+  { name: 'AZURE_STORAGE_CONNECTION_STRING', secure: true}
 ];
 
 /**
@@ -76,6 +72,7 @@ describe('cli', function () {
       describe('create', function () {
         it('should create a new share', function (done) {
           suite.execute('storage share create %s --quota %s --json', shareName, quota, function (result) {
+            
             var share = JSON.parse(result.text);
             share.name.should.equal(shareName);
             share.quota.should.equal(quota);
@@ -133,11 +130,12 @@ describe('cli', function () {
         it('should create the share policy with read and list permission', function (done) {
           suite.execute('storage share policy create %s %s --permissions %s --start %s --expiry %s --json', shareName, policyName1, permissions, start, expiry, function (result) {
             var policies = JSON.parse(result.text);
-            policies.length.should.greaterThan(0);
+            var names = Object.keys(policies);
+            names.length.should.greaterThan(0);
 
             var found = false;
-            for (var index in policies) {
-              if (policies[index].Id === policyName1) {
+            for (var index in names) {
+              if (names[index] === policyName1) {
                 found = true;
                 break;
               }
@@ -151,20 +149,20 @@ describe('cli', function () {
           setTimeout(function() {
             suite.execute('storage share policy show %s %s --json', shareName, policyName1, function (result) {
               var policies = JSON.parse(result.text);
-              policies.length.should.greaterThan(0);
+              var names = Object.keys(policies);
+              names.length.should.greaterThan(0);
 
               var policy;
-              for (var index in policies) {
-                policy = policies[index];
-                if (policy.Id === policyName1) {
+              for (var index in names) {
+                policy = policies[names[index]];
+                if (names[index] === policyName1) {
                   break;
                 }
               }
 
-              policy.Id.should.equal(policyName1);
-              policy.AccessPolicy.Permissions.should.equal(permissions);
-              policy.AccessPolicy.Start.should.equal(start);
-              policy.AccessPolicy.Expiry.should.equal(expiry);
+              policy.Permissions.should.equal(permissions);
+              policy.Start.should.equal(start);
+              policy.Expiry.should.equal(expiry);
               done();
             });
           }, aclTimeout);
@@ -175,7 +173,7 @@ describe('cli', function () {
             setTimeout(function() {
               suite.execute('storage share policy list %s --json', shareName, function (result) {
                 var policies = JSON.parse(result.text);
-                policies.length.should.equal(2);
+                Object.keys(policies).length.should.equal(2);
                 done();
               });
             }, aclTimeout);
@@ -188,19 +186,20 @@ describe('cli', function () {
           var newExpiry = new Date('2100-12-31').toISOString();
           suite.execute('storage share policy set %s %s --permissions %s --start %s --expiry %s --json', shareName, policyName1, newPermissions, newStart, newExpiry, function (result) {
             var policies = JSON.parse(result.text);
-            policies.length.should.greaterThan(0);
+            var names = Object.keys(policies);
+            names.length.should.greaterThan(0);
 
             var policy;
-            for (var index in policies) {
-              policy = policies[index];
-              if (policy.Id === policyName1) {
+            for (var index in names) {
+              policy = policies[names[index]];
+              if (names[index] === policyName1) {
                 break;
               }
             }
-            policy.Id.should.equal(policyName1);
-            policy.AccessPolicy.Permissions.should.equal(newPermissions);
-            policy.AccessPolicy.Start.should.equal(newStart);
-            policy.AccessPolicy.Expiry.should.equal(newExpiry);
+
+            policy.Permissions.should.equal(newPermissions);
+            policy.Start.should.equal(newStart);
+            policy.Expiry.should.equal(newExpiry);
             done();
           });
         });
@@ -208,7 +207,7 @@ describe('cli', function () {
         it('should delete the policy', function (done) {
           suite.execute('storage share policy delete %s %s --json', shareName, policyName1, function (result) {
             var policies = JSON.parse(result.text);
-            policies.length.should.greaterThan(0);
+            Object.keys(policies).length.should.greaterThan(0);
             done();
           });
         });
@@ -483,7 +482,7 @@ describe('cli', function () {
                 suite.execute('storage file copy start --source-share %s --source-path %s -a %s --source-sas %s --dest-share %s --dest-path %s --dest-account-name %s --dest-sas %s -q --json', 
                   sourceShare, sourcePath, account, sourceSas.sas, destShare, destPath, account, destSas.sas, function (result) {
                   var copy = JSON.parse(result.text);
-                  copy.copyId.length.should.greaterThan(0);
+                  copy.copy.id.length.should.greaterThan(0);
                   result.errorText.should.be.empty;
                   done();
                 });
@@ -514,7 +513,7 @@ describe('cli', function () {
                 suite.execute('storage file copy start --source-share %s --source-path %s -a %s --source-sas %s --dest-share %s --dest-path %s --dest-account-name %s --dest-sas %s -q --json', 
                   sourceShare, sourcePath, account, sourceSas.sas, destShare, destPath, account, destSas.sas, function (result) {
                   var copy = JSON.parse(result.text);
-                  copy.copyId.length.should.greaterThan(0);
+                  copy.copy.id.length.should.greaterThan(0);
                   result.errorText.should.be.empty;
                   done();
                 });
@@ -537,7 +536,7 @@ describe('cli', function () {
               var account = fetchAccountName(process.env.AZURE_STORAGE_CONNECTION_STRING);
               suite.execute('storage file copy show --share %s --path %s -a %s --sas %s --json', destShare, destPath, account, destSas.sas, function (result) {
                 var copy = JSON.parse(result.text);
-                copy.copyId.length.should.greaterThan(0);
+                copy.copy.id.length.should.greaterThan(0);
                 result.errorText.should.be.empty;
                 done();
               });
@@ -559,7 +558,7 @@ describe('cli', function () {
               var sourceUri = fileService.getUrl(sourceShare, sourceDirectory, remoteFileName, sourceSas.sas);
               suite.execute('storage file copy start %s --dest-share %s --dest-path %s -q --json', sourceUri, destShare, destPath, function (result) {
                 var copy = JSON.parse(result.text);
-                copy.copyId.length.should.greaterThan(0);
+                copy.copy.id.length.should.greaterThan(0);
                 result.errorText.should.be.empty;
                 done();
               });
@@ -572,7 +571,7 @@ describe('cli', function () {
         it('should start to copy the file asynchronously, specifying share and directory for both source and destination', function (done) {
           suite.execute('storage file copy start --source-share %s --source-path %s --dest-share %s --dest-path %s -q --json', sourceShare, sourcePath, destShare, destPath, function (result) {
             var copy = JSON.parse(result.text);
-            copy.copyId.length.should.greaterThan(0);
+            copy.copy.id.length.should.greaterThan(0);
             result.errorText.should.be.empty;
             done();
           });
@@ -582,8 +581,8 @@ describe('cli', function () {
         it('should show the copy status of the specified file in the destination directory', function (done) {
           suite.execute('storage file copy show --share %s --path %s --json', destShare, destPath, function (result) {
             var copy = JSON.parse(result.text);
-            copyid = copy.copyId;
-            copy.copyId.length.should.greaterThan(0);
+            copyid = copy.copy.id;
+            copyid.length.should.greaterThan(0);
             result.errorText.should.be.empty;
             done();
           });
@@ -599,8 +598,8 @@ describe('cli', function () {
         it('should show the copy status of the specified file', function (done) {
           suite.execute('storage file copy show --share %s --path %s --json', destShare, destPath, function (result) {
             var copy = JSON.parse(result.text);
-            copyid = copy.copyId;
-            copy.copyId.length.should.greaterThan(0);
+            copyid = copy.copy.id;
+            copyid.length.should.greaterThan(0);
             result.errorText.should.be.empty;
             done();
           });
@@ -616,7 +615,7 @@ describe('cli', function () {
         it('should start to copy a blob to the file by specifying the container and blob', function (done) {
           suite.execute('storage file copy start --source-container %s --source-blob %s --dest-share %s --dest-path %s -q --json', sourceContainer, sourceBlob, destShare, destPath, function (result) {
             var copy = JSON.parse(result.text);
-            copy.copyId.length.should.greaterThan(0);
+            copy.copy.id.length.should.greaterThan(0);
             result.errorText.should.be.empty;
             done();
           });
@@ -633,7 +632,7 @@ describe('cli', function () {
               var sourceUri = blobService.getUrl(sourceContainer, sourceBlob, sourceSas.sas);
               suite.execute('storage file copy start %s --dest-share %s --dest-path %s -q --json', sourceUri, destShare, destPath, function (result) {
                 var copy = JSON.parse(result.text);
-                copy.copyId.length.should.greaterThan(0);
+                copy.copy.id.length.should.greaterThan(0);
                 result.errorText.should.be.empty;
                 done();
               });
@@ -646,8 +645,8 @@ describe('cli', function () {
         it('should show the copy status of the specified blob to the file', function (done) {
           suite.execute('storage file copy show --share %s --path %s --json', destShare, destPath, function (result) {
             var copy = JSON.parse(result.text);
-            copyid = copy.copyId;
-            copy.copyId.length.should.greaterThan(0);
+            copyid = copy.copy.id;
+            copyid.length.should.greaterThan(0);
             result.errorText.should.be.empty;
             done();
           });
@@ -663,7 +662,7 @@ describe('cli', function () {
         it('should start to copy a blob in a virtual directory to the file by specifying the container and blob', function (done) {
           suite.execute('storage file copy start --source-container %s --source-blob %s --dest-share %s --dest-path %s -q --json', sourceContainer, sourceBlobInVDir, destShare, destPath, function (result) {
             var copy = JSON.parse(result.text);
-            copy.copyId.length.should.greaterThan(0);
+            copy.copy.id.length.should.greaterThan(0);
             result.errorText.should.be.empty;
             done();
           });
@@ -672,8 +671,8 @@ describe('cli', function () {
         it('should show the copy status of the specified blob in the virtual directory to the file', function (done) {
           suite.execute('storage file copy show --share %s --path %s --json', destShare, destPath, function (result) {
             var copy = JSON.parse(result.text);
-            copyid = copy.copyId;
-            copy.copyId.length.should.greaterThan(0);
+            copyid = copy.copy.id;
+            copyid.length.should.greaterThan(0);
             result.errorText.should.be.empty;
             done();
           });
@@ -691,7 +690,7 @@ describe('cli', function () {
             });
           });
         });
-      });    
+      });
     });
   });
 });

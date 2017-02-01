@@ -50,7 +50,7 @@ var groupName,
   diskEncryptionKeySecretUrl,
   keyEncryptionKeyVaultId,
   keyEncryptionKeyUrl,
-  vmSize = 'Standard_A1',
+  vmSize,
   stoType = 'GRS',
   sshcert,
   vhdContainer = 'test',
@@ -87,6 +87,7 @@ describe('arm', function() {
     });
 
     after(function(done) {
+      this.timeout(vmTest.timeoutLarge * 10);
       vmTest.deleteUsedGroup(groupName, suite, function(result) {
         suite.teardownSuite(done);
       });
@@ -102,11 +103,13 @@ describe('arm', function() {
 
     describe('vm', function() {
       it('create disk encryption vm should fail', function(done) {
-        this.timeout(vmTest.timeoutLarge);
-        vmTest.createGroup(groupName, location, suite, function(result) {
-          var cmd = util.format(
-            'storage account create %s --resource-group %s --type %s --location %s --json',
-            storageAccount, groupName, stoType, location).split(' ');
+        this.timeout(vmTest.timeoutLarge * 10);
+        vmTest.getVMSize(location, suite, function() {
+          vmSize = 'Standard_A0';
+          vmTest.createGroup(groupName, location, suite, function(result) {
+            var cmd = util.format(
+              'storage account create %s --resource-group %s --sku-name %s --kind Storage --location %s --json',
+              storageAccount, groupName, stoType, location).split(' ');
             testUtils.executeCommand(suite, retry, cmd, function(result) {
               result.exitStatus.should.equal(0);
               var cmd = util.format(
@@ -116,10 +119,11 @@ describe('arm', function() {
                 vNetPrefix, '10.0.0.0/16', subnetName, '10.0.0.0/24', publicipName, dnsPrefix, sshcert,
                 vmSize, diskEncryptionKeyVaultId, diskEncryptionKeySecretUrl, keyEncryptionKeyVaultId, keyEncryptionKeyUrl).split(' ');
               testUtils.executeCommand(suite, retry, cmd, function(result) {
-              result.exitStatus.should.not.equal(0);
-              var errorTxt = util.format(' %s is not a valid versioned Key Vault Key URL. It should be in the format https://<vaultEndpoint>/keys/<keyName>/<keyVersion>.', keyEncryptionKeyUrl);
-              should(result.errorText.indexOf(errorTxt) > -1).ok;
-              done();
+                result.exitStatus.should.not.equal(0);
+                var errorTxt = util.format(' %s is not a valid versioned Key Vault Key URL. It should be in the format https://<vaultEndpoint>/keys/<keyName>/<keyVersion>.', keyEncryptionKeyUrl);
+                should(result.errorText.indexOf(errorTxt) > -1).ok;
+                done();
+               });
             });
           });
         });

@@ -51,12 +51,27 @@ function appendContent(content) {
   fs.appendFileSync(testLogFile, content);
 }
 
-//provides current time in custom format that will be used in naming log files
-//example '2014_8_20_15_11_13'
+// provides current time in custom format that will be used in naming log files
+// example '20140820_151113'
 function getTimeStamp() {
+  // We pad each value so that sorted directory listings show the files in chronological order
+  function pad(number){
+    if (number < 10)
+    {
+      return '0' + number;
+    }
+
+    return number;
+  }
+
   var now = new Date();
-  var dArray = [now.getFullYear(), now.getMonth() + 1, now. getDate(), now.getHours(), now.getMinutes(), now.getSeconds()];
-  return dArray.join("_");
+  return pad(now.getFullYear()) 
+    + pad(now.getMonth() + 1) 
+    + pad(now.getDate())
+    + "_" 
+    + pad(now.getHours()) 
+    + pad(now.getMinutes()) 
+    + pad(now.getSeconds());
 }
 
 /**

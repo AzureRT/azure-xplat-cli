@@ -15,6 +15,7 @@ exports.getMockedProfile = function () {
     tenantId: '72f988bf-86f1-41af-91ab-2d7cd011db47',
     state: 'Enabled',
     registeredProviders: [],
+    _eventsCount: '1',
     isDefault: true
   }, newProfile.environments['AzureCloud']));
 
@@ -27,4 +28,4 @@ exports.setEnvironment = function() {
 
 exports.scopes = [];
 
- exports.randomTestIdsGenerated = function() { return ['xplatTestGExtension2492','xplatstoragext8944','xplatstoragecntext4448','xplatdnsext6376'];};
+ exports.randomTestIdsGenerated = function() { return ['xplatTestGExtension6462','xplatstoragext6487','xplatstoragecntext82','xplatdnsext7411'];};

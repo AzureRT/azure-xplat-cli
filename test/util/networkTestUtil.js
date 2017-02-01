@@ -12,348 +12,407 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+'use strict';
+
 var should = require('should');
-var async = require('async');
 var util = require('util');
+var _ = require('underscore');
+
 var testUtils = require('../util/util');
 var tagUtils = require('../../lib/commands/arm/tag/tagUtils');
-exports = module.exports = networkTestUtil;
 var retry = 5;
 
 /**
  * @class
- * Initializes a new instance of the networkTestUtil class.
+ * Initializes a new instance of the NetworkTestUtil class.
  * @constructor
- *
- * Example use of this class:
- *
- * //creates mobile test class
- * var networkUtil = new networkTestUtil();
- * // use the methods
- *
  */
-function networkTestUtil() {
-  this.subnetId = '';
-  this.publicIpId = '';
-  this.lbaddresspoolId = '';
-  this.lbinboundruleId = '';
-  this.lbaddresspoolId2 = '';
-  this.lbinboundruleId2 = '';
-  this.nsgId = '';
-  this.reversefqdn1 = '';
-  this.reversefqdn = '';
+function NetworkTestUtil() {
   this.timeout = 800000;
-  this.gatewaytimeout = 3500000;
 
   this.tags = 'tag1=aaa;tag2=bbb';
   this.newTags = 'tag3=ccc';
+  this.stateSucceeded = 'Succeeded';
+  this.stateDeleted = 'Deleting';
 }
 
-networkTestUtil.prototype.createGroup = function(groupName, location, suite, callback) {
-  var cmd = util.format('group create %s --location %s --json', groupName, location).split(' ');
-  testUtils.executeCommand(suite, retry, cmd, function(result) {
-    result.exitStatus.should.equal(0);
-    var resGroup = JSON.parse(result.text);
-    resGroup.name.should.equal(groupName);
-    callback();
-  });
-};
-networkTestUtil.prototype.deleteUsedGroup = function(groupName, suite, callback) {
-  if (!suite.isPlayback()) {
-    var cmd = util.format('group delete %s --quiet --json', groupName).split(' ');
-    testUtils.executeCommand(suite, retry, cmd, function(result) {
+_.extend(NetworkTestUtil.prototype, {
+  /**
+   * Networking
+   */
+  createGroup: function (groupName, location, suite, callback) {
+    var cmd = util.format('group create %s --location %s --json', groupName, location);
+    testUtils.executeCommand(suite, retry, cmd, function (result) {
       result.exitStatus.should.equal(0);
-      callback();
+      var resGroup = JSON.parse(result.text);
+      resGroup.name.should.equal(groupName);
+      callback(resGroup);
     });
-  } else callback();
-};
-networkTestUtil.prototype.createRouteTable = function(groupName, RouteTablePrefix, location, suite, callback) {
-  var cmd = util.format('network route-table create -g %s -n %s -l %s --json', groupName, RouteTablePrefix, location).split(' ');
-  testUtils.executeCommand(suite, retry, cmd, function(result) {
-    result.exitStatus.should.equal(0);
-    callback();
-  });
-};
-networkTestUtil.prototype.deleteRouteTable = function(groupName, RouteTablePrefix, suite, callback) {
-  if (!suite.isPlayback()) {
-    var cmd = util.format('network route-table delete -g %s -n %s -q --json', groupName, RouteTablePrefix).split(' ');
-    testUtils.executeCommand(suite, retry, cmd, function(result) {
+  },
+  deleteGroup: function (groupName, suite, callback) {
+    if (!suite.isPlayback()) {
+      var cmd = util.format('group delete %s --quiet --json', groupName);
+      testUtils.executeCommand(suite, retry, cmd, function (result) {
+        result.exitStatus.should.equal(0);
+        callback();
+      });
+    } else callback();
+  },
+  createRouteTable: function (groupName, routeTableName, location, suite, callback) {
+    var cmd = util.format('network route-table create -g %s -n %s -l %s --json', groupName, routeTableName, location);
+    testUtils.executeCommand(suite, retry, cmd, function (result) {
       result.exitStatus.should.equal(0);
-      callback();
+      var routeTable = JSON.parse(result.text);
+      routeTable.name.should.equal(routeTableName);
+      callback(routeTable);
     });
-  } else callback();
-};
-networkTestUtil.prototype.createRouteTable = function(groupName, RouteTablePrefix, location, suite, callback) {
-  var cmd = util.format('network route-table create -g %s -n %s -l %s --json', groupName, RouteTablePrefix, location).split(' ');
-  testUtils.executeCommand(suite, retry, cmd, function(result) {
-    result.exitStatus.should.equal(0);
-    callback();
-  });
-};
-networkTestUtil.prototype.deleteRouteTable = function(groupName, RouteTablePrefix, suite, callback) {
-  if (!suite.isPlayback()) {
-    var cmd = util.format('network route-table delete -g %s -n %s -q --json', groupName, RouteTablePrefix).split(' ');
-    testUtils.executeCommand(suite, retry, cmd, function(result) {
+  },
+  deleteRouteTable: function (groupName, routeTableName, suite, callback) {
+    if (!suite.isPlayback()) {
+      var cmd = util.format('network route-table delete -g %s -n %s -q --json', groupName, routeTableName);
+      testUtils.executeCommand(suite, retry, cmd, function (result) {
+        result.exitStatus.should.equal(0);
+        callback();
+      });
+    } else callback();
+  },
+  createVnet: function (groupName, vnetName, location, addressPrefix, suite, callback) {
+    var cmd = util.format('network vnet create -g %s -n %s -l %s -a %s --json', groupName, vnetName, location, addressPrefix);
+    testUtils.executeCommand(suite, retry, cmd, function (result) {
       result.exitStatus.should.equal(0);
-      callback();
+      var vnet = JSON.parse(result.text);
+      vnet.name.should.equal(vnetName);
+      callback(vnet);
     });
-  } else callback();
-};
-networkTestUtil.prototype.createVnet = function(groupName, vnetPrefix, location, suite, callback) {
-  var cmd = util.format('network vnet create %s %s %s -a 10.0.0.0/8 --json', groupName, vnetPrefix, location).split(' ');
-  testUtils.executeCommand(suite, retry, cmd, function(result) {
-    result.exitStatus.should.equal(0);
-    callback();
-  });
-};
-networkTestUtil.prototype.createSubnet = function(groupName, vnetPrefix, subnetprefix, suite, callback) {
-  var cmd = util.format('network vnet subnet create %s %s %s -a 10.0.0.0/24 --json', groupName, vnetPrefix, subnetprefix).split(' ');
-  testUtils.executeCommand(suite, retry, cmd, function(result) {
-    result.exitStatus.should.equal(0);
-    callback();
-  });
-};
-networkTestUtil.prototype.showSubnet = function(groupName, vnetPrefix, subnetprefix, suite, callback) {
-  var cmd = util.format('network vnet subnet show %s %s %s --json ', groupName, vnetPrefix, subnetprefix).split(' ');
-  testUtils.executeCommand(suite, retry, cmd, function(result) {
-    result.exitStatus.should.equal(0);
-    var allResources = JSON.parse(result.text);
-    networkTestUtil.subnetId = allResources.id;
-    callback();
-  });
-};
-networkTestUtil.prototype.createPublicIp = function(groupName, publicipPrefix, location, suite, callback) {
-  var cmd = util.format('network public-ip create %s %s --location %s --json', groupName, publicipPrefix, location).split(' ');
-  testUtils.executeCommand(suite, retry, cmd, function(result) {
-    result.exitStatus.should.equal(0);
-    callback();
-  });
-};
-networkTestUtil.prototype.createPublicIpdns = function(groupName, publicipPrefix, location, suite, callback) {
-  var cmd = util.format('network public-ip create %s %s --location %s -d %s --json', groupName, publicipPrefix, location, publicipPrefix).split(' ');
-  testUtils.executeCommand(suite, retry, cmd, function(result) {
-    result.exitStatus.should.equal(0);
-    callback();
-  });
-};
-networkTestUtil.prototype.showPublicIp = function(groupName, publicipPrefix, suite, callback) {
-  var cmd = util.format('network public-ip show %s %s --json', groupName, publicipPrefix).split(' ');
-  testUtils.executeCommand(suite, retry, cmd, function(result) {
-    result.exitStatus.should.equal(0);
-    var allResources = JSON.parse(result.text);
-    networkTestUtil.publicIpId = allResources.id;
-    callback();
-  });
-};
-networkTestUtil.prototype.createNSG = function(groupName, nsgName, location, suite, callback) {
-  var cmd = util.format('network nsg create %s %s %s --json', groupName, nsgName, location).split(' ');
-  testUtils.executeCommand(suite, retry, cmd, function(result) {
-    result.exitStatus.should.equal(0);
-    callback();
-  });
-};
-networkTestUtil.prototype.showNSG = function(groupName, nsgName, suite, callback) {
-  var cmd = util.format('network nsg show %s %s --json', groupName, nsgName).split(' ');
-  testUtils.executeCommand(suite, retry, cmd, function(result) {
-    result.exitStatus.should.equal(0);
-    var allResources = JSON.parse(result.text);
-    networkTestUtil.nsgId = allResources.id;
-    callback();
-  });
-};
-networkTestUtil.prototype.createLB = function(groupName, LBName, location, suite, callback) {
-  var cmd = util.format('network lb create %s %s %s --json', groupName, LBName, location).split(' ');
-  testUtils.executeCommand(suite, retry, cmd, function(result) {
-    result.exitStatus.should.equal(0);
-    callback();
-  });
-};
-networkTestUtil.prototype.createFrontendIp = function(groupName, LBName, FrontendIpName, publicIpId, suite, callback) {
-  var cmd = util.format('network lb frontend-ip create %s %s %s -u %s --json', groupName, LBName, FrontendIpName, publicIpId).split(' ');
-  testUtils.executeCommand(suite, retry, cmd, function(result) {
-    result.exitStatus.should.equal(0);
-    callback();
-  });
-};
-networkTestUtil.prototype.createLbInboundNatRule = function(groupName, LBName, lbinboundprefix, protocol, frontendport, backendport, enablefloatingip, FrontendIpName, suite, callback) {
-  var cmd = util.format('network lb inbound-nat-rule create %s %s %s -p %s -f %s -b %s -e %s -i 4 -t %s --json', groupName, LBName, lbinboundprefix, protocol, frontendport, backendport, enablefloatingip, FrontendIpName).split(' ');
-  testUtils.executeCommand(suite, retry, cmd, function(result) {
-    result.exitStatus.should.equal(0);
-    callback();
-  });
-};
-networkTestUtil.prototype.createLbAddressPool = function(groupName, LBName, LBAddPool, suite, callback) {
-  var cmd = util.format('network lb address-pool create -g %s -l %s %s --json', groupName, LBName, LBAddPool).split(' ');
-  testUtils.executeCommand(suite, retry, cmd, function(result) {
-    result.exitStatus.should.equal(0);
-    callback();
-  });
-};
-networkTestUtil.prototype.showLB = function(groupName, LBName, suite, callback) {
-  var cmd = util.format('network lb show %s %s --json', groupName, LBName).split(' ');
-  testUtils.executeCommand(suite, retry, cmd, function(result) {
-    result.exitStatus.should.equal(0);
-    var allResources = JSON.parse(result.text);
-    networkTestUtil.lbaddresspoolId = allResources.backendAddressPools[0].id;
-    networkTestUtil.lbinboundruleId = allResources.inboundNatRules[0].id;
+  },
+  deleteVnet: function (groupName, vnetName, suite, callback) {
+    if (!suite.isPlayback()) {
+      var cmd = util.format('network vnet delete -g %s -n %s --quiet --json', groupName, vnetName);
+      testUtils.executeCommand(suite, retry, cmd, function (result) {
+        result.exitStatus.should.equal(0);
+        callback();
+      });
+    } else callback();
+  },
+  createSubnet: function (groupName, vnetName, subnetName, addressPrefix, suite, callback) {
+    var cmd = util.format('network vnet subnet create -g %s -e %s -n %s -a %s --json', groupName, vnetName, subnetName, addressPrefix);
+    testUtils.executeCommand(suite, retry, cmd, function (result) {
+      result.exitStatus.should.equal(0);
+      var subnet = JSON.parse(result.text);
+      subnet.name.should.equal(subnetName);
+      callback(subnet);
+    });
+  },
+  createPublicIpLegacy: function (groupName, publicIpName, location, suite, callback) {
+    var allocation = 'Dynamic', idleTimeout = 4;
+    var cmd = util.format('network public-ip create -g %s -n %s -l %s -a %s -i %s --json',
+      groupName, publicIpName, location, allocation, idleTimeout);
 
-    if (allResources.backendAddressPools[1] != undefined) {
-      networkTestUtil.lbaddresspoolId2 = allResources.backendAddressPools[1].id;
-    }
-    if (allResources.inboundNatRules[1] != undefined) {
-      networkTestUtil.lbinboundruleId2 = allResources.inboundNatRules[1].id;
-    }
-    callback();
-  });
-};
-networkTestUtil.prototype.deleteUsedLB = function(groupName, LBName, suite, callback) {
-  if (!suite.isPlayback()) {
-    var cmd = util.format('network lb delete %s %s --quiet --json', groupName, LBName).split(' ');
-    testUtils.executeCommand(suite, retry, cmd, function(result) {
+    testUtils.executeCommand(suite, retry, cmd, function (result) {
       result.exitStatus.should.equal(0);
-      callback();
+      var ip = JSON.parse(result.text);
+      ip.name.should.equal(publicIpName);
+      callback(ip);
     });
-  } else
-    callback();
-};
-networkTestUtil.prototype.deleteUsedSubnet = function(groupName, vnetPrefix, subnetprefix, suite, callback) {
-  if (!suite.isPlayback()) {
-    var cmd = util.format('network vnet subnet delete %s %s %s --quiet --json', groupName, vnetPrefix, subnetprefix).split(' ');
-    testUtils.executeCommand(suite, retry, cmd, function(result) {
-      result.exitStatus.should.equal(0);
-      callback();
-    });
-  } else
-    callback();
-};
-networkTestUtil.prototype.deleteUsedPublicIp = function(groupName, publicipPrefix, suite, callback) {
-  if (!suite.isPlayback()) {
-    var cmd = util.format('network public-ip delete %s %s --quiet --json', groupName, publicipPrefix).split(' ');
-    testUtils.executeCommand(suite, retry, cmd, function(result) {
-      result.exitStatus.should.equal(0);
-      callback();
-    });
-  } else
-    callback();
-};
-networkTestUtil.prototype.deleteUsedNsg = function(groupName, nsgName, suite, callback) {
-  if (!suite.isPlayback()) {
-    var cmd = util.format('network nsg delete %s %s --quiet --json', groupName, nsgName).split(' ');
-    testUtils.executeCommand(suite, retry, cmd, function(result) {
-      result.exitStatus.should.equal(0);
-      callback();
-    });
-  } else
-    callback();
-};
-networkTestUtil.prototype.deleteUsedVnet = function(groupName, vnetPrefix, suite, callback) {
-  if (!suite.isPlayback()) {
-    var cmd = util.format('network vnet delete %s %s --quiet --json', groupName, vnetPrefix).split(' ');
-    testUtils.executeCommand(suite, retry, cmd, function(result) {
-      result.exitStatus.should.equal(0);
-      callback();
-    });
-  } else
-    callback();
-};
-networkTestUtil.prototype.deleteLBProbe = function(groupName, LBName, LBProbe, suite, callback) {
-  if (!suite.isPlayback()) {
-    var cmd = util.format('network lb probe delete %s %s %s --quiet --json', groupName, LBName, LBProbe).split(' ');
-    testUtils.executeCommand(suite, retry, cmd, function(result) {
-      result.exitStatus.should.equal(0);
-      callback();
-    });
-  } else
-    callback();
-};
-networkTestUtil.prototype.deleteLBAddPool = function(groupName, LBName, LBAddPool, suite, callback) {
-  if (!suite.isPlayback()) {
-    var cmd = util.format('network lb address-pool delete %s %s %s -q --json', groupName, LBName, LBAddPool).split(' ');
-    testUtils.executeCommand(suite, retry, cmd, function(result) {
-      result.exitStatus.should.equal(0);
-      callback();
-    });
-  } else
-    callback();
-};
-networkTestUtil.prototype.createLBProbe = function(groupName, LBName, LBProbe, suite, callback) {
-  var cmd = util.format('network lb probe create %s %s %s --json', groupName, LBName, LBProbe).split(' ');
-  testUtils.executeCommand(suite, retry, cmd, function(result) {
-    result.exitStatus.should.equal(0);
-    callback();
-  });
-};
-networkTestUtil.prototype.deleteUsedNic = function(groupName, NicName, suite, callback) {
-  if (!suite.isPlayback()) {
-    var cmd = util.format('network nic delete %s %s --quiet --json', groupName, NicName).split(' ');
-    testUtils.executeCommand(suite, retry, cmd, function(result) {
-      result.exitStatus.should.equal(0);
-      callback();
-    });
-  } else
-    callback();
-};
-networkTestUtil.prototype.createDnszone = function(groupName, dnszonePrefix, suite, callback) {
-  var cmd = util.format('network dns zone create %s %s --json', groupName, dnszonePrefix).split(' ');
-  testUtils.executeCommand(suite, retry, cmd, function(result) {
-    result.exitStatus.should.equal(0);
-    callback();
-  });
-};
-networkTestUtil.prototype.createDnszone = function(groupName, dnszonePrefix, suite, callback) {
-  var cmd = util.format('network dns zone create %s %s --json', groupName, dnszonePrefix).split(' ');
-  testUtils.executeCommand(suite, retry, cmd, function(result) {
-    result.exitStatus.should.equal(0);
-    callback();
-  });
-};
-networkTestUtil.prototype.deleteUsedDns = function(groupName, dnszonePrefix, suite, callback) {
-  if (!suite.isPlayback()) {
-    var cmd = util.format('network dns zone delete %s %s --quiet --json', groupName, dnszonePrefix).split(' ');
-    testUtils.executeCommand(suite, retry, cmd, function(result) {
-      result.exitStatus.should.equal(0);
-      callback();
-    });
-  } else
-    callback();
-};
-networkTestUtil.prototype.createTrafficManagerProfile = function(groupName, trafficMPPrefix, profile_status, routing_method, reldns, time_to_live, monitor_protocol, monitor_port, monitor_path, suite, callback) {
-  var cmd = util.format('network traffic-manager profile create %s %s -u %s -m %s -r %s -l %s -p %s -o %s -a %s --json', groupName, trafficMPPrefix, profile_status, routing_method, reldns, time_to_live, monitor_protocol, monitor_port, monitor_path).split(' ');
-  testUtils.executeCommand(suite, retry, cmd, function(result) {
-    result.exitStatus.should.equal(0);
-    callback();
-  });
-};
-networkTestUtil.prototype.createVnetWithAddress = function(groupName, vnetPrefix, location, vnetAddressPrefix, suite, callback) {
-  var cmd = util.format('network vnet create %s %s %s -a %s --json', groupName, vnetPrefix, location, vnetAddressPrefix).split(' ');
-  testUtils.executeCommand(suite, retry, cmd, function(result) {
-    result.exitStatus.should.equal(0);
-    callback();
-  });
-};
-networkTestUtil.prototype.createSubnetWithAddress = function(groupName, vnetPrefix, subnetprefix, subnetAddressPrefix, suite, callback) {
-  var cmd = util.format('network vnet subnet create %s %s %s -a %s --json', groupName, vnetPrefix, subnetprefix, subnetAddressPrefix).split(' ');
-  testUtils.executeCommand(suite, retry, cmd, function(result) {
-    result.exitStatus.should.equal(0);
-    callback();
-  });
-};
-networkTestUtil.prototype.createGateway = function(groupName, gatewayPrefix, location, type, publicipPrefix, vnetPrefix, subnetprefix, privateIpAddress, enablebgp, tags, suite, callback) {
-  var cmd = util.format('network vpn-gateway create -g %s -n %s -l %s -y %s -p %s -m %s -e %s -a %s -b %s -t %s --json', groupName, gatewayPrefix, location, type, publicipPrefix, vnetPrefix, subnetprefix, privateIpAddress, enablebgp, tags).split(' ');
-  testUtils.executeCommand(suite, retry, cmd, function(result) {
-    result.exitStatus.should.equal(0);
-    callback();
-  });
-};
-networkTestUtil.prototype.createExpressRoute = function(groupName, expressRCPrefix, location, serviceProvider, peeringLocation, skuTier, skuFamily, tags1, suite, callback) {
-  var cmd = util.format('network express-route circuit create %s %s %s -p %s -i %s -b 50 -e %s -f %s -t %s --json', groupName, expressRCPrefix, location, serviceProvider, peeringLocation, skuTier, skuFamily, tags1).split(' ');
-  testUtils.executeCommand(suite, retry, cmd, function(result) {
-    result.exitStatus.should.equal(0);
-    callback();
-  });
-};
+  },
+  createPublicIp: function (publicIpProp, suite, callback) {
+    var self = this;
+    var cmd = util.format('network public-ip create -g {group} -n {name} -l {location} -d {domainName} -a {allocationMethod} -e {ipVersion} -i {idleTimeout} -t {tags} --json')
+      .formatArgs(publicIpProp);
 
-networkTestUtil.prototype.shouldAppendTags = function (obj) {
-  var pattern = this.tags + ';' + this.newTags;
-  tagUtils.getTagsInfo(obj.tags).should.equal(pattern);
-};
+    testUtils.executeCommand(suite, retry, cmd, function (result) {
+      result.exitStatus.should.equal(0);
+      var ip = JSON.parse(result.text);
+      ip.name.should.equal(publicIpProp.name);
+      ip.publicIPAllocationMethod.should.equal(publicIpProp.allocationMethod);
+      // ip.publicIPAddressVersion.should.equal(publicIpProp.ipVersion);
+      ip.idleTimeoutInMinutes.should.equal(publicIpProp.idleTimeout);
+      ip.dnsSettings.domainNameLabel.should.equal(publicIpProp.domainName);
+      self.shouldHaveTags(ip);
+
+      callback(ip);
+    });
+  },
+  createNSG: function (groupName, nsgName, location, suite, callback) {
+    var cmd = util.format('network nsg create -g %s -n %s -l %s --json', groupName, nsgName, location);
+    testUtils.executeCommand(suite, retry, cmd, function (result) {
+      result.exitStatus.should.equal(0);
+      var nsg = JSON.parse(result.text);
+      nsg.name.should.equal(nsgName);
+      callback(nsg);
+    });
+  },
+  createEmptyLB: function (groupName, lbName, location, suite, callback) {
+    var cmd = util.format('network lb create -g %s -n %s -l %s --json', groupName, lbName, location);
+    testUtils.executeCommand(suite, retry, cmd, function (result) {
+      result.exitStatus.should.equal(0);
+      var lb = JSON.parse(result.text);
+      lb.name.should.equal(lbName);
+      callback(lb);
+    });
+  },
+  createLB: function (lbProp, suite, callback) {
+    var self = this;
+    var cmd = 'network lb create -g {group} -n {name} -l {location} --json'.formatArgs(lbProp);
+    testUtils.executeCommand(suite, retry, cmd, function (result) {
+      result.exitStatus.should.equal(0);
+      var lb = JSON.parse(result.text);
+      lb.name.should.equal(lbProp.name);
+
+      self.createPublicIp(lbProp.publicIpProp, suite, function(publicIp) {
+        self.createFIP(lbProp.group, lbProp.name, lbProp.fipName, publicIp.id, suite, function(fip) {
+          callback(lb);
+        });
+      });
+    });
+  },
+  deleteLB: function (groupName, lbName, suite, callback) {
+    if (!suite.isPlayback()) {
+      var cmd = util.format('network lb delete -g %s -n %s --quiet --json', groupName, lbName);
+      testUtils.executeCommand(suite, retry, cmd, function (result) {
+        result.exitStatus.should.equal(0);
+        callback();
+      });
+    } else callback();
+  },
+  createFIP: function (groupName, lbName, fipName, publicIpId, suite, callback) {
+    var cmd = util.format('network lb frontend-ip create -g %s -l %s -n %s -u %s --json', groupName, lbName, fipName, publicIpId);
+    testUtils.executeCommand(suite, retry, cmd, function (result) {
+      result.exitStatus.should.equal(0);
+      var fip = JSON.parse(result.text);
+      fip.name.should.equal(fipName);
+      callback(fip);
+    });
+  },
+  createAddressPool: function (groupName, lbName, poolName, suite, callback) {
+    var cmd = util.format('network lb address-pool create -g %s -l %s -n %s --json', groupName, lbName, poolName);
+    testUtils.executeCommand(suite, retry, cmd, function (result) {
+      result.exitStatus.should.equal(0);
+      var pool = JSON.parse(result.text);
+      pool.name.should.equal(poolName);
+      callback(pool);
+    });
+  },
+  createProbe: function (groupName, lbName, probeName, port, protocol, suite, callback) {
+    var cmd = util.format('network lb probe create -g %s -l %s -n %s -o %s -p %s --json', groupName, lbName, probeName, port, protocol);
+    testUtils.executeCommand(suite, retry, cmd, function (result) {
+      result.exitStatus.should.equal(0);
+      var probe = JSON.parse(result.text);
+      probe.name.should.equal(probeName);
+      callback(probe);
+    });
+  },
+  createInboundNatRule: function (groupName, lbName, ruleName, protocol, frontPort, backPort, enableIp, idleTimeout, fipName, suite, callback) {
+    var cmd = util.format('network lb inbound-nat-rule create -g %s -l %s -n %s -p %s -f %s -b %s -e %s -i %s -t %s --json',
+      groupName, lbName, ruleName, protocol, frontPort, backPort, enableIp, idleTimeout, fipName);
+    testUtils.executeCommand(suite, retry, cmd, function (result) {
+      result.exitStatus.should.equal(0);
+      var rule = JSON.parse(result.text);
+      rule.name.should.equal(ruleName);
+      callback(rule);
+    });
+  },
+  createExpressRouteCircuit: function (circuitProps, suite, callback) {
+    var self = this;
+    var cmd = 'network express-route circuit create -g {group} -n {name} -l {location} -p {serviceProviderName} -i {peeringLocation} -b {bandwidthInMbps} -e {skuTier} -f {skuFamily} -t {tags} --json'
+      .formatArgs(circuitProps);
+    testUtils.executeCommand(suite, retry, cmd, function (result) {
+      result.exitStatus.should.equal(0);
+
+      var circuit = JSON.parse(result.text);
+      circuit.name.should.equal(circuitProps.name);
+      var provider = circuit.serviceProviderProperties;
+      provider.serviceProviderName.should.equal(circuitProps.serviceProviderName);
+      provider.peeringLocation.should.equal(circuitProps.peeringLocation);
+      provider.bandwidthInMbps.should.equal(circuitProps.bandwidthInMbps);
+      var sku = circuit.sku;
+      sku.tier.should.equal(circuitProps.skuTier);
+      sku.family.should.equal(circuitProps.skuFamily);
+      self.shouldHaveTags(circuit);
+
+      callback(circuit);
+    });
+  },
+  setExpressRoute: function (circuitProps, suite, callback) {
+    var self = this;
+    var cmd = util.format('network express-route circuit set {group} {name} {location} -e {skuTier} --json').formatArgs(circuitProps);
+    testUtils.executeCommand(suite, retry, cmd, function (result) {
+      result.exitStatus.should.equal(0);
+
+      var circuit = JSON.parse(result.text);
+      circuit.name.should.equal(circuitProps.name);
+      var provider = circuit.serviceProviderProperties;
+      provider.serviceProviderName.should.equal(circuitProps.serviceProviderName);
+      provider.peeringLocation.should.equal(circuitProps.peeringLocation);
+      provider.bandwidthInMbps.should.equal(circuitProps.bandwidthInMbps);
+      var sku = circuit.sku;
+      sku.tier.should.equal(circuitProps.skuTier);
+      sku.family.should.equal(circuitProps.skuFamily);
+      self.shouldHaveTags(circuit);
+
+      callback(circuit);
+    });
+  },
+  createVpnGateway: function (gatewayProp, suite, callback) {
+    var self = this;
+
+    self.createVnet(gatewayProp.group, gatewayProp.vnetName, gatewayProp.location, gatewayProp.vnetAddressPrefix, suite, function () {
+      self.createSubnet(gatewayProp.group, gatewayProp.vnetName, gatewayProp.subnetName, gatewayProp.subnetAddressPrefix, suite, function (subnet) {
+        self.createPublicIpLegacy(gatewayProp.group, gatewayProp.publicIpName, gatewayProp.location, suite, function (publicIp) {
+          var cmd = util.format('network vpn-gateway create -g {group} -n {name} -l {location} -w {gatewayType} -y {vpnType} -k {sku} ' +
+            '-b {enableBgp} -a {bgpSettingsAsn} -o {bgpPeeringAddress} -j {bgpPeerWeight} -t {tags} -u {1} -f {2} --json')
+            .formatArgs(gatewayProp, publicIp.id, subnet.id);
+
+          testUtils.executeCommand(suite, retry, cmd, function (result) {
+            result.exitStatus.should.equal(0);
+            var vpnGateway = JSON.parse(result.text);
+            vpnGateway.name.should.equal(gatewayProp.name);
+            vpnGateway.gatewayType.should.equal(gatewayProp.gatewayType);
+            vpnGateway.vpnType.should.equal(gatewayProp.vpnType);
+            vpnGateway.sku.name.should.equal(gatewayProp.sku);
+            vpnGateway.enableBgp.should.equal(gatewayProp.enableBgp);
+            vpnGateway.bgpSettings.asn.should.equal(gatewayProp.bgpSettingsAsn);
+            vpnGateway.bgpSettings.bgpPeeringAddress.should.equal(gatewayProp.bgpPeeringAddress);
+            vpnGateway.bgpSettings.peerWeight.should.equal(gatewayProp.bgpPeerWeight);
+            vpnGateway.ipConfigurations.length.should.equal(1);
+            var ipConfig = vpnGateway.ipConfigurations[0];
+            ipConfig.subnet.id.should.equal(subnet.id);
+            ipConfig.publicIPAddress.id.should.equal(publicIp.id);
+            self.shouldHaveTags(vpnGateway);
+            self.shouldBeSucceeded(vpnGateway);
+
+            callback(vpnGateway);
+          });
+        });
+      });
+    });
+  },
+  createLocalGateway: function (gatewayProp, suite, callback) {
+    var cmd = util.format('network local-gateway create -g {group} -n {name} -l {location} -a {addressPrefix} ' +
+      '-i {gatewayIpAddress} -t {tags} --json').formatArgs(gatewayProp);
+    testUtils.executeCommand(suite, retry, cmd, function (result) {
+      result.exitStatus.should.equal(0);
+      var gateway = JSON.parse(result.text);
+      gateway.name.should.equal(gatewayProp.name);
+      callback(gateway);
+    });
+  },
+
+  /**
+   * DNS & TrafficManager
+   */
+  createDnsZone: function (zoneProp, suite, callback) {
+    var cmd = 'network dns zone create -g {group} -n {name} -t {tags} --json'.formatArgs(zoneProp);
+    testUtils.executeCommand(suite, retry, cmd, function (result) {
+      result.exitStatus.should.equal(0);
+      var zone = JSON.parse(result.text);
+      zone.name.should.equal(zoneProp.name);
+      callback(zone);
+    });
+  },
+  createDnsRecordSet: function (rsetProp, suite, callback) {
+    var self = this;
+    var cmd = 'network dns record-set create -g {group} -z {zoneName} -n {name} -y {type} -l {ttl} -m {metadata} --json'
+      .formatArgs(rsetProp);
+    testUtils.executeCommand(suite, retry, cmd, function (result) {
+      result.exitStatus.should.equal(0);
+      var rset = JSON.parse(result.text);
+      rset.name.should.equal(rsetProp.name);
+      self.shouldHaveTags(rset, 'metadata');
+      callback();
+    });
+  },
+  showDnsRecordSet: function (rsetProp, suite, callback) {
+    var cmd = 'network dns record-set show -g {group} -z {zoneName} -n {name} -y {type} --json'.formatArgs(rsetProp);
+    testUtils.executeCommand(suite, retry, cmd, function (result) {
+      result.exitStatus.should.equal(0);
+      var rset = JSON.parse(result.text);
+      callback(rset);
+    });
+  },
+  listDnsRecordSets: function (zoneProp, suite, callback) {
+    var cmd = 'network dns record-set list -g {group} -z {name} --json'.formatArgs(zoneProp);
+    testUtils.executeCommand(suite, retry, cmd, function (result) {
+      result.exitStatus.should.equal(0);
+      var rsets = JSON.parse(result.text);
+      callback(rsets);
+    });
+  },
+  deleteDnsRecordSet: function (rsetProp, suite, callback) {
+    var self = this;
+    var cmd = 'network dns record-set delete -g {group} -z {zoneName} -n {name} -y {type} --quiet --json'.formatArgs(rsetProp);
+    testUtils.executeCommand(suite, retry, cmd, function (result) {
+      result.exitStatus.should.equal(0);
+
+      self.showDnsRecordSet(rsetProp, suite, function (rset) {
+        rset.should.be.empty;
+        callback();
+      });
+    });
+  },
+  addDnsRecord: function (rsetProp, suite, callback) {
+    var cmd = 'network dns record-set add-record -g {group} -z {zoneName} -n {name} -y {type} {params} --json'.formatArgs(rsetProp);
+    testUtils.executeCommand(suite, retry, cmd, function (result) {
+      result.exitStatus.should.equal(0);
+      var rset = JSON.parse(result.text);
+      rset.name.should.equal(rsetProp.name);
+      callback(rset);
+    });
+  },
+  deleteDnsRecord: function (rsetProp, suite, callback) {
+    var keepEmptyRecordSet = rsetProp.keepEmptyRecordSet ? '--keep-empty-record-set' : '';
+    var cmd = util.format('network dns record-set delete-record -g {group} -z {zoneName} -n {name} -y {type} {params} ' +
+      '--keep-empty-record-set --quiet %s --json', keepEmptyRecordSet).formatArgs(rsetProp);
+    testUtils.executeCommand(suite, retry, cmd, function (result) {
+      result.exitStatus.should.equal(0);
+      callback();
+    });
+  },
+  createTrafficManagerProfile: function (profileProp, suite, callback) {
+    var cmd = util.format('network traffic-manager profile create -g {group} -n {name} -u {profileStatus} -m {trafficRoutingMethod} ' +
+      '-r {relativeDnsName} -l {ttl} -p {monitorProtocol} -o {monitorPort} -a {monitorPath} -t {tags} --json').formatArgs(profileProp);
+
+    testUtils.executeCommand(suite, retry, cmd, function (result) {
+      result.exitStatus.should.equal(0);
+      var profile = JSON.parse(result.text);
+      profile.name.should.equal(profileProp.name);
+      profile.properties.profileStatus.should.equal(profileProp.profileStatus);
+      profile.properties.trafficRoutingMethod.should.equal(profileProp.trafficRoutingMethod);
+      profile.properties.dnsConfig.relativeName.should.equal(profileProp.relativeDnsName);
+      profile.properties.dnsConfig.ttl.should.equal(profileProp.ttl);
+      profile.properties.monitorConfig.protocol.should.equal(profileProp.monitorProtocol);
+      profile.properties.monitorConfig.port.should.equal(profileProp.monitorPort);
+      profile.properties.monitorConfig.path.should.equal(profileProp.monitorPath);
+      callback(profile);
+    });
+  },
+  stopAppGateway: function(gatewayProps, suite, callback) {
+    var cmd = 'network application-gateway stop {group} {name} --json'.formatArgs(gatewayProps);
+    testUtils.executeCommand(suite, retry, cmd, function(result) {
+      result.exitStatus.should.equal(0);
+      callback();
+    });
+  },
+
+  /**
+   * Assertions
+   */
+  shouldHaveTags: function (obj, propName) {
+    if (propName === undefined) propName = 'tags';
+    tagUtils.getTagsInfo(obj[propName]).should.equal(this.tags);
+  },
+  shouldAppendTags: function (obj, propName) {
+    if (propName === undefined) propName = 'tags';
+    var pattern = this.tags + ';' + this.newTags;
+    tagUtils.getTagsInfo(obj[propName]).should.equal(pattern);
+  },
+  shouldBeSucceeded: function (obj) {
+    obj.provisioningState.should.equal(this.stateSucceeded);
+  },
+  shouldBeDeleted: function (obj) {
+    obj.provisioningState.should.equal(this.stateDeleted);
+  }
+});
+
+module.exports = NetworkTestUtil;

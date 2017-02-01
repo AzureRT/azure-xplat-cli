@@ -6,8 +6,8 @@ exports.getMockedProfile = function () {
   var newProfile = new profile.Profile();
 
   newProfile.addSubscription(new profile.Subscription({
-    id: '00977cdb-163f-435f-9c32-39ec8ae61f4d',
-    name: 'node',
+    id: '623d50f1-4fa8-4e46-a967-a9214aed43ab',
+    name: 'CSM Test Environment Services',
     user: {
       name: 'user@domain.example',
       type: 'user'
@@ -31,71 +31,37 @@ exports.setEnvironment = function() {
 exports.scopes = [[function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .get('/subscriptions/00977cdb-163f-435f-9c32-39ec8ae61f4d/resourcegroups/xTestResource8543/providers/Microsoft.Web/sites/xTestGrpRes6337?api-version=2014-04-01')
-  .reply(404, "{\"error\":{\"code\":\"ResourceGroupNotFound\",\"message\":\"Resource group 'xTestResource8543' could not be found.\"}}", { 'cache-control': 'no-cache',
+  .get('/subscriptions/623d50f1-4fa8-4e46-a967-a9214aed43ab/resourcegroups/xTestResource3124?api-version=2016-09-01')
+  .reply(404, "{\"error\":{\"code\":\"ResourceGroupNotFound\",\"message\":\"Resource group 'xTestResource3124' could not be found.\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'x-ms-failure-cause': 'gateway',
-  'x-ms-request-id': 'b13ff517-8f8b-4ccf-9293-0bdf4a8f4087',
-  'x-ms-correlation-request-id': 'b13ff517-8f8b-4ccf-9293-0bdf4a8f4087',
-  'x-ms-routing-request-id': 'CENTRALUS:20160130T224816Z:b13ff517-8f8b-4ccf-9293-0bdf4a8f4087',
+  'x-ms-ratelimit-remaining-subscription-reads': '14977',
+  'x-ms-request-id': 'b1561af2-f5a3-4fdf-9949-ae48095f1f90',
+  'x-ms-correlation-request-id': 'b1561af2-f5a3-4fdf-9949-ae48095f1f90',
+  'x-ms-routing-request-id': 'WESTUS:20161207T032814Z:b1561af2-f5a3-4fdf-9949-ae48095f1f90',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Sat, 30 Jan 2016 22:48:15 GMT',
+  date: 'Wed, 07 Dec 2016 03:28:13 GMT',
   connection: 'close',
   'content-length': '109' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/00977cdb-163f-435f-9c32-39ec8ae61f4d/resourcegroups/xTestResource8543/providers/Microsoft.Web/sites/xTestGrpRes6337?api-version=2014-04-01')
-  .reply(404, "{\"error\":{\"code\":\"ResourceGroupNotFound\",\"message\":\"Resource group 'xTestResource8543' could not be found.\"}}", { 'cache-control': 'no-cache',
+  .get('/subscriptions/623d50f1-4fa8-4e46-a967-a9214aed43ab/resourcegroups/xTestResource3124?api-version=2016-09-01')
+  .reply(404, "{\"error\":{\"code\":\"ResourceGroupNotFound\",\"message\":\"Resource group 'xTestResource3124' could not be found.\"}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
   'x-ms-failure-cause': 'gateway',
-  'x-ms-request-id': 'b13ff517-8f8b-4ccf-9293-0bdf4a8f4087',
-  'x-ms-correlation-request-id': 'b13ff517-8f8b-4ccf-9293-0bdf4a8f4087',
-  'x-ms-routing-request-id': 'CENTRALUS:20160130T224816Z:b13ff517-8f8b-4ccf-9293-0bdf4a8f4087',
+  'x-ms-ratelimit-remaining-subscription-reads': '14977',
+  'x-ms-request-id': 'b1561af2-f5a3-4fdf-9949-ae48095f1f90',
+  'x-ms-correlation-request-id': 'b1561af2-f5a3-4fdf-9949-ae48095f1f90',
+  'x-ms-routing-request-id': 'WESTUS:20161207T032814Z:b1561af2-f5a3-4fdf-9949-ae48095f1f90',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Sat, 30 Jan 2016 22:48:15 GMT',
-  connection: 'close',
-  'content-length': '109' });
- return result; },
-function (nock) { 
-var result = 
-nock('http://management.azure.com:443')
-  .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/00977cdb-163f-435f-9c32-39ec8ae61f4d/resourcegroups/xTestResource8543/providers/Microsoft.Web/sites/xTestGrpRes6337?api-version=2014-04-01', '*')
-  .reply(404, "{\"error\":{\"code\":\"ResourceGroupNotFound\",\"message\":\"Resource group 'xTestResource8543' could not be found.\"}}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'x-ms-failure-cause': 'gateway',
-  'x-ms-request-id': '46567793-a4c2-46c7-863e-e723ba870c5e',
-  'x-ms-correlation-request-id': '46567793-a4c2-46c7-863e-e723ba870c5e',
-  'x-ms-routing-request-id': 'CENTRALUS:20160130T224818Z:46567793-a4c2-46c7-863e-e723ba870c5e',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Sat, 30 Jan 2016 22:48:17 GMT',
-  connection: 'close',
-  'content-length': '109' });
- return result; },
-function (nock) { 
-var result = 
-nock('https://management.azure.com:443')
-  .filteringRequestBody(function (path) { return '*';})
-.put('/subscriptions/00977cdb-163f-435f-9c32-39ec8ae61f4d/resourcegroups/xTestResource8543/providers/Microsoft.Web/sites/xTestGrpRes6337?api-version=2014-04-01', '*')
-  .reply(404, "{\"error\":{\"code\":\"ResourceGroupNotFound\",\"message\":\"Resource group 'xTestResource8543' could not be found.\"}}", { 'cache-control': 'no-cache',
-  pragma: 'no-cache',
-  'content-type': 'application/json; charset=utf-8',
-  expires: '-1',
-  'x-ms-failure-cause': 'gateway',
-  'x-ms-request-id': '46567793-a4c2-46c7-863e-e723ba870c5e',
-  'x-ms-correlation-request-id': '46567793-a4c2-46c7-863e-e723ba870c5e',
-  'x-ms-routing-request-id': 'CENTRALUS:20160130T224818Z:46567793-a4c2-46c7-863e-e723ba870c5e',
-  'strict-transport-security': 'max-age=31536000; includeSubDomains',
-  date: 'Sat, 30 Jan 2016 22:48:17 GMT',
+  date: 'Wed, 07 Dec 2016 03:28:13 GMT',
   connection: 'close',
   'content-length': '109' });
  return result; }]];
- exports.randomTestIdsGenerated = function() { return ['xTestResource8543','xTestGrpRes6337'];};
+ exports.randomTestIdsGenerated = function() { return ['xTestResource3124','xTestGrpRes2101'];};

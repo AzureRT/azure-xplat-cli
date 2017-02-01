@@ -104,8 +104,14 @@ describe('arm', function () {
               var results = JSON.parse(listResult.text);
               results.length.should.be.above(0);
 
-              suite.execute('group delete %s --json --quiet', groupName, function () {
-                done();
+              suite.execute('group delete --nowait %s --json --quiet', groupName, function (deleteResult) {
+                  deleteResult.exitStatus.should.equal(0);
+                  suite.execute('group list --json', function(result){
+                    result.exitStatus.should.equal(0);
+                    var output = JSON.parse(result.text);
+                    output.some(function (g) { return (g.name === groupName && g.location === normalizedTestLocation && g.properties.provisioningState === 'Deleting'); }).should.be.true;
+                    done();
+                });
               });
             });
           });
@@ -138,6 +144,25 @@ describe('arm', function () {
               suite.execute('group delete %s --json --quiet', groupName, function () {
                 done();
               });
+            });
+          });
+        });
+      });
+    });
+    
+    describe('export', function () {
+      it.skip('should export group successfully', function (done) {
+        var groupName = suite.generateId(groupPrefix, createdGroups, suite.isMocked);
+        
+        suite.execute('group create %s --location %s --json', groupName, testLocation, function (result) {
+          result.exitStatus.should.equal(0);
+          
+          suite.execute('group export --name %s', groupName, function (exportResult) {
+            exportResult.exitStatus.should.equal(0);
+            exportResult.text.indexOf('Template downloaded to').should.be.above(-1);
+
+            suite.execute('group delete %s --json --quiet', groupName, function () {
+              done();
             });
           });
         });
@@ -267,7 +292,7 @@ describe('arm', function () {
       }
 
       function cleanupForLogShow (done) {
-        suite.execute('group delete %s --json --quiet', groupName, function () {
+        suite.execute('group delete %s --nowait --json --quiet', groupName, function () {
           console.log('  . Performing cleanup of group log show tests')
           done();
         });

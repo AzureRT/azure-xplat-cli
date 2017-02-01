@@ -1,0 +1,25 @@
+; Exported zone file from Azure DNS
+; Resource Group Name: xplat-test-dns-zone
+; Zone name: exampledns.com
+; Date and time (UTC): Mon Jan 09 2017 08:02:16 GMT+0000
+
+$TTL 172800
+$ORIGIN exampledns.com.
+
+@ 3600 IN SOA ns1-08.azure-dns.com. hostmaster.exampledns.com. (
+				2003080800
+				43200
+				900
+				1814400
+				10800
+				)
+
+@ 172800 IN NS ns1-08.azure-dns.com.
+  172800 IN NS ns2-08.azure-dns.net.
+  172800 IN NS ns3-08.azure-dns.org.
+  172800 IN NS ns4-08.azure-dns.info.
+
+default 3600 IN A 0.1.2.3
+
+tc 3600 IN CNAME test.exampledns.com.
+

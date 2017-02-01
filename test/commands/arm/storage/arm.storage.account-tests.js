@@ -25,11 +25,13 @@ var storageNames = [];
 var storagePairs = [];
 var createdResourceGroups = [];
 var storageLocation;
+var accountKind;
 var resourceGroupLocation;
 
 var requiredEnvironment = [
-  { name: 'AZURE_STORAGE_TEST_LOCATION', defaultValue: 'West US' },
+  { name: 'AZURE_STORAGE_TEST_LOCATION', defaultValue: 'West Europe' },
   { name: 'AZURE_STORAGE_TEST_TYPE', defaultValue: 'LRS' },
+  { name: 'AZURE_STORAGE_TEST_KIND', defaultValue: 'storage' },
   { name: 'AZURE_RESOURCE_GROUP_TEST_LOCATION', defaultValue: 'West US' }
 ];
 
@@ -78,6 +80,7 @@ describe('arm', function () {
         resourceGroupLocation = process.env.AZURE_RESOURCE_GROUP_TEST_LOCATION;
         storageLocation = process.env.AZURE_STORAGE_TEST_LOCATION;
         accountType = process.env.AZURE_STORAGE_TEST_TYPE;
+        accountKind = process.env.AZURE_STORAGE_TEST_KIND;
         done();
       });
     });
@@ -92,14 +95,25 @@ describe('arm', function () {
       storagePairs.push([storageName, resrouceGroupName]);
 
       suite.execute('group create %s --location %s --json', resrouceGroupName, resourceGroupLocation, function (result) {
-        result.text.should.containEql('Succeeded');
         result.exitStatus.should.equal(0);
-
-        suite.execute('storage account create %s --resource-group %s --type %s --location %s --json', storageName, resrouceGroupName, accountType, storageLocation, function (result) {
+        
+        suite.execute('storage account create %s --resource-group %s --sku-name %s --location %s --kind %s --enable-encryption-service blob --json', 
+          storageName, resrouceGroupName, accountType, storageLocation, accountKind, function (result) {
           result.text.should.equal('');
           result.exitStatus.should.equal(0);
           done();
         });
+      });
+    });
+    
+    it('should create a COOL storage account', function(done) {
+      storageName = suite.generateId(storageNamesPrefix, storageNames);
+      storagePairs.push([storageName, resrouceGroupName]);
+      suite.execute('storage account create %s --resource-group %s --sku-name %s --location %s --kind %s --access-tier Cool --enable-encryption-service blob --json', 
+        storageName, resrouceGroupName, accountType, storageLocation, 'BlobStorage', function (result) {
+        result.text.should.equal('');
+        result.exitStatus.should.equal(0);
+        done();
       });
     });
 
@@ -111,7 +125,8 @@ describe('arm', function () {
       suite.execute('group create %s --location %s --json', resrouceGroupName, resourceGroupLocation, function (result) {
         result.exitStatus.should.equal(0);
 
-        suite.execute('storage account create %s --resource-group %s --type %s --location %s --json', storageName, resrouceGroupName, accountType, storageLocation, function (result) {
+        suite.execute('storage account create %s --resource-group %s --sku-name %s --location %s --kind %s --json', 
+          storageName, resrouceGroupName, accountType, storageLocation, accountKind, function (result) {
           result.text.should.equal('');
           result.exitStatus.should.equal(0);
           
@@ -136,17 +151,27 @@ describe('arm', function () {
         done();
       });
     })
+    
+    it('should check the storage account name', function(done) {
+      suite.execute('storage account check %s --json', storageName, function (result) {
+        var result = JSON.parse(result.text);
+        result.nameAvailable.should.be.false;
+        result.reason.should.equal('AlreadyExists');
+
+        done();
+      });
+    })
 
     // Wait for the created account becoming available to change
     it('should update storage accounts', function(done) {
       setTimeout(function () {
-        suite.execute('storage account set %s --resource-group %s --type RAGRS --json', storageName, resrouceGroupName, function (result) {
+        suite.execute('storage account set %s --resource-group %s --sku-name RAGRS --disable-encryption-service blob --json', storageName, resrouceGroupName, function (result) {
           result.text.should.equal('');
           result.exitStatus.should.equal(0);
 
           suite.execute('storage account show %s --resource-group %s --json', storageName, resrouceGroupName, function (result) {
             var storageAccount = JSON.parse(result.text);
-            storageAccount.accountType.should.equal('Standard_RAGRS');
+            storageAccount.sku.name.should.equal('Standard_RAGRS');
 
             done();
           });
@@ -154,25 +179,25 @@ describe('arm', function () {
       }, timeBeforeSetAvailable);
     });
 
-    it('should renew storage keys', function(done) {
+    liveOnly('should renew storage keys', function(done) {
       suite.execute('storage account keys list %s --resource-group %s --json', storageName, resrouceGroupName, function (result) {
         var storageAccountKeys = JSON.parse(result.text);
-        storageAccountKeys.key1.should.not.be.null;
-        storageAccountKeys.key2.should.not.be.null;
+        storageAccountKeys[0].should.not.be.null;
+        storageAccountKeys[1].should.not.be.null;
 
         suite.execute('storage account keys renew %s --resource-group %s --primary --json', storageName, resrouceGroupName, function (result) {
           result.exitStatus.should.equal(0);
 
           storageAccountKeys = JSON.parse(result.text);
-          storageAccountKeys.should.not.be.null;
-          primaryKey = storageAccountKeys.key1;
-          storageAccountKeys.key2.should.not.be.null;
+          storageAccountKeys[0].should.not.be.null;
+          primaryKey = storageAccountKeys[0].value;
+          storageAccountKeys[1].should.not.be.null;
           done();
         });
       });
     });
     
-    it('should show connecting string', function(done) {
+    liveOnly('should show connecting string', function(done) {
       suite.execute('storage account connectionstring show %s --resource-group %s --json', storageName, resrouceGroupName, function(result) {
         var connectionString = JSON.parse(result.text);
         var desiredConnectionString = 'DefaultEndpointsProtocol=https;AccountName=' + storageName + ';AccountKey=' + primaryKey;
@@ -182,7 +207,7 @@ describe('arm', function () {
       });
     });
     
-    it('should show connecting string with endpoints', function (done) {
+    liveOnly('should show connecting string with endpoints', function (done) {
       suite.execute('storage account connectionstring show --use-http --blob-endpoint myBlob.ep --queue-endpoint 10.0.0.10 --table-endpoint mytable.core.windows.net %s --resource-group %s --json',
         storageName, 
         resrouceGroupName, 
@@ -194,6 +219,16 @@ describe('arm', function () {
           done();
         }
       );
+    });
+
+    it('should show the account usage', function (done) {
+      suite.execute('storage account usage show --json', function(result) {
+        var usage = JSON.parse(result.text);
+        usage.subscriptionId.should.not.be.null;
+        usage.used.should.be.above(-1);
+        usage.limit.should.be.above(50);
+        done();
+      });
     });
   });
 });

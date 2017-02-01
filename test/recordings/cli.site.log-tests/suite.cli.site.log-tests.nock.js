@@ -6,15 +6,16 @@ exports.getMockedProfile = function () {
   var newProfile = new profile.Profile();
 
   newProfile.addSubscription(new profile.Subscription({
-    id: 'c9cbd920-c00c-427c-852b-8aaf38badaeb',
-    name: 'Azure SDK Powershell Test',
+    id: '8d57ddbd-c779-40ea-b660-1015f4bf027d',
+    name: 'Visual Studio Enterprise',
     user: {
       name: 'user@domain.example',
       type: 'user'
     },
     tenantId: '72f988bf-86f1-41af-91ab-2d7cd011db47',
-    registeredProviders: [],
-    registeredResourceNamespaces: [],
+    state: 'Enabled',
+    registeredProviders: ['website'],
+    _eventsCount: '1',
     isDefault: true
   }, newProfile.environments['AzureCloud']));
 
@@ -22,10 +23,10 @@ exports.getMockedProfile = function () {
 };
 
 exports.setEnvironment = function() {
-  process.env['AZURE_GIT_USERNAME'] = 'amarzavery';
-  process.env['AZURE_SITE_TEST_LOCATION'] = 'West US';
-  process.env['AZURE_STORAGE_ACCOUNT'] = 'teststorage101';
-  process.env['AZURE_STORAGE_ACCESS_KEY'] = 'blIJuST4BRw3XeNAYTN2sUyDF6uBgejMkPPogMCr1DrbVDPCPMEZ7Tr2uOZham1zkpLSu6zPr8NNZMuuz4Mc6g==';
-}
+  process.env['AZURE_GIT_USERNAME'] = '"LukaszStem"';
+  process.env['AZURE_SITE_TEST_LOCATION'] = 'dummy';
+  process.env['AZURE_STORAGE_ACCOUNT'] = 'dummy';
+  process.env['AZURE_STORAGE_ACCESS_KEY'] = 'dummy';
+};
 
 exports.scopes = [];

@@ -79,6 +79,25 @@ VMTestUtil.prototype.deleteUsedGroup = function(groupName, suite, callback) {
   } else callback();
 };
 
+VMTestUtil.prototype.CreateVmWithNic = function(group, name, location, os, urn, nic, user, password, storageAccount, suite, callback) {
+  suite.execute('storage account create %s --resource-group %s --location %s --sku-name LRS --kind Storage --json',
+    storageAccount, group, location, function(result) {
+    result.exitStatus.should.equal(0);
+    suite.execute('vm create %s %s %s %s --image-urn %s --nic-names %s --admin-username %s --admin-password %s --storage-account-name %s --json',
+      group, name, location, os, urn, nic, user, password, storageAccount, function(result) {
+      result.exitStatus.should.equal(0);
+      callback();
+    });
+  });
+};
+
+VMTestUtil.prototype.RemoveVm = function(group, name, suite, callback) {
+  suite.execute('vm delete %s %s --quiet --json', group, name, function(result) {
+    result.exitStatus.should.equal(0);
+    callback();
+  });
+};
+
 VMTestUtil.prototype.GetLinuxSkusList = function(location, suite, callback) {
   suite.execute('vm image list-skus %s %s %s --json', location, this.linuxPublisher, this.linuxOffer, function(result) {
     result.exitStatus.should.equal(0);
@@ -136,7 +155,22 @@ VMTestUtil.prototype.getVMSize = function(location, suite, callback) {
   suite.execute('vm sizes -l %s --json', location, function(result) {
     result.exitStatus.should.equal(0);
     var allResources = JSON.parse(result.text);
-    VMTestUtil.vmSize = allResources[0].name;
+    VMTestUtil.vmSize = null;
+    var setVmSizeIfExists = function(allResources, querySizeStr) {
+      if (!VMTestUtil.vmSize) {
+        for (var i in allResources) {
+          if (allResources[i].name.toLowerCase() === querySizeStr.toLowerCase()) {
+            VMTestUtil.vmSize = allResources[i].name;
+            break;
+          }
+        }
+      }
+    }
+    
+    setVmSizeIfExists(allResources, 'Standard_DS1');
+    setVmSizeIfExists(allResources, 'Standard_D1');
+    setVmSizeIfExists(allResources, 'Standard_D1_v2');
+    VMTestUtil.vmSize = VMTestUtil.vmSize ? VMTestUtil.vmSize : 'Standard_A0';
     callback();
   });
 };

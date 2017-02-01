@@ -28,10 +28,11 @@ var locNetPrefix2 = 'CliGtTestLocNetwork', vpnGatewayAddress2 = '200.200.200.200
 var type = 'DynamicRouting' , sku = 'Default', KeyValue= 'abcd', KeyLength = '123', vendor, platform, osFamily ;
 var location, storagePrefix = 'clivpnstorage' , accountType , storageContPrefix = 'clivpncont', duration = '300'; 
 var requiredEnvironment = [
-    { name: 'AZURE_VM_TEST_LOCATION', defaultValue: 'West US' },
+  { name: 'AZURE_VM_TEST_LOCATION', defaultValue: 'West US' },
 	{ name: 'AZURE_STORAGE_TEST_TYPE', defaultValue: 'LRS' },
-	];
+];
 
+var liveOnly = process.env.NOCK_OFF ? it : it.skip;
 
 describe('asm', function () {
     describe('network', function () {
@@ -170,7 +171,7 @@ describe('asm', function () {
 					// done();
 				// });
 			// });
-			it('diagnostics start should pass', function (done) {
+			liveOnly('diagnostics start should pass', function (done) {
 				networkUtil.createStorage(storagePrefix, location, accountType, timeout, suite, function() {
 					networkUtil.listStorageKey(storagePrefix, timeout, suite, function(primaryKey) {
 						networkUtil.createStorageCont(storageContPrefix, storagePrefix, primaryKey, timeout, suite, function() {

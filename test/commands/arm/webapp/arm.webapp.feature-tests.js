@@ -20,16 +20,25 @@ var util = require('util');
 var CLITest = require('../../../framework/arm-cli-test');
 var profile = require('../../../../lib/util/profile');
 var utils = require('../../../../lib/util/utils');
+var webappUtils = require('../../../../lib/commands/arm/webapp/webappUtils');
 
 var testPrefix = 'arm-cli-webapp-tests';
 
 var sitename;
 var createdSites = [];
 var location = 'West US';
+var slotName = 'slotTest';
 var createdGroups = [];
 var createdResources = [];
+var createdAppSettingsKeys = [];
+var createdAppSettingsValues = [];
+
+var username = 'MyUsername';
+
 var hostingPlanName, groupName;
-var resourceClient;
+var appSettingKey, appSettingValue, finalAppSetting;
+var client;
+var updatedPHPValue = "7.0";
 
 describe('arm', function () {
   var suite;
@@ -37,10 +46,13 @@ describe('arm', function () {
   before(function (done) {
     suite = new CLITest(this, testPrefix);
     suite.setupSuite(function () {
-      sitename = suite.generateId('webappclitest', createdSites);
+      sitename = suite.generateId('webappclitests', createdSites);
       groupName = suite.generateId('testrg1', createdGroups);
+      appSettingKey = suite.generateId('testkey1', createdAppSettingsKeys);
+      appSettingValue = suite.generateId('testval1', createdAppSettingsValues);
+      finalAppSetting = appSettingKey + '=' + appSettingValue;
       var subscription = profile.current.getSubscription();
-      resourceClient = utils.createResourceClient(subscription);
+      client = webappUtils.createWebappManagementClient(subscription);
       if (!suite.isPlayback()) {
         suite.execute('group create %s --location %s --json', groupName, location, function (result) {
           result.exitStatus.should.equal(0);
@@ -52,7 +64,6 @@ describe('arm', function () {
       } else {
         done();
       }
-
     });
   });
 
@@ -82,90 +93,246 @@ describe('arm', function () {
   describe('webapp', function () {
 
     it('create should work', function (done) {
-      suite.execute('webapp create --resource-group %s --name %s --location %s --plan %s --json', groupName, sitename, location, hostingPlanName, function (result) {
+      suite.execute('webapp create %s %s %s %s --json', groupName, sitename, location, hostingPlanName, function (result) {
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+
+    it('create slot should work', function (done) {
+      suite.execute('webapp create %s %s %s %s --slot %s --json', groupName, sitename, location, hostingPlanName, slotName, function (result) {
         result.exitStatus.should.equal(0);
         done();
       });
     });
 
     it('list should work', function (done) {
-      suite.execute('webapp list --resource-group %s --json', groupName, function (result) {
+      suite.execute('webapp list %s --json', groupName, function (result) {
         result.exitStatus.should.equal(0);
-        var output = JSON.parse(result.text);
-        output.length.should.be.above(0);
         done();
       });
     });
 
     it('show should work', function (done) {
-      suite.execute('webapp show --resource-group %s --name %s --json', groupName, sitename, function (result) {
+      suite.execute('webapp show %s %s --json', groupName, sitename, function (result) {
         result.exitStatus.should.equal(0);
         var webapp = JSON.parse(result.text);
-        webapp.webSite.name.should.equal(sitename);
+        webapp.name.should.equal(sitename);
+        done();
+      });
+    });
+
+    it('show slot should work', function (done) {
+      suite.execute('webapp show %s %s --slot %s --json', groupName, sitename, slotName, function (result) {
+        result.exitStatus.should.equal(0);
+        var webapp = JSON.parse(result.text);
+        webapp.name.should.equal(sitename + '/' + slotName);
+        done();
+      });
+    });
+
+    it('config show should work', function (done) {
+      suite.execute('webapp config show %s %s --json', groupName, sitename, function (result) {
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+
+    it('config slot show should work', function (done) {
+      suite.execute('webapp config show %s %s --slot %s --json', groupName, sitename, slotName, function (result) {
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+
+    it('config set should work', function (done) {
+      suite.execute('webapp config set %s %s --phpversion %s --json', groupName, sitename, updatedPHPValue, function (result) {
+        var output = JSON.parse(result.text);
+        (output.phpVersion).should.equal(updatedPHPValue);
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+
+    it('config slot set should work', function (done) {
+      suite.execute('webapp config set %s %s --slot %s --phpversion %s  --json', groupName, sitename, slotName, updatedPHPValue, function (result) {
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+
+    it('config appsettings set should work', function (done) {
+      suite.execute('webapp config appsettings set %s %s %s --json', groupName, sitename, finalAppSetting, function (result) {
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+
+    it('config slot appsettings set should work', function (done) {
+      suite.execute('webapp config appsettings set %s %s %s --slot %s --json', groupName, sitename, finalAppSetting, slotName, function (result) {
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+
+    it('config appsettings list should work', function (done) {
+      suite.execute('webapp config appsettings list %s %s --json', groupName, sitename, function (result) {
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+
+    it('config slot appsettings list should work', function (done) {
+      suite.execute('webapp config appsettings list %s %s --slot %s --json', groupName, sitename, slotName, function (result) {
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+
+    it('config appsettings delete should work', function (done) {
+      suite.execute('webapp config appsettings delete %s %s %s --json', groupName, sitename, appSettingKey, function (result) {
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+
+    it('config slot appsettings delete should work', function (done) {
+      suite.execute('webapp config appsettings delete %s %s %s --slot %s --json', groupName, sitename, appSettingKey, slotName, function (result) {
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+
+    it('config container set should work', function (done) {
+      suite.execute('webapp config container set %s %s -u %s --json', groupName, sitename, username, function (result) {
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+    
+    it('config slot container set should work', function (done) {
+      suite.execute('webapp config container set %s %s -u %s --slot %s --json', groupName, sitename, username, slotName, function (result) {
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+    
+    it('config container list should work', function (done) {
+      suite.execute('webapp config container list %s %s --json', groupName, sitename, function (result) {
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+    
+    it('config slot container list should work', function (done) {
+      suite.execute('webapp config container list %s %s --slot %s --json', groupName, sitename, slotName, function (result) {
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+    
+    it('config container delete should work', function (done) {
+      suite.execute('webapp config container delete %s %s --json', groupName, sitename, function (result) {
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+    
+    it('config slot container delete should work', function (done) {
+      suite.execute('webapp config container delete %s %s --slot %s --json', groupName, sitename, slotName, function (result) {
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+    
+    it('publishingprofile show should work', function (done) {
+      suite.execute('webapp publishingprofile show %s %s --json', groupName, sitename, function (result) {
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+
+    it('publishingprofile slot show should work', function (done) {
+      suite.execute('webapp publishingprofile show %s %s --slot %s --json', groupName, sitename, slotName, function (result) {
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+
+    it('stop slot should work', function (done) {
+      suite.execute('webapp stop %s %s --slot %s --json', groupName, sitename, slotName, function (result) {
+        result.exitStatus.should.equal(0);
         done();
       });
     });
 
     it('stop should work', function (done) {
-      suite.execute('webapp stop --resource-group %s --name %s --json', groupName, sitename, function (result) {
+      suite.execute('webapp stop %s %s --json', groupName, sitename, function (result) {
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+
+    it('start slot should work', function (done) {
+      suite.execute('webapp start %s %s --slot %s --json', groupName, sitename, slotName, function (result) {
         result.exitStatus.should.equal(0);
         done();
       });
     });
 
     it('start should work', function (done) {
-      suite.execute('webapp start --resource-group %s --name %s --json', groupName, sitename, function (result) {
+      suite.execute('webapp start %s %s --json', groupName, sitename, function (result) {
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+
+    it('restart slot should work', function (done) {
+      suite.execute('webapp restart %s %s --slot %s --json', groupName, sitename, slotName, function (result) {
         result.exitStatus.should.equal(0);
         done();
       });
     });
 
     it('restart should work', function (done) {
-      suite.execute('webapp restart --resource-group %s --name %s --json', groupName, sitename, function (result) {
+      suite.execute('webapp restart %s %s --json', groupName, sitename, function (result) {
+        result.exitStatus.should.equal(0);
+        done();
+      });
+    });
+
+    it('delete slot should work', function (done) {
+      suite.execute('webapp delete %s %s -q --slot %s --json', groupName, createdSites[0], slotName, function (result) {
         result.exitStatus.should.equal(0);
         done();
       });
     });
 
     it('delete should work', function (done) {
-      suite.execute('webapp delete --resource-group %s --name %s -q --json', groupName, createdSites[0], function (result) {
+      suite.execute('webapp delete %s %s -q --json', groupName, createdSites[0], function (result) {
         result.exitStatus.should.equal(0);
         done();
       });
     });
   });
 
-  function createGroupAndPlan(done) {
-    createGroup(function (err, groupName) {
-      if (err) { return done(err); }
-      createHostingPlan(groupName, function (err, planId) {
-        if (err) { return done(err); }
-        return done(null, { group: groupName, plan: planId });
-      });
-    });
-  }
 
   function createHostingPlan(groupName, done) {
     hostingPlanName = suite.generateId(testPrefix, createdResources);
-    var planToCreate = {
-      resourceName: hostingPlanName,
-      resourceProviderNamespace: 'Microsoft.Web',
-      resourceType: 'serverFarms',
-      resourceProviderApiVersion: '2014-06-01'
-    };
 
     var planParameters = {
-      properties: {
-        sku: 'Free',
-        numberOfWorkers: 1,
-        workerSize: 'Small',
-        hostingPlanName: hostingPlanName
-      },
-      location: location
+      location: location,
+      name: hostingPlanName,
+      sku: {
+        name: 'S1',
+        sku: 'Standard',
+        family: 'S',
+        capacity: 1
+      }
     };
 
-    resourceClient.resources.createOrUpdate(groupName, planToCreate, planParameters, function (err, planResource) {
-      return done(err, planResource.resource.id);
+    var result = client.serverFarms.createOrUpdateServerFarm(groupName, hostingPlanName, planParameters, function (err, planResource) {
+      return done(err, planResource.id);
     });
   }
 });

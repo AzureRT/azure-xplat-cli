@@ -28,10 +28,12 @@ var requiredEnvironment = [{
     defaultValue: 'West US'
 }, {
     name: 'AZURE_STORAGE_ACCESS_KEY',
-    defaultValue: null
+    defaultValue: null,
+    secure: true
 }, {
     name: 'BLOB_SOURCE_PATH',
-    defaultValue: null
+    defaultValue: null,
+    secure: true
 }];
 
 describe('cli', function() {

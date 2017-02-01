@@ -22,14 +22,15 @@ var CLITest = require('../../../framework/arm-cli-test');
 var testprefix = 'arm-cli-ad-tests';
 var util = require('util');
 var calledOnce = false;
+var liveOnly = process.env.NOCK_OFF ? it : it.skip;
 
 var requiredEnvironment = [
   { name: 'AZURE_AD_TEST_PASSWORD' },
-  { name: 'AZURE_AD_TEST_GROUP_NAME', defaultValue: 'Randomtestgroup1' },
-  { name: 'AZURE_AD_TEST_SUBGROUP_NAME', defaultValue: 'Randomtestgroup2' },
-  { name: 'AZURE_AD_TEST_USER_PRINCIPAL_NAME', defaultValue: 'RandomtestUser1@rbactest.onmicrosoft.com' },
-  { name: 'AZURE_AD_TEST_USER_PRINCIPAL_NAME2', defaultValue: 'RandomtestUser2@rbactest.onmicrosoft.com' },
-  { name: 'AZURE_AD_TEST_SP_DISPLAY_NAME', defaultValue: 'Randommytestapp9045' },
+  { name: 'AZURE_AD_TEST_GROUP_NAME', defaultValue: 'Randomtestgroup11' },
+  { name: 'AZURE_AD_TEST_SUBGROUP_NAME', defaultValue: 'Randomtestgroup12' },
+  { name: 'AZURE_AD_TEST_USER_PRINCIPAL_NAME', defaultValue: 'RandomtestUser11@rbacclitest.onmicrosoft.com' },
+  { name: 'AZURE_AD_TEST_USER_PRINCIPAL_NAME2', defaultValue: 'RandomtestUser12@rbacclitest.onmicrosoft.com' },
+  { name: 'AZURE_AD_TEST_SP_DISPLAY_NAME', defaultValue: 'Randommytestapp9047' }
 ];
 
 describe('arm', function () {
@@ -155,18 +156,19 @@ describe('arm', function () {
 
     describe('Users', function () {
 
-      it('should parse the error properly for a non existant user', function (done) {
+      liveOnly('should parse the error properly for a non existant user', function (done) {
         suite.execute('ad user show --upn %s --json', 'nonexisitinguser@mywebforum.com', function (result) {
           result.errorText.should.include('No matching user was found');
           done();
         });
       });
 
-      it('should work to list and show users', function (done) {
+      it.skip('should work to list and show users', function (done) {
         var upn = process.env.AZURE_AD_TEST_USER_PRINCIPAL_NAME;
         var upn2 = process.env.AZURE_AD_TEST_USER_PRINCIPAL_NAME2;
         suite.execute('ad user list --json', function (result) {
           result.exitStatus.should.equal(0);
+
           var users = JSON.parse(result.text);
           users.some(function(user) { return user.userPrincipalName === upn; }).should.be.true;
           users.some(function(user) { return user.userPrincipalName === upn2; }).should.be.true;
@@ -182,7 +184,7 @@ describe('arm', function () {
     });
     
     describe('Groups', function () {
-      it('should work to list and show groups', function (done) {
+      liveOnly('should work to list and show groups', function (done) {
         var group1 = process.env.AZURE_AD_TEST_GROUP_NAME;
         var group1ObjectId = testGroups[0].objectId;
         var group2 = process.env.AZURE_AD_TEST_SUBGROUP_NAME;
@@ -213,7 +215,7 @@ describe('arm', function () {
     });
     
     describe('ServicePrincipals', function () {
-      it('should work to list and show service principals', function (done) {
+      liveOnly('should work to list and show service principals', function (done) {
         var displayName = process.env.AZURE_AD_TEST_SP_DISPLAY_NAME;
         var spn = testSPs[0].servicePrincipalNames[0];
         var spObjectId = testSPs[0].objectId;

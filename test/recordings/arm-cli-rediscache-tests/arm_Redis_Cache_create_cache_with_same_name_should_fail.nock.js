@@ -6,15 +6,15 @@ exports.getMockedProfile = function () {
   var newProfile = new profile.Profile();
 
   newProfile.addSubscription(new profile.Subscription({
-    id: '04db7ed3-6ed9-4861-8b22-7c0c0c98490b',
-    name: 'AAPT Cache10',
+    id: '67db6ec8-1e63-4a12-a263-eb3b69b7588f',
+    name: 'CacheTeam - Alfan TP',
     user: {
       name: 'user@domain.example',
       type: 'user'
     },
     tenantId: '72f988bf-86f1-41af-91ab-2d7cd011db47',
     state: 'Enabled',
-    registeredProviders: [],
+    registeredProviders: ['website'],
     _eventsCount: '1',
     isDefault: true
   }, newProfile.environments['AzureCloud']));
@@ -30,38 +30,38 @@ exports.setEnvironment = function() {
 exports.scopes = [[function (nock) { 
 var result = 
 nock('http://management.azure.com:443')
-  .get('/subscriptions/04db7ed3-6ed9-4861-8b22-7c0c0c98490b/resourceGroups/xplatTestCacheRG/providers/Microsoft.Cache/Redis/xplatTestCache5287?api-version=2015-08-01')
-  .reply(200, "{\"id\":\"/subscriptions/04db7ed3-6ed9-4861-8b22-7c0c0c98490b/resourceGroups/xplatTestCacheRG/providers/Microsoft.Cache/Redis/xplatTestCache5287\",\"location\":\"West US\",\"name\":\"xplatTestCache5287\",\"type\":\"Microsoft.Cache/Redis\",\"tags\":{},\"properties\":{\"provisioningState\":\"Creating\",\"redisVersion\":\"3.0\",\"sku\":{\"name\":\"Standard\",\"family\":\"C\",\"capacity\":1},\"enableNonSslPort\":false,\"redisConfiguration\":{\"maxclients\":\"1000\",\"maxmemory-reserved\":\"50\",\"maxmemory-delta\":\"50\"},\"accessKeys\":null,\"hostName\":\"xplatTestCache5287.redis.cache.windows.net\",\"port\":6379,\"sslPort\":6380}}", { 'cache-control': 'no-cache',
+  .get('/subscriptions/67db6ec8-1e63-4a12-a263-eb3b69b7588f/resourceGroups/xplatTestCacheRG/providers/Microsoft.Cache/Redis/xplatTestCache1358?api-version=2016-04-01')
+  .reply(200, "{\"id\":\"/subscriptions/67db6ec8-1e63-4a12-a263-eb3b69b7588f/resourceGroups/xplatTestCacheRG/providers/Microsoft.Cache/Redis/xplatTestCache1358\",\"location\":\"West US\",\"name\":\"xplatTestCache1358\",\"type\":\"Microsoft.Cache/Redis\",\"tags\":{},\"properties\":{\"provisioningState\":\"Creating\",\"redisVersion\":\"3.2\",\"sku\":{\"name\":\"Standard\",\"family\":\"C\",\"capacity\":1},\"enableNonSslPort\":false,\"redisConfiguration\":{\"maxclients\":\"1000\",\"maxmemory-reserved\":\"50\",\"maxmemory-delta\":\"50\"},\"accessKeys\":null,\"hostName\":\"xplatTestCache1358.redis.cache.windows.net\",\"port\":6379,\"sslPort\":6380}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '570',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
-  'x-ms-request-id': 'd8c7b8b6-1380-4cbb-aff1-1997002d114e',
-  'x-rp-server-mvid': '3e61d910-df30-46b0-b787-cfaaa2487a47',
+  'x-ms-request-id': 'b05ce1d3-abbd-47b1-8ef7-df87a857f9a0',
+  'x-rp-server-mvid': '0fb53dd9-9afd-4774-b601-7b895c3c6671',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14984',
-  'x-ms-correlation-request-id': '573b49a0-5bd8-4c4e-8541-c1add43eaaca',
-  'x-ms-routing-request-id': 'WESTUS:20151203T004411Z:573b49a0-5bd8-4c4e-8541-c1add43eaaca',
-  date: 'Thu, 03 Dec 2015 00:44:10 GMT',
+  'x-ms-ratelimit-remaining-subscription-reads': '14979',
+  'x-ms-correlation-request-id': '97e800ab-d989-41b1-a2c4-b0f9773560d0',
+  'x-ms-routing-request-id': 'CENTRALUS:20170106T000505Z:97e800ab-d989-41b1-a2c4-b0f9773560d0',
+  date: 'Fri, 06 Jan 2017 00:05:05 GMT',
   connection: 'close' });
  return result; },
 function (nock) { 
 var result = 
 nock('https://management.azure.com:443')
-  .get('/subscriptions/04db7ed3-6ed9-4861-8b22-7c0c0c98490b/resourceGroups/xplatTestCacheRG/providers/Microsoft.Cache/Redis/xplatTestCache5287?api-version=2015-08-01')
-  .reply(200, "{\"id\":\"/subscriptions/04db7ed3-6ed9-4861-8b22-7c0c0c98490b/resourceGroups/xplatTestCacheRG/providers/Microsoft.Cache/Redis/xplatTestCache5287\",\"location\":\"West US\",\"name\":\"xplatTestCache5287\",\"type\":\"Microsoft.Cache/Redis\",\"tags\":{},\"properties\":{\"provisioningState\":\"Creating\",\"redisVersion\":\"3.0\",\"sku\":{\"name\":\"Standard\",\"family\":\"C\",\"capacity\":1},\"enableNonSslPort\":false,\"redisConfiguration\":{\"maxclients\":\"1000\",\"maxmemory-reserved\":\"50\",\"maxmemory-delta\":\"50\"},\"accessKeys\":null,\"hostName\":\"xplatTestCache5287.redis.cache.windows.net\",\"port\":6379,\"sslPort\":6380}}", { 'cache-control': 'no-cache',
+  .get('/subscriptions/67db6ec8-1e63-4a12-a263-eb3b69b7588f/resourceGroups/xplatTestCacheRG/providers/Microsoft.Cache/Redis/xplatTestCache1358?api-version=2016-04-01')
+  .reply(200, "{\"id\":\"/subscriptions/67db6ec8-1e63-4a12-a263-eb3b69b7588f/resourceGroups/xplatTestCacheRG/providers/Microsoft.Cache/Redis/xplatTestCache1358\",\"location\":\"West US\",\"name\":\"xplatTestCache1358\",\"type\":\"Microsoft.Cache/Redis\",\"tags\":{},\"properties\":{\"provisioningState\":\"Creating\",\"redisVersion\":\"3.2\",\"sku\":{\"name\":\"Standard\",\"family\":\"C\",\"capacity\":1},\"enableNonSslPort\":false,\"redisConfiguration\":{\"maxclients\":\"1000\",\"maxmemory-reserved\":\"50\",\"maxmemory-delta\":\"50\"},\"accessKeys\":null,\"hostName\":\"xplatTestCache1358.redis.cache.windows.net\",\"port\":6379,\"sslPort\":6380}}", { 'cache-control': 'no-cache',
   pragma: 'no-cache',
   'content-length': '570',
   'content-type': 'application/json; charset=utf-8',
   expires: '-1',
-  'x-ms-request-id': 'd8c7b8b6-1380-4cbb-aff1-1997002d114e',
-  'x-rp-server-mvid': '3e61d910-df30-46b0-b787-cfaaa2487a47',
+  'x-ms-request-id': 'b05ce1d3-abbd-47b1-8ef7-df87a857f9a0',
+  'x-rp-server-mvid': '0fb53dd9-9afd-4774-b601-7b895c3c6671',
   'strict-transport-security': 'max-age=31536000; includeSubDomains',
   server: 'Microsoft-HTTPAPI/2.0',
-  'x-ms-ratelimit-remaining-subscription-reads': '14984',
-  'x-ms-correlation-request-id': '573b49a0-5bd8-4c4e-8541-c1add43eaaca',
-  'x-ms-routing-request-id': 'WESTUS:20151203T004411Z:573b49a0-5bd8-4c4e-8541-c1add43eaaca',
-  date: 'Thu, 03 Dec 2015 00:44:10 GMT',
+  'x-ms-ratelimit-remaining-subscription-reads': '14979',
+  'x-ms-correlation-request-id': '97e800ab-d989-41b1-a2c4-b0f9773560d0',
+  'x-ms-routing-request-id': 'CENTRALUS:20170106T000505Z:97e800ab-d989-41b1-a2c4-b0f9773560d0',
+  date: 'Fri, 06 Jan 2017 00:05:05 GMT',
   connection: 'close' });
  return result; }]];

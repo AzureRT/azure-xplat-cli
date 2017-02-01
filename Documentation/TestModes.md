@@ -31,8 +31,8 @@ The recordings will get saved in azure-xplat-cli/test/recordings/{test-suite} di
 #### Recording tests related to a specific service/feature
 If you plan on adding some tests / features and do not need to regenerate the full set of test recordings, you can open the file: 
 ```
-tests/testlist.txt (if you are writing tests for commands in asm mode)
-tests/testlistarm.txt (if you are writing tests for commands in arm mode)
+test/testlist.txt (if you are writing tests for commands in asm mode)
+test/testlist-arm.txt (if you are writing tests for commands in arm mode)
 ```
 and comment out the tests you do not wish to run during the recording process.
 
