@@ -198,7 +198,7 @@ describe('arm', function() {
 
       it('container non-empty list should pass', function(done) {
         this.timeout(vmTest.timeoutLarge * 10);
-        var cmd = util.format('acs list-by-resource-group -g %s --json', groupName).split(' ');
+        var cmd = util.format('acs list -g %s --json', groupName).split(' ');
         testUtils.executeCommand(suite, retry, cmd, function(result) {
           result.exitStatus.should.equal(0);
           result.text.should.containEql(containerPrefix);
@@ -263,7 +263,7 @@ describe('arm', function() {
       
       it('container empty list-by-resource-group should pass', function(done) {
         this.timeout(vmTest.timeoutLarge * 10);
-        var cmd = util.format('acs list-by-resource-group -g %s --json', groupName).split(' ');
+        var cmd = util.format('acs list -g %s --json', groupName).split(' ');
         testUtils.executeCommand(suite, retry, cmd, function(result) {
           result.exitStatus.should.equal(0);
           result.text.should.containEql('[]');
@@ -273,7 +273,7 @@ describe('arm', function() {
 
       it('container empty list should pass', function(done) {
         this.timeout(vmTest.timeoutLarge * 10);
-        var cmd = util.format('acs list --json', groupName).split(' ');
+        var cmd = util.format('acs list --json').split(' ');
         testUtils.executeCommand(suite, retry, cmd, function(result) {
           result.exitStatus.should.equal(0);
           result.text.should.containEql('[');
